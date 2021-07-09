@@ -1,6 +1,7 @@
 *
 !.gitignore
 !*.cs
+!*.nani
 !*/
 /Assets/Naninovel/*
 
