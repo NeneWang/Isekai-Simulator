@@ -1,6 +1,7 @@
 
 
 #main
+@resetText
 my val in functions is {val}
 
 @return
