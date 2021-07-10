@@ -3,6 +3,8 @@
 @printer Fullscreen
 "health: {p_health} Mana: {p_mana} Happinness: {p_happiness} Money: {p_money}"
 
-"Age {p_age} Sex {p_sex} Net Worth {p_networth} Cashflow {p_cashflow} Prestigio Titulo {p_titulo}"
+"Age {p_age} Sex {p_sex} Net Worth {p_networth} Cashflow {p_cashflow} Titulo {p_titulo}"
+"Custom Function: {Add(1,2)}"
+
 
 @stop
