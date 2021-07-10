@@ -23,6 +23,8 @@ loading profile
 @set p_stat_dex=1
 @set p_stat_int=1
 
+@set _={addMoney(10)}
+
 
 @return
 
