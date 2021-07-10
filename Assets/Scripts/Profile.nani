@@ -2,10 +2,18 @@
 #profile
 @printer Fullscreen
 "health: {p_health} Mana: {p_mana} Happinness: {p_happiness} Money: {p_money}"
-
-"Age {p_age} Sex {p_sex} Net Worth {p_networth} Cashflow {p_cashflow} Titulo {p_titulo}"
-
+"Age: {p_age} Sex: {p_sex} Net Worth: {p_networth} Cashflow: {p_weeklyCashFlow} title: {p_title}"
 "STR: {p_stat_str} HP: {p_stat_str} DEX: {p_stat_dex} INT: {p_stat_int} "
+@gosub .printMenuChoices
+
 
 
 @stop
+
+#printMenuChoices
+; @choice "Profile" goto:Profile.profile
+@choice "Market" goto:Market.market 
+@choice "Jobs" goto:Job.job
+@choice "Learning" goto:Learning.learning
+@choice "Relationship" goto:Relationship.relationship
+@return
