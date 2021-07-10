@@ -1,19 +1,20 @@
-This worsk?
-@gosub .menu
-@set val=2
-value in main is {val}
-@gosub Functions.main
-Returned back here
+@printer Fullscreen
+@gosub Profile.profile
+
+
 
 @stop
 
+#resetAllVariables
+@set age=18
+@set sex=male
+@set health=100
+@set mana=100
+@set happiness=100
+@set money=10
+@set weeklyCashFlow=100
+@set Title="-"
+@set missionsCompleted=0
 
-
-;Functions over here
-#menu
-Show Menu
 @return
 
-#resetValues
-
-@return
