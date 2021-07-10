@@ -1,4 +1,19 @@
-
-Hello World sdsd
+This worsk?
+@gosub .menu
+@set val=2
+value in main is {val}
+@gosub Functions.main
+Returned back here
 
 @stop
+
+
+
+;Functions over here
+#menu
+Show Menu
+@return
+
+#resetValues
+
+@return
