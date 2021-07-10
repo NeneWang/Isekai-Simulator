@@ -5,6 +5,8 @@
 
 "Age {p_age} Sex {p_sex} Net Worth {p_networth} Cashflow {p_cashflow} Titulo {p_titulo}"
 "Custom Function: {Add(1,2)}"
-
+@set p_money=addMoney(20)
+"Age {p_age} Sex {p_sex} Net Worth {p_networth} Cashflow {p_cashflow} Titulo {p_titulo}"
+"Custom Function: {Add(1,2)}"
 
 @stop
