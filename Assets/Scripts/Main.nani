@@ -1,20 +1,29 @@
-@printer Fullscreen
+
+@gosub .resetAllVariables
+loading profile
 @gosub Profile.profile
-
-
-
 @stop
 
+
 #resetAllVariables
-@set age=18
-@set sex=male
-@set health=100
-@set mana=100
-@set happiness=100
-@set money=10
-@set weeklyCashFlow=100
-@set Title="-"
-@set missionsCompleted=0
+@set p_age=18
+@set p_sex=male
+@set p_health=100
+@set p_mana=100
+@set p_happiness=100
+@set p_money=10
+@set p_weeklyCashFlow=100
+@set p_title="-"
+@set p_missionsCompleted=0
+@set p_maxhealth=100
+@set p_networth=100
+
+@set p_stat_str=1
+@set p_stat_vit=1
+@set p_stat_dex=1
+@set p_stat_int=1
+
 
 @return
+
 
