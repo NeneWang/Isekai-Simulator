@@ -29,9 +29,9 @@ public static class CustomFunctions
     //Returns the total monney, but also adds the networth on the backgroun
     public class DataNani
     {
-        public int p_turn, p_age, p_sex, p_health, p_mana, p_happiness, p_money, p_weeklyCashFlow;
-        public int  p_title, p_missionsCompleted,  p_maxhealth, p_networth , p_stat_str, p_stat_vit, p_stat_dex, p_stat_int;
-
+        public int p_turn, p_age, p_health, p_mana, p_happiness, p_money, p_weeklyCashFlow;
+        public int  p_missionsCompleted,  p_maxhealth, p_networth , p_stat_str, p_stat_vit, p_stat_dex, p_stat_int;
+        public string p_title, p_sex;
         
 
 
