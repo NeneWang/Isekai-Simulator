@@ -3,13 +3,6 @@ using Naninovel;
 public static class CustomFunctions
 {
 
-    public static string ToLower(string content) => content.ToLower();
-
-
-
-    // Returns the sum of the provided numbers.
-    public static int Add(int a, int b) => 1;
-
     public static bool addMoney(int addMoney)
     {
 
@@ -23,6 +16,14 @@ public static class CustomFunctions
 
 
         return true;
+
+    }
+
+    public static bool increaseTurn(){
+        
+        DataNani datanani = new DataNani();
+        datanani.increaseTurn();
+        datanani.saveData();
 
     }
 
@@ -42,7 +43,6 @@ public static class CustomFunctions
 
         public void increaseTurn(){
             p_turn++;
-            saveData();
         }
         public void fetchData()
         {
