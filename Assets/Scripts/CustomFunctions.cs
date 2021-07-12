@@ -14,7 +14,7 @@ public static class CustomFunctions
     {
 
         DataNani datanani = new DataNani();
-        
+
         datanani.p_money += addMoney;
         datanani.p_networth += addMoney;
 
@@ -30,6 +30,8 @@ public static class CustomFunctions
     public class DataNani
     {
         public int p_money, p_networth;
+
+        
 
         public DataNani()
         {
