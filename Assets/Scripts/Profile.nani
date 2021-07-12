@@ -8,6 +8,7 @@
 
 
 
+; //////////////////////////////////////// FUNCTIONS 
 @stop
 
 ;Copy for all files cause you can't import
@@ -23,3 +24,73 @@
 @choice "Learning" goto:Learning.learning
 @choice "Relationship" goto:Relationship.relationship
 @return
+
+
+; //////////////////////////////////////// Learning
+
+
+#learning
+@resetText
+
+@stop
+
+
+; //////////////////////////////////////// JOB
+
+#job
+@resetText
+@gosub .printMainStatus
+@gosub .printMenuChoices
+@gosub .printJobChoices
+@stop
+
+;Here it should show the jobs that are available there for example, work on the granja and stuff like that
+#printJobChoices
+@choice "Work in a farm" gosub:.workFarm 
+@choice "Find a Quest" gosub:.workQuest
+@choice "Work as Merchant" gosub:.workMerchant
+@choice "Relationship" gosub:.relationship
+@return
+
+#workFarm
+@set _={addMoney(1)}
+@set _={increaseTurn()}
+@return
+
+
+
+
+
+
+
+; //////////////////////////////////////// MARKET
+
+#market
+@resetText
+@gosub .printMenuMain 
+@gosub .printMenuChoices
+@stop
+
+
+#printEquipmentMenu
+
+@return
+
+
+#printBuildingsItem
+
+@return
+
+
+
+#printMenuChoices
+@choice "Profile" goto:Profile.profile
+; @choice "Market" goto:Market.market 
+@choice "Jobs" goto:Job.job
+@choice "Learning" goto:Learning.learning
+@choice "Relationship" goto:Relationship.relationship
+@return
+
+
+
+

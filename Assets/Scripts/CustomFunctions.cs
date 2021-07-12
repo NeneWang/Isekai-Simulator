@@ -12,9 +12,6 @@ public static class CustomFunctions
         datanani.p_networth += addMoney;
 
         datanani.saveData();
-
-
-
         return true;
 
     }
@@ -24,6 +21,7 @@ public static class CustomFunctions
         DataNani datanani = new DataNani();
         datanani.increaseTurn();
         datanani.saveData();
+        return true;
 
     }
 
@@ -47,8 +45,6 @@ public static class CustomFunctions
         public void fetchData()
         {
             var variableManager = Engine.GetService<ICustomVariableManager>();
-
-
             variableManager.TryGetVariableValue<int>("p_turn", out p_turn);
             variableManager.TryGetVariableValue<int>("p_age", out p_age);
             variableManager.TryGetVariableValue<string>("p_sex", out p_sex);
