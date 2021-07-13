@@ -8,6 +8,8 @@
 
 
 
+
+
 ;Here it should show the jobs that are available there for example, work on the granja and stuff like that
 #printJobChoices
 @choice "Work in a farm" goto:.workFarm 
@@ -15,6 +17,9 @@
 @choice "Work as Merchant" goto:.workMerchant
 @choice "Relationship" goto:.relationship
 @return
+
+#workFarm
+@set addMoney=addMoney(1);
 
 
 #printMenuChoices

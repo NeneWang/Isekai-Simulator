@@ -6,6 +6,7 @@ loading profile
 
 
 #resetAllVariables
+@set p_turn=1;
 @set p_age=18
 @set p_sex=male
 @set p_health=100
