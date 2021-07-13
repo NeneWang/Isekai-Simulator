@@ -1,7 +1,7 @@
 
 @gosub .resetAllVariables
 loading profile
-@goto Profile.profile
+@gosub Profile.profile
 @stop
 
 

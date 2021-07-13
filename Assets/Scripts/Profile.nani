@@ -64,18 +64,18 @@
 
 #market
 @resetText
-
-
 @gosub .printMainStatus 
 @choice "Buy Equipment"  goto:.equipmentMarket
 @choice "Buy Market" goto:.buildingMarket
-
 @gosub .printMenuChoices
 @stop
 
+
 #equipmentMarket
+@resetText
+@gosub .printMainStatus
 @choice "go back" goto:.market
-@return
+@stop
 
 
 #buildingMarket
