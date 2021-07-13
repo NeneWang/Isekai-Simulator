@@ -8,7 +8,7 @@
 
 
 
-; //////////////////////////////////////// FUNCTIONS 
+; //////////////////////////////////////// ###FUNCTIONS 
 @stop
 
 ;Copy for all files cause you can't import
@@ -19,14 +19,14 @@
 
 #printMenuChoices
 ; @choice "Profile" goto:Profile.profile
-@choice "Market" goto:Market.market 
-@choice "Jobs" goto:Job.job
-@choice "Learning" goto:Learning.learning
-@choice "Relationship" goto:Relationship.relationship
+@choice "Market" goto:.market 
+@choice "Jobs" goto:.job
+@choice "Learning" goto:.learning
+@choice "Relationship" goto:.relationship
 @return
 
 
-; //////////////////////////////////////// Learning
+; //////////////////////////////////////// ###LEARNING
 
 
 #learning
@@ -35,7 +35,7 @@
 @stop
 
 
-; //////////////////////////////////////// JOB
+; //////////////////////////////////////// ###JOB
 
 #job
 @resetText
@@ -59,15 +59,11 @@
 
 
 
-
-
-
-
-; //////////////////////////////////////// MARKET
+; //////////////////////////////////////// ####MARKET
 
 #market
 @resetText
-@gosub .printMenuMain 
+@gosub .printMainStatus 
 @gosub .printMenuChoices
 @stop
 
@@ -82,14 +78,6 @@
 @return
 
 
-
-#printMenuChoices
-@choice "Profile" goto:Profile.profile
-; @choice "Market" goto:Market.market 
-@choice "Jobs" goto:Job.job
-@choice "Learning" goto:Learning.learning
-@choice "Relationship" goto:Relationship.relationship
-@return
 
 
 
