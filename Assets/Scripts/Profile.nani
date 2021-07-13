@@ -1,4 +1,5 @@
 
+
 #profile
 @printer Fullscreen
 @gosub .printMainStatus
@@ -26,7 +27,7 @@
 @return
 
 
-; ////////////////////////////////////// ###LEARNING
+; //////////////////////////////////////// ###LEARNING
 
 
 #learning
@@ -46,10 +47,10 @@
 
 ;Here it should show the jobs that are available there for example, work on the granja and stuff like that
 #printJobChoices
-@choice "Work in a farm" gosub:.workFarm 
-@choice "Find a Quest" gosub:.workQuest
-@choice "Work as Merchant" gosub:.workMerchant
-@choice "Relationship" gosub:.relationship
+@choice "Work in a farm" goto:.workFarm 
+@choice "Find a Quest" goto:.workQuest
+@choice "Work as Merchant" goto:.workMerchant
+@choice "Relationship" goto:.relationship
 @return
 
 #workFarm
@@ -63,17 +64,25 @@
 
 #market
 @resetText
+
+
 @gosub .printMainStatus 
+@choice "Buy Equipment"  goto:.equipmentMarket
+@choice "Buy Market" goto:.buildingMarket
+
 @gosub .printMenuChoices
 @stop
 
-
-#printEquipmentMenu
-
+#equipmentMarket
+@choice "go back" goto:.market
 @return
 
 
-#printBuildingsItem
+#buildingMarket
+
+@return
+
+#itemMarket
 
 @return
 
