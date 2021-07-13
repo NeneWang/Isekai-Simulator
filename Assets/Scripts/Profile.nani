@@ -113,6 +113,24 @@
 @stop
 
 
+; //////////////////////////////////////// ###RELATIONSHIP
+#relationship
+@resetText
+@gosub .printMainStatus 
+;TODO make it only show if the pplayer adquired a certain status
+@choice "Find wife"
+@choice "Visit Friend Slot A"
+@choice "Visit Friend Slot B"
+@choice "Visit Friend Slot C"
+@choice "Visit Friend Slot D"
+@choice "Visit Friend Slot E"
+@choice "Visit Friend Slot F"
+@choice "Visit Friend Slot G"
+
+@stop
+
+
+
 
 
 
