@@ -73,18 +73,28 @@
 
 #equipmentMarket
 @resetText
-@gosub .printMainStatus
+@gosub .printMainStatus 
+@choice "Buy Axe"
+@choice "Buy Sword"
 @choice "go back" goto:.market
 @stop
 
 
 #buildingMarket
-
-@return
+@resetText
+@gosub .printMainStatus 
+@choice "Buy House"
+@choice "Buy Farm"
+@choice "go back" goto:.market
+@stop
 
 #itemMarket
-
-@return
+@resetText
+@gosub .printMainStatus 
+@choice "Buy potion"
+@choice "Buy map"
+@choice "go back" goto:.market
+@stop
 
 
 
