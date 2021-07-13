@@ -103,6 +103,16 @@
 
 
 
+; //////////////////////////////////////// ###TRAINNING
+#trainning
+@resetText
+@gosub .printMainStatus 
+@choice "Militar Academy"
+@choice "Magic Academy"
+
+@stop
+
+
 
 
 
