@@ -1,4 +1,7 @@
 using Naninovel;
+using System;
+using System.Collections;
+using System.Collections.Generic;
 [Naninovel.ExpressionFunctions]
 public static class CustomFunctions
 {
@@ -16,8 +19,9 @@ public static class CustomFunctions
 
     }
 
-    public static bool increaseTurn(){
-        
+    public static bool increaseTurn()
+    {
+
         DataNani datanani = new DataNani();
         datanani.increaseTurn();
         datanani.saveData();
@@ -25,30 +29,61 @@ public static class CustomFunctions
 
     }
 
+    
+    public class Constants
+    {
+        public List<Job> jobList = new List<Job>();
 
-    public class constant{
+        public Constants()
+        {
 
+            // jobList.Add(new Job("farmer", new int[] {10, 15, 20, 30}, new string[] {"Farmer", "Herder", "Senior Farmer", "Farm Administrator"}));
+            // jobList.Add(new Job("aventurer", new int[] {15, 20, 30, 40, 50, 65, 80, 100, 200}, new string[] {"Porcerlain", "Herder", "Senior Farmer", "Farm Administrator"}));
+        }
     }
 
-    public class Job{
+
+
+    public class JobRank{
         public int payment;
-        public int jobLevel;
-        public string[] jobTitles;
-        public string getJobName
+        public string title;
+        public int turnsForNext;
+        
+
+    }
+    public class Job
+    {
+        public string careerTitle;
+        public int jobLevel=0;
+        public List<JobRank> jobRankList = new List<JobRank>();
+
+        public Job(string careerTitleIn, List<JobRank> jobRankListIn)
         {
-            get => jobTitles[jobLevel];
+            jobRankList = jobRankListIn;            
+            careerTitle = careerTitleIn;           
+
         }
 
+        public JobRank getCurrentJobRank{
+            get => jobRankList[jobLevel];
+        }
+        public string getJobRankName
+        {
+            get => jobRankList[jobLevel].title;
+        }
+
+
     }
+
 
 
     //Returns the total monney, but also adds the networth on the backgroun
     public class DataNani
     {
         public int p_turn, p_age, p_health, p_mana, p_happiness, p_money, p_weeklyCashFlow;
-        public int  p_missionsCompleted,  p_maxhealth, p_networth , p_stat_str, p_stat_vit, p_stat_dex, p_stat_int;
+        public int p_missionsCompleted, p_maxhealth, p_networth, p_stat_str, p_stat_vit, p_stat_dex, p_stat_int;
         public string p_title, p_sex;
-        
+
 
 
 
@@ -58,7 +93,8 @@ public static class CustomFunctions
             fetchData();
         }
 
-        public void increaseTurn(){
+        public void increaseTurn()
+        {
             p_turn++;
         }
         public void fetchData()
