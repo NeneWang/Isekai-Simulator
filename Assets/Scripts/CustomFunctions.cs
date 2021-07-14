@@ -125,6 +125,8 @@ public static class CustomFunctions
             jobList.Add(new Job("Trades", tradesmanJobRanks));
             jobList.Add(new Job("Mercenary", mercenaryJobRanks));
             jobList.Add(new Job("Merchant", merchantJobRanks));
+            jobList.Add(new Job("Soldier", soldierJobRanks));
+            getJobFromName("Soldier").setSpecificToNobilityRequired(new int[] { 4, 5, 6, 7, 8, 9 });
             
 
 
