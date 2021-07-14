@@ -67,13 +67,19 @@ public static class CustomFunctions
             CivilServantJobRanks.Add(new JobRank(80, "Minister"));
             CivilServantJobRanks.Add(new JobRank(100, "Counsellor"));
 
+            List<JobRank> tradesmanJobRanks = new List<JobRank>();
+            tradesmanJobRanks.Add(new JobRank(10, "Carpenter Apprentice"));
+            tradesmanJobRanks.Add(new JobRank(25, "Carpenter"));
+            tradesmanJobRanks.Add(new JobRank(50, "Master Carpenter"));
+            tradesmanJobRanks.Add(new JobRank(80, "Mason"));
+
 
 
             // Add all ranks into the jobLists
             jobList.Add(new Job("Farmer", farmerJobRanks));
             jobList.Add(new Job("Aventurer", aventurerJobRanks));
             jobList.Add(new Job("Civil Servant", aventurerJobRanks));
-            getJobFromName("Civil Servant").setSpecificToNobilityRequired(new int[] {4, 5, 6, 7});
+            getJobFromName("Civil Servant").setSpecificToNobilityRequired(new int[] { 4, 5, 6, 7 });
 
 
             // jobList.Add(new Job("farmer", new int[] {10, 15, 20, 30}, new string[] {"Farmer", "Herder", "Senior Farmer", "Farm Administrator"}));
