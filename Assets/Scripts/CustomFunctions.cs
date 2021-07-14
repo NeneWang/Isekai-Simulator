@@ -241,6 +241,7 @@ public static class CustomFunctions
         // TODO: SET THIS VARIABLES LATER
 
         public Job merchantCareer, tradeCareer, farmerCareer, civilServantCareer, aventurerCareer, mercenaryCareer, soldierCareer;
+        public int P_currentInjuries;
 
 
 
@@ -304,6 +305,10 @@ public static class CustomFunctions
                 {
                     // Chances of getting hurt letally
                     p_health -= 50;
+                    if (P_currentInjuries >= 1)
+                    {
+                        // TODO kill the player
+                    }
 
                 }
                 else
