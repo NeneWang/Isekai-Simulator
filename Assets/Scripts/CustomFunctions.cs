@@ -241,7 +241,7 @@ public static class CustomFunctions
         // TODO: SET THIS VARIABLES LATER
 
         public Job merchantCareer, tradeCareer, farmerCareer, civilServantCareer, aventurerCareer, mercenaryCareer, soldierCareer;
-        public int P_currentInjuries;
+        public int p_currentInjuries, p_merchantS, p_tradeS, p_farmerS, p_civilServantS, p_aventurerS, p_mercenaryS, p_soldierS;
 
 
 
@@ -264,6 +264,14 @@ public static class CustomFunctions
             aventurerCareer = MY_CONSTANTS.getJobFromName("Aventurer");
             mercenaryCareer = MY_CONSTANTS.getJobFromName("Mercenary");
             soldierCareer = MY_CONSTANTS.getJobFromName("Soldier");
+
+            merchantCareer.workedSuccessfully = p_merchantS;
+            tradeCareer.workedSuccessfully = p_tradeS;
+            farmerCareer.workedSuccessfully = p_farmerS;
+            civilServantCareer.workedSuccessfully = p_civilServantS;
+            aventurerCareer.workedSuccessfully = p_aventurerS;
+            mercenaryCareer.workedSuccessfully = p_mercenaryS;
+            soldierCareer.workedSuccessfully = p_soldierS;
 
         }
 
@@ -305,7 +313,7 @@ public static class CustomFunctions
                 {
                     // Chances of getting hurt letally
                     p_health -= 50;
-                    if (P_currentInjuries >= 1)
+                    if (p_currentInjuries >= 1)
                     {
                         // TODO kill the player
                     }
