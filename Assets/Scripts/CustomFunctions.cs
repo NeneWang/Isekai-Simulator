@@ -34,7 +34,7 @@ public static class CustomFunctions
         public int payment;
         public int jobLevel;
         public string[] jobTitles;
-        public  string getJobName
+        public string getJobName
         {
             get => jobTitles[jobLevel];
         }
