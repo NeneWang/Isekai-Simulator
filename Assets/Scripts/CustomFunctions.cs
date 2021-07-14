@@ -40,6 +40,17 @@ public static class CustomFunctions
         return true;
     }
 
+    public static bool workAsAventurer()
+    {
+        DataNani datanani = new DataNani();
+        // datanani.avworkAsAventurerCareer.getCurrentJobRank.
+        // You should get hte avworkAsAventurer data by the current Job Rank and the 
+        datanani.workAsAventurer();
+        datanani.saveData();
+
+        return true;
+    }
+
 
     public class Constants
     {
