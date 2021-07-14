@@ -291,6 +291,12 @@ public static class CustomFunctions
             // Calculate the risks of injuries and stuff depending of ecach character
             // TODO get the successfully completed stat later on
 
+            // Increase the stats in the stuff, the work, like increment the stats as the aventurer depending on the index? the bigger the more reason to increase
+            p_stat_str += aventurerCareer.jobLevel;
+            p_stat_dex += aventurerCareer.jobLevel;
+            p_health += aventurerCareer.jobLevel;
+            p_stat_int += aventurerCareer.jobLevel;
+
 
             if (getTrueWithProbablity(.96))
             {
