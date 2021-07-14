@@ -36,6 +36,12 @@ public static class CustomFunctions
 
         public Constants()
         {
+            // First we are on need to create the jobranks and then add those to the thing 
+
+            // Farmer
+            List<JobRank> farmerJobRanks = new List<JobRank>();
+            farmerJobRanks.Add(new JobRank(10, "Farmer"));
+            farmerJobRanks.Add(new JobRank(10, "Farmer")); 
 
             // jobList.Add(new Job("farmer", new int[] {10, 15, 20, 30}, new string[] {"Farmer", "Herder", "Senior Farmer", "Farm Administrator"}));
             // jobList.Add(new Job("aventurer", new int[] {15, 20, 30, 40, 50, 65, 80, 100, 200}, new string[] {"Porcerlain", "Herder", "Senior Farmer", "Farm Administrator"}));
@@ -48,6 +54,11 @@ public static class CustomFunctions
         public int payment;
         public string title;
         public int turnsForNext;
+        public JobRank( int paymentIn, string titleIn){
+            payment = paymentIn;
+            title = titleIn;
+
+        }
         
 
     }
