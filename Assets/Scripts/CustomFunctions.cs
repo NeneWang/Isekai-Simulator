@@ -182,12 +182,13 @@ public static class CustomFunctions
                 //checks each on if it is above to the next??? depending on the successfully worked times required, 
                 //if it is bigger then should call itself recursively until it finds one specific, then FUCK. just make it normal so its about the individual job instead
                 int jobLevelToReturn = (int)workedSuccessfully / successJobsForNextRank;
-                
-                return jobLevelToReturn>careerTitlesCount? careerTitlesCount: jobLevelToReturn;
+
+                return jobLevelToReturn > careerTitlesCount ? careerTitlesCount : jobLevelToReturn;
             }
         }
 
-        public int careerTitlesCount{
+        public int careerTitlesCount
+        {
             get => jobRankList.Count;
         }
         public Job(string careerTitleIn, List<JobRank> jobRankListIn)
@@ -206,7 +207,8 @@ public static class CustomFunctions
             get => jobRankList[jobLevel].title;
         }
 
-        public void successfullyCompletedThisJob(){
+        public void successfullyCompletedThisJob()
+        {
             workedSuccessfully++;
         }
 
@@ -261,6 +263,21 @@ public static class CustomFunctions
             aventurerCareer = MY_CONSTANTS.getJobFromName("Aventurer");
             mercenaryCareer = MY_CONSTANTS.getJobFromName("Mercenary");
             soldierCareer = MY_CONSTANTS.getJobFromName("Soldier");
+
+        }
+
+        // TODO: is to complete the other works, but first attempt just with two jobs
+        public void workAsMerchant()
+        {
+
+            // Calculate the chances of failures and success
+            merchantCareer.successfullyCompletedThisJob();
+
+        }
+
+        public void workAsAventurer()
+        {
+            aventurerCareer.successfullyCompletedThisJob();
 
         }
 
