@@ -45,6 +45,12 @@ public static class CustomFunctions
             farmerJobRanks.Add(new JobRank(20, "Senior Farmer")); 
             farmerJobRanks.Add(new JobRank(30, "Farm Administrator")); 
 
+            
+
+
+            // Add all ranks into the jobLists
+            jobList.Add(new Job("Farmer", farmerJobRanks));
+
             // jobList.Add(new Job("farmer", new int[] {10, 15, 20, 30}, new string[] {"Farmer", "Herder", "Senior Farmer", "Farm Administrator"}));
             // jobList.Add(new Job("aventurer", new int[] {15, 20, 30, 40, 50, 65, 80, 100, 200}, new string[] {"Porcerlain", "Herder", "Senior Farmer", "Farm Administrator"}));
         }
@@ -55,7 +61,7 @@ public static class CustomFunctions
     public class JobRank{
         public int payment;
         public string title;
-        public int turnsForNext;
+        public int turnsForNext = 120;
         public JobRank( int paymentIn, string titleIn){
             payment = paymentIn;
             title = titleIn;
