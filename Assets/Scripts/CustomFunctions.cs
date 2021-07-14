@@ -282,6 +282,7 @@ public static class CustomFunctions
             // Calculate the risks of injuries and stuff depending of ecach character
             // TODO get the successfully completed stat later on
 
+
             if (getTrueWithProbablity(.96))
             {
                 aventurerCareer.successfullyCompletedThisJob();
@@ -289,7 +290,29 @@ public static class CustomFunctions
                 saveData();
             }
 
+            perphapsGettingHurtChances();
 
+        }
+
+        public void perphapsGettingHurtChances()
+        {
+            if (getTrueWithProbablity(.1))
+            {
+                // Chances of getting hurt a little
+
+                if (getTrueWithProbablity(.1))
+                {
+                    // Chances of getting hurt letally
+                    p_health -= 50;
+
+                }
+                else
+                {
+
+                    p_health -= 10;
+                }
+            }
+            saveData();
         }
 
         public bool getTrueWithProbablity(double probability)
