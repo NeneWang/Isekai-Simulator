@@ -62,7 +62,6 @@ public static class CustomFunctions
             CivilServantJobRanks.Add(new JobRank(30, "Officer"));
             CivilServantJobRanks.Add(new JobRank(35, "Assistant Attache"));
 
-            // temporalJobRank = new JobRank(50, "Attache");
             CivilServantJobRanks.Add(new JobRank(50, "Attache"));
             CivilServantJobRanks.Add(new JobRank(85, "Secretary"));
             CivilServantJobRanks.Add(new JobRank(80, "Minister"));
@@ -74,6 +73,7 @@ public static class CustomFunctions
             jobList.Add(new Job("Farmer", farmerJobRanks));
             jobList.Add(new Job("Aventurer", aventurerJobRanks));
             jobList.Add(new Job("Civil Servant", aventurerJobRanks));
+            getJobFromName("Civil Servant").setSpecificToNobilityRequired(new int[] {4, 5, 6, 7});
 
 
             // jobList.Add(new Job("farmer", new int[] {10, 15, 20, 30}, new string[] {"Farmer", "Herder", "Senior Farmer", "Farm Administrator"}));
