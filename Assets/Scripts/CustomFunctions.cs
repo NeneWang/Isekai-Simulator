@@ -272,12 +272,17 @@ public static class CustomFunctions
 
             // Calculate the chances of failures and success
             merchantCareer.successfullyCompletedThisJob();
+            increaseTurn();
+            saveData();
 
         }
 
         public void workAsAventurer()
         {
+            // Calculate the risks of injuries and stuff depending of ecach character
             aventurerCareer.successfullyCompletedThisJob();
+            increaseTurn();
+            saveData();
 
         }
 
