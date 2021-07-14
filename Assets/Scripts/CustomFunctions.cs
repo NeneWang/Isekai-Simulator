@@ -41,7 +41,9 @@ public static class CustomFunctions
             // Farmer
             List<JobRank> farmerJobRanks = new List<JobRank>();
             farmerJobRanks.Add(new JobRank(10, "Farmer"));
-            farmerJobRanks.Add(new JobRank(10, "Farmer")); 
+            farmerJobRanks.Add(new JobRank(15, "Herder"));
+            farmerJobRanks.Add(new JobRank(20, "Senior Farmer")); 
+            farmerJobRanks.Add(new JobRank(30, "Farm Administrator")); 
 
             // jobList.Add(new Job("farmer", new int[] {10, 15, 20, 30}, new string[] {"Farmer", "Herder", "Senior Farmer", "Farm Administrator"}));
             // jobList.Add(new Job("aventurer", new int[] {15, 20, 30, 40, 50, 65, 80, 100, 200}, new string[] {"Porcerlain", "Herder", "Senior Farmer", "Farm Administrator"}));
