@@ -29,7 +29,7 @@ public static class CustomFunctions
 
     }
 
-    
+
     public class Constants
     {
         public List<Job> jobList = new List<Job>();
@@ -37,25 +37,38 @@ public static class CustomFunctions
         public Constants()
         {
             // First we are on need to create the jobranks and then add those to the thing 
+            JobRank temporalJobRank;
 
             // Farmer
             List<JobRank> farmerJobRanks = new List<JobRank>();
             farmerJobRanks.Add(new JobRank(10, "Serf"));
             farmerJobRanks.Add(new JobRank(15, "Herder"));
-            farmerJobRanks.Add(new JobRank(20, "Senior")); 
-            farmerJobRanks.Add(new JobRank(30, "Administrator")); 
+            farmerJobRanks.Add(new JobRank(20, "Senior"));
+            farmerJobRanks.Add(new JobRank(30, "Administrator"));
 
             List<JobRank> aventurerJobRanks = new List<JobRank>();
             aventurerJobRanks.Add(new JobRank(15, "Porcelain"));
             aventurerJobRanks.Add(new JobRank(20, "Obsidian"));
-            aventurerJobRanks.Add(new JobRank(30, "Steel")); 
-            aventurerJobRanks.Add(new JobRank(40, "Emerald")); 
-            aventurerJobRanks.Add(new JobRank(50, "Ruby"));
-            aventurerJobRanks.Add(new JobRank(65, "Bronze")); 
-            aventurerJobRanks.Add(new JobRank(80, "Silver")); 
-            aventurerJobRanks.Add(new JobRank(100, "Gold")); 
+            aventurerJobRanks.Add(new JobRank(30, "Steel"));
+            aventurerJobRanks.Add(new JobRank(40, "Emerald"));
+            aventurerJobRanks.Add(new JobRank(60, "Ruby"));
+            aventurerJobRanks.Add(new JobRank(85, "Bronze"));
+            aventurerJobRanks.Add(new JobRank(120, "Silver"));
+            aventurerJobRanks.Add(new JobRank(200, "Gold"));
 
-            
+            List<JobRank> CivilServantJobRanks = new List<JobRank>();
+            CivilServantJobRanks.Add(new JobRank(20, "Bookbinder"));
+            CivilServantJobRanks.Add(new JobRank(25, "Scholar"));
+            CivilServantJobRanks.Add(new JobRank(30, "Officer"));
+            CivilServantJobRanks.Add(new JobRank(35, "Assistant Attache"));
+
+            temporalJobRank = new JobRank(50, "Attache");
+            temporalJobRank.setRequiresNobility();
+            CivilServantJobRanks.Add(temporalJobRank);
+            CivilServantJobRanks.Add(new JobRank(85, "Secretary"));
+            CivilServantJobRanks.Add(new JobRank(80, "Minister"));
+            CivilServantJobRanks.Add(new JobRank(100, "Counsellor"));
+
 
 
             // Add all ranks into the jobLists
@@ -69,32 +82,41 @@ public static class CustomFunctions
 
 
 
-    public class JobRank{
+    public class JobRank
+    {
         public int payment;
         public string title;
         public int turnsForNext = 120;
-        public JobRank( int paymentIn, string titleIn){
+        public bool requiresNobility = false;
+
+        public void setRequiresNobility()
+        {
+            this.requiresNobility = true;
+        }
+        public JobRank(int paymentIn, string titleIn)
+        {
             payment = paymentIn;
             title = titleIn;
 
         }
-        
+
 
     }
     public class Job
     {
         public string careerTitle;
-        public int jobLevel=0;
+        public int jobLevel = 0;
         public List<JobRank> jobRankList = new List<JobRank>();
 
         public Job(string careerTitleIn, List<JobRank> jobRankListIn)
         {
-            jobRankList = jobRankListIn;            
-            careerTitle = careerTitleIn;           
+            jobRankList = jobRankListIn;
+            careerTitle = careerTitleIn;
 
         }
 
-        public JobRank getCurrentJobRank{
+        public JobRank getCurrentJobRank
+        {
             get => jobRankList[jobLevel];
         }
         public string getJobRankName
