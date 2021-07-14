@@ -387,6 +387,15 @@ public static class CustomFunctions
             variableManager.TrySetVariableValue("p_stat_vit", p_stat_vit);
             variableManager.TrySetVariableValue("p_stat_dex", p_stat_dex);
             variableManager.TrySetVariableValue("p_stat_int", p_stat_int);
+
+            variableManager.TrySetVariableValue("p_merchantS", p_merchantS);
+            variableManager.TrySetVariableValue("p_tradeS", p_tradeS);
+            variableManager.TrySetVariableValue("p_farmerS", p_farmerS);
+            variableManager.TrySetVariableValue("p_civilServantS", p_civilServantS);
+            variableManager.TrySetVariableValue("p_aventurerS", p_aventurerS);
+            variableManager.TrySetVariableValue("p_mercenaryS", p_mercenaryS);
+            variableManager.TrySetVariableValue("p_soldierS", p_soldierS);
+            variableManager.TrySetVariableValue("p_currentInjuries", p_currentInjuries);
         }
 
 
