@@ -40,16 +40,27 @@ public static class CustomFunctions
 
             // Farmer
             List<JobRank> farmerJobRanks = new List<JobRank>();
-            farmerJobRanks.Add(new JobRank(10, "Farmer"));
+            farmerJobRanks.Add(new JobRank(10, "Serf"));
             farmerJobRanks.Add(new JobRank(15, "Herder"));
-            farmerJobRanks.Add(new JobRank(20, "Senior Farmer")); 
-            farmerJobRanks.Add(new JobRank(30, "Farm Administrator")); 
+            farmerJobRanks.Add(new JobRank(20, "Senior")); 
+            farmerJobRanks.Add(new JobRank(30, "Administrator")); 
+
+            List<JobRank> aventurerJobRanks = new List<JobRank>();
+            aventurerJobRanks.Add(new JobRank(15, "Porcelain"));
+            aventurerJobRanks.Add(new JobRank(20, "Obsidian"));
+            aventurerJobRanks.Add(new JobRank(30, "Steel")); 
+            aventurerJobRanks.Add(new JobRank(40, "Emerald")); 
+            aventurerJobRanks.Add(new JobRank(50, "Ruby"));
+            aventurerJobRanks.Add(new JobRank(65, "Bronze")); 
+            aventurerJobRanks.Add(new JobRank(80, "Silver")); 
+            aventurerJobRanks.Add(new JobRank(100, "Gold")); 
 
             
 
 
             // Add all ranks into the jobLists
             jobList.Add(new Job("Farmer", farmerJobRanks));
+            jobList.Add(new Job("Aventurer", aventurerJobRanks));
 
             // jobList.Add(new Job("farmer", new int[] {10, 15, 20, 30}, new string[] {"Farmer", "Herder", "Senior Farmer", "Farm Administrator"}));
             // jobList.Add(new Job("aventurer", new int[] {15, 20, 30, 40, 50, 65, 80, 100, 200}, new string[] {"Porcerlain", "Herder", "Senior Farmer", "Farm Administrator"}));
