@@ -76,9 +76,12 @@ public static class CustomFunctions
 
             List<JobRank> tradesmanJobRanks = new List<JobRank>();
             tradesmanJobRanks.Add(new JobRank(10, "Carpenter Apprentice"));
-            tradesmanJobRanks.Add(new JobRank(25, "Carpenter"));
-            tradesmanJobRanks.Add(new JobRank(50, "Master Carpenter"));
-            tradesmanJobRanks.Add(new JobRank(80, "Mason"));
+            tradesmanJobRanks.Add(new JobRank(20, "Carpenter"));
+            tradesmanJobRanks.Add(new JobRank(35, "Master Carpenter"));
+            tradesmanJobRanks.Add(new JobRank(55, "Mason"));
+            tradesmanJobRanks.Add(new JobRank(75, "Engineer"));
+            tradesmanJobRanks.Add(new JobRank(90, "Master Engineer"));
+            
 
             List<JobRank> mercenaryJobRanks = new List<JobRank>();
             mercenaryJobRanks.Add(new JobRank(17, "Enlistee"));
@@ -89,7 +92,7 @@ public static class CustomFunctions
             mercenaryJobRanks.Add(new JobRank(87, "Lieutenant"));
             mercenaryJobRanks.Add(new JobRank(122, "Captain"));
             mercenaryJobRanks.Add(new JobRank(185, "Major"));
-            mercenaryJobRanks.Add(new JobRank(250, "Colonel"));
+            mercenaryJobRanks.Add(new JobRank(240, "Colonel"));
 
             List<JobRank> merchantJobRanks = new List<JobRank>();
             merchantJobRanks.Add(new JobRank(5, "Peddler"));
@@ -100,7 +103,17 @@ public static class CustomFunctions
             merchantJobRanks.Add(new JobRank(80, "Entrepreneur"));
             merchantJobRanks.Add(new JobRank(120, "Tycoon"));
 
-
+            List<JobRank> soldierJobRanks = new List<JobRank>();
+            soldierJobRanks.Add(new JobRank(10, "Enlistee"));
+            soldierJobRanks.Add(new JobRank(15, "Private"));
+            soldierJobRanks.Add(new JobRank(25, "Lance Corporal"));
+            soldierJobRanks.Add(new JobRank(35, "Corporal"));
+            soldierJobRanks.Add(new JobRank(45, "Sargeant"));
+            soldierJobRanks.Add(new JobRank(65, "Lieutenant"));
+            soldierJobRanks.Add(new JobRank(90, "Captain"));
+            soldierJobRanks.Add(new JobRank(125, "Major"));
+            soldierJobRanks.Add(new JobRank(190, "Colonel"));
+            soldierJobRanks.Add(new JobRank(260, "General"));
 
 
 
@@ -110,6 +123,11 @@ public static class CustomFunctions
             jobList.Add(new Job("Civil Servant", CivilServantJobRanks));
             getJobFromName("Civil Servant").setSpecificToNobilityRequired(new int[] { 4, 5, 6, 7 });
             jobList.Add(new Job("Trades", tradesmanJobRanks));
+            jobList.Add(new Job("Mercenary", mercenaryJobRanks));
+            jobList.Add(new Job("Merchant", merchantJobRanks));
+            
+
+
         }
 
         public Job getJobFromName(string jobName)
