@@ -25,6 +25,23 @@ public static class CustomFunctions
 
     }
 
+
+    public class constant{
+
+    }
+
+    public class Job{
+        public int payment;
+        public int jobLevel;
+        public string[] jobTitles;
+        public  string getJobName
+        {
+            get => jobTitles[jobLevel];
+        }
+
+    }
+
+
     //Returns the total monney, but also adds the networth on the backgroun
     public class DataNani
     {
@@ -32,6 +49,8 @@ public static class CustomFunctions
         public int  p_missionsCompleted,  p_maxhealth, p_networth , p_stat_str, p_stat_vit, p_stat_dex, p_stat_int;
         public string p_title, p_sex;
         
+
+
 
 
         public DataNani()

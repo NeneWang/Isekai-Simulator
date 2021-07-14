@@ -121,11 +121,11 @@
 @choice "Find wife"
 @choice "Visit Friend Slot A"
 @choice "Visit Friend Slot B"
-@choice "Visit Friend Slot C"
-@choice "Visit Friend Slot D"
-@choice "Visit Friend Slot E"
-@choice "Visit Friend Slot F"
-@choice "Visit Friend Slot G"
+; @choice "Visit Friend Slot C"
+; @choice "Visit Friend Slot D"
+; @choice "Visit Friend Slot E"
+; @choice "Visit Friend Slot F"
+; @choice "Visit Friend Slot G"
 
 @stop
 
