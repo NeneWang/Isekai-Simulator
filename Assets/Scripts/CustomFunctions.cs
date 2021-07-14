@@ -62,9 +62,8 @@ public static class CustomFunctions
             CivilServantJobRanks.Add(new JobRank(30, "Officer"));
             CivilServantJobRanks.Add(new JobRank(35, "Assistant Attache"));
 
-            temporalJobRank = new JobRank(50, "Attache");
-            temporalJobRank.setRequiresNobility();
-            CivilServantJobRanks.Add(temporalJobRank);
+            // temporalJobRank = new JobRank(50, "Attache");
+            CivilServantJobRanks.Add(new JobRank(50, "Attache"));
             CivilServantJobRanks.Add(new JobRank(85, "Secretary"));
             CivilServantJobRanks.Add(new JobRank(80, "Minister"));
             CivilServantJobRanks.Add(new JobRank(100, "Counsellor"));
@@ -74,9 +73,19 @@ public static class CustomFunctions
             // Add all ranks into the jobLists
             jobList.Add(new Job("Farmer", farmerJobRanks));
             jobList.Add(new Job("Aventurer", aventurerJobRanks));
+            jobList.Add(new Job("Civil Servant", aventurerJobRanks));
+
 
             // jobList.Add(new Job("farmer", new int[] {10, 15, 20, 30}, new string[] {"Farmer", "Herder", "Senior Farmer", "Farm Administrator"}));
             // jobList.Add(new Job("aventurer", new int[] {15, 20, 30, 40, 50, 65, 80, 100, 200}, new string[] {"Porcerlain", "Herder", "Senior Farmer", "Farm Administrator"}));
+        }
+
+        public Job getJobFromName(string jobName)
+        {
+            return jobList.Find(delegate (Job jk)
+            {
+                return jk.getJobRankName == jobName;
+            });
         }
     }
 
@@ -122,6 +131,14 @@ public static class CustomFunctions
         public string getJobRankName
         {
             get => jobRankList[jobLevel].title;
+        }
+
+        public void setSpecificToNobilityRequired(int[] indexes)
+        {
+            foreach (int index in indexes)
+            {
+                jobRankList[index].setRequiresNobility();
+            }
         }
 
 
