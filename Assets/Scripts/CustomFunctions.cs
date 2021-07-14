@@ -358,6 +358,15 @@ public static class CustomFunctions
             variableManager.TryGetVariableValue<int>("p_stat_vit", out p_stat_vit);
             variableManager.TryGetVariableValue<int>("p_stat_dex", out p_stat_dex);
             variableManager.TryGetVariableValue<int>("p_stat_int", out p_stat_int);
+
+            variableManager.TryGetVariableValue<int>("p_merchantS", out p_merchantS);
+            variableManager.TryGetVariableValue<int>("p_tradeS", out p_tradeS);
+            variableManager.TryGetVariableValue<int>("p_farmerS", out p_farmerS);
+            variableManager.TryGetVariableValue<int>("p_civilServantS", out p_civilServantS);
+            variableManager.TryGetVariableValue<int>("p_aventurerS", out p_aventurerS);
+            variableManager.TryGetVariableValue<int>("p_mercenaryS", out p_mercenaryS);
+            variableManager.TryGetVariableValue<int>("p_soldierS", out p_soldierS);
+            variableManager.TryGetVariableValue<int>("p_currentInjuries", out p_currentInjuries);
         }
 
         public void saveData()
