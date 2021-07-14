@@ -181,8 +181,14 @@ public static class CustomFunctions
             {
                 //checks each on if it is above to the next??? depending on the successfully worked times required, 
                 //if it is bigger then should call itself recursively until it finds one specific, then FUCK. just make it normal so its about the individual job instead
-                return (int)workedSuccessfully / successJobsForNextRank;
+                int jobLevelToReturn = (int)workedSuccessfully / successJobsForNextRank;
+                
+                return jobLevelToReturn>careerTitlesCount? careerTitlesCount: jobLevelToReturn;
             }
+        }
+
+        public int careerTitlesCount{
+            get => jobRankList.Count;
         }
         public Job(string careerTitleIn, List<JobRank> jobRankListIn)
         {
@@ -198,6 +204,10 @@ public static class CustomFunctions
         public string getJobRankName
         {
             get => jobRankList[jobLevel].title;
+        }
+
+        public void successfullyCompletedThisJob(){
+            workedSuccessfully++;
         }
 
         public void setSpecificToNobilityRequired(int[] indexes)
