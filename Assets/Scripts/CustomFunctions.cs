@@ -280,10 +280,22 @@ public static class CustomFunctions
         public void workAsAventurer()
         {
             // Calculate the risks of injuries and stuff depending of ecach character
-            aventurerCareer.successfullyCompletedThisJob();
-            increaseTurn();
-            saveData();
+            // TODO get the successfully completed stat later on
 
+            if (getTrueWithProbablity(.96))
+            {
+                aventurerCareer.successfullyCompletedThisJob();
+                increaseTurn();
+                saveData();
+            }
+
+
+        }
+
+        public bool getTrueWithProbablity(double probability)
+        {
+            Random random = new Random();
+            return random.NextDouble() < probability;
         }
 
 
