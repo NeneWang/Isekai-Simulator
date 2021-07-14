@@ -23,6 +23,8 @@ loading profile
 @set p_stat_vit=1
 @set p_stat_dex=1
 @set p_stat_int=1
+@set p_stat_wis=1
+@set p_stat_char=1
 
 @set p_merchantS=0
 @set p_tradeS=0
@@ -32,6 +34,8 @@ loading profile
 @set p_mercenaryS=0
 @set p_soldierS=0
 @set p_currentInjuries=0;
+
+
 
 @set _={addMoney(10)}
 

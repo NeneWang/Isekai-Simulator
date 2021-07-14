@@ -234,7 +234,7 @@ public static class CustomFunctions
     public class DataNani
     {
         public int p_turn, p_age, p_health, p_mana, p_happiness, p_money, p_weeklyCashFlow;
-        public int p_missionsCompleted, p_maxhealth, p_networth, p_stat_str, p_stat_vit, p_stat_dex, p_stat_int;
+        public int p_missionsCompleted, p_maxhealth, p_networth, p_stat_str, p_stat_vit, p_stat_dex, p_stat_int, p_stat_wis, p_stat_char;
         public string p_title, p_sex;
         public Constants MY_CONSTANTS = new Constants();
 
@@ -278,9 +278,13 @@ public static class CustomFunctions
         // TODO: is to complete the other works, but first attempt just with two jobs
         public void workAsMerchant()
         {
+            p_stat_wis += aventurerCareer.jobLevel;
+            p_stat_char += aventurerCareer.jobLevel;
 
             // Calculate the chances of failures and success
             merchantCareer.successfullyCompletedThisJob();
+
+
             increaseTurn();
             saveData();
 
@@ -364,6 +368,8 @@ public static class CustomFunctions
             variableManager.TryGetVariableValue<int>("p_stat_vit", out p_stat_vit);
             variableManager.TryGetVariableValue<int>("p_stat_dex", out p_stat_dex);
             variableManager.TryGetVariableValue<int>("p_stat_int", out p_stat_int);
+            variableManager.TryGetVariableValue<int>("p_stat_wis", out p_stat_wis);
+            variableManager.TryGetVariableValue<int>("p_stat_char", out p_stat_char);
 
             variableManager.TryGetVariableValue<int>("p_merchantS", out p_merchantS);
             variableManager.TryGetVariableValue<int>("p_tradeS", out p_tradeS);
