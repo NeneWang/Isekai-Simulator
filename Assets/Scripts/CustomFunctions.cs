@@ -29,6 +29,17 @@ public static class CustomFunctions
 
     }
 
+    public static bool workAsMerchant()
+    {
+        DataNani datanani = new DataNani();
+        // datanani.merchantCareer.getCurrentJobRank.
+        // You should get hte merchant data by the current Job Rank and the 
+
+        datanani.saveData();
+
+        return true;
+    }
+
 
     public class Constants
     {
@@ -75,7 +86,7 @@ public static class CustomFunctions
             tradesmanJobRanks.Add(new JobRank(55, "Mason"));
             tradesmanJobRanks.Add(new JobRank(75, "Engineer"));
             tradesmanJobRanks.Add(new JobRank(90, "Master Engineer"));
-            
+
             List<JobRank> mercenaryJobRanks = new List<JobRank>();
             mercenaryJobRanks.Add(new JobRank(17, "Enlistee"));
             mercenaryJobRanks.Add(new JobRank(22, "Private"));
@@ -117,7 +128,7 @@ public static class CustomFunctions
             jobList.Add(new Job("Merchant", merchantJobRanks));
             jobList.Add(new Job("Soldier", soldierJobRanks));
             getJobFromName("Soldier").setSpecificToNobilityRequired(new int[] { 4, 5, 6, 7, 8, 9 });
-            
+
 
 
         }
@@ -139,7 +150,7 @@ public static class CustomFunctions
     {
         public int payment;
         public string title;
-        public int turnsForNext = 120;
+        public int successJobsForNextRank = 120;
         public bool requiresNobility = false;
 
         public JobRank(int paymentIn, string titleIn)
@@ -158,9 +169,21 @@ public static class CustomFunctions
     public class Job
     {
         public string careerTitle;
-        public int jobLevel = 0;
+        // public int jobLevel = 0;
         public List<JobRank> jobRankList = new List<JobRank>();
+        public int workedSuccessfully = 0;
+        public int successJobsForNextRank = 80;
 
+        public int jobLevel
+        {
+            // Calculated by counting the requirement for next level
+            get
+            {
+                //checks each on if it is above to the next??? depending on the successfully worked times required, 
+                //if it is bigger then should call itself recursively until it finds one specific, then FUCK. just make it normal so its about the individual job instead
+                return (int)workedSuccessfully / successJobsForNextRank;
+            }
+        }
         public Job(string careerTitleIn, List<JobRank> jobRankListIn)
         {
             jobRankList = jobRankListIn;
@@ -204,10 +227,10 @@ public static class CustomFunctions
         public Constants MY_CONSTANTS = new Constants();
 
         // TODO: SET THIS VARIABLES LATER
-        
-        public Job merchantCareer, tradeCareer, farmerCareer, civilServantCareer, aventurerCareer, mercenaryCareer, soldierCareer; 
 
-        
+        public Job merchantCareer, tradeCareer, farmerCareer, civilServantCareer, aventurerCareer, mercenaryCareer, soldierCareer;
+
+
 
         // The question being should I have 6 of them or upgrade one by one? it kind of makes easier for my eyes just to do 6, the others kind of requires tweeking
 
@@ -219,7 +242,8 @@ public static class CustomFunctions
             initializeCareers();
         }
 
-        public void initializeCareers(){
+        public void initializeCareers()
+        {
             merchantCareer = MY_CONSTANTS.getJobFromName("Merchant");
             tradeCareer = MY_CONSTANTS.getJobFromName("Trades");
             farmerCareer = MY_CONSTANTS.getJobFromName("Farmer");
@@ -229,6 +253,7 @@ public static class CustomFunctions
             soldierCareer = MY_CONSTANTS.getJobFromName("Soldier");
 
         }
+
 
         public void increaseTurn()
         {
