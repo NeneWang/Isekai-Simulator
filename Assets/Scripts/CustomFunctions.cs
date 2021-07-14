@@ -34,7 +34,7 @@ public static class CustomFunctions
         DataNani datanani = new DataNani();
         // datanani.merchantCareer.getCurrentJobRank.
         // You should get hte merchant data by the current Job Rank and the 
-
+        datanani.workAsMerchant();
         datanani.saveData();
 
         return true;
