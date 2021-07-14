@@ -76,7 +76,6 @@ public static class CustomFunctions
             tradesmanJobRanks.Add(new JobRank(75, "Engineer"));
             tradesmanJobRanks.Add(new JobRank(90, "Master Engineer"));
             
-
             List<JobRank> mercenaryJobRanks = new List<JobRank>();
             mercenaryJobRanks.Add(new JobRank(17, "Enlistee"));
             mercenaryJobRanks.Add(new JobRank(22, "Private"));
@@ -109,7 +108,6 @@ public static class CustomFunctions
             soldierJobRanks.Add(new JobRank(190, "Colonel"));
             soldierJobRanks.Add(new JobRank(260, "General"));
 
-
             jobList.Add(new Job("Farmer", farmerJobRanks));
             jobList.Add(new Job("Aventurer", aventurerJobRanks));
             jobList.Add(new Job("Civil Servant", CivilServantJobRanks));
@@ -135,6 +133,8 @@ public static class CustomFunctions
 
 
 
+
+
     public class JobRank
     {
         public int payment;
@@ -142,15 +142,15 @@ public static class CustomFunctions
         public int turnsForNext = 120;
         public bool requiresNobility = false;
 
-        public void setRequiresNobility()
-        {
-            this.requiresNobility = true;
-        }
         public JobRank(int paymentIn, string titleIn)
         {
             payment = paymentIn;
             title = titleIn;
 
+        }
+        public void setRequiresNobility()
+        {
+            this.requiresNobility = true;
         }
 
 
@@ -196,20 +196,38 @@ public static class CustomFunctions
 
 
 
-    //Returns the total monney, but also adds the networth on the backgroun
     public class DataNani
     {
         public int p_turn, p_age, p_health, p_mana, p_happiness, p_money, p_weeklyCashFlow;
         public int p_missionsCompleted, p_maxhealth, p_networth, p_stat_str, p_stat_vit, p_stat_dex, p_stat_int;
         public string p_title, p_sex;
+        public Constants MY_CONSTANTS = new Constants();
 
+        // TODO: SET THIS VARIABLES LATER
+        
+        public Job merchantCareer, tradeCareer, farmerCareer, civilServantCareer, aventurerCareer, mercenaryCareer, soldierCareer; 
 
+        
+
+        // The question being should I have 6 of them or upgrade one by one? it kind of makes easier for my eyes just to do 6, the others kind of requires tweeking
 
 
 
         public DataNani()
         {
             fetchData();
+            initializeCareers();
+        }
+
+        public void initializeCareers(){
+            merchantCareer = MY_CONSTANTS.getJobFromName('Merchant');
+            tradeCareer = MY_CONSTANTS.getJobFromName("Trades");
+            farmerCareer = MY_CONSTANTS.getJobFromName("Farmer");
+            civilServantCareer = MY_CONSTANTS.getJobFromName("Civil Servant");
+            aventurerCareer = MY_CONSTANTS.getJobFromName("Aventurer");
+            mercenaryCareer = MY_CONSTANTS.getJobFromName("Mercenary");
+            soldierCareer = MY_CONSTANTS.getJobFromName("Soldier");
+
         }
 
         public void increaseTurn()
