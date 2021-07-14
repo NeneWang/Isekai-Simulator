@@ -41,11 +41,6 @@ public static class CustomFunctions
 
         public void createJobs()
         {
-
-            // First we are on need to create the jobranks and then add those to the thing 
-            JobRank temporalJobRank;
-
-            // Farmer
             List<JobRank> farmerJobRanks = new List<JobRank>();
             farmerJobRanks.Add(new JobRank(10, "Serf"));
             farmerJobRanks.Add(new JobRank(15, "Herder"));
@@ -68,7 +63,6 @@ public static class CustomFunctions
             CivilServantJobRanks.Add(new JobRank(25, "Scholar"));
             CivilServantJobRanks.Add(new JobRank(30, "Officer"));
             CivilServantJobRanks.Add(new JobRank(40, "Assistant Attache"));
-            // Here is when it requires a nobility status
             CivilServantJobRanks.Add(new JobRank(50, "Attache"));
             CivilServantJobRanks.Add(new JobRank(85, "Secretary"));
             CivilServantJobRanks.Add(new JobRank(100, "Minister"));
@@ -116,8 +110,6 @@ public static class CustomFunctions
             soldierJobRanks.Add(new JobRank(260, "General"));
 
 
-
-            // Add all ranks into the jobLists
             jobList.Add(new Job("Farmer", farmerJobRanks));
             jobList.Add(new Job("Aventurer", aventurerJobRanks));
             jobList.Add(new Job("Civil Servant", CivilServantJobRanks));
