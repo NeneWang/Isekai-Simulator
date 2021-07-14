@@ -220,7 +220,7 @@ public static class CustomFunctions
         }
 
         public void initializeCareers(){
-            merchantCareer = MY_CONSTANTS.getJobFromName('Merchant');
+            merchantCareer = MY_CONSTANTS.getJobFromName("Merchant");
             tradeCareer = MY_CONSTANTS.getJobFromName("Trades");
             farmerCareer = MY_CONSTANTS.getJobFromName("Farmer");
             civilServantCareer = MY_CONSTANTS.getJobFromName("Civil Servant");
