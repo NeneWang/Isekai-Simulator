@@ -32,8 +32,6 @@ public static class CustomFunctions
     public static bool workAsMerchant()
     {
         DataNani datanani = new DataNani();
-        // datanani.merchantCareer.getCurrentJobRank.
-        // You should get hte merchant data by the current Job Rank and the 
         datanani.workAsMerchant();
         datanani.saveData();
 
@@ -43,8 +41,6 @@ public static class CustomFunctions
     public static bool workAsAventurer()
     {
         DataNani datanani = new DataNani();
-        // datanani.avworkAsAventurerCareer.getCurrentJobRank.
-        // You should get hte avworkAsAventurer data by the current Job Rank and the 
         datanani.workAsAventurer();
         datanani.saveData();
 
