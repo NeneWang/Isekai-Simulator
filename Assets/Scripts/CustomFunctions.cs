@@ -2,7 +2,10 @@ using Naninovel;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine;
 [Naninovel.ExpressionFunctions]
+
+
 public static class CustomFunctions
 {
 
@@ -149,9 +152,28 @@ public static class CustomFunctions
         }
     }
 
+    [Serializable]
+    public class Player
+    {
+        public string playerId = "narc";
+        public string playerLoc { get; set; }
+        public string playerNick { get; set; }
+    }
     public class ItemList
     {
-        public string itemJS = @"{'potion':{'AmountAdquired':0,'Price':10,'Description':'hello world'},'potion magic':{'AmountAdquired':1,'Price':29,'Description':'this is the potion you should have twice'}}";
+
+        Player playerInstance = new Player();
+        public void init()
+        {
+
+            playerInstance.playerId = "MyID231321";
+
+            //Convert to JSON
+            string playerToJson = JsonUtility.ToJson(playerInstance);
+            Player dataParsed = JsonUtility.FromJson<Player>(playerToJson);
+
+
+        }
 
 
     }
@@ -350,7 +372,7 @@ public static class CustomFunctions
 
         public bool getTrueWithProbablity(double probability)
         {
-            Random random = new Random();
+            System.Random random = new System.Random();
             return random.NextDouble() < probability;
         }
 
