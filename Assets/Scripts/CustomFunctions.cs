@@ -38,8 +38,8 @@ public static class CustomFunctions
     public static bool initializeItems()
     {
         Debug.Log("Initializing");
-        ItemList itemList = new ItemList();
-        itemList.initializeObjects();
+        DataNani dataNani = new DataNani();
+        dataNani.initializeSampleItems();
         return true;
     }
 
