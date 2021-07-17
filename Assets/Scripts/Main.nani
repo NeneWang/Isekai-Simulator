@@ -32,6 +32,9 @@ loading profile
 @set p_stat_char=1
 @set jsonItems="!-title-: -potion-,-description-: -hello world-~,";
 
+; @set p_item_potion
+; @set p_item_
+
 @set _={testObtainedVariables()}
 
 
