@@ -11,6 +11,9 @@ loading profile
 
 ; @set _={addMoney(10)}
 @set _={initializeItems()}
+@set jsonItems="!-title-: -potion-,-description-: -hello world-~,";
+
+@set _={testObtainedVariables()}
 
 
 @return

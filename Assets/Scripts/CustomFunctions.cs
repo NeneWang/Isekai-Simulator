@@ -43,6 +43,16 @@ public static class CustomFunctions
         return true;
     }
 
+    public static bool testObtainedVariables()
+    {
+
+        NaniDataManager dataNani = new NaniDataManager();
+        dataNani.fetch();
+        dataNani.testObtainedVariables();
+        return true;
+
+    }
+
 
 
 }
