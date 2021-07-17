@@ -171,10 +171,8 @@ public static class CustomFunctions
     [Serializable]
     public class Item
     {
-        public string title { get; set; }
-        public int adquiredAmount { get; set; }
-        public int price { get; set; }
-        public string description { get; set; }
+        public string title;
+        public string description;
 
     }
     public class Items
@@ -198,18 +196,14 @@ public static class CustomFunctions
         public void initializeObjects()
         {
 
-            // string jsonItems = @"{ 'items': {    'title': 'potion',    'adquiredAmount': 0,    'price': 10,    'description': 'hello world'  },  {    'title': 'potion magic',    'adquiredAmount': 1,    'price': 29,    'description': 'this is the potion you should have twice'  } }";
+            // string jsonItems = @"{ 'items': }";
             // Items items = JsonUtility.FromJson<Items>(jsonItems);
             // Debug.Log(items.items[0].title);
 
-            string jsonItem = @" {
-   'title': 'potion',
-   'adquiredAmount': 0,
-   'price': 10,
-   'description': 'hello world'
- }";
-            Item item = JsonUtility.FromJson<Item>(jsonItem);
-            Debug.Log(item.title);
+            string jsonItem = "{ \"title\": \"potion\",\"description\": \"hello world\"}";
+            Item item = (Item)JsonUtility.FromJson(jsonItem, typeof(Item));
+            Debug.Log((string)item.title);
+            Debug.Log(item.description);
 
         }
     }
