@@ -1,7 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
+public class Items
+{
+    public Item[] items;
+}
 public class Item
 {
     public string title;
@@ -10,8 +10,3 @@ public class Item
     public int price;
 
 }
-public class Items
-{
-    public Item[] items;
-}
-

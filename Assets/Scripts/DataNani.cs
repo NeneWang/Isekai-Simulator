@@ -10,10 +10,14 @@ public class DataNani
 
     public void initializeSampleItems()
     {
+        string jsonItem = "{    \"title\": \"potion\",    \"adquiredAmount\": 0,    \"price\": 10,    \"description\": \"hello world\"  }";
+        Item item = (Item)JsonUtility.FromJson(jsonItem, typeof(Item));
+        Debug.Log((string)item.title);
+        Debug.Log(item.description);
 
-        string jsonItems = "{\"items\":[{    \"title\": \"potion\",    \"adquiredAmount\": 0,    \"price\": 10,    \"description\": \"hello world\"  },  {    \"title\": \"potion magic\",    \"adquiredAmount\": 1,    \"price\": 29,    \"description\": \"this is the potion you should have twice\"  } ]}";
-        Items items = JsonUtility.FromJson<Items>(jsonItems);
-        Debug.Log(items.items[0].title);
+        string jsonItems = "{\"items\":[{    \"title\": \"potion\",    \"adquiredAmount\": 0,    \"price\": 10,    \"description\": \"hello world\"  }, {    \"title\": \"potion\",    \"adquiredAmount\": 0,    \"price\": 10,    \"description\": \"hello world\"  }]}";
+        Items myItems = JsonUtility.FromJson<Items>(jsonItems);
+        Debug.Log(myItems.items[0].title);
 
     }
 }
