@@ -149,9 +149,12 @@ public static class CustomFunctions
         }
     }
 
+    public class ItemList
+    {
+        public string itemJS = @"{'potion':{'AmountAdquired':0,'Price':10,'Description':'hello world'},'potion magic':{'AmountAdquired':1,'Price':29,'Description':'this is the potion you should have twice'}}";
 
 
-
+    }
 
     public class JobRank
     {
