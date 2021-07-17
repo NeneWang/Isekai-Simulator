@@ -34,10 +34,7 @@ public class NaniDataManager
 
         var variableManager = Engine.GetService<ICustomVariableManager>();
         variableManager.TryGetVariableValue<string>("jsonItems", out jsonItems);
-        jsonItems = jsonItems.Replace("-","\"");
-        jsonItems = jsonItems.Replace("!","{");
-        jsonItems = jsonItems.Replace("~","}");
-        jsonItems = "{0:["+jsonItems+"]}";
+        jsonItems = getJsonFormattableOf(jsonItems);
 
     }
 
@@ -46,6 +43,31 @@ public class NaniDataManager
 
         var variableManager = Engine.GetService<ICustomVariableManager>();
         variableManager.TrySetVariableValue("jsonItems", jsonItems);
+    }
+
+    public string getJsonFormattableOf(string input)
+    {
+        input = input.Replace("-", "\"");
+        input = input.Replace("!", "{");
+        input = input.Replace("~", "}");
+        input = "{0:[" + input + "]}";
+        return input;
+    }
+
+    public string getFormatableNaniTest(){
+        return getNaniFormattableOf(jsonItems);
+    }
+
+    public string getNaniFormattableOf(string input)
+    {
+
+        input = input.Replace("]}", "");
+        input = input.Replace("{0:[", "");
+        input = input.Replace("\"", "-");
+        input = input.Replace("{", "!");
+        input = input.Replace("}", "~");
+
+        return input;
     }
 
 }

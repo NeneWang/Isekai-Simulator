@@ -49,6 +49,11 @@ public static class CustomFunctions
         NaniDataManager dataNani = new NaniDataManager();
         dataNani.fetch();
         dataNani.testObtainedVariables();
+
+        
+        // Debug how it would save it using formattable
+        Debug.Log(dataNani.getFormatableNaniTest());
+
         return true;
 
     }
