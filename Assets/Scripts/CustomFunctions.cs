@@ -52,6 +52,7 @@ public static class CustomFunctions
 
     public static bool initializeItems()
     {
+        Debug.Log("Initializing");
         ItemList itemList = new ItemList();
         itemList.initializeObjects();
         return true;
@@ -197,9 +198,19 @@ public static class CustomFunctions
         public void initializeObjects()
         {
 
-            string jsonItems = @"[ { 'title': 'potion', 'AmountAdquired': 0, 'price': 10, 'description': 'hello world' }, { 'title': 'potion magic', 'AmountAdquired': 1, 'price': 29, 'description': 'this is the potion you should have twice' } ]";
-            Items items = JsonUtility.FromJson<Items>(jsonItems);
-            Debug.Log(items.items[0].title);
+            // string jsonItems = @"{ 'items': {    'title': 'potion',    'adquiredAmount': 0,    'price': 10,    'description': 'hello world'  },  {    'title': 'potion magic',    'adquiredAmount': 1,    'price': 29,    'description': 'this is the potion you should have twice'  } }";
+            // Items items = JsonUtility.FromJson<Items>(jsonItems);
+            // Debug.Log(items.items[0].title);
+
+            string jsonItem = @" {
+   'title': 'potion',
+   'adquiredAmount': 0,
+   'price': 10,
+   'description': 'hello world'
+ }";
+            Item item = JsonUtility.FromJson<Item>(jsonItem);
+            Debug.Log(item.title);
+
         }
     }
 
