@@ -50,6 +50,13 @@ public static class CustomFunctions
         return true;
     }
 
+    public static bool initializeItems()
+    {
+        ItemList itemList = new ItemList();
+        itemList.initializeObjects();
+        return true;
+    }
+
 
     public class Constants
     {
@@ -159,23 +166,41 @@ public static class CustomFunctions
         public string playerLoc { get; set; }
         public string playerNick { get; set; }
     }
+
+    [Serializable]
+    public class Item
+    {
+        public string title { get; set; }
+        public int adquiredAmount { get; set; }
+        public int price { get; set; }
+        public string description { get; set; }
+
+    }
+    public class Items
+    {
+        public Item[] items;
+    }
+
     public class ItemList
     {
 
         Player playerInstance = new Player();
         public void init()
         {
-
             playerInstance.playerId = "MyID231321";
-
             //Convert to JSON
             string playerToJson = JsonUtility.ToJson(playerInstance);
             Player dataParsed = JsonUtility.FromJson<Player>(playerToJson);
 
-
         }
 
+        public void initializeObjects()
+        {
 
+            string jsonItems = @"[ { 'title': 'potion', 'AmountAdquired': 0, 'price': 10, 'description': 'hello world' }, { 'title': 'potion magic', 'AmountAdquired': 1, 'price': 29, 'description': 'this is the potion you should have twice' } ]";
+            Items items = JsonUtility.FromJson<Items>(jsonItems);
+            Debug.Log(items.items[0].title);
+        }
     }
 
     public class JobRank
