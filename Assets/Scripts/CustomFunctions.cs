@@ -12,7 +12,7 @@ public static class CustomFunctions
     public static bool addMoney(int addMoney)
     {
 
-        DataNani datanani = new DataNani();
+        NaniDataManager datanani = new NaniDataManager();
         return true;
 
     }
@@ -38,7 +38,7 @@ public static class CustomFunctions
     public static bool initializeItems()
     {
         Debug.Log("Initializing");
-        DataNani dataNani = new DataNani();
+        NaniDataManager dataNani = new NaniDataManager();
         dataNani.initializeSampleItems();
         return true;
     }

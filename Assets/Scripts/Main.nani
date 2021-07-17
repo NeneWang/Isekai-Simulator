@@ -6,34 +6,6 @@ loading profile
 
 
 #resetAllVariables
-@set p_turn=1;
-@set p_age=18
-@set p_sex=male
-@set p_health=100
-@set p_mana=100
-@set p_happiness=100
-@set p_money=10
-@set p_weeklyCashFlow=100
-@set p_title="-"
-@set p_missionsCompleted=0
-@set p_maxhealth=100
-@set p_networth=100
-
-@set p_stat_str=1
-@set p_stat_vit=1
-@set p_stat_dex=1
-@set p_stat_int=1
-@set p_stat_wis=1
-@set p_stat_char=1
-
-@set p_merchantS=0
-@set p_tradeS=0
-@set p_farmerS=0
-@set p_civilServantS=0
-@set p_aventurerS=0
-@set p_mercenaryS=0
-@set p_soldierS=0
-@set p_currentInjuries=0;
 
 
 
