@@ -13,6 +13,11 @@ public static class CustomFunctions
     {
 
         NaniDataManager datanani = new NaniDataManager();
+
+        datanani.p_money += addMoney;
+        datanani.p_networth += addMoney;
+
+        datanani.saveData();
         return true;
 
     }
@@ -20,21 +25,34 @@ public static class CustomFunctions
     public static bool increaseTurn()
     {
 
+        NaniDataManager datanani = new NaniDataManager();
+        datanani.increaseTurn();
+        datanani.saveData();
         return true;
 
     }
 
     public static bool workAsMerchant()
     {
+        NaniDataManager datanani = new NaniDataManager();
+        // datanani.merchantCareer.getCurrentJobRank.
+        // You should get hte merchant data by the current Job Rank and the 
+        datanani.workAsMerchant();
+        datanani.saveData();
 
         return true;
     }
 
     public static bool workAsAventurer()
     {
+        NaniDataManager datanani = new NaniDataManager();
+        // datanani.avworkAsAventurerCareer.getCurrentJobRank.
+        // You should get hte avworkAsAventurer data by the current Job Rank and the 
+        datanani.workAsAventurer();
+        datanani.saveData();
+
         return true;
     }
-
     public static bool initializeItems()
     {
         Debug.Log("Initializing");
@@ -50,7 +68,7 @@ public static class CustomFunctions
         dataNani.fetch();
         dataNani.testObtainedVariables();
 
-        
+
         // Debug how it would save it using formattable
         Debug.Log(dataNani.getFormatableNaniTest());
 

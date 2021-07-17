@@ -9,7 +9,16 @@ public class NaniDataManager
 {
     public int p_turn, p_age, p_health, p_mana, p_happiness, p_money, p_weeklyCashFlow;
     public int p_missionsCompleted, p_maxhealth, p_networth, p_stat_str, p_stat_vit, p_stat_dex, p_stat_int, p_stat_wis, p_stat_char;
-    public string p_title, p_sex; string jsonItems;
+    public string p_title, p_sex;
+
+    string jsonItems;
+
+    public Constants MY_CONSTANTS = new Constants();
+
+    // TODO: SET THIS VARIABLES LATER
+
+    public Job merchantCareer, tradeCareer, farmerCareer, civilServantCareer, aventurerCareer, mercenaryCareer, soldierCareer;
+    public int p_currentInjuries, p_merchantS, p_tradeS, p_farmerS, p_civilServantS, p_aventurerS, p_mercenaryS, p_soldierS;
 
     public void initializeSampleItems()
     {
@@ -57,6 +66,17 @@ public class NaniDataManager
         variableManager.TryGetVariableValue<string>("jsonItems", out jsonItems);
         jsonItems = getJsonFormattableOf(jsonItems);
 
+        variableManager.TryGetVariableValue<int>("p_merchantS", out p_merchantS);
+        variableManager.TryGetVariableValue<int>("p_tradeS", out p_tradeS);
+        variableManager.TryGetVariableValue<int>("p_farmerS", out p_farmerS);
+        variableManager.TryGetVariableValue<int>("p_civilServantS", out p_civilServantS);
+        variableManager.TryGetVariableValue<int>("p_aventurerS", out p_aventurerS);
+        variableManager.TryGetVariableValue<int>("p_mercenaryS", out p_mercenaryS);
+        variableManager.TryGetVariableValue<int>("p_soldierS", out p_soldierS);
+        variableManager.TryGetVariableValue<int>("p_currentInjuries", out p_currentInjuries);
+
+
+
     }
 
     public void saveData()
@@ -78,8 +98,21 @@ public class NaniDataManager
         variableManager.TrySetVariableValue("p_stat_vit", p_stat_vit);
         variableManager.TrySetVariableValue("p_stat_dex", p_stat_dex);
         variableManager.TrySetVariableValue("p_stat_int", p_stat_int);
-        
-        variableManager.TrySetVariableValue("jsonItems", jsonItems);
+
+        string modJsonItems = getNaniFormattableOf(jsonItems);
+        variableManager.TrySetVariableValue("jsonItems", modJsonItems);
+
+        variableManager.TrySetVariableValue("p_merchantS", p_merchantS);
+        variableManager.TrySetVariableValue("p_tradeS", p_tradeS);
+        variableManager.TrySetVariableValue("p_farmerS", p_farmerS);
+        variableManager.TrySetVariableValue("p_civilServantS", p_civilServantS);
+        variableManager.TrySetVariableValue("p_aventurerS", p_aventurerS);
+        variableManager.TrySetVariableValue("p_mercenaryS", p_mercenaryS);
+        variableManager.TrySetVariableValue("p_soldierS", p_soldierS);
+        variableManager.TrySetVariableValue("p_currentInjuries", p_currentInjuries);
+
+
+
     }
 
     public string getJsonFormattableOf(string input)
@@ -107,6 +140,111 @@ public class NaniDataManager
 
         return input;
     }
+
+
+    public void initializeCareers()
+    {
+        merchantCareer = MY_CONSTANTS.getJobFromName("Merchant");
+        tradeCareer = MY_CONSTANTS.getJobFromName("Trades");
+        farmerCareer = MY_CONSTANTS.getJobFromName("Farmer");
+        civilServantCareer = MY_CONSTANTS.getJobFromName("Civil Servant");
+        aventurerCareer = MY_CONSTANTS.getJobFromName("Aventurer");
+        mercenaryCareer = MY_CONSTANTS.getJobFromName("Mercenary");
+        soldierCareer = MY_CONSTANTS.getJobFromName("Soldier");
+
+        merchantCareer.workedSuccessfully = p_merchantS;
+        tradeCareer.workedSuccessfully = p_tradeS;
+        farmerCareer.workedSuccessfully = p_farmerS;
+        civilServantCareer.workedSuccessfully = p_civilServantS;
+        aventurerCareer.workedSuccessfully = p_aventurerS;
+        mercenaryCareer.workedSuccessfully = p_mercenaryS;
+        soldierCareer.workedSuccessfully = p_soldierS;
+
+    }
+
+    public void workAsAventurer()
+    {
+        // Calculate the risks of injuries and stuff depending of ecach character
+        // TODO get the successfully completed stat later on
+
+        // Increase the stats in the stuff, the work, like increment the stats as the aventurer depending on the index? the bigger the more reason to increase
+        p_stat_str += aventurerCareer.jobLevel;
+        p_stat_dex += aventurerCareer.jobLevel;
+        p_health += aventurerCareer.jobLevel;
+        p_stat_int += aventurerCareer.jobLevel;
+
+
+        if (getTrueWithProbablity(.96))
+        {
+            aventurerCareer.successfullyCompletedThisJob();
+            increaseTurn();
+            saveData();
+        }
+
+        perphapsGettingHurtChances();
+
+    }
+
+    public void workAsMerchant()
+    {
+        p_stat_wis += aventurerCareer.jobLevel;
+        p_stat_char += aventurerCareer.jobLevel;
+
+        // Calculate the chances of failures and success
+        merchantCareer.successfullyCompletedThisJob();
+
+
+        increaseTurn();
+        saveData();
+
+    }
+
+    public void perphapsGettingHurtChances()
+    {
+        if (getTrueWithProbablity(.1))
+        {
+            // Chances of getting hurt a little
+
+            if (getTrueWithProbablity(.1))
+            {
+                // Chances of getting hurt letally
+                p_health -= 50;
+                if (p_currentInjuries >= 1)
+                {
+                    // TODO kill the player
+                }
+
+            }
+            else
+            {
+
+                p_health -= 10;
+            }
+        }
+        saveData();
+    }
+
+    public bool getTrueWithProbablity(double probability)
+    {
+        System.Random random = new System.Random();
+        return random.NextDouble() < probability;
+    }
+
+
+    public void increaseTurn()
+    {
+        p_turn++;
+    }
+
+
+
+
+
+
+
+
+    // WORK
+
 
 }
 
