@@ -11,6 +11,25 @@ loading profile
 
 ; @set _={addMoney(10)}
 @set _={initializeItems()}
+@set p_turn=1
+@set p_age=18
+@set p_sex=male
+@set p_health=100
+@set p_mana=100
+@set p_happiness=100
+@set p_money=10
+@set p_weeklyCashFlow=100
+@set p_title="-"
+@set p_missionsCompleted=0
+@set p_maxhealth=100
+@set p_networth=100
+
+@set p_stat_str=1
+@set p_stat_vit=1
+@set p_stat_dex=1
+@set p_stat_int=1
+@set p_stat_wis=1
+@set p_stat_char=1
 @set jsonItems="!-title-: -potion-,-description-: -hello world-~,";
 
 @set _={testObtainedVariables()}
