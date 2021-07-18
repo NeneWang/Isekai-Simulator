@@ -91,8 +91,10 @@ public class Constants
         jobList.Add(new Job("Soldier", soldierJobRanks));
         getJobFromName("Soldier").setSpecificToNobilityRequired(new int[] { 4, 5, 6, 7, 8, 9 });
 
+    }
 
-
+    public void createItems(){
+        
     }
 
     public Job getJobFromName(string jobName)
