@@ -55,7 +55,7 @@ public static class CustomFunctions
     }
     public static bool initializeItems()
     {
-        Debug.Log("Initializing");
+        Debug.Log("Initializing!");
         NaniDataManager dataNani = new NaniDataManager();
         dataNani.initializeSampleItems();
         return true;
