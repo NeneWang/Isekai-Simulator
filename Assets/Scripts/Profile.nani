@@ -51,18 +51,16 @@
 @choice "Work as aventurer" goto:.workAventurer
 @choice "Work as Merchant" goto:.workMerchant
 
-@choice "Work as Aventurer" goto:.workAventurer
-@choice "Work as Mercenary" goto:.workMerceneary
-@choice "Work as Diplomat" goto:.workDiplomant
-@choice "Work as Mage" goto:.workMage
+; @choice "Work as Aventurer" goto:.workAventurer
+; @choice "Work as Mercenary" goto:.workMerceneary
+; @choice "Work as Diplomat" goto:.workDiplomant
+; @choice "Work as Mage" goto:.workMage
 
 @return
 
 #workSoldier
 @set _={workAsSoldier()}
 @return
-
-
 
 #workAventurer
 @set _={workAsAventurer()}
