@@ -109,8 +109,8 @@ public class NaniDataManager
         variableManager.TrySetVariableValue("p_stat_dex", p_stat_dex);
         variableManager.TrySetVariableValue("p_stat_int", p_stat_int);
 
-        string modJsonItems = getNaniFormattableOf(jsonItems);
-        variableManager.TrySetVariableValue("jsonItems", modJsonItems);
+        // string modJsonItems = getNaniFormattableOf(jsonItems);
+        // variableManager.TrySetVariableValue("jsonItems", modJsonItems);
 
         variableManager.TrySetVariableValue("p_merchantS", p_merchantS);
         // variableManager.TrySetVariableValue("p_tradeS", p_tradeS);
@@ -197,17 +197,18 @@ public class NaniDataManager
 
     public void workAsMerchant()
     {
-        p_stat_wis += aventurerCareer.jobLevel;
-        p_stat_char += aventurerCareer.jobLevel;
+        // p_stat_wis += aventurerCareer.jobLevel;
+        // p_stat_char += aventurerCareer.jobLevel;
 
-        // Calculate the chances of failures and success
-        merchantCareer.successfullyCompletedThisJob();
+        // Calculate the chances of failures and success SIMPLIFICATION
+        // merchantCareer.successfullyCompletedThisJob();
 
         // Now get paid
-        p_money = merchantCareer.getJobIncome;
+        p_money += 30;
 
         increaseTurn();
-        saveData();
+        // TODO REmove following
+        // saveData();
 
     }
 
