@@ -82,6 +82,9 @@ public class Constants
         soldierJobRanks.Add(new JobRank(190, "Colonel"));
         soldierJobRanks.Add(new JobRank(260, "General"));
 
+
+        // TODO: OTHER JOBS CLEAN
+
         // jobList.Add(new Job("Farmer", farmerJobRanks));
         jobList.Add(new Job("Aventurer", aventurerJobRanks));
         // jobList.Add(new Job("Civil Servant", CivilServantJobRanks));

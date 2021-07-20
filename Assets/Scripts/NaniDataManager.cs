@@ -212,7 +212,7 @@ public class NaniDataManager
 
         // Now get paid
         Debug.Log("Getting paid as merchant");
-        p_money += 30;
+        p_money += merchantCareer.getJobIncome;
 
         increaseTurn();
         // TODO REmove following
