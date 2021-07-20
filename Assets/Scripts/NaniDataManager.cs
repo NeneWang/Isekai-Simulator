@@ -155,21 +155,26 @@ public class NaniDataManager
 
     public void initializeCareers()
     {
-        merchantCareer = MY_CONSTANTS.getJobFromName("Merchant");
-        tradeCareer = MY_CONSTANTS.getJobFromName("Trades");
-        farmerCareer = MY_CONSTANTS.getJobFromName("Farmer");
-        civilServantCareer = MY_CONSTANTS.getJobFromName("Civil Servant");
+
         aventurerCareer = MY_CONSTANTS.getJobFromName("Aventurer");
-        mercenaryCareer = MY_CONSTANTS.getJobFromName("Mercenary");
         soldierCareer = MY_CONSTANTS.getJobFromName("Soldier");
+        merchantCareer = MY_CONSTANTS.getJobFromName("Merchant");
+
+        // tradeCareer = MY_CONSTANTS.getJobFromName("Trades");
+        // farmerCareer = MY_CONSTANTS.getJobFromName("Farmer");
+        // civilServantCareer = MY_CONSTANTS.getJobFromName("Civil Servant");
+        // mercenaryCareer = MY_CONSTANTS.getJobFromName("Mercenary");
 
         merchantCareer.workedSuccessfully = p_merchantS;
-        tradeCareer.workedSuccessfully = p_tradeS;
-        farmerCareer.workedSuccessfully = p_farmerS;
-        civilServantCareer.workedSuccessfully = p_civilServantS;
         aventurerCareer.workedSuccessfully = p_aventurerS;
-        mercenaryCareer.workedSuccessfully = p_mercenaryS;
         soldierCareer.workedSuccessfully = p_soldierS;
+
+        // tradeCareer.workedSuccessfully = p_tradeS;
+        // farmerCareer.workedSuccessfully = p_farmerS;
+        // civilServantCareer.workedSuccessfully = p_civilServantS;
+
+        // mercenaryCareer.workedSuccessfully = p_mercenaryS;
+
 
     }
 
