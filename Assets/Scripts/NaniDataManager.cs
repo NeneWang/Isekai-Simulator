@@ -7,7 +7,7 @@ using UnityEngine;
 // Overall data manager
 public class NaniDataManager
 {
-    public int p_turn, p_age, p_health, p_mana, p_happiness, p_money, p_weeklyCashFlow;
+    public int p_turn, p_age, p_health, p_mana, p_happiness, p_money, p_monthlyCashFlow;
     public int p_missionsCompleted, p_maxhealth, p_networth, p_stat_str, p_stat_vit, p_stat_dex, p_stat_int, p_stat_wis, p_stat_char;
     public string p_title, p_sex;
 
@@ -50,7 +50,7 @@ public class NaniDataManager
         variableManager.TryGetVariableValue<int>("p_mana", out p_mana);
         variableManager.TryGetVariableValue<int>("p_happiness", out p_happiness);
         variableManager.TryGetVariableValue<int>("p_money", out p_money);
-        variableManager.TryGetVariableValue<int>("p_weeklyCashFlow", out p_weeklyCashFlow);
+        variableManager.TryGetVariableValue<int>("p_monthlyCashFlow", out p_monthlyCashFlow);
         variableManager.TryGetVariableValue<string>("p_title", out p_title);
         variableManager.TryGetVariableValue<int>("p_missionsCompleted", out p_missionsCompleted);
         variableManager.TryGetVariableValue<int>("p_maxhealth", out p_maxhealth);
@@ -89,7 +89,7 @@ public class NaniDataManager
         variableManager.TrySetVariableValue("p_health", p_health);
         variableManager.TrySetVariableValue("p_mana", p_mana);
         variableManager.TrySetVariableValue("p_happiness", p_happiness);
-        variableManager.TrySetVariableValue("p_weeklyCashFlow", p_weeklyCashFlow);
+        variableManager.TrySetVariableValue("p_monthlyCashFlow", p_monthlyCashFlow);
         variableManager.TrySetVariableValue("p_title", p_title);
         variableManager.TrySetVariableValue("p_missionsCompleted", p_missionsCompleted);
         variableManager.TrySetVariableValue("p_maxhealth", p_maxhealth);
