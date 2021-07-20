@@ -98,7 +98,7 @@ public class NaniDataManager
         variableManager.TrySetVariableValue("p_health", p_health);
         variableManager.TrySetVariableValue("p_mana", p_mana);
         variableManager.TrySetVariableValue("p_happiness", p_happiness);
-        variableManager.TrySetVariableValue("p_money", p_happiness);
+        variableManager.TrySetVariableValue("p_money", p_money);
         variableManager.TrySetVariableValue("p_monthlyCashFlow", p_monthlyCashFlow);
         variableManager.TrySetVariableValue("p_title", p_title);
         variableManager.TrySetVariableValue("p_missionsCompleted", p_missionsCompleted);
@@ -204,11 +204,12 @@ public class NaniDataManager
         // merchantCareer.successfullyCompletedThisJob();
 
         // Now get paid
+        Debug.Log("Getting paid as merchant");
         p_money += 30;
 
         increaseTurn();
         // TODO REmove following
-        // saveData();
+        saveData();
 
     }
 

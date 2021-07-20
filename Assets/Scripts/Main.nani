@@ -38,12 +38,6 @@ loading profile
 
 @set p_currentInjuries=0
 
-
-@set _=false
-
-
-@set _={workAsMerchant()}
-@set _={workAsMerchant()}
 @set _={workAsMerchant()}
 
 @return
