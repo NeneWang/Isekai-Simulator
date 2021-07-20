@@ -24,7 +24,7 @@ public class NaniDataManager
 
         // Initialization of variables and stuff 
         // TODO: Remove this
-        // fetch();
+        fetch();
 
     }
     public void initializeSampleItems()
@@ -72,16 +72,16 @@ public class NaniDataManager
         variableManager.TryGetVariableValue<int>("p_stat_char", out p_stat_char);
 
 
-        variableManager.TryGetVariableValue<string>("jsonItems", out jsonItems);
-        jsonItems = getJsonFormattableOf(jsonItems);
 
         variableManager.TryGetVariableValue<int>("p_merchantS", out p_merchantS);
-        variableManager.TryGetVariableValue<int>("p_tradeS", out p_tradeS);
-        variableManager.TryGetVariableValue<int>("p_farmerS", out p_farmerS);
-        variableManager.TryGetVariableValue<int>("p_civilServantS", out p_civilServantS);
+        // variableManager.TryGetVariableValue<int>("p_tradeS", out p_tradeS);
+        // variableManager.TryGetVariableValue<int>("p_farmerS", out p_farmerS);
+        // variableManager.TryGetVariableValue<int>("p_civilServantS", out p_civilServantS);
         variableManager.TryGetVariableValue<int>("p_aventurerS", out p_aventurerS);
-        variableManager.TryGetVariableValue<int>("p_mercenaryS", out p_mercenaryS);
+        // variableManager.TryGetVariableValue<int>("p_mercenaryS", out p_mercenaryS);
         variableManager.TryGetVariableValue<int>("p_soldierS", out p_soldierS);
+        // variableManager.TryGetVariableValue<int>("p_currentInjuries", out p_currentInjuries);
+
         variableManager.TryGetVariableValue<int>("p_currentInjuries", out p_currentInjuries);
 
 
@@ -98,6 +98,7 @@ public class NaniDataManager
         variableManager.TrySetVariableValue("p_health", p_health);
         variableManager.TrySetVariableValue("p_mana", p_mana);
         variableManager.TrySetVariableValue("p_happiness", p_happiness);
+        variableManager.TrySetVariableValue("p_money", p_happiness);
         variableManager.TrySetVariableValue("p_monthlyCashFlow", p_monthlyCashFlow);
         variableManager.TrySetVariableValue("p_title", p_title);
         variableManager.TrySetVariableValue("p_missionsCompleted", p_missionsCompleted);
@@ -112,11 +113,11 @@ public class NaniDataManager
         variableManager.TrySetVariableValue("jsonItems", modJsonItems);
 
         variableManager.TrySetVariableValue("p_merchantS", p_merchantS);
-        variableManager.TrySetVariableValue("p_tradeS", p_tradeS);
-        variableManager.TrySetVariableValue("p_farmerS", p_farmerS);
-        variableManager.TrySetVariableValue("p_civilServantS", p_civilServantS);
+        // variableManager.TrySetVariableValue("p_tradeS", p_tradeS);
+        // variableManager.TrySetVariableValue("p_farmerS", p_farmerS);
+        // variableManager.TrySetVariableValue("p_civilServantS", p_civilServantS);
         variableManager.TrySetVariableValue("p_aventurerS", p_aventurerS);
-        variableManager.TrySetVariableValue("p_mercenaryS", p_mercenaryS);
+        // variableManager.TrySetVariableValue("p_mercenaryS", p_mercenaryS);
         variableManager.TrySetVariableValue("p_soldierS", p_soldierS);
         variableManager.TrySetVariableValue("p_currentInjuries", p_currentInjuries);
 

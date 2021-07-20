@@ -35,8 +35,8 @@ public static class CustomFunctions
     public static bool workAsMerchant()
     {
         NaniDataManager datanani = new NaniDataManager();
-        // datanani.workAsMerchant();
-        // datanani.saveData();
+        datanani.workAsMerchant();
+        datanani.saveData();
 
         return true;
     }
@@ -46,8 +46,8 @@ public static class CustomFunctions
         NaniDataManager datanani = new NaniDataManager();
         // datanani.avworkAsAventurerCareer.getCurrentJobRank.
         // You should get hte avworkAsAventurer data by the current Job Rank and the 
-        datanani.workAsAventurer();
-        datanani.saveData();
+        // datanani.workAsAventurer();
+        // datanani.saveData();
 
         return true;
     }

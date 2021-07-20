@@ -32,10 +32,18 @@ loading profile
 @set p_stat_wis=1
 @set p_stat_char=1
 
+@set p_merchantS=0
+@set p_aventurerS=0
+@set p_soldierS=0
+
+@set p_currentInjuries=0
+
 
 @set _=false
 
 
+@set _={workAsMerchant()}
+@set _={workAsMerchant()}
 @set _={workAsMerchant()}
 
 @return
