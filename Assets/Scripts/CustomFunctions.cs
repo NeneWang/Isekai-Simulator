@@ -35,10 +35,8 @@ public static class CustomFunctions
     public static bool workAsMerchant()
     {
         NaniDataManager datanani = new NaniDataManager();
-        // datanani.merchantCareer.getCurrentJobRank.
-        // You should get hte merchant data by the current Job Rank and the 
-        datanani.workAsMerchant();
-        datanani.saveData();
+        // datanani.workAsMerchant();
+        // datanani.saveData();
 
         return true;
     }

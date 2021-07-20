@@ -19,7 +19,14 @@ public class NaniDataManager
 
     public Job merchantCareer, tradeCareer, farmerCareer, civilServantCareer, aventurerCareer, mercenaryCareer, soldierCareer;
     public int p_currentInjuries, p_merchantS, p_tradeS, p_farmerS, p_civilServantS, p_aventurerS, p_mercenaryS, p_soldierS;
+    public NaniDataManager()
+    {
 
+        // Initialization of variables and stuff 
+        // TODO: Remove this
+        // fetch();
+
+    }
     public void initializeSampleItems()
     {
 
@@ -28,6 +35,8 @@ public class NaniDataManager
         Debug.Log(items["items"][0]["title"].Value);
 
     }
+
+
 
     public void testObtainedVariables()
     {

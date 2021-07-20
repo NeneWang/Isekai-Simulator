@@ -84,13 +84,13 @@ public class Constants
 
         jobList.Add(new Job("Farmer", farmerJobRanks));
         jobList.Add(new Job("Aventurer", aventurerJobRanks));
-        jobList.Add(new Job("Civil Servant", CivilServantJobRanks));
-        getJobFromName("Civil Servant").setSpecificToNobilityRequired(new int[] { 4, 5, 6, 7 });
-        jobList.Add(new Job("Trades", tradesmanJobRanks));
-        jobList.Add(new Job("Mercenary", mercenaryJobRanks));
-        jobList.Add(new Job("Merchant", merchantJobRanks));
+        // jobList.Add(new Job("Civil Servant", CivilServantJobRanks));
+        // getJobFromName("Civil Servant").setSpecificToNobilityRequired(new int[] { 4, 5, 6, 7 });
+        // jobList.Add(new Job("Trades", tradesmanJobRanks));
+        // jobList.Add(new Job("Mercenary", mercenaryJobRanks));
+        // jobList.Add(new Job("Merchant", merchantJobRanks));
         jobList.Add(new Job("Soldier", soldierJobRanks));
-        getJobFromName("Soldier").setSpecificToNobilityRequired(new int[] { 4, 5, 6, 7, 8, 9 });
+        // getJobFromName("Soldier").setSpecificToNobilityRequired(new int[] { 4, 5, 6, 7, 8, 9 });
 
     }
 
@@ -106,7 +106,7 @@ public class Constants
         });
     }
 
-    
+
 
 
 }
