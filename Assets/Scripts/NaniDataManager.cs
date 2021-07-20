@@ -173,7 +173,6 @@ public class NaniDataManager
         // tradeCareer.workedSuccessfully = p_tradeS;
         // farmerCareer.workedSuccessfully = p_farmerS;
         // civilServantCareer.workedSuccessfully = p_civilServantS;
-
         // mercenaryCareer.workedSuccessfully = p_mercenaryS;
 
 

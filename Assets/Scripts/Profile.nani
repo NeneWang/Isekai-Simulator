@@ -47,8 +47,8 @@
 
 ;Here it should show the jobs that are available there for example, work on the granja and stuff like that
 #printJobChoices
-@choice "Work as farmer" goto:.workFarm 
-@choice "Work as aventurer" goto:.workQuest
+@choice "Work as Soldier" goto:.workSoldier
+@choice "Work as aventurer" goto:.workAventurer
 @choice "Work as Merchant" goto:.workMerchant
 
 @choice "Work as Aventurer" goto:.workAventurer
@@ -58,11 +58,19 @@
 
 @return
 
-#workFarm
-@set _={addMoney(1)}
-@set _={increaseTurn()}
+#workSoldier
+@set _={workAsSoldier()}
 @return
 
+
+
+#workAventurer
+@set _={workAsAventurer()}
+@return
+
+#workMerchant
+@set _={workAsMerchant()}
+@return
 
 
 ; //////////////////////////////////////// ####MARKET
