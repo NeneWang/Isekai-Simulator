@@ -7,7 +7,7 @@ public class Job
     public string careerTitle;
     // public int jobLevel = 0;
     public List<JobRank> jobRankList = new List<JobRank>();
-    public int workedSuccessfully = 0;
+    public int careerSuccess = 0;
     public int successJobsForNextRank = 80;
 
     public int jobLevel
@@ -17,7 +17,7 @@ public class Job
         {
             //checks each on if it is above to the next??? depending on the successfully worked times required, 
             //if it is bigger then should call itself recursively until it finds one specific, then FUCK. just make it normal so its about the individual job instead
-            int jobLevelToReturn = (int)workedSuccessfully / successJobsForNextRank;
+            int jobLevelToReturn = (int)careerSuccess / successJobsForNextRank;
 
             return jobLevelToReturn > careerTitlesCount ? careerTitlesCount : jobLevelToReturn;
         }
@@ -49,7 +49,7 @@ public class Job
 
     public void successfullyCompletedThisJob()
     {
-        workedSuccessfully++;
+        careerSuccess++;
     }
 
     public void setSpecificToNobilityRequired(int[] indexes)

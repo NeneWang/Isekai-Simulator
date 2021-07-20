@@ -1,5 +1,3 @@
-
-
 #profile
 @printer Fullscreen
 @gosub .printMainStatus
@@ -28,8 +26,6 @@
 
 
 ; //////////////////////////////////////// ###LEARNING
-
-
 #learning
 @resetText
 
@@ -37,7 +33,6 @@
 
 
 ; //////////////////////////////////////// ###JOB
-
 #job
 @resetText
 @gosub .printMainStatus
@@ -47,14 +42,15 @@
 
 ;Here it should show the jobs that are available there for example, work on the granja and stuff like that
 #printJobChoices
-@choice "Work as Soldier" goto:.workSoldier
-@choice "Work as aventurer" goto:.workAventurer
-@choice "Work as Merchant" goto:.workMerchant
+@choice "Work as Soldier {p_soldierS}" goto:.workSoldier
+@choice "Work as aventurer {p_aventurerS} " goto:.workAventurer
+@choice "Work as Merchant {p_merchantS}" goto:.workMerchant
 @return
 
 #workSoldier
 @set _={workAsSoldier()}
 "You worked as soldier"
+
 @gosub .job
 @return
 

@@ -49,6 +49,25 @@ public class NaniDataManager
 
     }
 
+    public void fetchCareerSuccess()
+    {
+        // ## TODO Complete JObs
+        p_soldierS = soldierCareer.careerSuccess;
+        p_merchantS = merchantCareer.careerSuccess;
+        p_aventurerS = merchantCareer.careerSuccess;
+
+    }
+
+
+     public void postCareerSuccess()
+    {
+        // ## TODO Complete JObs
+        soldierCareer.careerSuccess = p_soldierS;
+        merchantCareer.careerSuccess = p_merchantS;
+        merchantCareer.careerSuccess = p_aventurerS;
+
+    }
+
     public void fetch()
     {
 
@@ -85,12 +104,16 @@ public class NaniDataManager
 
         variableManager.TryGetVariableValue<int>("p_currentInjuries", out p_currentInjuries);
 
+        postCareerSuccess();
+
 
 
     }
 
     public void saveData()
     {
+
+        fetchCareerSuccess();
 
         var variableManager = Engine.GetService<ICustomVariableManager>();
         variableManager.TrySetVariableValue("p_turn", p_turn);
@@ -166,9 +189,9 @@ public class NaniDataManager
         // mercenaryCareer = MY_CONSTANTS.getJobFromName("Mercenary");
 
 
-        aventurerCareer.workedSuccessfully = p_aventurerS;
-        soldierCareer.workedSuccessfully = p_soldierS;
-        merchantCareer.workedSuccessfully = p_merchantS;
+        aventurerCareer.careerSuccess = p_aventurerS;
+        soldierCareer.careerSuccess = p_soldierS;
+        merchantCareer.careerSuccess = p_merchantS;
 
         // tradeCareer.workedSuccessfully = p_tradeS;
         // farmerCareer.workedSuccessfully = p_farmerS;
