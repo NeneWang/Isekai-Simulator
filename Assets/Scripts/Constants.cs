@@ -94,15 +94,19 @@ public class Constants
 
     }
 
-    public void createItems(){
-        
+    public void createItems()
+    {
+
     }
 
     public Job getJobFromName(string jobName)
     {
+        Debug.Log("Getting job from name with" + jobName);
+
         return jobList.Find(delegate (Job jk)
         {
-            return jk.getJobRankName == jobName;
+            Debug.Log("Found job Name " + jk.careerTitle);
+            return jk.careerTitle == jobName;
         });
     }
 

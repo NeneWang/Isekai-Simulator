@@ -165,9 +165,10 @@ public class NaniDataManager
         // civilServantCareer = MY_CONSTANTS.getJobFromName("Civil Servant");
         // mercenaryCareer = MY_CONSTANTS.getJobFromName("Mercenary");
 
-        merchantCareer.workedSuccessfully = p_merchantS;
+        
         aventurerCareer.workedSuccessfully = p_aventurerS;
         soldierCareer.workedSuccessfully = p_soldierS;
+        merchantCareer.workedSuccessfully = p_merchantS;
 
         // tradeCareer.workedSuccessfully = p_tradeS;
         // farmerCareer.workedSuccessfully = p_farmerS;
