@@ -10,7 +10,9 @@ loading profile
 
 
 ; @set _={addMoney(10)}
-@set _={initializeItems()}
+; @set _={initializeItems()}
+
+
 @set p_turn=1
 @set p_age=18
 @set p_sex=male
@@ -35,7 +37,9 @@ loading profile
 ; @set p_item_potion
 ; @set p_item_
 
-@set _={testObtainedVariables()}
+
+@set _={workAsMerchant()}
+
 
 
 @return
