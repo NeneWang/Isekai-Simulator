@@ -6,12 +6,6 @@ loading profile
 
 
 #resetAllVariables
-
-
-
-; @set _={addMoney(10)}
-
-
 @set p_turn=1
 @set p_age=18
 @set p_sex=male
@@ -38,7 +32,9 @@ loading profile
 
 @set p_currentInjuries=0
 
-@set _={workAsMerchant()}
+; @set _={workAsMerchant()}
+; @set _={workAsAventurer()}
+@set _={workAsSoldier()}
 
 @return
 

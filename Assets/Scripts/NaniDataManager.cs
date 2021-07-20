@@ -165,7 +165,7 @@ public class NaniDataManager
         // civilServantCareer = MY_CONSTANTS.getJobFromName("Civil Servant");
         // mercenaryCareer = MY_CONSTANTS.getJobFromName("Mercenary");
 
-        
+
         aventurerCareer.workedSuccessfully = p_aventurerS;
         soldierCareer.workedSuccessfully = p_soldierS;
         merchantCareer.workedSuccessfully = p_merchantS;
@@ -191,9 +191,35 @@ public class NaniDataManager
         p_stat_int += aventurerCareer.jobLevel;
 
 
-        if (getTrueWithProbablity(.96))
+        if (getTrueWithProbablity(.98))
         {
             aventurerCareer.successfullyCompletedThisJob();
+            p_money += aventurerCareer.getJobIncome;
+            increaseTurn();
+            saveData();
+        }
+
+        perphapsGettingHurtChances();
+
+    }
+
+
+
+    public void workAsSoldier()
+    {
+        // Calculate the risks of injuries and stuff depending of ecach character
+        // TODO get the successfully completed stat later on
+
+        // Increase the stats in the stuff, the work, like increment the stats as the aventurer depending on the index? the bigger the more reason to increase
+        p_stat_str += aventurerCareer.jobLevel;
+        p_stat_dex += aventurerCareer.jobLevel;
+        p_health += (int)(aventurerCareer.jobLevel * 1.5);
+
+
+        if (getTrueWithProbablity(.98))
+        {
+            aventurerCareer.successfullyCompletedThisJob();
+            p_money += aventurerCareer.getJobIncome;
             increaseTurn();
             saveData();
         }
