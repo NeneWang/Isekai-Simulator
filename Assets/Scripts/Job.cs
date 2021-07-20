@@ -40,7 +40,11 @@ public class Job
     }
     public string getJobRankName
     {
-        get => jobRankList[jobLevel].title;
+        get => getCurrentJobRank.title;
+    }
+
+    public int getJobIncome{
+        get =>  getCurrentJobRank.payment;
     }
 
     public void successfullyCompletedThisJob()

@@ -193,6 +193,8 @@ public class NaniDataManager
         // Calculate the chances of failures and success
         merchantCareer.successfullyCompletedThisJob();
 
+        // Now get paid
+        p_money = merchantCareer.getJobIncome;
 
         increaseTurn();
         saveData();
