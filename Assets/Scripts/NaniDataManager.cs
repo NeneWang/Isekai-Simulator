@@ -54,17 +54,17 @@ public class NaniDataManager
         // ## TODO Complete JObs
         p_soldierS = soldierCareer.careerSuccess;
         p_merchantS = merchantCareer.careerSuccess;
-        p_aventurerS = merchantCareer.careerSuccess;
+        p_aventurerS = aventurerCareer.careerSuccess;
 
     }
 
 
-     public void postCareerSuccess()
+    public void postCareerSuccess()
     {
         // ## TODO Complete JObs
         soldierCareer.careerSuccess = p_soldierS;
         merchantCareer.careerSuccess = p_merchantS;
-        merchantCareer.careerSuccess = p_aventurerS;
+        aventurerCareer.careerSuccess = p_aventurerS;
 
     }
 
@@ -233,15 +233,15 @@ public class NaniDataManager
         // TODO get the successfully completed stat later on
 
         // Increase the stats in the stuff, the work, like increment the stats as the aventurer depending on the index? the bigger the more reason to increase
-        p_stat_str += aventurerCareer.jobLevel;
-        p_stat_dex += aventurerCareer.jobLevel;
-        p_health += (int)(aventurerCareer.jobLevel * 1.5);
+        p_stat_str += soldierCareer.jobLevel;
+        p_stat_dex += soldierCareer.jobLevel;
+        p_health += (int)(soldierCareer.jobLevel * 1.5);
 
 
         if (getTrueWithProbablity(.98))
         {
-            aventurerCareer.successfullyCompletedThisJob();
-            p_money += aventurerCareer.getJobIncome;
+            soldierCareer.successfullyCompletedThisJob();
+            p_money += soldierCareer.getJobIncome;
             increaseTurn();
             saveData();
         }
@@ -252,8 +252,8 @@ public class NaniDataManager
 
     public void workAsMerchant()
     {
-        // p_stat_wis += aventurerCareer.jobLevel;
-        // p_stat_char += aventurerCareer.jobLevel;
+        p_stat_wis += merchantCareer.jobLevel;
+        p_stat_char += merchantCareer.jobLevel;
 
         // Calculate the chances of failures and success SIMPLIFICATION
         // merchantCareer.successfullyCompletedThisJob();
@@ -261,6 +261,8 @@ public class NaniDataManager
         // Now get paid
         Debug.Log("Getting paid as merchant");
         p_money += merchantCareer.getJobIncome;
+
+        merchantCareer.successfullyCompletedThisJob();
 
         increaseTurn();
         // TODO REmove following
