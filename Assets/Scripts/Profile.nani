@@ -54,17 +54,20 @@
 
 #workSoldier
 @set _={workAsSoldier()}
-You worked as soldier
+"You worked as soldier"
+@gosub .job
 @return
 
 #workAventurer
 @set _={workAsAventurer()}
-You worked as Aventurer
+"You worked as Aventurer"
+@gosub .job
 @return
 
 #workMerchant
 @set _={workAsMerchant()}
-You worked as Aventurer
+"You worked as Aventurer"
+@gosub .job
 @return
 
 
@@ -121,7 +124,6 @@ You worked as Aventurer
 @resetText
 @gosub .printMainStatus 
 ;TODO make it only show if the pplayer adquired a certain status
-@choice "Find wife"
 @choice "Visit Friend Slot A"
 @choice "Visit Friend Slot B"
 ; @choice "Visit Friend Slot C"
