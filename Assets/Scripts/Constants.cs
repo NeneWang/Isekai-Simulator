@@ -82,13 +82,13 @@ public class Constants
         soldierJobRanks.Add(new JobRank(190, "Colonel"));
         soldierJobRanks.Add(new JobRank(260, "General"));
 
-        jobList.Add(new Job("Farmer", farmerJobRanks));
+        // jobList.Add(new Job("Farmer", farmerJobRanks));
         jobList.Add(new Job("Aventurer", aventurerJobRanks));
         // jobList.Add(new Job("Civil Servant", CivilServantJobRanks));
         // getJobFromName("Civil Servant").setSpecificToNobilityRequired(new int[] { 4, 5, 6, 7 });
         // jobList.Add(new Job("Trades", tradesmanJobRanks));
         // jobList.Add(new Job("Mercenary", mercenaryJobRanks));
-        // jobList.Add(new Job("Merchant", merchantJobRanks));
+        jobList.Add(new Job("Merchant", merchantJobRanks));
         jobList.Add(new Job("Soldier", soldierJobRanks));
         // getJobFromName("Soldier").setSpecificToNobilityRequired(new int[] { 4, 5, 6, 7, 8, 9 });
 
@@ -101,11 +101,9 @@ public class Constants
 
     public Job getJobFromName(string jobName)
     {
-        Debug.Log("Getting job from name with" + jobName);
 
         return jobList.Find(delegate (Job jk)
         {
-            Debug.Log("Found job Name " + jk.careerTitle);
             return jk.careerTitle == jobName;
         });
     }
