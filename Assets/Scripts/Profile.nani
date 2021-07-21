@@ -42,7 +42,7 @@
 
 ;Here it should show the jobs that are available there for example, work on the granja and stuff like that
 #printJobChoices
-@choice "Work as Soldier {p_soldierS}" goto:.workSoldier
+@choice "Work as  Soldier {p_soldierS}" goto:.workSoldier
 @choice "Work as aventurer {p_aventurerS} " goto:.workAventurer
 @choice "Work as Merchant {p_merchantS}" goto:.workMerchant
 @return
@@ -50,7 +50,6 @@
 #workSoldier
 @set _={workAsSoldier()}
 "You worked as soldier"
-
 @gosub .job
 @return
 
@@ -65,7 +64,6 @@
 "You worked as Aventurer"
 @gosub .job
 @return
-
 
 ; //////////////////////////////////////// ####MARKET
 

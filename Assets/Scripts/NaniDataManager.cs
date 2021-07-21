@@ -68,6 +68,8 @@ public class NaniDataManager
 
     }
 
+
+
     public void fetch()
     {
 
@@ -156,6 +158,30 @@ public class NaniDataManager
         input = input.Replace("~", "}");
         input = "{0:[" + input + "]}";
         return input;
+    }
+
+    public string getThisCareerData(Job jobIn, string typeIn)
+    {
+        string dataToReturn = "";
+        typeIn = typeIn.ToLower();
+        switch (typeIn)
+        {
+            case "a":
+                dataToReturn = jobIn.careerTitle;
+                break;
+
+            case "b":
+                dataToReturn = jobIn.careerSuccess.ToString();
+                break;
+
+            case "c":
+                dataToReturn = jobIn.jobLevel.ToString();
+                break;
+
+        }
+
+
+        return dataToReturn;
     }
 
     public string getFormatableNaniTest()

@@ -9,6 +9,11 @@ using UnityEngine;
 public static class CustomFunctions
 {
 
+    public enum careerEnum
+    {
+        Soldier = 1, Aventurer = 2, Merchant = 3
+    }
+
     public static bool addMoney(int addMoney)
     {
 
@@ -83,6 +88,41 @@ public static class CustomFunctions
         return true;
 
     }
+
+    public static string getCareerData(int careerEnumIn, string typeIn)
+    {
+
+
+        string variableToReturn = "";
+
+        NaniDataManager naniDataManager = new NaniDataManager();
+
+
+
+        switch (careerEnumIn)
+        {
+
+            case ((int)careerEnum.Soldier):
+                variableToReturn = naniDataManager.getThisCareerData(naniDataManager.soldierCareer, typeIn);
+                break;
+
+            case ((int)careerEnum.Aventurer):
+                variableToReturn = naniDataManager.getThisCareerData(naniDataManager.soldierCareer, typeIn);
+                break;
+
+            case ((int)careerEnum.Merchant):
+                variableToReturn = naniDataManager.getThisCareerData(naniDataManager.soldierCareer, typeIn);
+                break;
+
+            default:
+                variableToReturn = "ERROR CAREER NUM EXCEEDED";
+                break;
+
+        }
+        return variableToReturn;
+    }
+
+
 
 
 

@@ -52,6 +52,8 @@ public class Job
         careerSuccess++;
     }
 
+    
+
     public void setSpecificToNobilityRequired(int[] indexes)
     {
         int rankSize = jobRankList.Count;
