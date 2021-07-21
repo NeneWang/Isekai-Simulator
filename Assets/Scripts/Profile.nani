@@ -42,7 +42,7 @@
 
 ;Here it should show the jobs that are available there for example, work on the granja and stuff like that
 #printJobChoices
-@choice "Work as  Soldier {p_soldierS}" goto:.workSoldier
+@choice "Work as {getCareerData(1, "d")} Soldier {p_soldierS}" goto:.workSoldier
 @choice "Work as aventurer {p_aventurerS} " goto:.workAventurer
 @choice "Work as Merchant {p_merchantS}" goto:.workMerchant
 @return

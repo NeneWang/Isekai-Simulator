@@ -178,6 +178,14 @@ public class NaniDataManager
                 dataToReturn = jobIn.jobLevel.ToString();
                 break;
 
+            case "d":
+                dataToReturn = jobIn.getJobRankName;
+                break;
+
+            default:
+                dataToReturn = "typein Exceeded";
+                break;
+
         }
 
 
