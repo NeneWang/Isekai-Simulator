@@ -39,7 +39,7 @@ loading profile
 
 ; @set _={workAsMerchant()}
 ; @set _={workAsAventurer()}
-@set _={workAsSoldier()}
+; @set _={workAsSoldier()}
 
 @return
 
