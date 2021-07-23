@@ -9,7 +9,7 @@ public class NaniDataManager
 {
     public int p_turn, p_age, p_health, p_mana, p_happiness, p_money, p_monthlyCashFlow;
     public int p_missionsCompleted, p_maxhealth, p_networth, p_stat_str, p_stat_vit, p_stat_dex, p_stat_int, p_stat_wis, p_stat_char;
-    public string p_title, p_sex, friend_sl_1, friend_sl_2, friend_sl_3;
+    public string p_title, p_sex, friend_sl_1, friend_sl_2, friend_sl_3, lover_sl_1;
 
     string jsonItems;
 
@@ -115,7 +115,9 @@ public class NaniDataManager
         variableManager.TryGetVariableValue<string>("friend_sl_1", out friend_sl_1);
         variableManager.TryGetVariableValue<string>("friend_sl_2", out friend_sl_2);
         variableManager.TryGetVariableValue<string>("friend_sl_3", out friend_sl_3);
+        // lover_sl_1
 
+        variableManager.TryGetVariableValue<string>("lover_sl_1", out lover_sl_1);
 
         setupRelationshipManger();
         postCareerSuccess();
@@ -127,7 +129,7 @@ public class NaniDataManager
     public void setupRelationshipManger()
     {
         relationshipManager.initializeFriendsWithString(new string[] { friend_sl_1, friend_sl_2, friend_sl_3 });
-
+        relationshipManager.lover = relationshipManager.dataToPerson(lover_sl_1);
         // TODO: Add Personal and Love Interest
 
     }

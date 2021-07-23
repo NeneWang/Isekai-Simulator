@@ -118,6 +118,7 @@
 @resetText
 @gosub .printMainStatus 
 ;TODO make it only show if the pplayer adquired a certain status
+@choice "Spend time with "
 @choice "Visit {getPersonData(3,"a")}"
 @choice "Visit Friend Slot B"
 @gosub .printMenuChoices
