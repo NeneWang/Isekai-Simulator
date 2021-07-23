@@ -8,11 +8,14 @@ public class RelationshipManager
     public List<Person> friends = new List<Person>();
     public int maxFriends = 2;
     // Friends 
-    Person marriagePartner;
+    public Person lover, player;
 
     public void initializeFriendsWithString(string[] friendsData)
     {
-
+        foreach (string friendData in friendsData)
+        {
+            addFriend(dataToPerson(friendData));
+        }
     }
 
     public Person dataToPerson(string personString)

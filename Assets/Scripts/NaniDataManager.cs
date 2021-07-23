@@ -9,11 +9,12 @@ public class NaniDataManager
 {
     public int p_turn, p_age, p_health, p_mana, p_happiness, p_money, p_monthlyCashFlow;
     public int p_missionsCompleted, p_maxhealth, p_networth, p_stat_str, p_stat_vit, p_stat_dex, p_stat_int, p_stat_wis, p_stat_char;
-    public string p_title, p_sex;
+    public string p_title, p_sex, friend_sl_1, friend_sl_2, friend_sl_3;
 
     string jsonItems;
 
     public Constants MY_CONSTANTS = new Constants();
+    public RelationshipManager relationshipManager = new RelationshipManager();
 
     // TODO: SET THIS VARIABLES LATER
 
@@ -34,6 +35,11 @@ public class NaniDataManager
         string jsonItems2 = "{\"items\":[{ \"title\": \"potion\",\"description\": \"hello world\"}]}";
         var items = SimpleJSON.JSON.Parse(jsonItems2);
         Debug.Log(items["items"][0]["title"].Value);
+
+    }
+
+    public void initializeSocial()
+    {
 
     }
 
@@ -106,6 +112,10 @@ public class NaniDataManager
 
         variableManager.TryGetVariableValue<int>("p_currentInjuries", out p_currentInjuries);
 
+        variableManager.TryGetVariableValue<string>("friend_sl_1", out friend_sl_1);
+        variableManager.TryGetVariableValue<string>("friend_sl_2", out friend_sl_2);
+        variableManager.TryGetVariableValue<string>("friend_sl_3", out friend_sl_3);
+
         postCareerSuccess();
 
 
@@ -142,10 +152,14 @@ public class NaniDataManager
         // variableManager.TrySetVariableValue("p_tradeS", p_tradeS);
         // variableManager.TrySetVariableValue("p_farmerS", p_farmerS);
         // variableManager.TrySetVariableValue("p_civilServantS", p_civilServantS);
+
+
+
         variableManager.TrySetVariableValue("p_aventurerS", p_aventurerS);
-        // variableManager.TrySetVariableValue("p_mercenaryS", p_mercenaryS);
         variableManager.TrySetVariableValue("p_soldierS", p_soldierS);
         variableManager.TrySetVariableValue("p_currentInjuries", p_currentInjuries);
+
+        // TODO: Set the relationshipDataHerelater
 
 
 
@@ -184,6 +198,51 @@ public class NaniDataManager
 
             default:
                 dataToReturn = "typein Exceeded";
+                break;
+
+        }
+
+
+        return dataToReturn;
+    }
+
+    public string getThisPersonData(Person targetPerson, string typeIn)
+    {
+        string dataToReturn = "";
+        typeIn = typeIn.ToLower();
+        switch (typeIn)
+        {
+            case "a":
+                dataToReturn = targetPerson.name;
+                break;
+
+            case "b":
+                dataToReturn = targetPerson.race.ToString();
+                break;
+
+            case "c":
+                dataToReturn = targetPerson.gender.ToString();
+                break;
+
+            case "d":
+                dataToReturn = targetPerson.socialClassType.ToString();
+                break;
+
+            case "e":
+                dataToReturn = targetPerson.age.ToString();
+                break;
+            case "f":
+                dataToReturn = targetPerson.level.ToString();
+                break;
+            case "g":
+                dataToReturn = targetPerson.relationship.ToString();
+                break;
+            case "h":
+                dataToReturn = targetPerson.socialClassType.ToString();
+                break;
+
+            default:
+                dataToReturn = "Social typein Exceeded";
                 break;
 
         }

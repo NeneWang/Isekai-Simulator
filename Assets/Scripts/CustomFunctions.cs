@@ -9,9 +9,14 @@ using UnityEngine;
 public static class CustomFunctions
 {
 
-    public enum careerEnum
+    public enum enumCareer
     {
         Soldier = 1, Aventurer = 2, Merchant = 3
+    }
+
+    public enum enumSocial
+    {
+        Personal = 1, Lover = 2, Friend_1 = 3, Friend_2 = 4, Friend_3 = 5
     }
 
     public static bool addMoney(int addMoney)
@@ -89,7 +94,41 @@ public static class CustomFunctions
 
     }
 
-    public static string getCareerData(int careerEnumIn, string typeIn)
+    public static string getPersonData(int enumSocialIn, string typeIn)
+    {
+
+        string variableToReturn = "";
+        NaniDataManager naniDataManager = new NaniDataManager();
+
+        switch (enumSocialIn)
+        {
+            case ((int)enumSocial.Personal):
+
+                variableToReturn = naniDataManager.getThisPersonData(naniDataManager.relationshipManager.player, typeIn);
+                break;
+            case ((int)enumSocial.Lover):
+
+                variableToReturn = naniDataManager.getThisPersonData(naniDataManager.relationshipManager.lover, typeIn);
+                break;
+            case ((int)enumSocial.Friend_1):
+
+                variableToReturn = naniDataManager.getThisPersonData(naniDataManager.relationshipManager.friends[1], typeIn);
+                break;
+            case ((int)enumSocial.Friend_2):
+
+                variableToReturn = naniDataManager.getThisPersonData(naniDataManager.relationshipManager.friends[1], typeIn);
+                break;
+            case ((int)enumSocial.Friend_3):
+
+                variableToReturn = naniDataManager.getThisPersonData(naniDataManager.relationshipManager.friends[2], typeIn);
+                break;
+        }
+
+        return variableToReturn;
+
+    }
+
+    public static string getCareerData(int enumCareerIn, string typeIn)
     {
 
 
@@ -99,19 +138,19 @@ public static class CustomFunctions
 
 
 
-        switch (careerEnumIn)
+        switch (enumCareerIn)
         {
 
-            case ((int)careerEnum.Soldier):
+            case ((int)enumCareer.Soldier):
                 variableToReturn = naniDataManager.getThisCareerData(naniDataManager.soldierCareer, typeIn);
                 break;
 
-            case ((int)careerEnum.Aventurer):
-                variableToReturn = naniDataManager.getThisCareerData(naniDataManager.soldierCareer, typeIn);
+            case ((int)enumCareer.Aventurer):
+                variableToReturn = naniDataManager.getThisCareerData(naniDataManager.aventurerCareer, typeIn);
                 break;
 
-            case ((int)careerEnum.Merchant):
-                variableToReturn = naniDataManager.getThisCareerData(naniDataManager.soldierCareer, typeIn);
+            case ((int)enumCareer.Merchant):
+                variableToReturn = naniDataManager.getThisCareerData(naniDataManager.merchantCareer, typeIn);
                 break;
 
             default:
