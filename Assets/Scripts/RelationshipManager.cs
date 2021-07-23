@@ -5,26 +5,19 @@ using UnityEngine;
 public class RelationshipManager
 {
     // MAX 2 friends
-    public List<Person> friends = new List<Person>();
-    public int maxFriends = 2;
+    public static int maxFriends = 6;
+    public int currentAmountFriends = 0;
+    public Person[] friends = new Person[maxFriends];
     // Friends 
     public Person lover, player;
 
     public void initializeFriendsWithString(string[] friendsData)
     {
-        foreach (string friendData in friendsData)
+        for (int i = 0; i < friendsData.Length; i++)
         {
-
-
-            if (friendData != "EMPTY")
-            {
-
-
-
-                addFriend(dataToPerson(friendData));
-                return;
-            }
-
+            // Debug.Log("Initializing: " + friendsData[i]);
+            friends[i] = dataToPerson(friendsData[i]);
+            currentAmountFriends++;
         }
     }
 
@@ -32,7 +25,7 @@ public class RelationshipManager
     {
 
         string[] personArray = personString.Split('!');
-        
+
 
 
         Person newPerson = new Person(personArray[0]);
@@ -47,19 +40,33 @@ public class RelationshipManager
 
     }
 
-
-    public void addFriend(Person friendToAdd)
+    public Person getFriendN(int friendNumber)
     {
-
-        if (friends.Count >= maxFriends)
+        if (friendNumber > currentAmountFriends)
         {
-            return;
+            return friends[0];
         }
 
-        friends.Add(friendToAdd);
+        // Debug.Log("Attempted to get friend" + "using " + friendNumber.ToString());
+
+        return friends[friendNumber];
+
     }
 
-    public List<Person> getFriends()
+
+    // public void addFriend(Person friendToAdd)
+    // {
+
+    //     currentAmountFriends++;
+    //     if (friends.Length >= maxFriends)
+    //     {
+    //         return;
+    //     }
+
+    //     friends.Add(friendToAdd);
+    // }
+
+    public Person[] getFriends()
     {
         return friends;
     }

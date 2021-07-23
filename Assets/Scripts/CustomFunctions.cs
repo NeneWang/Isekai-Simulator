@@ -112,15 +112,15 @@ public static class CustomFunctions
                 break;
             case ((int)enumSocial.Friend_1):
 
-                variableToReturn = naniDataManager.getThisPersonData(naniDataManager.relationshipManager.friends[0], typeIn);
+                variableToReturn = naniDataManager.getThisPersonData(naniDataManager.relationshipManager.getFriendN(0), typeIn);
                 break;
             case ((int)enumSocial.Friend_2):
 
-                variableToReturn = naniDataManager.getThisPersonData(naniDataManager.relationshipManager.friends[1], typeIn);
+                variableToReturn = naniDataManager.getThisPersonData(naniDataManager.relationshipManager.getFriendN(1), typeIn);
                 break;
             case ((int)enumSocial.Friend_3):
 
-                variableToReturn = naniDataManager.getThisPersonData(naniDataManager.relationshipManager.friends[2], typeIn);
+                variableToReturn = naniDataManager.getThisPersonData(naniDataManager.relationshipManager.getFriendN(2), typeIn);
                 break;
             default:
                 variableToReturn = "Error index out of bound enum Social In";
