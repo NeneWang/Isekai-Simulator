@@ -27,13 +27,11 @@ public class Person
     string[] races = { "Human", "Elf", "Orc", "Dwarf" };
 
 
-    string name, gender;
-    EnumRaces race = EnumRaces.Human;
-    EnumSocialClassType socialClassType = EnumSocialClassType.Average;
+    public string name, gender;
+    public EnumRaces race = EnumRaces.Human;
+    public EnumSocialClassType socialClassType = EnumSocialClassType.Average;
 
-
-
-    int age = 18, level = 1, relationship;
+    public int age = 18, level = 1, relationship;
     public Person(string nameIn)
     {
         name = nameIn;

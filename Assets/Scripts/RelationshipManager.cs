@@ -10,10 +10,28 @@ public class RelationshipManager
     // Friends 
     Person marriagePartner;
 
-    public void initializeFriendsWithString(){
-        
+    public void initializeFriendsWithString(string[] friendsData)
+    {
+
     }
 
+    public Person dataToPerson(string personString)
+    {
+
+
+        string[] personArray = personString.Split('!');
+
+        Person newPerson = new Person(personArray[0]);
+        // TODO: Implement race and social classtype later
+        newPerson.gender = personArray[0];
+        newPerson.age = int.Parse(personArray[4]);
+        newPerson.level = int.Parse(personArray[5]);
+        newPerson.relationship = int.Parse(personArray[6]);
+
+
+        return newPerson;
+
+    }
 
 
     public void addFriend(Person friendToAdd)
@@ -26,8 +44,6 @@ public class RelationshipManager
 
         friends.Add(friendToAdd);
     }
-
-
 
     public List<Person> getFriends()
     {
