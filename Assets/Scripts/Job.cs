@@ -50,7 +50,9 @@ public class Job
     public void successfullyCompletedThisJob()
     {
         careerSuccess++;
+        
     }
+
 
     
 
