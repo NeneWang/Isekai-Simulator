@@ -11,19 +11,33 @@ public enum EnumRaces
 
 
 // TODO: Work on the class types later
-public enum classType
+public enum EnumFightingClassType
 {
     Fighter, Swordman, Ranger, Archer, Assasin, Mechanic
+}
+
+
+// TODO: Change this as Social class type later instead of enums
+public enum EnumSocialClassType
+{
+    FamilyPerson, Friendly, Lovely, Artist, Creative, NaturalFighter, Average
 }
 
 
 public class Person
 {
 
+
+    string[] races = { "Human", "Elf", "Orc", "Dwarf" };
+
+
     string name, gender;
     EnumRaces race = EnumRaces.Human;
+    EnumSocialClassType socialClassType = EnumSocialClassType.Average;
 
-    int age = 18, level = 1;
+
+
+    int age = 18, level = 1, relationship;
     public Person(string nameIn)
     {
         name = nameIn;
@@ -33,13 +47,12 @@ public class Person
     public string getRace()
     {
 
-        string[] races = { "Human", "Elf", "Orc", "Dwarf" };
         return races[((int)race)];
     }
 
     public void levelUp()
     {
-
+        level++;
     }
 
     public void oneYearOlder()
