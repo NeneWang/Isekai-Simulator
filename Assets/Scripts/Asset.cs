@@ -17,11 +17,12 @@ interface Asset
 class RealEstate : Asset
 {
     public int price = 0;
-    public string name = "carp", description = "Simple and free.";
+    public string name = "Carp", description = "Simple and free.";
     public int happinessModifier = 0, HealthModifier = 0;
     public void turnModifier(NaniDataManager naniDataManager)
     {
-
+        naniDataManager.p_health += HealthModifier;
+        naniDataManager.p_happiness += happinessModifier;
 
     }
 
