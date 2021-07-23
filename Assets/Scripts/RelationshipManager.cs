@@ -2,18 +2,31 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RelationshipManager 
+public class RelationshipManager
 {
     // MAX 2 friends
-    Person[] friends = new Person[2];
+    public List<Person> friends = new List<Person>();
+    public int maxFriends = 2;
     // Friends 
     Person marriage;
 
 
 
+    public void addFriend(Person friendToAdd)
+    {
+
+        if (friends.Count >= maxFriends)
+        {
+            return;
+        }
+
+        friends.Add(friendToAdd);
+    }
 
 
-    public Person[] getFriends(){
+
+    public List<Person> getFriends()
+    {
         return friends;
     }
 
