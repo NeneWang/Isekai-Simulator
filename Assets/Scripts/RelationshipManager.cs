@@ -14,15 +14,26 @@ public class RelationshipManager
     {
         foreach (string friendData in friendsData)
         {
-            addFriend(dataToPerson(friendData));
+
+
+            if (friendData != "EMPTY")
+            {
+
+
+
+                addFriend(dataToPerson(friendData));
+                return;
+            }
+
         }
     }
 
     public Person dataToPerson(string personString)
     {
 
-
         string[] personArray = personString.Split('!');
+        
+
 
         Person newPerson = new Person(personArray[0]);
         // TODO: Implement race and social classtype later

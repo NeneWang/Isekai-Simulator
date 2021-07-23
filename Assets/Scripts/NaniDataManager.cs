@@ -116,9 +116,19 @@ public class NaniDataManager
         variableManager.TryGetVariableValue<string>("friend_sl_2", out friend_sl_2);
         variableManager.TryGetVariableValue<string>("friend_sl_3", out friend_sl_3);
 
+
+        setupRelationshipManger();
         postCareerSuccess();
 
 
+
+    }
+
+    public void setupRelationshipManger()
+    {
+        relationshipManager.initializeFriendsWithString(new string[] { friend_sl_1, friend_sl_2, friend_sl_3 });
+
+        // TODO: Add Personal and Love Interest
 
     }
 
