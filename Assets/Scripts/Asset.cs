@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-interface Asset
+public interface Asset
 {
     int getPrice();
     string getTitle();
@@ -14,16 +14,28 @@ interface Asset
 
 
 
-class RealEstate : Asset
+public class RealEstate : Asset
 {
     public int price = 0;
     public string name = "Carp", description = "Simple and free.";
-    public int happinessModifier = 0, HealthModifier = 0;
+    public int happinessModifier = 0, healthModifier = 0;
     public void turnModifier(NaniDataManager naniDataManager)
     {
-        naniDataManager.p_health += HealthModifier;
+        naniDataManager.p_health += healthModifier;
         naniDataManager.p_happiness += happinessModifier;
 
+    }
+
+    public RealEstate()
+    {
+
+    }
+    public RealEstate(string nameIn, string descriptionIn, int happinessModifierIn, int healthModifierIn)
+    {
+        name = nameIn;
+        description = descriptionIn;
+        happinessModifier = happinessModifierIn;
+        healthModifier = healthModifierIn;
     }
 
     public int getPrice()

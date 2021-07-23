@@ -6,12 +6,20 @@ using UnityEngine;
 public class Constants
 {
     public List<Job> jobList = new List<Job>();
-    
+
+    public RealEstate carp = new RealEstate();
+    public RealEstate farm = new RealEstate();
+    public RealEstate tavern = new RealEstate();
+    public RealEstate cabin = new RealEstate();
+
+
     public Items items = new Items();
 
     public Constants()
     {
         createJobs();
+
+
     }
 
     public void createJobs()
