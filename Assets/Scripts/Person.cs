@@ -8,8 +8,6 @@ public enum EnumRaces
     Human, Elf, Orc, Dwarf
 }
 
-
-
 // TODO: Work on the class types later
 public enum EnumFightingClassType
 {
@@ -26,8 +24,6 @@ public enum EnumSocialClassType
 
 public class Person
 {
-
-
     string[] races = { "Human", "Elf", "Orc", "Dwarf" };
 
 
