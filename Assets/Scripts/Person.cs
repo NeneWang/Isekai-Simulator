@@ -2,17 +2,20 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Person : MonoBehaviour
+
+enum EnumRaces {
+    Human, Elf, Orc, Drawf
+}
+
+public class Person
 {
-    // Start is called before the first frame update
-    void Start()
+    string name, gender;
+
+    int age = 18;
+    public Person(string nameIn)
     {
-        
+        name = nameIn;
+
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
