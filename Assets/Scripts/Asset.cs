@@ -30,9 +30,10 @@ public class RealEstate : Asset
     {
 
     }
-    public RealEstate(string nameIn, string descriptionIn, int happinessModifierIn, int healthModifierIn)
+    public RealEstate(string nameIn, int priceIn, string descriptionIn, int happinessModifierIn, int healthModifierIn)
     {
         name = nameIn;
+        price = priceIn;
         description = descriptionIn;
         happinessModifier = happinessModifierIn;
         healthModifier = healthModifierIn;

@@ -7,10 +7,10 @@ public class Constants
 {
     public List<Job> jobList = new List<Job>();
 
-    public RealEstate carp = new RealEstate();
-    public RealEstate farm = new RealEstate();
-    public RealEstate tavern = new RealEstate();
-    public RealEstate cabin = new RealEstate();
+    public RealEstate carp = new RealEstate("Carp", 0, "Simple and free.", -1, -1);
+    public RealEstate farm = new RealEstate("Farm", 2, "Living along the cows and horses... At least there is a roof..", -1, 0);
+    public RealEstate tavern = new RealEstate("Tavern", 0, "Living along the cows and horses... At least there is a roof..", 1, 0);
+    public RealEstate cabin = new RealEstate("Cabin", 0, "A sweet tavern, full of beer and travellers..", 1, 1);
 
 
     public Items items = new Items();
@@ -18,6 +18,8 @@ public class Constants
     public Constants()
     {
         createJobs();
+
+
 
 
     }
