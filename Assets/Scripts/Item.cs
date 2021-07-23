@@ -22,4 +22,19 @@ public class Item : Asset
         adquiredAmount++;
     }
 
+
+    public int getPrice()
+    {
+        return price;
+    }
+    public string getTitle()
+    {
+        return title;
+    }
+
+    public string getDescription()
+    {
+        return description;
+    }
+
 }
