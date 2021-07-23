@@ -8,7 +8,11 @@ public class RelationshipManager
     public List<Person> friends = new List<Person>();
     public int maxFriends = 2;
     // Friends 
-    Person marriage;
+    Person marriagePartner;
+
+    public void initializeFriendsWithString(){
+        
+    }
 
 
 

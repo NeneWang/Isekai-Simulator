@@ -32,6 +32,10 @@ loading profile
 
 @set p_currentInjuries=0
 
+@set friend_sl_="NELSON!HU!MA!1!20!100"
+@set friend_s2_="EMPTY"
+@set friend_s2_="EMPTY"
+
 ; @set _={workAsMerchant()}
 ; @set _={workAsAventurer()}
 @set _={workAsSoldier()}
