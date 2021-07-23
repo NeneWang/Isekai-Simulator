@@ -10,7 +10,7 @@ public class Items
         items.Add(newItem);
     }
 }
-public class Item
+public class Item : Asset
 {
     public string title;
     public string description;

@@ -6,6 +6,7 @@ using UnityEngine;
 public class Constants
 {
     public List<Job> jobList = new List<Job>();
+    
     public Items items = new Items();
 
     public Constants()

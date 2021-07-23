@@ -103,23 +103,18 @@ public static class CustomFunctions
         switch (enumSocialIn)
         {
             case ((int)enumSocial.Personal):
-
                 variableToReturn = naniDataManager.getThisPersonData(naniDataManager.relationshipManager.player, typeIn);
                 break;
             case ((int)enumSocial.Lover):
-
                 variableToReturn = naniDataManager.getThisPersonData(naniDataManager.relationshipManager.lover, typeIn);
                 break;
             case ((int)enumSocial.Friend_1):
-
                 variableToReturn = naniDataManager.getThisPersonData(naniDataManager.relationshipManager.getFriendN(0), typeIn);
                 break;
             case ((int)enumSocial.Friend_2):
-
                 variableToReturn = naniDataManager.getThisPersonData(naniDataManager.relationshipManager.getFriendN(1), typeIn);
                 break;
             case ((int)enumSocial.Friend_3):
-
                 variableToReturn = naniDataManager.getThisPersonData(naniDataManager.relationshipManager.getFriendN(2), typeIn);
                 break;
             default:
@@ -133,13 +128,8 @@ public static class CustomFunctions
 
     public static string getCareerData(int enumCareerIn, string typeIn)
     {
-
-
         string variableToReturn = "";
-
         NaniDataManager naniDataManager = new NaniDataManager();
-
-
 
         switch (enumCareerIn)
         {
