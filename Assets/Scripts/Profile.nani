@@ -82,12 +82,22 @@
 #buildingMarket
 @resetText
 @gosub .printMainStatus 
-@choice "Camping -CF: 0$ "
-@choice "Rent roof in a farm -CF -2$"
-@choice "Rent a tavern room -CF -5$"
-@choice "Rent roof in a farm -CF -2$"
+@choice "Camping -CF: 0$ " goto:.rentCamp
+@choice "Rent roof in a farm -CF -2$" goto:.rentFarm
+@choice "Rent a tavern room -CF -5$" goto:.rentTavern
+@choice "Rent A Cabin -CF -15$" goto:.rentCabin
 @choice "go back" goto:.market
 @stop
+
+#rentCamp
+@set p_livingmethod=0
+#rentFarm
+@set p_livingmethod=1
+#rentTavern
+@set P_livingmethod=2
+#rentCabin
+@set p_livingmethod=3
+
 
 #itemMarket
 @resetText
