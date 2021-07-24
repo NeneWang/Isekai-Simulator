@@ -55,7 +55,7 @@
 
 #workMerchant
 @set _={workAsMerchant()}
-"You worked as Aventurer"
+"You worked as Merchant"
 @gosub .job
 @return
 

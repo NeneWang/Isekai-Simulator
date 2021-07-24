@@ -23,9 +23,17 @@ public static class CustomFunctions
     {
 
         // TODO: Adds one to the personal turn, 
+        NaniDataManager datanani = new NaniDataManager();
+        datanani.p_turn++;
+        // Reduce money given the livinghoods you should set up the modifiers in addition to the life and what not
+        // Reduce because of the other effects
+        datanani.updateStatistics();
+        datanani.saveData();
 
         return true;
     }
+
+   
 
     public static bool addMoney(int addMoney)
     {

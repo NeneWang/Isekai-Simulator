@@ -8,8 +8,10 @@ using UnityEngine;
 public class NaniDataManager
 {
 
-    
-    public int p_turn, p_age, p_health, p_mana, p_happiness, p_money, p_monthlyCashFlow;
+    // Accumulative, not intnded to be added here
+    public int accumulativeHappinessModifier, accumulativeHealthModifier;
+
+    public int p_turn, p_age, p_health, p_mana, p_happiness, p_money, p_monthlyCashFlow, p_livingmethod;
     public int p_missionsCompleted, p_maxhealth, p_networth, p_stat_str, p_stat_vit, p_stat_dex, p_stat_int, p_stat_wis, p_stat_char;
     public string p_title, p_sex, friend_sl_1, friend_sl_2, friend_sl_3, lover_sl_1;
 
@@ -31,6 +33,34 @@ public class NaniDataManager
         fetch();
 
     }
+
+    // Updates stuff like 
+    public void updateStatistics()
+    {
+        applyEffects();
+
+    }
+
+    public void applyEffects()
+    {
+        p_health += accumulativeHealthModifier;
+        p_happiness += accumulativeHappinessModifier;
+        p_money += p_monthlyCashFlow;
+    }
+
+    public void updateModifiers()
+    {
+        // Cashflow 
+        RealEstate[] realEstates = { MY_CONSTANTS.carp, MY_CONSTANTS.farm, MY_CONSTANTS.tavern, MY_CONSTANTS.cabin };
+        p_monthlyCashFlow -= realEstates[p_livingmethod].getPrice();
+        // Happiness
+
+        p_happiness += realEstates[p_livingmethod].happinessModifier;
+
+        // Health
+        p_health += realEstates[p_livingmethod].happinessModifier;
+    }
+
     public void initializeSampleItems()
     {
 
@@ -83,7 +113,7 @@ public class NaniDataManager
 
         var variableManager = Engine.GetService<ICustomVariableManager>();
 
-        
+
 
         variableManager.TryGetVariableValue<int>("p_turn", out p_turn);
         variableManager.TryGetVariableValue<int>("p_age", out p_age);
@@ -123,8 +153,11 @@ public class NaniDataManager
 
         variableManager.TryGetVariableValue<string>("lover_sl_1", out lover_sl_1);
 
+        variableManager.TryGetVariableValue<int>("p_livingmethod", out p_livingmethod);
+
         setupRelationshipManger();
         postCareerSuccess();
+        updateModifiers();
 
 
 
