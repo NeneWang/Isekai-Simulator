@@ -6,15 +6,12 @@
 @gosub .printMenuChoices
 
 
-
 ; //////////////////////////////////////// ###FUNCTIONS 
 @stop
-
 ;Copy for all files cause you can't import
 #printMainStatus
 "health: {p_health} Mana: {p_mana} Happinness: {p_happiness} Money: {p_money}"
 @return
-
 
 #printMenuChoices
 ; @choice "Profile" goto:Profile.profile
@@ -24,13 +21,10 @@
 @choice "Relationship" goto:.relationship
 @return
 
-
 ; //////////////////////////////////////// ###LEARNING
 #learning
 @resetText
-
 @stop
-
 
 ; //////////////////////////////////////// ###JOB
 #job
@@ -43,8 +37,8 @@
 ;Here it should show the jobs that are available there for example, work on the granja and stuff like that
 #printJobChoices
 @choice "Work as {getCareerData(1, "d")} Soldier {p_soldierS}" goto:.workSoldier
-@choice "Work as aventurer {p_aventurerS} " goto:.workAventurer
-@choice "Work as Merchant {p_merchantS}" goto:.workMerchant
+@choice "Work as {p_aventurerS} " goto:.workAventurer
+@choice "Work as {p_merchantS}" goto:.workMerchant
 @return
 
 #workSoldier
@@ -88,8 +82,10 @@
 #buildingMarket
 @resetText
 @gosub .printMainStatus 
-@choice "Buy House "
-@choice "Buy Farm"
+@choice "Camping -CF: 0$ "
+@choice "Rent roof in a farm -CF -2$"
+@choice "Rent a tavern room -CF -5$"
+@choice "Rent roof in a farm -CF -2$"
 @choice "go back" goto:.market
 @stop
 
@@ -130,9 +126,4 @@
 ; @choice "Visit Friend Slot G"
 
 @stop
-
-
-
-
-
 

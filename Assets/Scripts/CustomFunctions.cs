@@ -19,6 +19,14 @@ public static class CustomFunctions
         Personal = 1, Lover = 2, Friend_1 = 3, Friend_2 = 4, Friend_3 = 5
     }
 
+    public static bool loadNextTurn()
+    {
+
+        // TODO: Adds one to the personal turn, 
+
+        return true;
+    }
+
     public static bool addMoney(int addMoney)
     {
 

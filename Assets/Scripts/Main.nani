@@ -37,6 +37,8 @@ loading profile
 @set friend_sl_3="EMPTY!-!-!-!0!0!0"
 @set lover_sl_1="EMPTY!-!-!-!0!0!0"
 
+@set p_livingmethod=0
+
 ; @set _={workAsMerchant()}
 ; @set _={workAsAventurer()}
 ; @set _={workAsSoldier()}
