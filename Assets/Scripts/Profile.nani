@@ -91,12 +91,16 @@
 
 #rentCamp
 @set p_livingmethod=0
+@set _={loadNextTurn()}
 #rentFarm
 @set p_livingmethod=1
+@set _={loadNextTurn()}
 #rentTavern
 @set P_livingmethod=2
+@set _={loadNextTurn()}
 #rentCabin
 @set p_livingmethod=3
+@set _={loadNextTurn()}
 
 
 #itemMarket
