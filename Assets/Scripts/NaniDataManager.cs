@@ -26,9 +26,6 @@ public class NaniDataManager
     public int p_currentInjuries, p_merchantS = 0, p_tradeS = 0, p_farmerS = 0, p_civilServantS = 0, p_aventurerS = 0, p_mercenaryS = 0, p_soldierS = 0;
     public NaniDataManager()
     {
-
-        // Initialization of variables and stuff 
-        // TODO: Remove this
         initializeCareers();
         fetch();
 
