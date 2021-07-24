@@ -53,12 +53,12 @@ public class NaniDataManager
         // Cashflow 
         RealEstate[] realEstates = { MY_CONSTANTS.carp, MY_CONSTANTS.farm, MY_CONSTANTS.tavern, MY_CONSTANTS.cabin };
         p_monthlyCashFlow -= realEstates[p_livingmethod].getPrice();
-        
+
         // Happiness
-        p_happiness += realEstates[p_livingmethod].happinessModifier;
+        accumulativeHappinessModifier += realEstates[p_livingmethod].happinessModifier;
 
         // Health
-        p_health += realEstates[p_livingmethod].happinessModifier;
+        accumulativeHealthModifier += realEstates[p_livingmethod].happinessModifier;
     }
 
     public void initializeSampleItems()

@@ -44,18 +44,21 @@
 #workSoldier
 @set _={workAsSoldier()}
 "You worked as soldier"
+@set _={loadNextTurn()}
 @gosub .job
 @return
 
 #workAventurer
 @set _={workAsAventurer()}
 "You worked as Aventurer"
+@set _={loadNextTurn()}
 @gosub .job
 @return
 
 #workMerchant
 @set _={workAsMerchant()}
 "You worked as Merchant"
+@set _={loadNextTurn()}
 @gosub .job
 @return
 
@@ -64,8 +67,10 @@
 #market
 @resetText
 @gosub .printMainStatus 
-@choice "Buy Equipment"  goto:.equipmentMarket
-@choice "Buy Market" goto:.buildingMarket
+; @choice "Buy Equipment"  goto:.equipmentMarket
+; @choice "Buy Market" goto:.buildingMarket
+@gosub .buildingMarketOptions
+
 @gosub .printMenuChoices
 @stop
 
@@ -82,25 +87,25 @@
 #buildingMarket
 @resetText
 @gosub .printMainStatus 
+@gosub .buildingMarketOptions
+@choice "go back" goto:.market
+@stop
+
+#buildingMarketOptions
 @choice "Camping -CF: 0$ " goto:.rentCamp
 @choice "Rent roof in a farm -CF -2$" goto:.rentFarm
 @choice "Rent a tavern room -CF -5$" goto:.rentTavern
 @choice "Rent A Cabin -CF -15$" goto:.rentCabin
-@choice "go back" goto:.market
-@stop
+@return
 
 #rentCamp
 @set p_livingmethod=0
-@set _={loadNextTurn()}
 #rentFarm
 @set p_livingmethod=1
-@set _={loadNextTurn()}
 #rentTavern
 @set P_livingmethod=2
-@set _={loadNextTurn()}
 #rentCabin
 @set p_livingmethod=3
-@set _={loadNextTurn()}
 
 
 #itemMarket
