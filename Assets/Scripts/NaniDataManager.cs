@@ -7,6 +7,8 @@ using UnityEngine;
 // Overall data manager
 public class NaniDataManager
 {
+
+    
     public int p_turn, p_age, p_health, p_mana, p_happiness, p_money, p_monthlyCashFlow;
     public int p_missionsCompleted, p_maxhealth, p_networth, p_stat_str, p_stat_vit, p_stat_dex, p_stat_int, p_stat_wis, p_stat_char;
     public string p_title, p_sex, friend_sl_1, friend_sl_2, friend_sl_3, lover_sl_1;
@@ -80,6 +82,9 @@ public class NaniDataManager
     {
 
         var variableManager = Engine.GetService<ICustomVariableManager>();
+
+        
+
         variableManager.TryGetVariableValue<int>("p_turn", out p_turn);
         variableManager.TryGetVariableValue<int>("p_age", out p_age);
         variableManager.TryGetVariableValue<string>("p_sex", out p_sex);
@@ -98,7 +103,6 @@ public class NaniDataManager
         variableManager.TryGetVariableValue<int>("p_stat_int", out p_stat_int);
         variableManager.TryGetVariableValue<int>("p_stat_wis", out p_stat_wis);
         variableManager.TryGetVariableValue<int>("p_stat_char", out p_stat_char);
-
 
 
         variableManager.TryGetVariableValue<int>("p_merchantS", out p_merchantS);
