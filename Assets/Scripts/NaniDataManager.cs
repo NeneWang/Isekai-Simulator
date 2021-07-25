@@ -43,6 +43,8 @@ public class NaniDataManager
         p_health += accumulativeHealthModifier;
         p_happiness += accumulativeHappinessModifier;
         p_money += p_monthlyCashFlow;
+
+        
     }
 
     public void updateModifiers()

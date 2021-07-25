@@ -9,13 +9,19 @@ public class Business
     int businessReputation;
     int maxReputation = 100;
     int unitEmployeeRevenue = 2;
-    int businessRank;
+    int businessRank = 0;
     int baseEmployeeCost;
+
+    int cashflowB1 = 10;
+
+
 
     int cashFlow
     {
         get => getCashflow();
     }
+
+
 
     List<Worker> employees = new List<Worker>();
 
@@ -36,13 +42,14 @@ public class Business
         return totalCashflow;
     }
 
-    public Business(string nameIn, int startupCostIn, int businessReputationIn, int unitEmployeeRevenueIn, int baseEmployeeCostIn)
+    public Business(string nameIn, int startupCostIn, int businessReputationIn, int unitEmployeeRevenueIn, int baseEmployeeCostIn, int cashFlowB1In)
     {
         name = nameIn;
         startupCost = startupCostIn;
         businessReputation = businessReputationIn;
         unitEmployeeRevenue = unitEmployeeRevenueIn;
         baseEmployeeCost = baseEmployeeCostIn;
+        cashFlowB1In = cashFlowB1In;
 
     }
 
