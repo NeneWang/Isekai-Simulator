@@ -104,6 +104,11 @@ public class NaniDataManager
         p_happiness += accumulativeHappinessModifier;
         p_money += p_monthlyCashFlow;
 
+        // Business income
+        p_money += MY_CONSTANTS.securityCompany.cashflowB1 * securityCompany;
+        p_money += MY_CONSTANTS.alchemyCompany.cashflowB1 * alchemyCompany;
+        p_money += MY_CONSTANTS.travelMerchant.cashflowB1 * travelMerchant;
+
 
     }
 
@@ -453,15 +458,6 @@ public class NaniDataManager
     {
         p_turn++;
     }
-
-
-
-
-
-
-
-
-    // WORK
 
 
 }
