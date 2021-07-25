@@ -13,6 +13,13 @@ public class Constants
     public RealEstate cabin = new RealEstate("Cabin", 10, "The vermintide dream.", 1, 1);
 
 
+    // The Business Instantations
+
+    public Business securityCompany = new Business("SecurityCompany", 500, 0, 1, 10);
+    public Business alchemyCompany = new Business("Alchemy", 1000, 0, 2, 20);
+    public Business travelMerchant = new Business("Travel Merchant", 1000, 0, 1, 8);
+
+
     public Items items = new Items();
 
     public Constants()
@@ -20,7 +27,7 @@ public class Constants
         createJobs();
     }
 
-    
+
 
     public void createJobs()
     {

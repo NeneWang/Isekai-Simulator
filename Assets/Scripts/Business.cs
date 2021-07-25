@@ -5,11 +5,14 @@ using UnityEngine;
 public class Business
 {
     string name;
+    // TODO: Make this a getter instead
     int cashflow;
-    int startupCost;
+    int startupCost=500;
     int businessReputation;
-    int unitEmployeeRevenue;
-    string businessRank;
+    int maxReputation= 100;
+    int unitEmployeeRevenue = 1;
+    int businessRank;
+    int baseEmployeeCost;
 
     List<Worker> employees = new List<Worker>();
 
@@ -17,6 +20,21 @@ public class Business
     {
         get => employees.Count;
     }
+
+    public Business(string nameIn, int startupCostIn, int businessReputationIn, int unitEmployeeRevenueIn, int baseEmployeeCostIn)
+    {
+        name = nameIn;
+        startupCost = startupCostIn;
+        businessReputation = businessReputationIn;
+        unitEmployeeRevenue = unitEmployeeRevenueIn;
+        baseEmployeeCost = baseEmployeeCostIn;
+
+    }
+
+    // TODO: Create a business Rank Title based on the business rank
+
+
+
 }
 public class Worker
 {
@@ -24,5 +42,6 @@ public class Worker
     double multipliyer;
     double learningSpeed;
     double maxMultiplier;
+    int employeeCost;
 
 }
