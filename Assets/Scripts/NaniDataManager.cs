@@ -127,7 +127,7 @@ public class NaniDataManager
 
     public bool canPurchase(int price)
     {
-        if (price >= p_money)
+        if (price <= p_money)
         {
             return true;
         }
