@@ -483,7 +483,7 @@ public class NaniDataManager
 
     public void healFull(){
         p_health=p_maxhealth;
-        Debug.Log("Healed");
+        // Debug.Log("Healed");
     }
 
 
