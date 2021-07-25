@@ -8,6 +8,7 @@ public class Business
     int cashflow;
     int startupCost;
     int businessReputation;
+    int unitEmployeeRevenue;
     string businessRank;
 
     List<Worker> employees = new List<Worker>();
@@ -19,5 +20,9 @@ public class Business
 }
 public class Worker
 {
+    string name;
+    double multipliyer;
+    double learningSpeed;
+    double maxMultiplier;
 
 }
