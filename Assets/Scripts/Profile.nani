@@ -1,4 +1,5 @@
 #profile
+@resetText
 @printer Fullscreen
 @gosub .printMainStatus
 "Age: {p_age} Sex: {p_sex} Net Worth: {p_networth} Cashflow: {p_monthlyCashFlow} title: {p_title}"
@@ -14,11 +15,12 @@
 @return
 
 #printMenuChoices
-; @choice "Profile" goto:Profile.profile
+@choice "Profile" goto:.profile
 @choice "Market" goto:.market 
 @choice "Jobs" goto:.job
 @choice "Learning" goto:.learning
 @choice "Relationship" goto:.relationship
+@choice "Take a break" goto:.takeABreak
 @return
 
 ; //////////////////////////////////////// ###LEARNING
@@ -33,6 +35,17 @@
 @gosub .printJobChoices
 @gosub .printMenuChoices
 @stop
+
+#takeABreak
+@resetText
+@set _={increaseTurn()}
+@set p_happiness=100 
+"You took a nice break"
+@goto .profile
+@return
+
+
+
 
 ;Here it should show the jobs that are available there for example, work on the granja and stuff like that
 #printJobChoices
