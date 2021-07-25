@@ -250,6 +250,7 @@ public static class CustomFunctions
                 break;
 
         }
+        naniDataManager.saveData();
 
         return true;
     }
