@@ -5,20 +5,35 @@ using UnityEngine;
 public class Business
 {
     string name;
-    // TODO: Make this a getter instead
-    int cashflow;
     int startupCost = 500;
     int businessReputation;
     int maxReputation = 100;
-    int unitEmployeeRevenue = 1;
+    int unitEmployeeRevenue = 2;
     int businessRank;
     int baseEmployeeCost;
+
+    int cashFlow
+    {
+        get => getCashflow();
+    }
 
     List<Worker> employees = new List<Worker>();
 
     public int eemployeesCount
     {
         get => employees.Count;
+    }
+
+    public int getCashflow()
+    {
+        int totalCashflow = 0;
+        // Add all the employees existing and then the cashflow
+        foreach (Worker employee in employees)
+        {
+            totalCashflow += (int)(employee.multipliyer * unitEmployeeRevenue);
+        }
+
+        return totalCashflow;
     }
 
     public Business(string nameIn, int startupCostIn, int businessReputationIn, int unitEmployeeRevenueIn, int baseEmployeeCostIn)
@@ -64,10 +79,6 @@ public class Worker
         multipliyer = Random.Range(minBaseMultiplier, maxBaseMultiplier);
         learningSpeed = Random.Range(0.1f, 0.4f);
         additionalEmployeeCost = myRandomGenerator.randomAdditionalEmployeeCost();
-
-
-
-
 
 
     }
