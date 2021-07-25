@@ -125,6 +125,15 @@ public class NaniDataManager
         accumulativeHealthModifier += realEstates[p_livingmethod].happinessModifier;
     }
 
+    public bool canPurchase(int price)
+    {
+        if (price >= p_money)
+        {
+            return true;
+        }
+        return false;
+    }
+
     public void initializeSampleItems()
     {
 

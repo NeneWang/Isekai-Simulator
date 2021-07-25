@@ -181,16 +181,35 @@ public static class CustomFunctions
     public static bool purchaseBusiness(int enumBusinessIn)
     {
         NaniDataManager naniDataManager = new NaniDataManager();
+        int businessCost = 0;
         switch (enumBusinessIn)
         {
             case ((int)enumBusiness.securityCompany):
-                naniDataManager.securityCompany++;
+                businessCost = naniDataManager.MY_CONSTANTS.securityCompany.startupCost;
+                if (naniDataManager.canPurchase(businessCost))
+                {
+                    naniDataManager.securityCompany++;
+                    naniDataManager.p_money -= businessCost;
+                }
+
                 break;
             case ((int)enumBusiness.alchemyCompany):
-                naniDataManager.alchemyCompany++;
+
+                businessCost = naniDataManager.MY_CONSTANTS.alchemyCompany.startupCost;
+                if (naniDataManager.canPurchase(businessCost))
+                {
+                    naniDataManager.alchemyCompany++;
+                    naniDataManager.p_money -= businessCost;
+                }
                 break;
+
             case ((int)enumBusiness.travelMerchant):
-                naniDataManager.travelMerchant++;
+                businessCost = naniDataManager.MY_CONSTANTS.travelMerchant.startupCost;
+                if (naniDataManager.canPurchase(businessCost))
+                {
+                    naniDataManager.travelMerchant++;
+                    naniDataManager.p_money -= businessCost;
+                }
                 break;
             default:
                 Debug.LogError("ERROR BUSINESS NUM EXCEEDED");
