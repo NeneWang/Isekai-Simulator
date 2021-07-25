@@ -148,8 +148,16 @@
 
 
 #itemOptions
-@choice "Healing Aid Kit: 150$ " gosub:.BUYsecurityCompany 
-@choice "Potion: 500$" gosub:.BUYalchemyCompany
+@choice "Healing Aid Kit: 150$ " gosub:.BUYhealingKit
+@choice "Potion: 500$" gosub:.BUYpotion
+@return
+
+#BUYhealingKit
+@set _={purchaseItem(1)}
+@return
+
+#BUYpotion
+@set _={purchaseItem(2)}
 @return
 
 #itemMarket
