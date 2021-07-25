@@ -53,6 +53,9 @@ public class Worker
 
     public Worker(int seed)
     {
+        // Seed: 1 -> Security guiy | 2 -> alchemist | 3 -> merchant
+        
+
 
     }
 

@@ -131,3 +131,27 @@ public class Constants
 
 
 }
+
+
+public class randomGenerator
+{
+
+    private string[] namesDatabase = new string[] { "Peter", "Ron", "Satchmo" };
+
+
+
+    public string generateName()
+    {
+
+        int namesCount = namesDatabase.Length;
+        List<string> namesList = new List<string>();
+        for (int i = 0; i < namesCount; i++)
+        {
+            namesList.Add(namesDatabase[i]);
+        }
+
+
+        return "sds";
+    }
+
+}
