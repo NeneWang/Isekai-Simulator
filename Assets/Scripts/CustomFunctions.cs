@@ -9,15 +9,7 @@ using UnityEngine;
 public static class CustomFunctions
 {
 
-    public enum enumCareer
-    {
-        Soldier = 1, Aventurer = 2, Merchant = 3
-    }
 
-    public enum enumSocial
-    {
-        Personal = 1, Lover = 2, Friend_1 = 3, Friend_2 = 4, Friend_3 = 5
-    }
 
     public static bool loadNextTurn()
     {
@@ -33,7 +25,9 @@ public static class CustomFunctions
         return true;
     }
 
-   
+
+
+
 
     public static bool addMoney(int addMoney)
     {
@@ -141,6 +135,15 @@ public static class CustomFunctions
         return variableToReturn;
 
     }
+    public enum enumCareer
+    {
+        Soldier = 1, Aventurer = 2, Merchant = 3
+    }
+
+    public enum enumSocial
+    {
+        Personal = 1, Lover = 2, Friend_1 = 3, Friend_2 = 4, Friend_3 = 5
+    }
 
     public static string getCareerData(int enumCareerIn, string typeIn)
     {
@@ -168,6 +171,35 @@ public static class CustomFunctions
 
         }
         return variableToReturn;
+    }
+
+    public enum enumBusiness
+    {
+        securityCompany = 1, alchemyCompany = 2, travelMerchant = 3
+    }
+
+    public static bool purchaseBusiness(int enumBusinessIn)
+    {
+        NaniDataManager naniDataManager = new NaniDataManager();
+        switch (enumBusinessIn)
+        {
+            case ((int)enumBusiness.securityCompany):
+                naniDataManager.securityCompany++;
+                break;
+            case ((int)enumBusiness.alchemyCompany):
+                naniDataManager.alchemyCompany++;
+                break;
+            case ((int)enumBusiness.travelMerchant):
+                naniDataManager.travelMerchant++;
+                break;
+            default:
+                Debug.LogError("ERROR BUSINESS NUM EXCEEDED");
+                break;
+        }
+
+        return true;
+
+
     }
 
 
