@@ -41,7 +41,7 @@ public class Worker
     public string name;
     public double multipliyer;
     public double learningSpeed;
-    public double maxMultiplier;
+    public double maxMultiplier = 4;
     public int additionalEmployeeCost;
 
     public int seed;
@@ -57,7 +57,17 @@ public class Worker
         randomGenerator myRandomGenerator = new randomGenerator();
 
         name = myRandomGenerator.generateName();
-        
+
+        float maxBaseMultiplier = 2;
+        float minBaseMultiplier = 1;
+
+        multipliyer = Random.Range(minBaseMultiplier, maxBaseMultiplier);
+        learningSpeed = Random.Range(0.1f, 0.4f);
+        additionalEmployeeCost = myRandomGenerator.randomAdditionalEmployeeCost();
+
+
+
+
 
 
     }

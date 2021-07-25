@@ -172,11 +172,16 @@ public class randomGenerator
 
     public double generateMultiplier()
     {
+        // You may add the complex logic so it is harder to get the two later
         float maxBaseMultiplier = 2;
         float minBaseMultiplier = 1;
 
         return Random.Range(minBaseMultiplier, maxBaseMultiplier);
+    }
 
+    public int randomAdditionalEmployeeCost(){
+
+        return rand.Next(10);
 
     }
 
