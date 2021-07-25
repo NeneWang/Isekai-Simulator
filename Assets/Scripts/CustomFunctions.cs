@@ -196,6 +196,7 @@ public static class CustomFunctions
                 Debug.LogError("ERROR BUSINESS NUM EXCEEDED");
                 break;
         }
+        naniDataManager.saveData();
 
         return true;
 
