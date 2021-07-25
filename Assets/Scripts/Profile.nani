@@ -120,6 +120,20 @@
 @choice "Purchase Security Company: 500$ CF: 50" gosub:.BUYsecurityCompany 
 @choice "Purchase Security Alchemy: 1000$ CF: 110" gosub:.BUYalchemyCompany
 @choice "Purchase Security Business: 2000$ CF: 250" gosub:.BUYtravelMerchant
+@return
+
+#BUYsecurityCompany
+@set _=purchaseBusiness(1)
+@return
+
+#BUYalchemyCompany
+@set _=purchaseBusiness(2)
+@return
+
+#BUYtravelMerchant
+@set _=purchaseBusiness(3)
+@return
+
 
 #rentCabin
 @set p_livingmethod=3
