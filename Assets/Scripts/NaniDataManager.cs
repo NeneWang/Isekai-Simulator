@@ -134,6 +134,18 @@ public class NaniDataManager
         return false;
     }
 
+    
+    public bool canPurchaseThenPurhcase(int price)
+    {
+        if (price <= p_money)
+        {
+            p_money-=price;
+            return true;
+        }
+        
+        return false;
+    }
+
     public void initializeSampleItems()
     {
 
@@ -471,6 +483,7 @@ public class NaniDataManager
 
     public void healFull(){
         p_health=p_maxhealth;
+        Debug.Log("Healed");
     }
 
 

@@ -186,29 +186,26 @@ public static class CustomFunctions
         {
             case ((int)enumBusiness.securityCompany):
                 businessCost = naniDataManager.MY_CONSTANTS.securityCompany.startupCost;
-                if (naniDataManager.canPurchase(businessCost))
+                if (naniDataManager.canPurchaseThenPurhcase(businessCost))
                 {
                     naniDataManager.securityCompany++;
-                    naniDataManager.p_money -= businessCost;
                 }
 
                 break;
             case ((int)enumBusiness.alchemyCompany):
 
                 businessCost = naniDataManager.MY_CONSTANTS.alchemyCompany.startupCost;
-                if (naniDataManager.canPurchase(businessCost))
+                if (naniDataManager.canPurchaseThenPurhcase(businessCost))
                 {
                     naniDataManager.alchemyCompany++;
-                    naniDataManager.p_money -= businessCost;
                 }
                 break;
 
             case ((int)enumBusiness.travelMerchant):
                 businessCost = naniDataManager.MY_CONSTANTS.travelMerchant.startupCost;
-                if (naniDataManager.canPurchase(businessCost))
+                if (naniDataManager.canPurchaseThenPurhcase(businessCost))
                 {
                     naniDataManager.travelMerchant++;
-                    naniDataManager.p_money -= businessCost;
                 }
                 break;
             default:
@@ -236,7 +233,7 @@ public static class CustomFunctions
         {
             case ((int)enumItems.healingKit):
                 itemCost = 100;
-                if (naniDataManager.canPurchase(itemCost))
+                if (naniDataManager.canPurchaseThenPurhcase(itemCost))
                 {
 
                     naniDataManager.healFull();
@@ -245,7 +242,7 @@ public static class CustomFunctions
                 break;
             case ((int)enumItems.potion):
                 itemCost = 500;
-                if (naniDataManager.canPurchase(itemCost))
+                if (naniDataManager.canPurchaseThenPurhcase(itemCost))
                 {
 
                     naniDataManager.healFull();

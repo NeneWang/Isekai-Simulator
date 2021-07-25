@@ -9,11 +9,11 @@ loading profile
 @set p_turn=1
 @set p_age=18
 @set p_sex=male
-@set p_health=100
+@set p_health=50
 @set p_mana=100
 @set p_happiness=100
-@set p_money=10
-@set p_monthlyCashFlow=100
+@set p_money=1000
+@set p_monthlyCashFlow=0
 @set p_title="-"
 @set p_missionsCompleted=0
 @set p_maxhealth=100

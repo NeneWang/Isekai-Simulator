@@ -167,10 +167,12 @@
 
 #BUYhealingKit
 @set _={purchaseItem(1)}
+@goto .market
 @return
 
 #BUYpotion
 @set _={purchaseItem(2)}
+@goto .market
 @return
 
 #itemMarket
