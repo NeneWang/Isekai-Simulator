@@ -145,6 +145,12 @@
 @stop
 
 
+
+#itemOptions
+@choice "Healing Aid Kit: 150$ " gosub:.BUYsecurityCompany 
+@choice "Potion: 500$" gosub:.BUYalchemyCompany
+@return
+
 #itemMarket
 @resetText
 @gosub .printMainStatus 

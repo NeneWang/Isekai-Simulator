@@ -223,6 +223,41 @@ public static class CustomFunctions
     }
 
 
+    public enum enumItems
+    {
+        healingKit = 1, potion = 2,
+    }
+
+    public static bool purchaseItem(int enumItemsIn)
+    {
+        NaniDataManager naniDataManager = new NaniDataManager();
+        int itemCost = 0;
+        switch (enumItemsIn)
+        {
+            case ((int)enumItems.healingKit):
+                itemCost = 100;
+                if (naniDataManager.canPurchase(itemCost))
+                {
+
+                    naniDataManager.healFull();
+                    naniDataManager.increaseTurn();
+                }
+                break;
+            case ((int)enumItems.potion):
+                itemCost = 500;
+                if (naniDataManager.canPurchase(itemCost))
+                {
+
+                    naniDataManager.healFull();
+                }
+                break;
+
+        }
+
+        return true;
+    }
+
+
 
 
 

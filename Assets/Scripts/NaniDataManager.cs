@@ -465,7 +465,12 @@ public class NaniDataManager
 
     public void increaseTurn()
     {
+        updateStatistics();
         p_turn++;
+    }
+
+    public void healFull(){
+        p_health=p_maxhealth;
     }
 
 
