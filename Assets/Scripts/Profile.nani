@@ -117,11 +117,9 @@
 
 
 #buildingBusinessOptions
-@choice "Purchase Security Company: 500$ " gosub:.rentCamp
-@choice "Rent roof in a farm -CF -2$" gosub:.rentFarm
-@choice "Rent a tavern room -CF -5$" gosub:.rentTavern
-@choice "Rent A Cabin -CF -15$" gosub:.rentCabin
-@return
+@choice "Purchase Security Company: 500$ CF: 50" gosub:.BUYsecurityCompany 
+@choice "Purchase Security Alchemy: 1000$ CF: 110" gosub:.BUYalchemyCompany
+@choice "Purchase Security Business: 2000$ CF: 250" gosub:.BUYtravelMerchant
 
 #rentCabin
 @set p_livingmethod=3

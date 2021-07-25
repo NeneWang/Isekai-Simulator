@@ -15,8 +15,8 @@ public class Constants
     // The Business Instantations
 
     public Business securityCompany = new Business("SecurityCompany", 500, 0, 1, 10, 50);
-    public Business alchemyCompany = new Business("Alchemy", 1000, 0, 2, 20, 100);
-    public Business travelMerchant = new Business("Travel Merchant", 1000, 0, 1, 8, 100);
+    public Business alchemyCompany = new Business("Alchemy", 1000, 0, 2, 20, 110);
+    public Business travelMerchant = new Business("Travel Merchant", 2000, 0, 1, 8, 250);
 
 
     public Items items = new Items();
