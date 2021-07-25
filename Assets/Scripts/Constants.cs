@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-import System.Linq;
 public class Constants
 {
     public List<Job> jobList = new List<Job>();
