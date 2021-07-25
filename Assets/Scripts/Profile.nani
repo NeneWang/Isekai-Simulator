@@ -68,6 +68,7 @@
 @resetText
 @gosub .printMainStatus 
 @gosub .buildingMarketOptions
+@gosub .buildingBusinessOptions
 @gosub .printMenuChoices
 @stop
 
