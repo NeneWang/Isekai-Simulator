@@ -11,22 +11,16 @@
 @stop
 ;Copy for all files cause you can't import
 #printMainStatus
-"health: {p_health} Mana: {p_mana} Happinness: {p_happiness} Money: {p_money}"
+"health: {p_health} Mana: {p_mana} Happinness: {p_happiness} Money: {p_money} Turn: {p_turn} " 
 @return
 
 #printMenuChoices
 @choice "Profile" goto:.profile
 @choice "Market" goto:.market 
 @choice "Jobs" goto:.job
-@choice "Learning" goto:.learning
 @choice "Relationship" goto:.relationship
 @choice "Take a break" goto:.takeABreak
 @return
-
-; //////////////////////////////////////// ###LEARNING
-#learning
-@resetText
-@stop
 
 ; //////////////////////////////////////// ###JOB
 #job
