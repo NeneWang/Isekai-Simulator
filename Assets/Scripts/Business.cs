@@ -7,9 +7,9 @@ public class Business
     string name;
     // TODO: Make this a getter instead
     int cashflow;
-    int startupCost=500;
+    int startupCost = 500;
     int businessReputation;
-    int maxReputation= 100;
+    int maxReputation = 100;
     int unitEmployeeRevenue = 1;
     int businessRank;
     int baseEmployeeCost;
@@ -38,10 +38,22 @@ public class Business
 }
 public class Worker
 {
-    string name;
-    double multipliyer;
-    double learningSpeed;
-    double maxMultiplier;
-    int employeeCost;
+    public string name;
+    public double multipliyer;
+    public double learningSpeed;
+    public double maxMultiplier;
+    public int additionalEmployeeCost;
+
+    public int seed;
+
+    public Worker()
+    {
+
+    }
+
+    public Worker(int seed)
+    {
+
+    }
 
 }
