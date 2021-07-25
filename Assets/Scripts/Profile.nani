@@ -69,6 +69,7 @@
 @gosub .printMainStatus 
 @gosub .buildingMarketOptions
 @gosub .buildingBusinessOptions
+@gosub .itemOptions
 @gosub .printMenuChoices
 @stop
 
@@ -154,8 +155,7 @@
 #itemMarket
 @resetText
 @gosub .printMainStatus 
-@choice "Buy potion"
-@choice "Buy map"
+@gosub .itemOptions
 @choice "go back" goto:.market
 @stop
 
