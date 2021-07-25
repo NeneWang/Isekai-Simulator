@@ -49,7 +49,7 @@ public class Business
         businessReputation = businessReputationIn;
         unitEmployeeRevenue = unitEmployeeRevenueIn;
         baseEmployeeCost = baseEmployeeCostIn;
-        cashFlowB1In = cashFlowB1In;
+        cashflowB1 = cashFlowB1In;
 
     }
 
