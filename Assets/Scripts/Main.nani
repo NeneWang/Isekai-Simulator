@@ -39,6 +39,10 @@ loading profile
 
 @set p_livingmethod=0
 
+@set securityCompany=0
+@set alchemyCompany=0
+@set travelMerchant=0
+
 ; @set _={workAsMerchant()}
 ; @set _={workAsAventurer()}
 ; @set _={workAsSoldier()}

@@ -4,15 +4,17 @@ using UnityEngine;
 
 public class Business
 {
-    string name;
-    int startupCost = 500;
-    int businessReputation;
-    int maxReputation = 100;
-    int unitEmployeeRevenue = 2;
-    int businessRank = 0;
-    int baseEmployeeCost;
+    public string name;
+    public int startupCost = 500;
+    public int businessReputation;
+    public int maxReputation = 100;
+    public int unitEmployeeRevenue = 2;
+    public int businessRank = 0;
+    public int baseEmployeeCost;
 
-    int cashflowB1 = 10;
+    public int cashflowB1 = 10;
+
+    public int businessPurchasedCountB1 = 0;
 
 
 

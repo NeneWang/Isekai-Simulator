@@ -11,7 +11,7 @@ public class NaniDataManager
     // Accumulative, not intnded to be added here
     public int accumulativeHappinessModifier, accumulativeHealthModifier;
 
-    public int p_turn, p_age, p_health, p_mana, p_happiness, p_money, p_monthlyCashFlow, p_livingmethod;
+    public int p_turn, p_age, p_health, p_mana, p_happiness, p_money, p_monthlyCashFlow, p_livingmethod, securityCompany, alchemyCompany, travelMerchant;
     public int p_missionsCompleted, p_maxhealth, p_networth, p_stat_str, p_stat_vit, p_stat_dex, p_stat_int, p_stat_wis, p_stat_char;
     public string p_title, p_sex, friend_sl_1, friend_sl_2, friend_sl_3, lover_sl_1;
 
@@ -24,6 +24,66 @@ public class NaniDataManager
 
     public Job merchantCareer, tradeCareer, farmerCareer, civilServantCareer, aventurerCareer, mercenaryCareer, soldierCareer;
     public int p_currentInjuries, p_merchantS = 0, p_tradeS = 0, p_farmerS = 0, p_civilServantS = 0, p_aventurerS = 0, p_mercenaryS = 0, p_soldierS = 0;
+
+    public void fetch()
+    {
+
+        var variableManager = Engine.GetService<ICustomVariableManager>();
+
+
+
+        variableManager.TryGetVariableValue<int>("p_turn", out p_turn);
+        variableManager.TryGetVariableValue<int>("p_age", out p_age);
+        variableManager.TryGetVariableValue<string>("p_sex", out p_sex);
+        variableManager.TryGetVariableValue<int>("p_health", out p_health);
+        variableManager.TryGetVariableValue<int>("p_mana", out p_mana);
+        variableManager.TryGetVariableValue<int>("p_happiness", out p_happiness);
+        variableManager.TryGetVariableValue<int>("p_money", out p_money);
+        variableManager.TryGetVariableValue<int>("p_monthlyCashFlow", out p_monthlyCashFlow);
+        variableManager.TryGetVariableValue<string>("p_title", out p_title);
+        variableManager.TryGetVariableValue<int>("p_missionsCompleted", out p_missionsCompleted);
+        variableManager.TryGetVariableValue<int>("p_maxhealth", out p_maxhealth);
+        variableManager.TryGetVariableValue<int>("p_networth", out p_networth);
+        variableManager.TryGetVariableValue<int>("p_stat_str", out p_stat_str);
+        variableManager.TryGetVariableValue<int>("p_stat_vit", out p_stat_vit);
+        variableManager.TryGetVariableValue<int>("p_stat_dex", out p_stat_dex);
+        variableManager.TryGetVariableValue<int>("p_stat_int", out p_stat_int);
+        variableManager.TryGetVariableValue<int>("p_stat_wis", out p_stat_wis);
+        variableManager.TryGetVariableValue<int>("p_stat_char", out p_stat_char);
+
+
+        variableManager.TryGetVariableValue<int>("p_merchantS", out p_merchantS);
+        // variableManager.TryGetVariableValue<int>("p_tradeS", out p_tradeS);
+        // variableManager.TryGetVariableValue<int>("p_farmerS", out p_farmerS);
+        // variableManager.TryGetVariableValue<int>("p_civilServantS", out p_civilServantS);
+        variableManager.TryGetVariableValue<int>("p_aventurerS", out p_aventurerS);
+        // variableManager.TryGetVariableValue<int>("p_mercenaryS", out p_mercenaryS);
+        variableManager.TryGetVariableValue<int>("p_soldierS", out p_soldierS);
+        // variableManager.TryGetVariableValue<int>("p_currentInjuries", out p_currentInjuries);
+
+        variableManager.TryGetVariableValue<int>("p_currentInjuries", out p_currentInjuries);
+
+        variableManager.TryGetVariableValue<string>("friend_sl_1", out friend_sl_1);
+        variableManager.TryGetVariableValue<string>("friend_sl_2", out friend_sl_2);
+        variableManager.TryGetVariableValue<string>("friend_sl_3", out friend_sl_3);
+        // lover_sl_1
+
+        variableManager.TryGetVariableValue<string>("lover_sl_1", out lover_sl_1);
+
+        variableManager.TryGetVariableValue<int>("p_livingmethod", out p_livingmethod);
+
+        variableManager.TryGetVariableValue<int>("securityCompany", out securityCompany);
+        variableManager.TryGetVariableValue<int>("alchemyCompany", out alchemyCompany);
+        variableManager.TryGetVariableValue<int>("travelMerchant", out travelMerchant);
+
+        setupRelationshipManger();
+        postCareerSuccess();
+        updateModifiers();
+
+
+
+    }
+
     public NaniDataManager()
     {
         initializeCareers();
@@ -44,7 +104,7 @@ public class NaniDataManager
         p_happiness += accumulativeHappinessModifier;
         p_money += p_monthlyCashFlow;
 
-        
+
     }
 
     public void updateModifiers()
@@ -107,60 +167,6 @@ public class NaniDataManager
 
 
 
-    public void fetch()
-    {
-
-        var variableManager = Engine.GetService<ICustomVariableManager>();
-
-
-
-        variableManager.TryGetVariableValue<int>("p_turn", out p_turn);
-        variableManager.TryGetVariableValue<int>("p_age", out p_age);
-        variableManager.TryGetVariableValue<string>("p_sex", out p_sex);
-        variableManager.TryGetVariableValue<int>("p_health", out p_health);
-        variableManager.TryGetVariableValue<int>("p_mana", out p_mana);
-        variableManager.TryGetVariableValue<int>("p_happiness", out p_happiness);
-        variableManager.TryGetVariableValue<int>("p_money", out p_money);
-        variableManager.TryGetVariableValue<int>("p_monthlyCashFlow", out p_monthlyCashFlow);
-        variableManager.TryGetVariableValue<string>("p_title", out p_title);
-        variableManager.TryGetVariableValue<int>("p_missionsCompleted", out p_missionsCompleted);
-        variableManager.TryGetVariableValue<int>("p_maxhealth", out p_maxhealth);
-        variableManager.TryGetVariableValue<int>("p_networth", out p_networth);
-        variableManager.TryGetVariableValue<int>("p_stat_str", out p_stat_str);
-        variableManager.TryGetVariableValue<int>("p_stat_vit", out p_stat_vit);
-        variableManager.TryGetVariableValue<int>("p_stat_dex", out p_stat_dex);
-        variableManager.TryGetVariableValue<int>("p_stat_int", out p_stat_int);
-        variableManager.TryGetVariableValue<int>("p_stat_wis", out p_stat_wis);
-        variableManager.TryGetVariableValue<int>("p_stat_char", out p_stat_char);
-
-
-        variableManager.TryGetVariableValue<int>("p_merchantS", out p_merchantS);
-        // variableManager.TryGetVariableValue<int>("p_tradeS", out p_tradeS);
-        // variableManager.TryGetVariableValue<int>("p_farmerS", out p_farmerS);
-        // variableManager.TryGetVariableValue<int>("p_civilServantS", out p_civilServantS);
-        variableManager.TryGetVariableValue<int>("p_aventurerS", out p_aventurerS);
-        // variableManager.TryGetVariableValue<int>("p_mercenaryS", out p_mercenaryS);
-        variableManager.TryGetVariableValue<int>("p_soldierS", out p_soldierS);
-        // variableManager.TryGetVariableValue<int>("p_currentInjuries", out p_currentInjuries);
-
-        variableManager.TryGetVariableValue<int>("p_currentInjuries", out p_currentInjuries);
-
-        variableManager.TryGetVariableValue<string>("friend_sl_1", out friend_sl_1);
-        variableManager.TryGetVariableValue<string>("friend_sl_2", out friend_sl_2);
-        variableManager.TryGetVariableValue<string>("friend_sl_3", out friend_sl_3);
-        // lover_sl_1
-
-        variableManager.TryGetVariableValue<string>("lover_sl_1", out lover_sl_1);
-
-        variableManager.TryGetVariableValue<int>("p_livingmethod", out p_livingmethod);
-
-        setupRelationshipManger();
-        postCareerSuccess();
-        updateModifiers();
-
-
-
-    }
 
     public void setupRelationshipManger()
     {
