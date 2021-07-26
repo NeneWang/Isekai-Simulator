@@ -11,7 +11,7 @@
 @stop
 ;Copy for all files cause you can't import
 #printMainStatus
-"health: {p_health} Mana: {p_mana} Happinness: {p_happiness} Money: {p_money} Turn: {p_turn} year: {getAbsoluteDate()}" 
+"health: {p_health} Mana: {p_mana} Happinness: {p_happiness} Money: {p_money} Turn: {p_turn}, {getAbsoluteDate()}" 
 @return
 
 #printMenuChoices
@@ -43,9 +43,9 @@
 
 ;Here it should show the jobs that are available there for example, work on the granja and stuff like that
 #printJobChoices
-@choice "Work as {getCareerData(1, "d")} Soldier {p_soldierS}" goto:.workSoldier
-@choice "Work as {p_aventurerS} " goto:.workAventurer
-@choice "Work as {p_merchantS}" goto:.workMerchant
+@choice "Work as {getCareerData(1, "d")} Soldier, {getCareerData(1, "e")}  to level up" goto:.workSoldier
+@choice "Work as {getCareerData(2, "d")} Aventurer, {getCareerData(2, "e")}  to level up" goto:.workAventurer
+@choice "Work as {getCareerData(3, "d")} Merchant, {getCareerData(3, "e")}  to level up" goto:.workMerchant
 @return
 
 #workSoldier

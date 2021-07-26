@@ -8,7 +8,11 @@ public class Job
     // public int jobLevel = 0;
     public List<JobRank> jobRankList = new List<JobRank>();
     public int careerSuccess = 0;
-    public int successJobsForNextRank = 2;
+    public int successJobsForNextRank = 10;
+
+    public int leftToRankUp{
+        get=> successJobsForNextRank-careerSuccess;
+    }
 
     public int jobLevel
     {

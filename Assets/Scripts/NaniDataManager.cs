@@ -303,6 +303,10 @@ public class NaniDataManager
                 dataToReturn = jobIn.getJobRankName;
                 break;
 
+            case "e":
+                dataToReturn = jobIn.leftToRankUp.ToString();
+                break;
+
             default:
                 dataToReturn = "typein Exceeded";
                 break;
