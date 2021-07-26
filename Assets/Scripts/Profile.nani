@@ -11,7 +11,7 @@
 @stop
 ;Copy for all files cause you can't import
 #printMainStatus
-"health: {p_health} Mana: {p_mana} Happinness: {p_happiness} Money: {p_money} Turn: {p_turn} " 
+"health: {p_health} Mana: {p_mana} Happinness: {p_happiness} Money: {p_money} Turn: {p_turn} year: {getAbsoluteDate()}" 
 @return
 
 #printMenuChoices

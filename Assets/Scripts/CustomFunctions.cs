@@ -255,7 +255,7 @@ public static class CustomFunctions
         return true;
     }
 
-    public static string showDateUsingTurn()
+    public static string getAbsoluteDate()
     {
         NaniDataManager naniDataManager = new NaniDataManager();
         
