@@ -75,6 +75,10 @@ public static class CustomFunctions
 
     }
 
+    public enum enumSocial
+    {
+        Personal = 1, Lover = 2, Friend_1 = 3, Friend_2 = 4, Friend_3 = 5
+    }
     public static string getPersonData(int enumSocialIn, string typeIn)
     {
 
@@ -112,10 +116,6 @@ public static class CustomFunctions
         Soldier = 1, Aventurer = 2, Merchant = 3
     }
 
-    public enum enumSocial
-    {
-        Personal = 1, Lover = 2, Friend_1 = 3, Friend_2 = 4, Friend_3 = 5
-    }
 
     // A more efficient way to work in a career, Returns false if there is a false return.
     public static bool workCareerAs(int enumCareerIn)

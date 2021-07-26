@@ -413,7 +413,7 @@ public class NaniDataManager
 
     }
 
-    public void workAsAventurer()
+    public bool workAsAventurer()
     {
         // Calculate the risks of injuries and stuff depending of ecach character
         // TODO get the successfully completed stat later on
@@ -425,20 +425,26 @@ public class NaniDataManager
         p_stat_int += aventurerCareer.jobLevel;
 
 
-        if (getTrueWithProbablity(.98))
-        {
-            aventurerCareer.successfullyCompletedThisJob();
-            p_money += aventurerCareer.getJobIncome;
-            saveData();
-        }
+
+        aventurerCareer.successfullyCompletedThisJob();
+        p_money += aventurerCareer.getJobIncome;
+        saveData();
 
         perphapsGettingHurtChances();
+
+        // TODO: Implement random log logic
+        if (true)
+        {
+            actionLog = MY_CONSTANTS.aventurerLogs.getRandomLog().title;
+        }
+
+        return false;
 
     }
 
 
 
-    public void workAsSoldier()
+    public bool workAsSoldier()
     {
         // Calculate the risks of injuries and stuff depending of ecach character
         // TODO get the successfully completed stat later on
@@ -449,24 +455,21 @@ public class NaniDataManager
         p_health += (int)(soldierCareer.jobLevel * 1.5);
 
 
-        if (getTrueWithProbablity(.98))
-        {
-            soldierCareer.successfullyCompletedThisJob();
-            p_money += soldierCareer.getJobIncome;
-            saveData();
-        }
 
+        soldierCareer.successfullyCompletedThisJob();
+        p_money += soldierCareer.getJobIncome;
+        saveData();
         perphapsGettingHurtChances();
+
+        return false;
 
     }
 
-    public void workAsMerchant()
+    public bool workAsMerchant()
     {
         p_stat_wis += merchantCareer.jobLevel;
         p_stat_char += merchantCareer.jobLevel;
 
-        // Calculate the chances of failures and success SIMPLIFICATION
-        // merchantCareer.successfullyCompletedThisJob();
 
         // Now get paid
         Debug.Log("Getting paid as merchant");
@@ -475,6 +478,8 @@ public class NaniDataManager
         merchantCareer.successfullyCompletedThisJob();
         // TODO REmove following
         saveData();
+
+        return false;
 
     }
 
