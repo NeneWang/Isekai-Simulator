@@ -24,7 +24,7 @@ public class Log
     public Effect onFailEffect = new Effect();
 
     public int rankRequired = 0;
-    public int combatType;
+    public LogType logType = new LogType();
 
 
 
@@ -41,8 +41,6 @@ public enum EnumCombatType{
     notCombat = 0, fullVictoryChanceCombat = 1
 }
 
-public class CombatType{
-
-
+public class LogType{
 
 }
