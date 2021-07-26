@@ -159,10 +159,6 @@ public class Constants
             return jk.careerTitle == jobName;
         });
     }
-
-
-
-
 }
 
 

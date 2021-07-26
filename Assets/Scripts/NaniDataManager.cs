@@ -442,7 +442,8 @@ public class NaniDataManager
         double NORMAL_RATE = 0.3, RARE_RATE = 0.15, MIRACLE_RATE = 0.05;
         double TOTAL_RATE = NORMAL_RATE + RARE_RATE + MIRACLE_RATE;
 
-
+        Debug.Log(randomDouble);
+        isLog = false;
 
         if (randomDouble <= TOTAL_RATE)
         {
