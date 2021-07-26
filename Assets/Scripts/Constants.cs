@@ -19,6 +19,7 @@ public class Constants
     public Business travelMerchant = new Business("Travel Merchant", 2000, 0, 1, 8, 250);
 
 
+    public int startingYear = 823;
     public Items items = new Items();
 
     public Constants()
@@ -179,7 +180,8 @@ public class randomGenerator
         return Random.Range(minBaseMultiplier, maxBaseMultiplier);
     }
 
-    public int randomAdditionalEmployeeCost(){
+    public int randomAdditionalEmployeeCost()
+    {
 
         return rand.Next(10);
 

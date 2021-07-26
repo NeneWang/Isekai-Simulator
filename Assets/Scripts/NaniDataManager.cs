@@ -25,6 +25,33 @@ public class NaniDataManager
     public Job merchantCareer, tradeCareer, farmerCareer, civilServantCareer, aventurerCareer, mercenaryCareer, soldierCareer;
     public int p_currentInjuries, p_merchantS = 0, p_tradeS = 0, p_farmerS = 0, p_civilServantS = 0, p_aventurerS = 0, p_mercenaryS = 0, p_soldierS = 0;
 
+    private string[] months = { "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" };
+    int countMonths
+    {
+        get => months.Length;
+    }
+
+    public int countYear
+    {
+        get => (p_turn / countMonths);
+    }
+
+    public int absoluteYear
+    {
+        get => countYear + MY_CONSTANTS.startingYear;
+    }
+
+    public string currentMonthName
+    {
+        get => months[p_turn % countMonths];
+    }
+
+    public string absoluteDateMessage
+    {
+        get => currentMonthName + " " + (absoluteYear).ToString();
+    }
+
+
     public void fetch()
     {
 
@@ -134,15 +161,15 @@ public class NaniDataManager
         return false;
     }
 
-    
+
     public bool canPurchaseThenPurhcase(int price)
     {
         if (price <= p_money)
         {
-            p_money-=price;
+            p_money -= price;
             return true;
         }
-        
+
         return false;
     }
 
@@ -481,8 +508,9 @@ public class NaniDataManager
         p_turn++;
     }
 
-    public void healFull(){
-        p_health=p_maxhealth;
+    public void healFull()
+    {
+        p_health = p_maxhealth;
         // Debug.Log("Healed");
     }
 

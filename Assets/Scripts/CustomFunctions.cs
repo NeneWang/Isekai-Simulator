@@ -255,6 +255,18 @@ public static class CustomFunctions
         return true;
     }
 
+    public static string showDateUsingTurn()
+    {
+        NaniDataManager naniDataManager = new NaniDataManager();
+        
+
+
+        string messageDate = naniDataManager.absoluteDateMessage;
+
+        return messageDate;
+
+    }
+
 
 
 
