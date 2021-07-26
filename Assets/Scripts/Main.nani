@@ -45,6 +45,7 @@ loading profile
 @set travelMerchant=0
 
 @set actionLog="INACTION"
+@set _=false
 @set isLog=false
 
 ; @set _={workAsMerchant()}
