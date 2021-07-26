@@ -14,11 +14,28 @@ public class LogsList
 
     public Log getRandomLog()
     {
-        int listLength = logList.Count;
+        return getRandom(logList);
+    }
+
+    public List<Log> getrandomNormalLog(EnumRarity enumRarityIn)
+    {
+
+        return getBasedOnRarity(enumRarityIn);
+
+    }
+
+    List<Log> getBasedOnRarity(EnumRarity enumRarityIn)
+    {
+
+        return logList.FindAll(log => log.enumRarity == enumRarityIn);
+    }
+
+    Log getRandom(List<Log> LogListIn)
+    {
+        int listLength = LogListIn.Count;
         int randomIndex = Random.Range(0, listLength);
 
-        return logList[randomIndex];
-
+        return LogListIn[randomIndex];
     }
 
 
