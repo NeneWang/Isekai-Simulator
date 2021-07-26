@@ -13,7 +13,7 @@ public class NaniDataManager
 
     public int p_turn, p_age, p_health, p_fame, p_mana, p_happiness, p_money, p_monthlyCashFlow, p_livingmethod, securityCompany, alchemyCompany, travelMerchant;
     public int p_missionsCompleted, p_maxhealth, p_networth, p_stat_str, p_stat_vit, p_stat_dex, p_stat_int, p_stat_wis, p_stat_char;
-    public string p_title, p_sex, friend_sl_1, friend_sl_2, friend_sl_3, lover_sl_1;
+    public string p_title, p_sex, friend_sl_1, friend_sl_2, friend_sl_3, lover_sl_1, actionLog;
 
     string jsonItems;
 
@@ -103,6 +103,8 @@ public class NaniDataManager
         variableManager.TryGetVariableValue<int>("securityCompany", out securityCompany);
         variableManager.TryGetVariableValue<int>("alchemyCompany", out alchemyCompany);
         variableManager.TryGetVariableValue<int>("travelMerchant", out travelMerchant);
+
+        variableManager.TryGetVariableValue<string>("actionLog", out actionLog);
 
         setupRelationshipManger();
         postCareerSuccess();
@@ -255,6 +257,8 @@ public class NaniDataManager
         variableManager.TrySetVariableValue("p_stat_dex", p_stat_dex);
         variableManager.TrySetVariableValue("p_stat_int", p_stat_int);
 
+
+
         // string modJsonItems = getNaniFormattableOf(jsonItems);
         // variableManager.TrySetVariableValue("jsonItems", modJsonItems);
 
@@ -268,6 +272,7 @@ public class NaniDataManager
         variableManager.TrySetVariableValue("p_aventurerS", p_aventurerS);
         variableManager.TrySetVariableValue("p_soldierS", p_soldierS);
         variableManager.TrySetVariableValue("p_currentInjuries", p_currentInjuries);
+        variableManager.TrySetVariableValue("actionLog", actionLog);
 
         // TODO: Set the relationshipDataHerelater
 
