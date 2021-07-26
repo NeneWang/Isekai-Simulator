@@ -459,12 +459,9 @@ public class NaniDataManager
             else
             {
                 actionLog = MY_CONSTANTS.aventurerLogs.getRandomLogBasedOnRarity(EnumRarity.Miracle).title;
-
             }
 
-
             isLog = true;
-
             return true;
         }
 
