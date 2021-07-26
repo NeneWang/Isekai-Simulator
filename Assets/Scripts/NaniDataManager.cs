@@ -442,14 +442,17 @@ public class NaniDataManager
         double NORMAL_RATE = 0.3, RARE_RATE = 0.15, MIRACLE_RATE = 0.05;
         double TOTAL_RATE = NORMAL_RATE + RARE_RATE + MIRACLE_RATE;
 
+
+
         if (randomDouble <= TOTAL_RATE)
         {
-            if (randomDouble > TOTAL_RATE - MIRACLE_RATE)
+
+            if (randomDouble >= randomDouble + RARE_RATE && randomDouble < TOTAL_RATE)
             {
                 actionLog = MY_CONSTANTS.aventurerLogs.getRandomLogBasedOnRarity(EnumRarity.Normal).title;
             }
 
-            else if (randomDouble > NORMAL_RATE)
+            else if (randomDouble >= NORMAL_RATE && randomDouble < randomDouble + RARE_RATE)
             {
                 actionLog = MY_CONSTANTS.aventurerLogs.getRandomLogBasedOnRarity(EnumRarity.Rare).title;
             }
