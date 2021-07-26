@@ -121,18 +121,19 @@ public static class CustomFunctions
     public static bool workCareerAs(int enumCareerIn)
     {
         NaniDataManager datanani = new NaniDataManager();
+        bool logReturned = false;
         switch ((enumCareer)enumCareerIn)
         {
             case enumCareer.Soldier:
 
-                datanani.workAsSoldier();
+                logReturned = datanani.workAsSoldier();
                 datanani.saveData();
                 break;
             case enumCareer.Aventurer:
-                datanani.workAsAventurer();
+                logReturned = datanani.workAsAventurer();
                 break;
             case enumCareer.Merchant:
-                datanani.workAsMerchant();
+                logReturned = datanani.workAsMerchant();
                 break;
         }
 
@@ -140,7 +141,7 @@ public static class CustomFunctions
         datanani.saveData();
 
 
-        return false;
+        return logReturned;
 
     }
 

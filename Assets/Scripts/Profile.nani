@@ -57,6 +57,7 @@
 #workAventurer
 @set _={workCareerAs(2)}
 "You worked as Aventurer"
+@print text:"{actionLog}" if:_
 @gosub .job
 @return
 
