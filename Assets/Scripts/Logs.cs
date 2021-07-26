@@ -17,14 +17,14 @@ public class LogsList
         return getRandom(logList);
     }
 
-    public List<Log> getrandomNormalLog(EnumRarity enumRarityIn)
+    public Log getRandomLogListBasedOnRarity(EnumRarity enumRarityIn)
     {
 
-        return getBasedOnRarity(enumRarityIn);
+        return getRandom(getLogListBasedOnRarity(enumRarityIn));
 
     }
 
-    List<Log> getBasedOnRarity(EnumRarity enumRarityIn)
+    List<Log> getLogListBasedOnRarity(EnumRarity enumRarityIn)
     {
 
         return logList.FindAll(log => log.enumRarity == enumRarityIn);
