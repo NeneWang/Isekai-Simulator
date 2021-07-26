@@ -19,13 +19,28 @@ public class Constants
     public Business travelMerchant = new Business("Travel Merchant", 2000, 0, 1, 8, 250);
 
 
+    // List of Random Logs
+
+    public LogsList aventurerLogs = new LogsList("Aventurer");
+
+    // public LogsList socialLogs = new LogsList("Social");
+
+
     public int startingYear = 823;
     public Items items = new Items();
+
 
     public Constants()
     {
         createJobs();
+        createLogs();
     }
+
+    public void createLogs()
+    {
+    }
+
+
 
 
 

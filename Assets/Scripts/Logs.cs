@@ -7,6 +7,11 @@ public class LogsList
     string logListName = "";
     List<Log> logList = new List<Log>();
 
+    public LogsList(string logListNameIn)
+    {
+        logListName = logListNameIn;
+    }
+
     public Log getRandomLog()
     {
         int listLength = logList.Count;
@@ -15,6 +20,7 @@ public class LogsList
         return logList[randomIndex];
 
     }
+
 
 
 
@@ -30,6 +36,7 @@ public class Log
 {
 
     public string title;
+
     public EnumRarity enumRarity;
 
     public Effect onSuccessEffect = new Effect();
@@ -40,6 +47,12 @@ public class Log
 
 
 
+    public Log(string titleIn, int enumRarityIn)
+    {
+        enumRarity = (EnumRarity)enumRarityIn;
+        title = titleIn;
+
+    }
 
 }
 
