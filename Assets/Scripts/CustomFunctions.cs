@@ -145,6 +145,25 @@ public static class CustomFunctions
         Personal = 1, Lover = 2, Friend_1 = 3, Friend_2 = 4, Friend_3 = 5
     }
 
+    // A more efficient way to work in a career, Returns false if there is a false return.
+    public static bool workCareerAs(int enumCareerIn)
+    {
+        NaniDataManager naniDataManager = new NaniDataManager();
+        switch ((enumCareer)enumCareerIn)
+        {
+            case enumCareer.Soldier:
+                break;
+            case enumCareer.Aventurer:
+                break;
+            case enumCareer.Merchant:
+                break;
+        }
+
+
+        return false;
+
+    }
+
     public static string getCareerData(int enumCareerIn, string typeIn)
     {
         string variableToReturn = "";
@@ -258,7 +277,7 @@ public static class CustomFunctions
     public static string getAbsoluteDate()
     {
         NaniDataManager naniDataManager = new NaniDataManager();
-        
+
 
 
         string messageDate = naniDataManager.absoluteDateMessage;
