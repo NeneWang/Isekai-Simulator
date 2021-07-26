@@ -4,6 +4,18 @@ using UnityEngine;
 
 public class LogsList
 {
+    string logListName = "";
+    List<Log> logList = new List<Log>();
+
+    public Log getRandomLog()
+    {
+        int listLength = logList.Count;
+        int randomIndex = Random.Range(0, listLength);
+
+        return logList[randomIndex];
+
+    }
+
 
 
 
@@ -37,10 +49,12 @@ public class Effect
     public int gold = 0, health = 0, happiness = 0, fame = 0;
 }
 
-public enum EnumCombatType{
+public enum EnumCombatType
+{
     notCombat = 0, fullVictoryChanceCombat = 1
 }
 
-public class LogType{
+public class LogType
+{
 
 }
