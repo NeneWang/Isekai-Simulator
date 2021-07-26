@@ -192,9 +192,11 @@
 @gosub .printMainStatus 
 ;TODO make it only show if the pplayer adquired a certain status
 @choice "Spend time with  {getPersonData(2,"a")} {getPersonData(2,"g")} " if:lover_slavailable_1
+@choice "Invite drinks to all friends"
 @choice "Visit1 {getPersonData(3,"a")} {getPersonData(3,"g")}" if:friend_slavailable_1
 @choice "Visit2 {getPersonData(4,"a")} {getPersonData(4,"g")}" if:friend_slavailable_2
 @choice "Visit3 {getPersonData(5,"a")} {getPersonData(5,"g")}" if:friend_slavailable_3
+
 @gosub .printMenuChoices
 ; @choice "Visit Friend Slot C"
 ; @choice "Visit Friend Slot D"

@@ -75,9 +75,9 @@ public static class CustomFunctions
 
     }
 
-    public enum enumSocial
+    public enum EnumSocial
     {
-        Personal = 1, Lover = 2, Friend_1 = 3, Friend_2 = 4, Friend_3 = 5
+        Personal = 1, Lover = 2, Friend_1 = 3, Friend_2 = 4, Friend_3 = 5, all = 6
     }
     public static string getPersonData(int enumSocialIn, string typeIn)
     {
@@ -85,21 +85,21 @@ public static class CustomFunctions
         string variableToReturn = "";
         NaniDataManager naniDataManager = new NaniDataManager();
 
-        switch (enumSocialIn)
+        switch ((EnumSocial)enumSocialIn)
         {
-            case ((int)enumSocial.Personal):
+            case (EnumSocial.Personal):
                 variableToReturn = naniDataManager.getThisPersonData(naniDataManager.relationshipManager.player, typeIn);
                 break;
-            case ((int)enumSocial.Lover):
+            case (EnumSocial.Lover):
                 variableToReturn = naniDataManager.getThisPersonData(naniDataManager.relationshipManager.lover, typeIn);
                 break;
-            case ((int)enumSocial.Friend_1):
+            case (EnumSocial.Friend_1):
                 variableToReturn = naniDataManager.getThisPersonData(naniDataManager.relationshipManager.getFriendN(0), typeIn);
                 break;
-            case ((int)enumSocial.Friend_2):
+            case (EnumSocial.Friend_2):
                 variableToReturn = naniDataManager.getThisPersonData(naniDataManager.relationshipManager.getFriendN(1), typeIn);
                 break;
-            case ((int)enumSocial.Friend_3):
+            case (EnumSocial.Friend_3):
                 variableToReturn = naniDataManager.getThisPersonData(naniDataManager.relationshipManager.getFriendN(2), typeIn);
                 break;
             default:
@@ -110,11 +110,32 @@ public static class CustomFunctions
         return variableToReturn;
 
     }
+
+    public static bool visit(int enumSocialIn)
+    {
+
+        bool actionSuccess = false;
+        NaniDataManager naniDataManager = new NaniDataManager();
+
+        switch ((EnumSocial)enumSocialIn)
+        {
+            case (EnumSocial.Friend_1):
+                
+                break;
+
+            default:
+                break;
+        }
+
+        return actionSuccess;
+
+    }
     public enum enumCareer
     {
 
         Soldier = 1, Aventurer = 2, Merchant = 3
     }
+
 
 
     // A more efficient way to work in a career, Returns false if there is a false return.
