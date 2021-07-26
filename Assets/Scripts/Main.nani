@@ -10,6 +10,7 @@ loading profile
 @set p_age=18
 @set p_sex=male
 @set p_health=50
+@set p_fame=0
 @set p_mana=100
 @set p_happiness=100
 @set p_money=1000
