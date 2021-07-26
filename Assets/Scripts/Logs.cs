@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class LogsList
 {
-    string logListName = "";
-    List<Log> logList = new List<Log>();
+    public string logListName = "";
+    public List<Log> logList = new List<Log>();
 
     public LogsList(string logListNameIn)
     {
