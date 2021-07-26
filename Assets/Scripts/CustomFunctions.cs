@@ -52,35 +52,6 @@ public static class CustomFunctions
 
     }
 
-    public static bool workAsMerchant()
-    {
-        NaniDataManager datanani = new NaniDataManager();
-
-        Debug.Log("Working as Merchant");
-        datanani.workAsMerchant();
-        datanani.saveData();
-
-        return true;
-    }
-
-    public static bool workAsAventurer()
-    {
-        NaniDataManager datanani = new NaniDataManager();
-        datanani.workAsAventurer();
-        datanani.saveData();
-
-        return true;
-    }
-
-
-    public static bool workAsSoldier()
-    {
-        NaniDataManager datanani = new NaniDataManager();
-        datanani.workAsSoldier();
-        datanani.saveData();
-
-        return true;
-    }
     public static bool initializeItems()
     {
         Debug.Log("Initializing!");
@@ -137,6 +108,7 @@ public static class CustomFunctions
     }
     public enum enumCareer
     {
+
         Soldier = 1, Aventurer = 2, Merchant = 3
     }
 
@@ -148,16 +120,23 @@ public static class CustomFunctions
     // A more efficient way to work in a career, Returns false if there is a false return.
     public static bool workCareerAs(int enumCareerIn)
     {
-        NaniDataManager naniDataManager = new NaniDataManager();
+        NaniDataManager datanani = new NaniDataManager();
         switch ((enumCareer)enumCareerIn)
         {
             case enumCareer.Soldier:
+
+                datanani.workAsSoldier();
+                datanani.saveData();
                 break;
             case enumCareer.Aventurer:
+                datanani.workAsAventurer();
                 break;
             case enumCareer.Merchant:
+                datanani.workAsMerchant();
                 break;
         }
+
+        datanani.saveData();
 
 
         return false;
