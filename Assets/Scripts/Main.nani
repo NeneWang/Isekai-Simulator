@@ -40,7 +40,7 @@ loading profile
 @set friend_sl_2="EMPTY!-!-!-!0!0!0"
 @set friend_sl_3="EMPTY!-!-!-!0!0!0"
 
-@set lover_sl_1=true
+@set lover_slavailable_1=false
 @set friend_slavailable_1=true
 @set friend_slavailable_2=false
 @set friend_slavailable_3=false
