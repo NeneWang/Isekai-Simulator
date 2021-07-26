@@ -436,6 +436,7 @@ public class NaniDataManager
         if (true)
         {
             actionLog = MY_CONSTANTS.aventurerLogs.getRandomLog().title;
+            return true;
         }
 
         return false;
