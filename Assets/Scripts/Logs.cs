@@ -17,7 +17,7 @@ public class LogsList
         return getRandom(logList);
     }
 
-    public Log getRandomLogListBasedOnRarity(EnumRarity enumRarityIn)
+    public Log getRandomLogBasedOnRarity(EnumRarity enumRarityIn)
     {
 
         return getRandom(getLogListBasedOnRarity(enumRarityIn));

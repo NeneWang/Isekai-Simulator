@@ -19,6 +19,7 @@ public class NaniDataManager
     string jsonItems;
 
     public Constants MY_CONSTANTS = new Constants();
+    public RandomGenerator randomGenerator = new RandomGenerator();
     public RelationshipManager relationshipManager = new RelationshipManager();
 
     // TODO: SET THIS VARIABLES LATER
@@ -437,9 +438,28 @@ public class NaniDataManager
         perphapsGettingHurtChances();
 
         // TODO: Implement random log logic
-        if (true)
+        double randomDouble = randomGenerator.getRandom1ToZero();
+        double NORMAL_RATE = 0.3, RARE_RATE = 0.15, MIRACLE_RATE = 0.05;
+        double TOTAL_RATE = NORMAL_RATE + RARE_RATE + MIRACLE_RATE;
+
+        if (randomDouble <= TOTAL_RATE)
         {
-            actionLog = MY_CONSTANTS.aventurerLogs.getRandomLog().title;
+            if (randomDouble > TOTAL_RATE - MIRACLE_RATE)
+            {
+                actionLog = MY_CONSTANTS.aventurerLogs.getRandomLogBasedOnRarity(EnumRarity.Normal).title;
+            }
+
+            else if (randomDouble > NORMAL_RATE)
+            {
+                actionLog = MY_CONSTANTS.aventurerLogs.getRandomLogBasedOnRarity(EnumRarity.Rare).title;
+            }
+            else
+            {
+                actionLog = MY_CONSTANTS.aventurerLogs.getRandomLogBasedOnRarity(EnumRarity.Miracle).title;
+
+            }
+
+
             isLog = true;
 
             return true;

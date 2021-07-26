@@ -166,7 +166,7 @@ public class Constants
 }
 
 
-public class randomGenerator
+public class RandomGenerator
 {
 
     public string[] humanMalesNamesDatabase = new string[] { "Herbert Teske", "Buster Kluck", "Abe Austin", "Marcos Woodrum", "Diego Riddell", "Thomas Hoglund", "Darryl Cardamone", "Erick Brockwell", "Odell Provencher", "Scotty Leo", "Gordon Frankum", "Kelly Visitacion", "Ronald Varley", "Cedric Clukey", "Mariano Sumners", "Tomas Ensey", "Curt Sandberg", "Keenan Teasdale", "Jorge Paulus", "Adrian Weatherby", "Val Kosak", "Carson Trickett", "Newton Swinson", "Stevie Huss", "Faustino Gushiken", "Henry Adkins", "Weston Koenig", "Harland Hoisington", "Brenton Ohern", "Kasey Hadlock", "Marcellus Manns", "Carrol Gower", "Marquis Rothchild", "Alex Lamere", "Whitney Mcmonagle", "Donnell Ladson", "Gregg Plascencia", "Raul Pryce", "Dylan Flock", "Milton Porras", "Moshe Cress", "Chris Lacoste", "Santos Richard", "Jeffrey Blosser", "Jeffery Aman", "Tyler Tunstall", "Don Stollings", "Andrea Schall", "Vernon Schroeter", "Mohammed Wada", "Anibal Dixson", "Gerry Butner", "Benny Domingue", "Marc Visser", "Hobert Bachus", "Nolan Marshburn", "Lamont Rollings", "Len Toto", "Maria Screen", "Tod Jeppesen", "Octavio Dennard", "Lester Eutsey", "Colin Silveria", "Lawerence Matias", "Joel Dibernardo", "Luther Rhynes", "Luigi Delossantos", "Sherwood Chattin", "Frederic Haycock", "Dee Dillard", "Cletus Bills", "Scott Alper", "Angelo Francois", "Roscoe Echevarria", "Taylor Gary", "Jaime Howey", "Orville Haskin", "Pablo Chisholm", "Roland Gosse", "Blake Silverio", "Rory Whorley", "Grant Fabiano", "Stevie Fishburn", "Robbie Gobeil", "Elliot Nyland", "Terry Broadfoot", "Maynard Klick", "Modesto Welch", "Amado Wilmes", "Zack Jolliff", "Irving Raschke", "Gus Fogal", "Kenneth Sheahan", "Efrain Musser", "Milton Corson", "Trey Kelm", "Kenny Meals", "Quinn Daye", "Wilford Niel", "Asa Hawbaker", "Maynard Lathan", "Ike Mickel", "Dirk Carbajal", "Leandro Faries", "Angelo Shook", "Myron Furrow", "Leslie Maselli", "Brain Gulyas", "Daryl Kruse", "Wendell Keller", "Marcelino Campisi", "Antwan Hoppes", "Fritz Rosecrans", "Bertram Trojacek", "Dale Arizmendi", "Bryce Beeks", "Napoleon Acheson", "Bobbie Keever", "Ethan Masuda", "Geraldo Aguilera", "Harlan Lipinski", "Carlo Scruggs", "Ted Lamarr", "Burl Hamiter", "Jose Mckinnis", "Raymond Lyles", "Jeromy Reinoso", "Jasper Bowyer", "Doyle Stetson", "Keneth Lovick", "Gavin Hauptman", "Marquis Crosley", "Ignacio Hinckley", "Wally Kugel", "Mel Judah", "Alonzo Donald", "Clint Kaylor", "Casey Muldrew", "Lou Antone", "Elliott Ochs", "Whitney Mcchesney", "Fredrick Rudasill", "Cole Ochoa", "Chance Thrash", "Lloyd Jungers", "Arlen Mosqueda", "Duane Ensley", "Jacques Arruda", "Ed Harnish", "Malcolm Leonhardt" };
@@ -194,6 +194,10 @@ public class randomGenerator
 
 
         return allNames[namesCount];
+    }
+
+    public double getRandom1ToZero(){
+        return rand.NextDouble();
     }
 
     public Worker generateWorker()
