@@ -51,21 +51,18 @@
 #workSoldier
 @set _={workCareerAs(1)}
 "You worked as soldier"
-@set _={loadNextTurn()}
 @gosub .job
 @return
 
 #workAventurer
 @set _={workCareerAs(2)}
 "You worked as Aventurer"
-@set _={loadNextTurn()}
 @gosub .job
 @return
 
 #workMerchant
 @set _={workCareerAs(3)}
 "You worked as Merchant"
-@set _={loadNextTurn()}
 @gosub .job
 @return
 

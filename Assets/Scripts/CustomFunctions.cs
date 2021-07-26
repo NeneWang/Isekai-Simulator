@@ -136,6 +136,7 @@ public static class CustomFunctions
                 break;
         }
 
+        datanani.increaseTurn();
         datanani.saveData();
 
 

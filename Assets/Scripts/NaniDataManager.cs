@@ -429,7 +429,6 @@ public class NaniDataManager
         {
             aventurerCareer.successfullyCompletedThisJob();
             p_money += aventurerCareer.getJobIncome;
-            increaseTurn();
             saveData();
         }
 
@@ -454,7 +453,6 @@ public class NaniDataManager
         {
             soldierCareer.successfullyCompletedThisJob();
             p_money += soldierCareer.getJobIncome;
-            increaseTurn();
             saveData();
         }
 
@@ -475,8 +473,6 @@ public class NaniDataManager
         p_money += merchantCareer.getJobIncome;
 
         merchantCareer.successfullyCompletedThisJob();
-
-        increaseTurn();
         // TODO REmove following
         saveData();
 

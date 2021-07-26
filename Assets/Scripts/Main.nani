@@ -44,7 +44,7 @@ loading profile
 @set alchemyCompany=0
 @set travelMerchant=0
 
-@set actionLog=""
+@set actionLog="INACTION"
 
 ; @set _={workAsMerchant()}
 ; @set _={workAsAventurer()}
