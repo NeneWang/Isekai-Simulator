@@ -10,6 +10,7 @@ public class NaniDataManager
 
     // Accumulative, not intnded to be added here
     public int accumulativeHappinessModifier, accumulativeHealthModifier;
+    public bool is_log;
 
     public int p_turn, p_age, p_health, p_fame, p_mana, p_happiness, p_money, p_monthlyCashFlow, p_livingmethod, securityCompany, alchemyCompany, travelMerchant;
     public int p_missionsCompleted, p_maxhealth, p_networth, p_stat_str, p_stat_vit, p_stat_dex, p_stat_int, p_stat_wis, p_stat_char;
@@ -105,6 +106,7 @@ public class NaniDataManager
         variableManager.TryGetVariableValue<int>("travelMerchant", out travelMerchant);
 
         variableManager.TryGetVariableValue<string>("actionLog", out actionLog);
+        variableManager.TryGetVariableValue<bool>("is_log", out is_log);
 
         setupRelationshipManger();
         postCareerSuccess();
@@ -274,6 +276,8 @@ public class NaniDataManager
         variableManager.TrySetVariableValue("p_currentInjuries", p_currentInjuries);
         variableManager.TrySetVariableValue("actionLog", actionLog);
 
+        variableManager.TrySetVariableValue("is_log", is_log);
+
         // TODO: Set the relationshipDataHerelater
 
 
@@ -436,6 +440,8 @@ public class NaniDataManager
         if (true)
         {
             actionLog = MY_CONSTANTS.aventurerLogs.getRandomLog().title;
+            is_log = true;
+
             return true;
         }
 
