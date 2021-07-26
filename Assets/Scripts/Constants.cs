@@ -38,6 +38,8 @@ public class Constants
 
     public void createLogs()
     {
+
+        // Aventurer Logs Added
         aventurerLogs.logList.Add(new Log("You encounter a monster", 1));
         aventurerLogs.logList.Add(new Log("You fall into a booby trap ", 2));
         aventurerLogs.logList.Add(new Log("A mysterious man kidnaps your teammates...", 2));
@@ -52,7 +54,7 @@ public class Constants
         aventurerLogs.logList.Add(new Log("Drunk Fight", 2));
         aventurerLogs.logList.Add(new Log("You are challanged into a duel", 1));
         aventurerLogs.logList.Add(new Log("Ally falls in battle", 2));
-        
+
 
     }
 
