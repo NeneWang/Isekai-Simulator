@@ -24,6 +24,8 @@
 
 ; //////////////////////////////////////// ###JOB
 #job
+
+@hideAll
 @resetText
 @back bg-guild
 @char guild_girl look:left pos:45,-60
@@ -73,6 +75,7 @@
 
 #market
 @resetText
+@hideAll
 @back bg-store
 @char merchant look:left pos:45,-40
 @gosub .printMainStatus 
@@ -203,25 +206,33 @@
 @stop
 
 #visit_lover_1
+@resetText
+@hideAll
 @back bg-house
 @char wife look:left pos:45,-10
 you visited your wife
 @goto .relationship
 
 #visit_friend_1
-@back bg-house
-@char p2 look:left pos:45,-20 scale:3
+@resetText
+@hideAll
+@back bg-house1
+@char p2 pos:55,-20 scale:3
 you visited your friend
 @goto .relationship
 
 #visit_friend_2
-@back bg-house
+@resetText
+@hideAll
+@back bg-house2
 @char p3
 you visited your friend
 @goto .relationship
 
 #visit_friend_3
-@back bg-house
+@resetText
+@hideAll
+@back bg-house3
 @char p4
 you visited your friend
 @goto .relationship
