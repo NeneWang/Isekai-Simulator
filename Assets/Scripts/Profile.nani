@@ -72,7 +72,9 @@
 #market
 @resetText
 @back bg-store
-@char merchant look:left pos:45,0
+@char merchant look:left pos:45,-40
+@char guild_girl look:left pos:75,-65
+@char wife look:left pos:15,-10
 @gosub .printMainStatus 
 @gosub .buildingMarketOptions
 @gosub .buildingBusinessOptions
