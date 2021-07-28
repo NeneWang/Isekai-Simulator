@@ -28,6 +28,8 @@ public class NaniDataManager
     public int p_currentInjuries, p_merchantS = 0, p_tradeS = 0, p_farmerS = 0, p_civilServantS = 0, p_aventurerS = 0, p_mercenaryS = 0, p_soldierS = 0;
 
     private string[] months = { "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" };
+    public bool friend_slavailable_1, friend_slavailable_2, friend_slavailable_3, lover_slavailable_1;
+    
     int countMonths
     {
         get => months.Length;
@@ -113,9 +115,15 @@ public class NaniDataManager
         variableManager.TryGetVariableValue<string>("actionLog", out actionLog);
         variableManager.TryGetVariableValue<bool>("isLog", out isLog);
 
+        variableManager.TryGetVariableValue<bool>("lover_slavailable_1", out lover_slavailable_1);
+        variableManager.TryGetVariableValue<bool>("friend_slavailable_1", out friend_slavailable_1);
+        variableManager.TryGetVariableValue<bool>("friend_slavailable_2", out friend_slavailable_2);
+        variableManager.TryGetVariableValue<bool>("friend_slavailable_3", out friend_slavailable_3);
+
         setupRelationshipManger();
         postCareerSuccess();
         updateModifiers();
+        EventManager eventManager = new EventManager(this);
 
 
 
@@ -279,9 +287,21 @@ public class NaniDataManager
         variableManager.TrySetVariableValue("p_aventurerS", p_aventurerS);
         variableManager.TrySetVariableValue("p_soldierS", p_soldierS);
         variableManager.TrySetVariableValue("p_currentInjuries", p_currentInjuries);
+
+        variableManager.TrySetVariableValue("friend_sl_1", friend_sl_1);
+
+        Debug.Log("setting: " +friend_sl_2);
+        variableManager.TrySetVariableValue("friend_sl_2", friend_sl_2);
+        variableManager.TrySetVariableValue("friend_sl_3", friend_sl_3);
+        variableManager.TrySetVariableValue("lover_sl_1", lover_sl_1);
+
         variableManager.TrySetVariableValue("actionLog", actionLog);
 
         variableManager.TrySetVariableValue("isLog", isLog);
+        variableManager.TrySetVariableValue("lover_slavailable_1", lover_slavailable_1);
+        variableManager.TrySetVariableValue("friend_slavailable_1", friend_slavailable_1);
+        variableManager.TrySetVariableValue("friend_slavailable_2", friend_slavailable_2);
+        variableManager.TrySetVariableValue("friend_slavailable_3", friend_slavailable_3);
 
         // TODO: Set the relationshipDataHerelater
 

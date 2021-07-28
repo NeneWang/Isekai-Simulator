@@ -48,6 +48,8 @@ public static class CustomFunctions
         NaniDataManager datanani = new NaniDataManager();
         datanani.increaseTurn();
         datanani.saveData();
+        
+        Debug.Log("setting: " +datanani.friend_sl_2);
         return true;
 
     }
