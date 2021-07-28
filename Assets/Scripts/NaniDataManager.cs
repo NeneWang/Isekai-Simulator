@@ -33,6 +33,10 @@ public class NaniDataManager
         get => months.Length;
     }
 
+    public int p_age_current{
+        get => p_age + countYear;
+    }
+
     public int countYear
     {
         get => (p_turn / countMonths);
