@@ -207,7 +207,7 @@ public static class CustomFunctions
         {
             case ((int)enumBusiness.securityCompany):
                 businessCost = naniDataManager.MY_CONSTANTS.securityCompany.startupCost;
-                if (naniDataManager.canPurchaseThenPurhcase(businessCost))
+                if (naniDataManager.canPurchaseThenPurhcase(businessCost, "a security company"))
                 {
                     naniDataManager.securityCompany++;
                 }
@@ -216,7 +216,7 @@ public static class CustomFunctions
             case ((int)enumBusiness.alchemyCompany):
 
                 businessCost = naniDataManager.MY_CONSTANTS.alchemyCompany.startupCost;
-                if (naniDataManager.canPurchaseThenPurhcase(businessCost))
+                if (naniDataManager.canPurchaseThenPurhcase(businessCost, "an alchemy company"))
                 {
                     naniDataManager.alchemyCompany++;
                 }
@@ -224,7 +224,7 @@ public static class CustomFunctions
 
             case ((int)enumBusiness.travelMerchant):
                 businessCost = naniDataManager.MY_CONSTANTS.travelMerchant.startupCost;
-                if (naniDataManager.canPurchaseThenPurhcase(businessCost))
+                if (naniDataManager.canPurchaseThenPurhcase(businessCost, "a merchant cart"))
                 {
                     naniDataManager.travelMerchant++;
                 }
@@ -255,7 +255,7 @@ public static class CustomFunctions
         {
             case ((int)enumItems.healingKit):
                 itemCost = 100;
-                if (naniDataManager.canPurchaseThenPurhcase(itemCost))
+                if (naniDataManager.canPurchaseThenPurhcase(itemCost, "healing kit"))
                 {
 
                     naniDataManager.healFull();
@@ -264,7 +264,7 @@ public static class CustomFunctions
                 break;
             case ((int)enumItems.potion):
                 itemCost = 500;
-                if (naniDataManager.canPurchaseThenPurhcase(itemCost))
+                if (naniDataManager.canPurchaseThenPurhcase(itemCost, "instant health potion"))
                 {
 
                     naniDataManager.healFull();
