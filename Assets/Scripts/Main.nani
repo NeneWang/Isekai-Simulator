@@ -68,6 +68,9 @@
 ; if eventflag=x then...
 eventQueue...
 @goto .profile if:lastmenu==1
+@goto .market if:lastmenu==2
+@goto .job if:lastmenu==3
+@goto .relationship if:lastmenu==4
 
 
 @goto .eventqueue
@@ -100,7 +103,7 @@ eventQueue...
 
 ; //////////////////////////////////////// ###JOB
 #job
-
+@set lastmenu=3
 @hideAll
 @resetText
 @back bg-guild
@@ -115,7 +118,7 @@ eventQueue...
 @set _={increaseTurn()}
 @set p_happiness=100 
 "You took a nice break"
-@goto .profile
+@goto .eventqueue
 @return
 
 
@@ -131,25 +134,26 @@ eventQueue...
 #workSoldier
 @set _={workCareerAs(1)}
 "You worked as soldier"
-@gosub .job
+@goto .eventqueue
 @return
 
 #workAventurer
 @set _={workCareerAs(2)}
 "You worked as Aventurer"
 @print text:"{actionLog}" if:isLog==true
-@gosub .job
+@goto .eventqueue
 @return
 
 #workMerchant
 @set _={workCareerAs(3)}
 "You worked as Merchant"
-@gosub .job
+@goto .eventqueue
 @return
 
 ; //////////////////////////////////////// ####MARKET
 
 #market
+@set lastmenu=2
 @resetText
 @hideAll
 @back bg-store
@@ -188,20 +192,20 @@ eventQueue...
 
 #rentCamp
 @set p_livingmethod=0
-@goto .market
+@goto .eventqueue
 @stop
 #rentFarm
 @set p_livingmethod=1
-@goto .market
+@goto .eventqueue
 @stop
 #rentTavern
 @set P_livingmethod=2
-@goto .market
+@goto .eventqueue
 @stop
 
 #rentCabin
 @set p_livingmethod=3
-@goto .market
+@goto .eventqueue
 @stop
 
 
@@ -214,23 +218,23 @@ eventQueue...
 
 #BUYsecurityCompany
 @set _={purchaseBusiness(1)}
-@goto .market
+@goto .eventqueue
 @stop
 
 #BUYalchemyCompany
 @set _={purchaseBusiness(2)}
-@goto .market
+@goto .eventqueue
 @stop
 
 #BUYtravelMerchant
 @set _={purchaseBusiness(3)}
-@goto .market
+@goto .eventqueue
 @return
 
 
 #rentCabin
 @set {p_livingmethod=3}
-@goto .market
+@goto .eventqueue
 @stop
 
 
@@ -242,12 +246,12 @@ eventQueue...
 
 #BUYhealingKit
 @set _={purchaseItem(1)}
-@goto .market
+@goto .eventqueue
 @return
 
 #BUYpotion
 @set _={purchaseItem(2)}
-@goto .market
+@goto .eventqueue
 @return
 
 #itemMarket
@@ -271,6 +275,7 @@ eventQueue...
 
 ; //////////////////////////////////////// ###RELATIONSHIP
 #relationship
+@set lastmenu=4
 @resetText
 @gosub .printMainStatus 
 ;TODO make it only show if the pplayer adquired a certain status
@@ -288,7 +293,7 @@ eventQueue...
 @back bg-house
 @char wife look:left pos:45,-10
 you visited your wife
-@goto .relationship
+@goto .eventqueue
 
 #allfriends
 @resetText
@@ -299,7 +304,7 @@ you visited your wife
 @char p2 pos:50,-20 scale:3 if:friend_slavailable_1
 @char p4 pos:65,-20 scale:3 if:friend_slavailable_3
 You spend a great time with your friends
-@goto .relationship
+@goto .eventqueue
 
 
 #visit_friend_1
@@ -308,7 +313,7 @@ You spend a great time with your friends
 @back bg-house1
 @char p2 pos:55,-20 scale:3
 you visited your friend
-@goto .relationship
+@goto .eventqueue
 
 #visit_friend_2
 @resetText
@@ -316,7 +321,7 @@ you visited your friend
 @back bg-house2
 @char p3
 you visited your friend
-@goto .relationship
+@goto .eventqueue
 
 #visit_friend_3
 @resetText
@@ -324,7 +329,7 @@ you visited your friend
 @back bg-house3
 @char p4
 you visited your friend
-@goto .relationship
+@goto .eventqueue
 
 
 
