@@ -66,6 +66,9 @@
 
 #eventqueue
 ; if eventflag=x then...
+
+
+@goto .flag_log if:isLog==true
 eventQueue...
 @goto .profile if:lastmenu==1
 @goto .market if:lastmenu==2
@@ -140,7 +143,6 @@ eventQueue...
 #workAventurer
 @set _={workCareerAs(2)}
 "You worked as Aventurer"
-@print text:"{actionLog}" if:isLog==true
 @goto .eventqueue
 @return
 
@@ -345,4 +347,18 @@ you visited your friend
 
 
 
+; ###EVENTS
 
+#flag_death_health
+
+@goto .eventqueue
+
+#flag_death_happiness
+
+@goto .eventqueue
+
+
+#flag_log
+@print text:"{actionLog}" 
+@set isLog=false
+@goto .eventqueue
