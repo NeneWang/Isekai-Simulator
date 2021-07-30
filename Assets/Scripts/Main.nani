@@ -70,7 +70,7 @@
 
 @goto .flag_log if:isLog==true
 
-@goto .flag_death_money if:flag_number==3
+@goto .flag_death_money if:flag_number==4
 
 @goto .flag_death_health if:flag_number==1
 @goto .flag_death_happiness if:flag_number==2
@@ -369,6 +369,9 @@ You died out of sadness...
 Debt Collectors collected your head...
 @goto .cleanandqueue
 
+#flag_tooexpensive
+Too expensive... You don't have the money
+@goto .cleanandqueue
 
 #cleanandqueue
 @set flag_number=0
