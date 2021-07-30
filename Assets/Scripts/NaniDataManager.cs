@@ -252,7 +252,7 @@ public class NaniDataManager
             return true;
         }
 
-        actionLog = "The price: " + price.ToString() + " is for " + itemName + "too expensive for you.";
+        actionLog = "The price: " + price.ToString() + " is for " + itemName + " is too expensive for you.";
         isLog = true;
         return false;
     }
