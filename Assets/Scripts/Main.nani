@@ -70,10 +70,12 @@
 
 @goto .flag_log if:isLog==true
 
+@goto .flag_death_money if:flag_number==3
 
 @goto .flag_death_health if:flag_number==1
 @goto .flag_death_happiness if:flag_number==2
-@goto .flag_death_money if:flag_number==3
+
+
 
 eventQueue...
 @goto .profile if:lastmenu==1
