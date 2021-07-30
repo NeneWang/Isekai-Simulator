@@ -2,7 +2,7 @@
 @resetText
 @printer Fullscreen
 @gosub .printMainStatus
-"Age: {p_age} Sex: Male  Cashflow: {p_monthlyCashFlow}"
+"Age: {p_age} Sex: Male"
 ; "STR: {p_stat_str} HP: {p_stat_vit} DEX: {p_stat_dex} INT: {p_stat_int} "
 @gosub .printMenuChoices
 
@@ -11,7 +11,7 @@
 @stop
 ;Copy for all files cause you can't import
 #printMainStatus
-"health: {p_health} Happinness: {p_happiness} Money: {p_money} Turn: {p_turn}, {getAbsoluteDate()}" 
+"health: {p_health} Happinness: {p_happiness} Money: {p_money} Turn: {p_turn}, {getAbsoluteDate()} Cashflow: {p_monthlyCashFlow}" 
 @return
 
 #printMenuChoices

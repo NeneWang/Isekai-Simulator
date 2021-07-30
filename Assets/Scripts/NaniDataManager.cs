@@ -29,13 +29,14 @@ public class NaniDataManager
 
     private string[] months = { "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" };
     public bool friend_slavailable_1, friend_slavailable_2, friend_slavailable_3, lover_slavailable_1;
-    
+
     int countMonths
     {
         get => months.Length;
     }
 
-    public int p_age_current{
+    public int p_age_current
+    {
         get => p_age + countYear;
     }
 
@@ -133,6 +134,39 @@ public class NaniDataManager
     {
         initializeCareers();
         fetch();
+
+    }
+
+    public void deathConditions(){
+        if(p_health <= 0 ){
+            Debug.Log("You Died");
+        }
+
+        if(p_happiness <= 0){
+            Debug.Log("You died of depression");
+        }
+    }
+
+    public void safeGuardDatavariables()
+    {
+        if (p_happiness > 100)
+        {
+            p_happiness = 100;
+        }
+
+        if (p_happiness < 0)
+        {
+            p_happiness = 0;
+        }
+
+        if (p_health > p_maxhealth)
+        {
+            p_health = p_maxhealth;
+        }
+        if (p_health < 0)
+        {
+            p_health = 0;
+        }
 
     }
 
@@ -256,6 +290,8 @@ public class NaniDataManager
 
         fetchCareerSuccess();
         updateModifiers();
+        safeGuardDatavariables();
+        deathConditions();
 
         var variableManager = Engine.GetService<ICustomVariableManager>();
         variableManager.TrySetVariableValue("p_turn", p_turn);
@@ -295,7 +331,7 @@ public class NaniDataManager
 
         variableManager.TrySetVariableValue("friend_sl_1", friend_sl_1);
 
-        Debug.Log("setting: " +friend_sl_2);
+        Debug.Log("setting: " + friend_sl_2);
         variableManager.TrySetVariableValue("friend_sl_2", friend_sl_2);
         variableManager.TrySetVariableValue("friend_sl_3", friend_sl_3);
         variableManager.TrySetVariableValue("lover_sl_1", lover_sl_1);
@@ -309,7 +345,7 @@ public class NaniDataManager
         variableManager.TrySetVariableValue("friend_slavailable_3", friend_slavailable_3);
 
         // TODO: Set the relationshipDataHerelater
-        
+
 
 
 
