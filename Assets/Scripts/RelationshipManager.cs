@@ -30,7 +30,7 @@ public class RelationshipManager
 
 
         Person newPerson = new Person(personArray[0]);
-        Debug.Log(personArray[0]);
+        // Debug.Log(personArray[0]);
         // TODO: Implement race and social classtype later
         newPerson.gender = personArray[0];
         newPerson.age = int.Parse(personArray[4]);

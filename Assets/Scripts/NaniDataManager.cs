@@ -137,7 +137,7 @@ public class NaniDataManager
     }
 
     // Updates stuff like 
-    public void updateStatistics()
+    public void newDay()
     {
         applyEffects();
 
@@ -154,6 +154,9 @@ public class NaniDataManager
         p_money += MY_CONSTANTS.alchemyCompany.cashflowB1 * alchemyCompany;
         p_money += MY_CONSTANTS.travelMerchant.cashflowB1 * travelMerchant;
 
+        Debug.Log("Output of today:");
+
+
 
     }
 
@@ -161,13 +164,14 @@ public class NaniDataManager
     {
         // Cashflow 
         RealEstate[] realEstates = { MY_CONSTANTS.carp, MY_CONSTANTS.farm, MY_CONSTANTS.tavern, MY_CONSTANTS.cabin };
-        p_monthlyCashFlow -= realEstates[p_livingmethod].getPrice();
+        p_monthlyCashFlow = -realEstates[p_livingmethod].getPrice();
+        Debug.Log(p_monthlyCashFlow);
 
         // Happiness
-        accumulativeHappinessModifier += realEstates[p_livingmethod].happinessModifier;
+        accumulativeHappinessModifier = realEstates[p_livingmethod].happinessModifier;
 
         // Health
-        accumulativeHealthModifier += realEstates[p_livingmethod].happinessModifier;
+        accumulativeHealthModifier = realEstates[p_livingmethod].happinessModifier;
     }
 
     public bool canPurchase(int price)
@@ -251,6 +255,7 @@ public class NaniDataManager
     {
 
         fetchCareerSuccess();
+        updateModifiers();
 
         var variableManager = Engine.GetService<ICustomVariableManager>();
         variableManager.TrySetVariableValue("p_turn", p_turn);
@@ -304,6 +309,7 @@ public class NaniDataManager
         variableManager.TrySetVariableValue("friend_slavailable_3", friend_slavailable_3);
 
         // TODO: Set the relationshipDataHerelater
+        
 
 
 
@@ -342,6 +348,9 @@ public class NaniDataManager
 
             case "e":
                 dataToReturn = jobIn.leftToRankUp.ToString();
+                break;
+            case "f":
+                dataToReturn = jobIn.getJobIncome.ToString();
                 break;
 
             default:
@@ -569,7 +578,7 @@ public class NaniDataManager
 
     public void increaseTurn()
     {
-        updateStatistics();
+        newDay();
         p_turn++;
     }
 

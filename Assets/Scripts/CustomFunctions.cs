@@ -19,7 +19,7 @@ public static class CustomFunctions
         datanani.p_turn++;
         // Reduce money given the livinghoods you should set up the modifiers in addition to the life and what not
         // Reduce because of the other effects
-        datanani.updateStatistics();
+        datanani.newDay();
         datanani.saveData();
 
         return true;
@@ -233,6 +233,7 @@ public static class CustomFunctions
                 Debug.LogError("ERROR BUSINESS NUM EXCEEDED");
                 break;
         }
+        // Given that the modifiers should change
         naniDataManager.saveData();
 
         return true;
