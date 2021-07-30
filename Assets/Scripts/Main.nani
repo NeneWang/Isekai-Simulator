@@ -3,7 +3,7 @@
 @gosub .eventqueue
 @stop
 
-
+; ###VARIABLES
 #resetAllVariables
 @set p_turn=1
 @set p_age=25
@@ -55,7 +55,7 @@
 @set isLog=false
 
 ; For now limit to just one event flag, we can later think of multiple events happening
-@set flag_number=0 
+@set flag_number=0
 @set lastmenu=1
 
 ; @set _={workAsMerchant()}

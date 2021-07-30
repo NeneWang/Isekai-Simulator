@@ -25,7 +25,7 @@ public class NaniDataManager
     // TODO: SET THIS VARIABLES LATER
 
     public Job merchantCareer, tradeCareer, farmerCareer, civilServantCareer, aventurerCareer, mercenaryCareer, soldierCareer;
-    public int p_currentInjuries, p_merchantS = 0, p_tradeS = 0, p_farmerS = 0, p_civilServantS = 0, p_aventurerS = 0, p_mercenaryS = 0, p_soldierS = 0;
+    public int p_currentInjuries, p_merchantS = 0, p_tradeS = 0, p_farmerS = 0, p_civilServantS = 0, p_aventurerS = 0, p_mercenaryS = 0, p_soldierS = 0, flag_number = 0, lastmenu=1;
 
     private string[] months = { "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" };
     public bool friend_slavailable_1, friend_slavailable_2, friend_slavailable_3, lover_slavailable_1;
@@ -121,6 +121,11 @@ public class NaniDataManager
         variableManager.TryGetVariableValue<bool>("friend_slavailable_2", out friend_slavailable_2);
         variableManager.TryGetVariableValue<bool>("friend_slavailable_3", out friend_slavailable_3);
 
+
+        
+        variableManager.TryGetVariableValue<int>("flag_number", out flag_number);
+        variableManager.TryGetVariableValue<int>("lastmenu", out lastmenu);
+
         setupRelationshipManger();
         postCareerSuccess();
         updateModifiers();
@@ -139,11 +144,13 @@ public class NaniDataManager
 
     public void deathConditions(){
         if(p_health <= 0 ){
-            Debug.Log("You Died");
+            Debug.Log("You Died out of health");
+            flag_number = 1;
         }
 
         if(p_happiness <= 0){
             Debug.Log("You died of depression");
+            flag_number = 2;
         }
     }
 
@@ -290,8 +297,8 @@ public class NaniDataManager
 
         fetchCareerSuccess();
         updateModifiers();
-        safeGuardDatavariables();
         deathConditions();
+        safeGuardDatavariables();
 
         var variableManager = Engine.GetService<ICustomVariableManager>();
         variableManager.TrySetVariableValue("p_turn", p_turn);
@@ -343,6 +350,9 @@ public class NaniDataManager
         variableManager.TrySetVariableValue("friend_slavailable_1", friend_slavailable_1);
         variableManager.TrySetVariableValue("friend_slavailable_2", friend_slavailable_2);
         variableManager.TrySetVariableValue("friend_slavailable_3", friend_slavailable_3);
+
+        variableManager.TrySetVariableValue("flag_number", flag_number);
+        variableManager.TrySetVariableValue("lastmenu", lastmenu);
 
         // TODO: Set the relationshipDataHerelater
 
