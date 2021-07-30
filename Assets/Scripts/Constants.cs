@@ -59,9 +59,6 @@ public class Constants
     }
 
 
-
-
-
     public void createJobs()
     {
         List<JobRank> farmerJobRanks = new List<JobRank>();

@@ -152,6 +152,12 @@ public class NaniDataManager
             Debug.Log("You died of depression");
             flag_number = 2;
         }
+
+        if(p_money < 0){
+            Debug.Log("You are killed by debt collectors");
+            flag_number = 4;
+        }
+
     }
 
     public void safeGuardDatavariables()

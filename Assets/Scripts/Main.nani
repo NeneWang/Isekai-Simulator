@@ -73,6 +73,7 @@
 
 @goto .flag_death_health if:flag_number==1
 @goto .flag_death_happiness if:flag_number==2
+@goto .flag_death_money if:flag_number==3
 
 eventQueue...
 @goto .profile if:lastmenu==1
@@ -360,6 +361,10 @@ You died...
 
 #flag_death_happiness
 You died out of sadness...
+@goto .cleanandqueue
+
+#flag_death_money
+Debt Collectors collected your head...
 @goto .cleanandqueue
 
 
