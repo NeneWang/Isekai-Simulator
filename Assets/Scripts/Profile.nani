@@ -1,14 +1,24 @@
+#eventqueue
+; if eventflag=x then...
+eventQueue...
+@goto .profile if:lastmenu==1
+
+
+@goto .eventqueue
+@stop
+
+
 #profile
+@set lastmenu=1
 @resetText
 @printer Fullscreen
 @gosub .printMainStatus
 "Age: {p_age} Sex: Male"
 ; "STR: {p_stat_str} HP: {p_stat_vit} DEX: {p_stat_dex} INT: {p_stat_int} "
 @gosub .printMenuChoices
-
-
-; //////////////////////////////////////// ###FUNCTIONS 
 @stop
+
+
 ;Copy for all files cause you can't import
 #printMainStatus
 "health: {p_health} Happinness: {p_happiness} Money: {p_money} Turn: {p_turn}, {getAbsoluteDate()} Cashflow: {p_monthlyCashFlow}" 

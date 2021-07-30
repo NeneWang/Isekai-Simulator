@@ -1,7 +1,6 @@
 
 @gosub .resetAllVariables
-loading profile
-@gosub Profile.profile
+@gosub .eventqueue
 @stop
 
 
@@ -55,11 +54,288 @@ loading profile
 @set _=false
 @set isLog=false
 
+; For now limit to just one event flag, we can later think of multiple events happening
+@set eventflag=0 
+@set lastmenu=1
+
 ; @set _={workAsMerchant()}
 ; @set _={workAsAventurer()}
 ; @set _={workAsSoldier()}
 
 @return
+
+#eventqueue
+; if eventflag=x then...
+eventQueue...
+@goto .profile if:lastmenu==1
+
+
+@goto .eventqueue
+@stop
+
+
+#profile
+@set lastmenu=1
+@resetText
+@printer Fullscreen
+@gosub .printMainStatus
+"Age: {p_age} Sex: Male"
+; "STR: {p_stat_str} HP: {p_stat_vit} DEX: {p_stat_dex} INT: {p_stat_int} "
+@gosub .printMenuChoices
+@stop
+
+
+;Copy for all files cause you can't import
+#printMainStatus
+"health: {p_health} Happinness: {p_happiness} Money: {p_money} Turn: {p_turn}, {getAbsoluteDate()} Cashflow: {p_monthlyCashFlow}" 
+@return
+
+#printMenuChoices
+@choice "Profile" goto:.profile
+@choice "Market" goto:.market 
+@choice "Jobs" goto:.job
+@choice "Relationship" goto:.relationship
+@choice "Take a break" goto:.takeABreak
+@return
+
+; //////////////////////////////////////// ###JOB
+#job
+
+@hideAll
+@resetText
+@back bg-guild
+@char guild_girl look:left pos:45,-60
+@gosub .printMainStatus
+@gosub .printJobChoices
+@gosub .printMenuChoices
+@stop
+
+#takeABreak
+@resetText
+@set _={increaseTurn()}
+@set p_happiness=100 
+"You took a nice break"
+@goto .profile
+@return
+
+
+
+
+;Here it should show the jobs that are available there for example, work on the granja and stuff like that
+#printJobChoices
+@choice "Work as {getCareerData(1, "d")} Soldier $ {getCareerData(1, "f")}, {getCareerData(1, "e")}  to level up" goto:.workSoldier
+@choice "Work as {getCareerData(2, "d")} Aventurer $ {getCareerData(2, "f")}, {getCareerData(2, "e")}  to level up" goto:.workAventurer
+@choice "Work as {getCareerData(3, "d")} Merchant $ {getCareerData(3, "f")}, {getCareerData(3, "e")}  to level up" goto:.workMerchant
+@return
+
+#workSoldier
+@set _={workCareerAs(1)}
+"You worked as soldier"
+@gosub .job
+@return
+
+#workAventurer
+@set _={workCareerAs(2)}
+"You worked as Aventurer"
+@print text:"{actionLog}" if:isLog==true
+@gosub .job
+@return
+
+#workMerchant
+@set _={workCareerAs(3)}
+"You worked as Merchant"
+@gosub .job
+@return
+
+; //////////////////////////////////////// ####MARKET
+
+#market
+@resetText
+@hideAll
+@back bg-store
+@char merchant look:left pos:45,-40
+@gosub .printMainStatus 
+@gosub .buildingMarketOptions
+@gosub .buildingBusinessOptions
+@gosub .itemOptions
+@gosub .printMenuChoices
+@stop
+
+
+#equipmentMarket
+@resetText
+@gosub .printMainStatus 
+@choice "Buy Axe"
+@choice "Buy Sword"
+@choice "go back" goto:.market
+@stop
+
+
+#buildingMarket
+@resetText
+@gosub .printMainStatus 
+@gosub .buildingMarketOptions
+@choice "go back" goto:.market
+@stop
+
+
+#buildingMarketOptions
+@choice "Camping -CF: 0$ " gosub:.rentCamp
+@choice "Rent roof in a farm -CF -2$" gosub:.rentFarm
+@choice "Rent a tavern room -CF -5$" gosub:.rentTavern
+@choice "Rent A Cabin -CF -15$" gosub:.rentCabin
+@return
+
+#rentCamp
+@set p_livingmethod=0
+@goto .market
+@stop
+#rentFarm
+@set p_livingmethod=1
+@goto .market
+@stop
+#rentTavern
+@set P_livingmethod=2
+@goto .market
+@stop
+
+#rentCabin
+@set p_livingmethod=3
+@goto .market
+@stop
+
+
+#buildingBusinessOptions
+@choice "Purchase Security Company: 500$ CF: 50" gosub:.BUYsecurityCompany 
+@choice "Purchase Security Alchemy: 1000$ CF: 110" gosub:.BUYalchemyCompany
+@choice "Purchase Security Business: 2000$ CF: 250" gosub:.BUYtravelMerchant
+
+@return
+
+#BUYsecurityCompany
+@set _={purchaseBusiness(1)}
+@goto .market
+@stop
+
+#BUYalchemyCompany
+@set _={purchaseBusiness(2)}
+@goto .market
+@stop
+
+#BUYtravelMerchant
+@set _={purchaseBusiness(3)}
+@goto .market
+@return
+
+
+#rentCabin
+@set {p_livingmethod=3}
+@goto .market
+@stop
+
+
+
+#itemOptions
+@choice "Healing Aid Kit: 150$ " gosub:.BUYhealingKit
+@choice "Potion: 500$" gosub:.BUYpotion
+@return
+
+#BUYhealingKit
+@set _={purchaseItem(1)}
+@goto .market
+@return
+
+#BUYpotion
+@set _={purchaseItem(2)}
+@goto .market
+@return
+
+#itemMarket
+@resetText
+@gosub .printMainStatus 
+@gosub .itemOptions
+@choice "go back" goto:.market
+@stop
+
+
+
+; //////////////////////////////////////// ###TRAINNING
+#trainning
+@resetText
+@gosub .printMainStatus 
+@choice "Militar Academy"
+@choice "Magic Academy"
+
+@stop
+
+
+; //////////////////////////////////////// ###RELATIONSHIP
+#relationship
+@resetText
+@gosub .printMainStatus 
+;TODO make it only show if the pplayer adquired a certain status
+@choice "Spend time with  {getPersonData(2,"a")} {getPersonData(2,"g")} " if:lover_slavailable_1 goto:.visit_lover_1
+@choice "Invite drinks to all friends" goto:.allfriends
+@choice "Visit1 {getPersonData(3,"a")} {getPersonData(3,"g")}" if:friend_slavailable_1 goto:.visit_friend_1
+@choice "Visit2 {getPersonData(4,"a")} {getPersonData(4,"g")}" if:friend_slavailable_2 goto:.visit_friend_2
+@choice "Visit3 {getPersonData(5,"a")} {getPersonData(5,"g")}" if:friend_slavailable_3 goto:.visit_friend_3
+@gosub .printMenuChoices
+@stop
+
+#visit_lover_1
+@resetText
+@hideAll
+@back bg-house
+@char wife look:left pos:45,-10
+you visited your wife
+@goto .relationship
+
+#allfriends
+@resetText
+@hideAll
+@back bg-tavern
+@char p1 pos:15,-20 scale:3 look:right
+@char p3 pos:35,-20 scale:3 look:right if:friend_slavailable_2
+@char p2 pos:50,-20 scale:3 if:friend_slavailable_1
+@char p4 pos:65,-20 scale:3 if:friend_slavailable_3
+You spend a great time with your friends
+@goto .relationship
+
+
+#visit_friend_1
+@resetText
+@hideAll
+@back bg-house1
+@char p2 pos:55,-20 scale:3
+you visited your friend
+@goto .relationship
+
+#visit_friend_2
+@resetText
+@hideAll
+@back bg-house2
+@char p3
+you visited your friend
+@goto .relationship
+
+#visit_friend_3
+@resetText
+@hideAll
+@back bg-house3
+@char p4
+you visited your friend
+@goto .relationship
+
+
+
+@gosub .printMenuChoices
+; @choice "Visit Friend Slot C"
+; @choice "Visit Friend Slot D"
+; @choice "Visit Friend Slot E"
+; @choice "Visit Friend Slot F"
+; @choice "Visit Friend Slot G"
+
+@stop
 
 
 
