@@ -55,7 +55,7 @@
 @set isLog=false
 
 ; For now limit to just one event flag, we can later think of multiple events happening
-@set eventflag=0 
+@set flag_number=0 
 @set lastmenu=1
 
 ; @set _={workAsMerchant()}
@@ -69,6 +69,11 @@
 
 
 @goto .flag_log if:isLog==true
+
+
+@goto .flag_death_health if:flag_number==1
+@goto .flag_death_happiness if:flag_number==2
+
 eventQueue...
 @goto .profile if:lastmenu==1
 @goto .market if:lastmenu==2
@@ -350,13 +355,17 @@ you visited your friend
 ; ###EVENTS
 
 #flag_death_health
-
-@goto .eventqueue
+You died...
+@goto .cleanandqueue
 
 #flag_death_happiness
+You died out of sadness...
+@goto .cleanandqueue
 
+
+#cleanandqueue
+@set flag_number=0
 @goto .eventqueue
-
 
 #flag_log
 @print text:"{actionLog}" 
