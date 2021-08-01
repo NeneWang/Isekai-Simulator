@@ -77,7 +77,6 @@
 
 
 
-eventQueue...
 @goto .profile if:lastmenu==1
 @goto .market if:lastmenu==2
 @goto .job if:lastmenu==3
