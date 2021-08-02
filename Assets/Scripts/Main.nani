@@ -92,7 +92,7 @@
 @resetText
 @printer Fullscreen
 @gosub .printMainStatus
-"Age: {p_age} Sex: Male"
+"Age: {p_age}"
 ; "STR: {p_stat_str} HP: {p_stat_vit} DEX: {p_stat_dex} INT: {p_stat_int} "
 @gosub .printMenuChoices
 @stop
