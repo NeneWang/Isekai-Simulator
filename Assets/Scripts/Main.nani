@@ -1,5 +1,6 @@
 
 @gosub .resetAllVariables
+@showUI HealthBar
 @gosub .eventqueue
 @stop
 
