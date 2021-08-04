@@ -55,6 +55,8 @@
 @set _=false
 @set isLog=false
 
+@set absolute_date="date"
+
 ; For now limit to just one event flag, we can later think of multiple events happening
 @set flag_number=0
 @set lastmenu=1
@@ -88,6 +90,10 @@
 @stop
 
 
+#updateVariables
+@set absolute_date="{getAbsoluteDate()}"
+@return
+
 #profile
 @set lastmenu=1
 @resetText
@@ -101,7 +107,8 @@
 
 ;Copy for all files cause you can't import
 #printMainStatus
-"health: {p_health} Happinness: {p_happiness} Money: {p_money} Turn: {p_turn}, {getAbsoluteDate()} Cashflow: {p_monthlyCashFlow}" 
+@gosub .updateVariables
+"health: {p_health} Happinness: {p_happiness} Money: {p_money} Turn: {p_turn}, {absolute_date} Cashflow: {p_monthlyCashFlow}" 
 @return
 
 #printMenuChoices

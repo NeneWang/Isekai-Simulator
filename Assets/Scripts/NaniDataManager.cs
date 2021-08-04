@@ -57,8 +57,11 @@ public class NaniDataManager
 
     public string absoluteDateMessage
     {
+        
         get => currentMonthName + " " + (absoluteYear).ToString();
     }
+
+
 
 
     public void fetch()

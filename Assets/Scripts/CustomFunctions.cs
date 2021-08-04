@@ -48,8 +48,8 @@ public static class CustomFunctions
         NaniDataManager datanani = new NaniDataManager();
         datanani.increaseTurn();
         datanani.saveData();
-        
-        Debug.Log("setting: " +datanani.friend_sl_2);
+
+        Debug.Log("setting: " + datanani.friend_sl_2);
         return true;
 
     }
@@ -122,7 +122,7 @@ public static class CustomFunctions
         switch ((EnumSocial)enumSocialIn)
         {
             case (EnumSocial.Friend_1):
-                
+
                 break;
 
             default:
@@ -282,9 +282,9 @@ public static class CustomFunctions
         NaniDataManager naniDataManager = new NaniDataManager();
 
 
-
         string messageDate = naniDataManager.absoluteDateMessage;
 
+        Debug.Log(messageDate);
         return messageDate;
 
     }
