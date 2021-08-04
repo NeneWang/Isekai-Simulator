@@ -112,6 +112,7 @@
 @return
 
 #printMenuChoices
+@clearChoice
 ; @choice "Profile" goto:.profile
 ; @choice "Market" goto:.market 
 ; @choice "Jobs" goto:.job
@@ -132,8 +133,8 @@
 @back bg-guild
 @char guild_girl look:left pos:45,-60
 @gosub .printMainStatus
-@gosub .printJobChoices
 @gosub .printMenuChoices
+@gosub .printJobChoices
 @stop
 
 #takeABreak
@@ -181,10 +182,10 @@
 @back bg-store
 @char merchant look:left pos:45,-40
 @gosub .printMainStatus 
+@gosub .printMenuChoices
 @gosub .buildingMarketOptions
 @gosub .buildingBusinessOptions
 @gosub .itemOptions
-@gosub .printMenuChoices
 @stop
 
 
@@ -299,14 +300,16 @@
 #relationship
 @set lastmenu=4
 @resetText
+
 @gosub .printMainStatus 
+@gosub .printMenuChoices
 ;TODO make it only show if the pplayer adquired a certain status
 @choice "Spend time with  {getPersonData(2,"a")} {getPersonData(2,"g")} " if:lover_slavailable_1 goto:.visit_lover_1
 @choice "Invite drinks to all friends" goto:.allfriends
 @choice "Visit1 {getPersonData(3,"a")} {getPersonData(3,"g")}" if:friend_slavailable_1 goto:.visit_friend_1
 @choice "Visit2 {getPersonData(4,"a")} {getPersonData(4,"g")}" if:friend_slavailable_2 goto:.visit_friend_2
 @choice "Visit3 {getPersonData(5,"a")} {getPersonData(5,"g")}" if:friend_slavailable_3 goto:.visit_friend_3
-@gosub .printMenuChoices
+
 @stop
 
 #visit_lover_1
@@ -354,15 +357,6 @@ you visited your friend
 @goto .eventqueue
 
 
-
-@gosub .printMenuChoices
-; @choice "Visit Friend Slot C"
-; @choice "Visit Friend Slot D"
-; @choice "Visit Friend Slot E"
-; @choice "Visit Friend Slot F"
-; @choice "Visit Friend Slot G"
-
-@stop
 
 
 
