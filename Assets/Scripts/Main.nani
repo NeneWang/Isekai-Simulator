@@ -184,12 +184,11 @@
 @back bg-store
 @char merchant look:left pos:45,-40
 "What would you like to purchase?"
-@spawn Blur
+@spawn DepthOfField params:merchant
 @showUI StoreMenu
 @set basic_store=true
 @save
 @hidePrinter
-@stop
 @gosub .printMainStatus 
 @gosub .printMenuChoices
 ; @gosub .buildingMarketOptions
@@ -224,6 +223,7 @@
 
 #rentCamp
 @set p_livingmethod=0
+
 @goto .eventqueue
 @stop
 #rentFarm
@@ -243,8 +243,8 @@
 
 #buildingBusinessOptions
 @choice "Purchase Security Company: 500$ CF: 50" gosub:.BUYsecurityCompany 
-@choice "Purchase Security Alchemy: 1000$ CF: 110" gosub:.BUYalchemyCompany
-@choice "Purchase Security Business: 2000$ CF: 250" gosub:.BUYtravelMerchant
+@choice "Purchase Alchemy Company: 1000$ CF: 110" gosub:.BUYalchemyCompany
+@choice "Purchase International Merchant Network: 2000$ CF: 250" gosub:.BUYtravelMerchant
 
 @return
 
