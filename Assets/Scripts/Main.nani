@@ -96,7 +96,6 @@
 #profile
 @set lastmenu=1
 @resetText
-@printer Fullscreen
 @gosub .printMainStatus
 ; "Age: {p_age}"
 ; "STR: {p_stat_str} HP: {p_stat_vit} DEX: {p_stat_dex} INT: {p_stat_int} "
@@ -118,11 +117,12 @@
 ; @choice "Jobs" goto:.job
 ; @choice "Relationship" goto:.relationship
 ; @choice "Take a break" goto:.takeABreak
-@choice button:ChoiceButtons/BtnStore pos:-300,-300 handler:ButtonArea goto:.market
-@choice button:ChoiceButtons/BtnJobs pos:-180,-300 handler:ButtonArea goto:.job
-@choice button:ChoiceButtons/BtnProfile pos:-60,-300 handler:ButtonArea goto:.profile
-@choice button:ChoiceButtons/BtnBreak pos:60,-300 handler:ButtonArea goto:.takeABreak
-@choice button:ChoiceButtons/BtnRelationship pos:180,-300 handler:ButtonArea goto:.relationship
+@choice button:ChoiceButtons/BtnStore pos:850,300 handler:ButtonArea goto:.market
+@choice button:ChoiceButtons/BtnJobs pos:850,150 handler:ButtonArea goto:.job
+@choice button:ChoiceButtons/BtnProfile pos:850, 0 handler:ButtonArea goto:.profile
+@choice button:ChoiceButtons/BtnBreak pos:850,-150 handler:ButtonArea goto:.takeABreak
+@choice button:ChoiceButtons/BtnRelationship pos:840,-300 handler:ButtonArea goto:.relationship
+@choice button:ChoiceButtons/BtnAnim pos:840,-450 handler:ButtonArea goto:.relationship
 @return
 
 ; //////////////////////////////////////// ###JOB
