@@ -6,6 +6,8 @@
 
 ; ###VARIABLES
 #resetAllVariables
+
+@set basic_store=true
 @set p_turn=1
 @set p_age=25
 @set p_sex=male
@@ -123,13 +125,14 @@
 @choice button:ChoiceButtons/BtnProfile pos:850, 0 handler:ButtonArea goto:.profile
 @choice button:ChoiceButtons/BtnBreak pos:850,-150 handler:ButtonArea goto:.takeABreak
 @choice button:ChoiceButtons/BtnRelationship pos:840,-300 handler:ButtonArea goto:.relationship
-@choice button:ChoiceButtons/BtnAnim pos:840,-450 handler:ButtonArea goto:.relationship
+
 @return
 
 ; //////////////////////////////////////// ###JOB
 #job
 @set lastmenu=3
 @hideAll
+@gosub .printMenuChoices
 @resetText
 @back bg-guild
 @char guild_girl look:left pos:45,-60
@@ -159,8 +162,11 @@
 
 #workSoldier
 @set _={workCareerAs(1)}
+@set animation_stop=false
+@choice button:ChoiceButtons/BtnAnim pos:0,0 if:!animation_stop
 "You worked as soldier"
 @goto .eventqueue
+@set animation_stop=true
 @return
 
 #workAventurer
@@ -178,21 +184,19 @@
 ; //////////////////////////////////////// ####MARKET
 
 #market
+
+@hideUI StoreMenu
 @set lastmenu=2
 @resetText
 @hideAll
 @back bg-store
 @char merchant look:left pos:45,-40
-"What would you like to purchase?"
-@spawn DepthOfField params:merchant
-@showUI StoreMenu
-@set basic_store=true
-@save
-@hidePrinter
 @gosub .printMainStatus 
+"What would you like to purchase?"
+@showUI StoreMenu
 @gosub .printMenuChoices
-; @gosub .buildingMarketOptions
-@gosub .buildingBusinessOptions
+; ; @gosub .buildingMarketOptions
+; @gosub .buildingBusinessOptions
 ; @gosub .itemOptions
 @stop
 
