@@ -22,7 +22,7 @@ public class NaniDataManager
     public RandomGenerator randomGenerator = new RandomGenerator();
     public RelationshipManager relationshipManager = new RelationshipManager();
 
-    // TODO: SET THIS VARIABLES LATER
+    // TODO: SET THIS VARIABLES LATER   
 
     public Job merchantCareer, tradeCareer, farmerCareer, civilServantCareer, aventurerCareer, mercenaryCareer, soldierCareer;
     public int p_currentInjuries, p_merchantS = 0, p_tradeS = 0, p_farmerS = 0, p_civilServantS = 0, p_aventurerS = 0, p_mercenaryS = 0, p_soldierS = 0, flag_number = 0, lastmenu = 1;
