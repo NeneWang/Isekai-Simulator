@@ -192,14 +192,24 @@
 @back bg-store
 @char merchant look:left pos:45,-40
 @gosub .printMainStatus 
-"What would you like to purchase?"
-@showUI StoreMenu
-@gosub .printMenuChoices
-; ; @gosub .buildingMarketOptions
-; @gosub .buildingBusinessOptions
-; @gosub .itemOptions
+@gosub .marketOptions
 @stop
 
+
+#marketOptions
+"How can I help you?"
+@gosub .printMenuChoices
+@gosub .printMainStatus 
+@choice "Purchase" goto:.marketBuyMenu
+@choice "Sell"
+
+@stop
+
+#marketBuyMenu
+@hidePrinter
+@showUI StoreMenu
+
+@stop
 
 #equipmentMarket
 @resetText

@@ -17,7 +17,7 @@ public class LocationSprite : MonoBehaviour
 
     public string p_livingmethod;
 
-    public SpriteRenderer spriteRenderer;
+    public Image spriteRenderer;
 
     public void updateBase()
     {
