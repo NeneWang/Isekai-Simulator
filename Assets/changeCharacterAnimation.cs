@@ -17,6 +17,7 @@ public class changeCharacterAnimation : MonoBehaviour
     {
         var variableManager = Engine.GetService<ICustomVariableManager>();
         var p_animation = variableManager.GetVariableValue("p_animation");
+        Debug.Log("Animation: ");
         Debug.Log(p_animation);
         animator.SetInteger("event", int.Parse(p_animation));
     }

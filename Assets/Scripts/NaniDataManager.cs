@@ -219,11 +219,9 @@ public class NaniDataManager
         // Cashflow 
         RealEstate[] realEstates = { MY_CONSTANTS.carp, MY_CONSTANTS.farm, MY_CONSTANTS.tavern, MY_CONSTANTS.cabin };
         p_monthlyCashFlow = -realEstates[p_livingmethod].getPrice();
-        Debug.Log(p_monthlyCashFlow);
-
+        // Debug.Log(p_monthlyCashFlow);
         // Happiness
         accumulativeHappinessModifier = realEstates[p_livingmethod].happinessModifier;
-
         // Health
         accumulativeHealthModifier = realEstates[p_livingmethod].happinessModifier;
     }
