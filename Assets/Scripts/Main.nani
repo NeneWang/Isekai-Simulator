@@ -136,12 +136,12 @@
 @resetText
 @back bg-guild
 @char guild_girl look:left pos:45,-60
-"What will you be doing this week?"
 @gosub .printMainStatus
 @gosub .printMenuChoices
-; @gosub .printJobChoices
-@choice "Work"  goto:.jobMenu
+"What will you be doing this week?" [skipInput]
+@choice "Work"  gosub:.jobMenu
 @choice "Socialize"
+; @gosub .printJobChoices
 
 @stop
 
@@ -155,6 +155,7 @@
 
 
 #jobMenu
+@hidePrinter
 @showUI JobMenu
 @stop
 
@@ -203,15 +204,15 @@
 
 
 #marketOptions
-"How can I help you?"
 @gosub .printMenuChoices
 @gosub .printMainStatus 
-@choice "Purchase" goto:.marketBuyMenu
-@choice "Sell"
-
+"How can I help you?"[skipInput]
+@choice "Purchase" goto:.marketBuyMenu 
+@choice "Sell" goto:.marketBuyMenu
 @stop
 
 #marketBuyMenu
+@skip
 @hidePrinter
 @showUI StoreMenu
 
