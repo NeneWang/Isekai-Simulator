@@ -284,7 +284,7 @@ public static class CustomFunctions
 
         string messageDate = naniDataManager.absoluteDateMessage;
 
-        Debug.Log(messageDate);
+        // Debug.Log(messageDate);
         return messageDate;
 
     }

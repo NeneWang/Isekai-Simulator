@@ -208,7 +208,7 @@ public class NaniDataManager
         p_money += MY_CONSTANTS.alchemyCompany.cashflowB1 * alchemyCompany;
         p_money += MY_CONSTANTS.travelMerchant.cashflowB1 * travelMerchant;
 
-        Debug.Log("Output of today:");
+        // Debug.Log("Output of today:");
 
 
 
@@ -362,7 +362,7 @@ public class NaniDataManager
 
         variableManager.TrySetVariableValue("friend_sl_1", friend_sl_1);
 
-        Debug.Log("setting: " + friend_sl_2);
+        // Debug.Log("setting: " + friend_sl_2);
         variableManager.TrySetVariableValue("friend_sl_2", friend_sl_2);
         variableManager.TrySetVariableValue("friend_sl_3", friend_sl_3);
         variableManager.TrySetVariableValue("lover_sl_1", lover_sl_1);

@@ -35,8 +35,8 @@ public class EventManager
             naniDataManager.friend_slavailable_3 = true;
         }
 
-        Debug.Log(naniDataManager.relationshipManager.friends[2].name);
-        Debug.Log(naniDataManager.relationshipManager.friends[1].name);
+        // Debug.Log(naniDataManager.relationshipManager.friends[2].name);
+        // Debug.Log(naniDataManager.relationshipManager.friends[1].name);
     }
 
 }
