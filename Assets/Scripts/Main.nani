@@ -181,20 +181,24 @@
 @set _={workCareerAs(1)}
 @set p_animation=8
 "You worked as soldier"
-@showUI AnimationUI
+; @showUI AnimationUI
 @wait 1
 @goto .eventqueue
 @return
 
 #workAventurer
 @set _={workCareerAs(2)}
+@set p_animation=1
 "You worked as Aventurer"
+; @showUI AnimationUI
 @goto .eventqueue
 @return
 
 #workMerchant
 @set _={workCareerAs(3)}
+@set p_animation=6
 "You worked as Merchant"
+; @showUI AnimationUI
 @goto .eventqueue
 @return
 
