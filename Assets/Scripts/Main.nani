@@ -173,8 +173,11 @@
 @set _={workCareerAs(1)}
 @set animation_stop=false
 ; @choice button:ChoiceButtons/BtnAnim pos:0,0 if:!animation_stop
+@set p_animation=8
 @choice button:ChoiceButtons/BtnAventurer pos:0,0 if:!animation_stop
 "You worked as soldier"
+@skip false
+"This is another text" 
 @goto .eventqueue
 @set animation_stop=true
 @return
