@@ -6,12 +6,12 @@ using UnityEngine.UI;
 
 public class changeCharacterAnimation : MonoBehaviour
 {
-    Animator animator;
+    public Animator animator;
 
-    void start()
-    {
-        animator = GetComponent<Animator>();
-    }
+    // void start()
+    // {
+    //     animator = GetComponent<Animator>();
+    // }
 
     public void updateAnimation()
     {
