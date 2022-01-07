@@ -7,6 +7,8 @@
 ; ###VARIABLES
 #resetAllVariables
 
+@set p_animation=0
+
 @set basic_store=true
 @set p_turn=1
 @set p_age=25
