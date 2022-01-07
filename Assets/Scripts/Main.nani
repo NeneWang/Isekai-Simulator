@@ -137,7 +137,7 @@
 @gosub .printMenuChoices
 @resetText
 @back bg-guild
-@char guild_girl look:left pos:45,-60
+; @char guild_girl look:left pos:45,-60
 @gosub .printMainStatus
 @gosub .printMenuChoices
 "What will you be doing this week?" [skipInput]
@@ -172,7 +172,8 @@
 #workSoldier
 @set _={workCareerAs(1)}
 @set animation_stop=false
-@choice button:ChoiceButtons/BtnAnim pos:0,0 if:!animation_stop
+; @choice button:ChoiceButtons/BtnAnim pos:0,0 if:!animation_stop
+@choice button:ChoiceButtons/BtnAventurer pos:0,0 if:!animation_stop
 "You worked as soldier"
 @goto .eventqueue
 @set animation_stop=true
