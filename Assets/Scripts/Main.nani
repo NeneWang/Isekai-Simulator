@@ -7,7 +7,7 @@
 ; ###VARIABLES
 #resetAllVariables
 
-@set p_animation=0
+@set p_animation=99
 
 @set basic_store=true
 @set p_turn=1
@@ -130,20 +130,25 @@
 @return
 
 #cleanUI
-@hideUI AnimationUI
+
+; If running an animation then change the animation and waif for removing everything
+@if p_animation!=99
+@set p_animation=99
+@endIf
 @hideUI StoreMenu
-@hideUI jobMenu
-@resetText
+@hideUI JobMenu
+; You should also start 
 @hideAll
+@resetText
+@skip false
 @return
 
 ; //////////////////////////////////////// ###JOB
 #job
 
+@gosub .cleanUI
 @set lastmenu=3
 @gosub .printMenuChoices
-@resetText
-@gosub .cleanUI
 @back bg-guild
 ; @char guild_girl look:left pos:45,-60
 @gosub .printMainStatus
@@ -181,15 +186,13 @@
 @set _={workCareerAs(1)}
 @set p_animation=8
 "You worked as soldier"
-; @showUI AnimationUI
-@wait 1
 @goto .eventqueue
 @return
 
 #workAventurer
 @set _={workCareerAs(2)}
 @set p_animation=1
-"You worked as Aventurer"
+"You worked as Aventurer" 
 ; @showUI AnimationUI
 @goto .eventqueue
 @return
