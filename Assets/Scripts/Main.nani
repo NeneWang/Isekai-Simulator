@@ -74,17 +74,17 @@
 
 
 ; People
-@set met_janna=false
-@set met_atlas=false
-@set met_mitia=false
-@set met_kisa=false
-@set met_legeon=false
-@set met_vandeus=false
-@set met_gerald=false
-@set met_merlin=false
-@set met_gerald=false
-@set met_aiza=false
-@set met_misterv=false
+@set rel_janna=0
+@set rel_atlas=0
+@set rel_mitia=0
+@set rel_kisa=0
+@set rel_legeon=0
+@set rel_vandeus=0
+@set rel_gerald=0
+@set rel_merlin=0
+@set rel_gerald=0
+@set rel_aiza=0
+@set rel_misterv=0
 
 
 @return
@@ -124,7 +124,7 @@ Girl: Hello, I am Janna, Nice to meet you!
 You chatted and decided to partner for an mission
 New Character Adquired: Janna
 
-@set met_janna=true
+@set rel_janna=1
 @return
 
 #meet_atlas
@@ -133,7 +133,7 @@ Boy: Hello! excuse me, I am Atlas, I am looking for an aventuring partner...
 @choice "Sure, I am looking for a partner too"
 @stop
 New Character Adquired: Atlas
-@set met_atlas=true
+@set rel_atlas=1
 @return
 
 #meet_mitia
@@ -143,47 +143,47 @@ Girl: Who are you?
 @choice "Stop stalking me girl" do:@return
 Mitia: I am mitia the legendary magician!
 New Character Adquired: Atlas
-@set met_mitia=true
+@set rel_mitia=1
 @return
 
 #meet_kisa
 New Character Adquired: Kisa
-@set met_kisa=true
+@set rel_kisa=1
 @return
 
 #meet_legeon
 New Character Adquired: Legeon
-@set met_legeon=true
+@set rel_legeon=1
 @return
 
 #meet_vandeus
 New Character Adquired: Vandeus
-@set met_vandeus=true
+@set rel_vandeus=1
 @return
 
 #meet_gerald
 New Character Adquired: Gerald
-@set met_gerald=true
+@set rel_gerald=1
 @return
 
 #meet_merlin
 New Character Adquired: Merlin
-@set met_merlin=true
+@set rel_merlin=1
 @return
 
 #meet_gerald
 New Character Adquired: Gerald
-@set met_gerald=true
+@set rel_gerald=1
 @return
 
 #meet_aiza
 New Character Adquired: Aiza
-@set met_aiza=true
+@set rel_aiza=1
 @return
 
 #meet_misterv
 New Character Adquired: Mister V.
-@set met_misterv=true
+@set rel_misterv=1
 @return
 
 
