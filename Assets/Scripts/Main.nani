@@ -90,7 +90,7 @@
 @return
 
 
-#preQueue
+#prequeue
 ; Aventurers
 @gosub .meet_janna if:p_count_job==1
 @gosub .meet_atlas if:p_count_job==6
@@ -114,11 +114,24 @@
 ; Meeting
 
 #meet_janna
+Girl: Hey what u doin
+@choice "yes? How can I help you"  
+@choice "nothing, dont bother me" do:@return
+@stop
+
+Girl: Hello, I am Janna, Nice to meet you!
+@choice "Nice to meet you too.."
+You chatted and decided to partner for an mission
+New Character Adquired: Janna
 
 @set met_janna=true
 @return
 
 #meet_atlas
+Boy: Hello! excuse me, I am looking for an aventuring partner...
+@choice "Sorry, I am not available" do:@return
+@choice "Sure, I am looking for a partner too"
+@stop
 
 @set met_atlas=true
 @return
@@ -244,7 +257,7 @@
 
 ; //////////////////////////////////////// ###JOB
 #job
-
+@set p_count_job++
 @gosub .cleanUI
 @set lastmenu=3
 @gosub .printMenuChoices
@@ -282,6 +295,7 @@
 @return
 
 #workSoldier
+@gosub .prequeue
 @set _={workCareerAs(1)}
 @set p_animation=8
 "You worked as soldier"
@@ -289,6 +303,7 @@
 @return
 
 #workAventurer
+@gosub .prequeue
 @set _={workCareerAs(2)}
 @set p_animation=1
 "You worked as Aventurer" 
@@ -297,6 +312,7 @@
 @return
 
 #workMerchant
+@gosub .prequeue
 @set _={workCareerAs(3)}
 @set p_animation=6
 "You worked as Merchant"
