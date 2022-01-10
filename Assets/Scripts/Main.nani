@@ -35,6 +35,9 @@
 @set p_aventurerS=0
 @set p_soldierS=0
 
+@set p_job_count=0
+@set p_merchant_count_=0
+
 @set p_currentInjuries=0
 
 
@@ -69,7 +72,48 @@
 ; @set _={workAsAventurer()}
 ; @set _={workAsSoldier()}
 
+
+; People
+@set meet_janna=false
+@set meet_atlas=false
+@set meet_miltia=false
+@set meet_kisa=false
+@set meet_legeon=false
+@set meet_vandeus=false
+@set meet_gerald=false
+@set meet_merlin=false
+@set meet_gerald=false
+@set meet_aiza=false
+@set meet_misterv=false
+
+
 @return
+
+
+#preQueue
+; Aventurers
+@gosub .meet_janna if:p_count_job==1
+@gosub .meet_atlas if:p_count_job==6
+@gosub .meet_miltia if:p_count_job==10
+@gosub .meet_kisa if:p_count_job==15
+@gosub .meet_legeon if:p_count_job==20
+@gosub .meet_vandeus if:p_count_job==30
+@gosub .meet_gerald if:p_count_job==48
+@gosub .meet_merlin if:p_count_job==60
+
+
+; Merchants
+@gosub .meet_gerald if:p_count_merchant==5
+@gosub .meet_aiza if:p_count_job==10
+@gosub .meet_misterv if:p_count_job==20
+
+
+@return
+
+; Meeting
+
+
+
 
 #eventqueue
 ; if eventflag=x then...

@@ -208,9 +208,6 @@ public class NaniDataManager
         p_money += MY_CONSTANTS.alchemyCompany.cashflowB1 * alchemyCompany;
         p_money += MY_CONSTANTS.travelMerchant.cashflowB1 * travelMerchant;
 
-        // Debug.Log("Output of today:");
-
-
 
     }
 
