@@ -228,19 +228,19 @@ public class NaniDataManager
 
     // 10 friends
     public int getFriendModifier(){
-        int happinessModifierToReturn = 0;
-        happinessModifierToReturn+=rel_janna>0?1:0;
-        happinessModifierToReturn+=rel_atlas>0?1:0;
-        happinessModifierToReturn+=rel_mitia>0?1:0;
-        happinessModifierToReturn+=rel_kisa>0?1:0;
-        happinessModifierToReturn+=rel_legeon>0?1:0;
-        happinessModifierToReturn+=rel_vandeus>0?1:0;
-        happinessModifierToReturn+=rel_gerald>0?1:0;
-        happinessModifierToReturn+=rel_merlin>0?1:0;
-        happinessModifierToReturn+=rel_aiza>0?1:0;
-        happinessModifierToReturn+=rel_misterv>0?1:0;
+        double happinessModifierToReturn = 0;
+        happinessModifierToReturn+=rel_janna>0?0.5:0;
+        happinessModifierToReturn+=rel_atlas>0?0.2:0;
+        happinessModifierToReturn+=rel_mitia>0?0.3:0;
+        happinessModifierToReturn+=rel_kisa>0?0.5:0;
+        happinessModifierToReturn+=rel_legeon>0?0.2:0;
+        happinessModifierToReturn+=rel_vandeus>0?0.2:0;
+        happinessModifierToReturn+=rel_gerald>0?0.2:0;
+        happinessModifierToReturn+=rel_merlin>0?0.2:0;
+        happinessModifierToReturn+=rel_aiza>0?0.2:0;
+        happinessModifierToReturn+=rel_misterv>0?0.2:0;
 
-        return happinessModifierToReturn;
+        return (int)Math.Floor(happinessModifierToReturn);
     }
 
 
