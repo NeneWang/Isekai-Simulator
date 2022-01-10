@@ -76,7 +76,7 @@
 ; People
 @set met_janna=false
 @set met_atlas=false
-@set met_miltia=false
+@set met_mitia=false
 @set met_kisa=false
 @set met_legeon=false
 @set met_vandeus=false
@@ -94,7 +94,7 @@
 ; Aventurers
 @gosub .meet_janna if:p_count_job==1
 @gosub .meet_atlas if:p_count_job==6
-@gosub .meet_miltia if:p_count_job==10
+@gosub .meet_mitia if:p_count_job==10
 @gosub .meet_kisa if:p_count_job==15
 @gosub .meet_legeon if:p_count_job==20
 @gosub .meet_vandeus if:p_count_job==30
@@ -128,7 +128,7 @@ New Character Adquired: Janna
 @return
 
 #meet_atlas
-Boy: Hello! excuse me, I am looking for an aventuring partner...
+Boy: Hello! excuse me, I am Atlas, I am looking for an aventuring partner...
 @choice "Sorry, I am not available" do:@return
 @choice "Sure, I am looking for a partner too"
 @stop
@@ -136,48 +136,53 @@ New Character Adquired: Atlas
 @set met_atlas=true
 @return
 
-#meet_miltia
-
-@set met_miltia=true
+#meet_mitia
+Girl: I sense some strange power in you...
+Girl: Who are you?
+@choice "Who are you?"
+@choice "Stop stalking me girl" do:@return
+Mitia: I am mitia the legendary magician!
+New Character Adquired: Atlas
+@set met_mitia=true
 @return
 
 #meet_kisa
-
+New Character Adquired: Kisa
 @set met_kisa=true
 @return
 
 #meet_legeon
-
+New Character Adquired: Legeon
 @set met_legeon=true
 @return
 
 #meet_vandeus
-
+New Character Adquired: Vandeus
 @set met_vandeus=true
 @return
 
 #meet_gerald
-
+New Character Adquired: Gerald
 @set met_gerald=true
 @return
 
 #meet_merlin
-
+New Character Adquired: Merlin
 @set met_merlin=true
 @return
 
 #meet_gerald
-
+New Character Adquired: Gerald
 @set met_gerald=true
 @return
 
 #meet_aiza
-
+New Character Adquired: Aiza
 @set met_aiza=true
 @return
 
 #meet_misterv
-
+New Character Adquired: Mister V.
 @set met_misterv=true
 @return
 
@@ -185,7 +190,6 @@ New Character Adquired: Atlas
 
 #eventqueue
 ; if eventflag=x then...
-
 @goto .flag_log if:isLog==true
 
 @goto .flag_death_money if:flag_number==4
