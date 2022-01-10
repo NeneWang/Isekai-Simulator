@@ -73,7 +73,7 @@
 ; @set _={workAsSoldier()}
 
 
-; People
+; People: 10
 @set rel_janna=0
 @set rel_atlas=0
 @set rel_mitia=0

@@ -133,6 +133,17 @@ public class NaniDataManager
 
         variableManager.TryGetVariableValue<int>("lastmenu", out lastmenu);
 
+        variableManager.TryGetVariableValue<int>("rel_janna", out rel_janna);
+        variableManager.TryGetVariableValue<int>("rel_atlas", out rel_atlas);
+        variableManager.TryGetVariableValue<int>("rel_mitia", out rel_mitia);
+        variableManager.TryGetVariableValue<int>("rel_kisa", out rel_kisa);
+        variableManager.TryGetVariableValue<int>("rel_legeon", out rel_legeon);
+        variableManager.TryGetVariableValue<int>("rel_vandeus", out rel_vandeus);
+        variableManager.TryGetVariableValue<int>("rel_gerald", out rel_gerald);
+        variableManager.TryGetVariableValue<int>("rel_merlin", out rel_merlin);
+        variableManager.TryGetVariableValue<int>("rel_aiza", out rel_aiza);
+        variableManager.TryGetVariableValue<int>("rel_misterv", out rel_misterv);
+
         setupRelationshipManger();
         postCareerSuccess();
         updateModifiers();
@@ -215,8 +226,21 @@ public class NaniDataManager
 
     }
 
-    public void updateFriendModifier(){
+    // 10 friends
+    public int getFriendModifier(){
+        int happinessModifierToReturn = 0;
+        happinessModifierToReturn+=rel_janna>0?1:0;
+        happinessModifierToReturn+=rel_atlas>0?1:0;
+        happinessModifierToReturn+=rel_mitia>0?1:0;
+        happinessModifierToReturn+=rel_kisa>0?1:0;
+        happinessModifierToReturn+=rel_legeon>0?1:0;
+        happinessModifierToReturn+=rel_vandeus>0?1:0;
+        happinessModifierToReturn+=rel_gerald>0?1:0;
+        happinessModifierToReturn+=rel_merlin>0?1:0;
+        happinessModifierToReturn+=rel_aiza>0?1:0;
+        happinessModifierToReturn+=rel_misterv>0?1:0;
 
+        return happinessModifierToReturn;
     }
 
 
@@ -228,6 +252,7 @@ public class NaniDataManager
         // Debug.Log(p_monthlyCashFlow);
         // Happiness
         accumulativeHappinessModifier = realEstates[p_livingmethod].happinessModifier;
+        accumulativeHappinessModifier += getFriendModifier();
         // Health
         accumulativeHealthModifier = realEstates[p_livingmethod].happinessModifier;
     }
