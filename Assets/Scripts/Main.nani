@@ -132,7 +132,7 @@ Boy: Hello! excuse me, I am looking for an aventuring partner...
 @choice "Sorry, I am not available" do:@return
 @choice "Sure, I am looking for a partner too"
 @stop
-
+New Character Adquired: Atlas
 @set met_atlas=true
 @return
 
