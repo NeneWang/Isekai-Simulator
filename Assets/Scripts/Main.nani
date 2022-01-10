@@ -82,7 +82,6 @@
 @set rel_vandeus=0
 @set rel_gerald=0
 @set rel_merlin=0
-@set rel_gerald=0
 @set rel_aiza=0
 @set rel_misterv=0
 
@@ -114,7 +113,7 @@
 ; Meeting
 
 #meet_janna
-Girl: Hey what u doin
+Girl: Hey what u doinR
 @choice "yes? How can I help you"  
 @choice "nothing, dont bother me" do:@return
 @stop
@@ -190,6 +189,11 @@ New Character Adquired: Mister V.
 
 #eventqueue
 ; if eventflag=x then...
+
+; Modifiers
+@gosub .aventurers_modifier_logic
+
+
 @goto .flag_log if:isLog==true
 
 @goto .flag_death_money if:flag_number==4

@@ -16,6 +16,8 @@ public class NaniDataManager
     public int p_missionsCompleted, p_maxhealth, p_networth, p_stat_str, p_stat_vit, p_stat_dex, p_stat_int, p_stat_wis, p_stat_char;
     public string p_title, p_sex, friend_sl_1, friend_sl_2, friend_sl_3, lover_sl_1, actionLog;
 
+    // Friend items
+    public int rel_janna, rel_atlas, rel_mitia, rel_kisa, rel_legeon, rel_vandeus, rel_gerald, rel_merlin, rel_aiza, rel_misterv;
     string jsonItems;
 
     public Constants MY_CONSTANTS = new Constants();
@@ -129,6 +131,8 @@ public class NaniDataManager
         variableManager.TryGetVariableValue<int>("flag_number", out flag_number);
         variableManager.TryGetVariableValue<int>("lastmenu", out lastmenu);
 
+        variableManager.TryGetVariableValue<int>("lastmenu", out lastmenu);
+
         setupRelationshipManger();
         postCareerSuccess();
         updateModifiers();
@@ -210,6 +214,11 @@ public class NaniDataManager
 
 
     }
+
+    public void updateFriendModifier(){
+
+    }
+
 
     public void updateModifiers()
     {
