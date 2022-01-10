@@ -74,17 +74,17 @@
 
 
 ; People
-@set meet_janna=false
-@set meet_atlas=false
-@set meet_miltia=false
-@set meet_kisa=false
-@set meet_legeon=false
-@set meet_vandeus=false
-@set meet_gerald=false
-@set meet_merlin=false
-@set meet_gerald=false
-@set meet_aiza=false
-@set meet_misterv=false
+@set met_janna=false
+@set met_atlas=false
+@set met_miltia=false
+@set met_kisa=false
+@set met_legeon=false
+@set met_vandeus=false
+@set met_gerald=false
+@set met_merlin=false
+@set met_gerald=false
+@set met_aiza=false
+@set met_misterv=false
 
 
 @return
