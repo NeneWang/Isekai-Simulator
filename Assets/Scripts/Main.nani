@@ -110,8 +110,52 @@
 
 @return
 
-; Meeting
 
+; Meeting
+#meet_janna
+
+@set met_janna=true
+@return
+#meet_atlas
+
+@set met_atlas=true
+@return
+#meet_miltia
+
+@set met_miltia=true
+@return
+#meet_kisa
+
+@set met_kisa=true
+@return
+#meet_legeon
+
+@set met_legeon=true
+@return
+#meet_vandeus
+
+@set met_vandeus=true
+@return
+#meet_gerald
+
+@set met_gerald=true
+@return
+#meet_merlin
+
+@set met_merlin=true
+@return
+#meet_gerald
+
+@set met_gerald=true
+@return
+#meet_aiza
+
+@set met_aiza=true
+@return
+#meet_misterv
+
+@set met_misterv=true
+@return
 
 
 
