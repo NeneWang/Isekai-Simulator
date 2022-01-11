@@ -27,16 +27,23 @@ public class StoreManager : MonoBehaviour
     {
         screenActivityUpdater();
     }
-    
-    public void deactiveScreens(){
+
+    public void deactiveScreens()
+    {
         screenItem = false;
         screenBlacksmith = false;
         screenProperties = false;
         screenBusiness = false;
         screenBlackmarket = false;
     }
+
     public void toggleScreen(int screenInteger)
     {
+        var variableManager = Engine.GetService<ICustomVariableManager>();
+        var rel_aiza = variableManager.GetVariableValue("rel_aiza");
+        var rel_fareg = variableManager.GetVariableValue("rel_fareg");
+        var rel_misterv = variableManager.GetVariableValue("rel_misterv");
+
         deactiveScreens();
         switch (screenInteger)
         {
@@ -56,6 +63,18 @@ public class StoreManager : MonoBehaviour
                 screenBlackmarket = true;
                 break;
         }
+
+
+        if(!((int.Parse(rel_aiza)>0))){
+            screenProperties = false;
+        }
+        if(!((int.Parse(rel_fareg)>0))){
+            screenBlacksmith = false;
+        }
+        if(!((int.Parse(rel_misterv)>0))){
+            screenBlackmarket = false;
+        }
+
         screenActivityUpdater();
     }
 
