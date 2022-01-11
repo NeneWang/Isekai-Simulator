@@ -164,20 +164,17 @@ public class NaniDataManager
     {
         if (p_health <= 0)
         {
-            Debug.Log("You Died out of health");
-            flag_number = 1;
+            PlayScriptAsync("@print \"You died...\"");
         }
 
         if (p_happiness <= 0)
         {
-            Debug.Log("You died of depression");
-            flag_number = 2;
+            PlayScriptAsync("@print \"You died out of sadness...\"");
         }
 
         if (p_money < 0)
         {
-            Debug.Log("You are killed by debt collectors");
-            flag_number = 4;
+            PlayScriptAsync("@print \"Debt Collectors collected your head...\"");
         }
 
     }
@@ -214,17 +211,28 @@ public class NaniDataManager
 
     public void applyEffects()
     {
+        int accumulativeCashflowModifier = p_monthlyCashFlow;
+        accumulativeCashflowModifier += MY_CONSTANTS.securityCompany.cashflowB1 * securityCompany;
+        accumulativeCashflowModifier += MY_CONSTANTS.alchemyCompany.cashflowB1 * alchemyCompany;
+        accumulativeCashflowModifier += MY_CONSTANTS.travelMerchant.cashflowB1 * travelMerchant;
+
+
         p_health += accumulativeHealthModifier;
         p_happiness += accumulativeHappinessModifier;
-        p_money += p_monthlyCashFlow;
+        p_money += accumulativeCashflowModifier;
 
         // Business income
-        p_money += MY_CONSTANTS.securityCompany.cashflowB1 * securityCompany;
-        p_money += MY_CONSTANTS.alchemyCompany.cashflowB1 * alchemyCompany;
-        p_money += MY_CONSTANTS.travelMerchant.cashflowB1 * travelMerchant;
+        
+        string moneyMessage = accumulativeCashflowModifier>0?$"Earned {p_monthlyCashFlow} coins":null;
+        string healthMessage = accumulativeHealthModifier>0?$"Recovered {accumulativeHealthModifier} HP":null;
+        string happinessMessage = accumulativeHappinessModifier>0?$"Gained {accumulativeHappinessModifier} Happiness":null;
+        
+        Debug.Log("money incoming");
+        Debug.Log(moneyMessage);
 
-
-        PlayScriptAsync("@print \"Wow\"\n@print \"new line\"");
+        if(moneyMessage!=null) PlayScriptAsync("@toast \"moneyMessage\"");
+        if(healthMessage!=null) PlayScriptAsync("@toast \"healthMessage\"");
+        if(happinessMessage!=null) PlayScriptAsync("@toast \"happinessMessage\"");
 
     }
 

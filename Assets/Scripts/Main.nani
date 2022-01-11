@@ -120,7 +120,7 @@ Girl: Hey what u doinR
 Girl: Hello, I am Janna, Nice to meet you!
 @choice "Nice to meet you too.."
 You chatted and decided to partner for an mission
-New Character Adquired: Janna
+@toast "New Character Adquired: Janna"
 
 @set rel_janna=1
 @return
