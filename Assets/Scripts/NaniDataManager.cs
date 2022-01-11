@@ -643,6 +643,7 @@ public class NaniDataManager
             // isLog = true;
             Debug.Log(actionLog);
             PrintScriptAsync(actionLog);
+            ToastScriptAsync(actionLog);
             return true;
         }
 
