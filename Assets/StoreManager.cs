@@ -25,12 +25,9 @@ public class StoreManager : MonoBehaviour
 
     void Start()
     {
+        screenActivityUpdater();
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-    }
+    
 
     public void toggleScreen(int screenInteger)
     {
