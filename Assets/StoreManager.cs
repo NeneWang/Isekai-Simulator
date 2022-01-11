@@ -23,6 +23,13 @@ public class StoreManager : MonoBehaviour
             screenGameObjectBusiness,
             screenGameObjectBlackmarket;
 
+    public GameObject
+
+            textBlacksmith,
+            textProperties,
+            textBusiness,
+            textBlackMarket;
+
     void Start()
     {
         toggleScreen(1);
@@ -64,18 +71,20 @@ public class StoreManager : MonoBehaviour
                 break;
         }
 
-
-        if(!((int.Parse(rel_aiza)>0))){
+        if (!((int.Parse(rel_aiza) > 0)))
+        {
             screenProperties = false;
-            screenGameObjectProperties.SetActive(false);
+            textProperties.SetActive(false);
         }
-        if(!((int.Parse(rel_fareg)>0))){
+        if (!((int.Parse(rel_fareg) > 0)))
+        {
             screenBlacksmith = false;
-            screenGameObjectBlacksmith.SetActive(false);
+            textBlacksmith.SetActive(false);
         }
-        if(!((int.Parse(rel_misterv)>0))){
+        if (!((int.Parse(rel_misterv) > 0)))
+        {
             screenBlackmarket = false;
-            screenGameObjectBlackmarket.SetActive(false);
+            textBlackMarket.SetActive(false);
         }
 
         screenActivityUpdater();
