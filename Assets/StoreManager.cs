@@ -25,7 +25,7 @@ public class StoreManager : MonoBehaviour
 
     void Start()
     {
-        screenActivityUpdater();
+        toggleScreen(1);
     }
 
     public void deactiveScreens()
@@ -67,12 +67,15 @@ public class StoreManager : MonoBehaviour
 
         if(!((int.Parse(rel_aiza)>0))){
             screenProperties = false;
+            screenGameObjectProperties.SetActive(false);
         }
         if(!((int.Parse(rel_fareg)>0))){
             screenBlacksmith = false;
+            screenGameObjectBlacksmith.SetActive(false);
         }
         if(!((int.Parse(rel_misterv)>0))){
             screenBlackmarket = false;
+            screenGameObjectBlackmarket.SetActive(false);
         }
 
         screenActivityUpdater();
