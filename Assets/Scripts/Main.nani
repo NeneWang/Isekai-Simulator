@@ -12,7 +12,6 @@
 @set basic_store=true
 @set p_turn=1
 @set p_age=25
-@set p_sex=male
 @set p_health=50
 @set p_fame=0
 @set p_mana=100
@@ -35,7 +34,7 @@
 @set p_aventurerS=0
 @set p_soldierS=0
 
-@set p_job_count=0
+@set p_count_job=0
 @set p_merchant_count_=0
 
 @set p_currentInjuries=0
@@ -191,7 +190,6 @@ New Character Adquired: Mister V.
 ; if eventflag=x then...
 
 ; Modifiers
-@gosub .aventurers_modifier_logic
 
 
 @goto .flag_log if:isLog==true
@@ -235,7 +233,6 @@ New Character Adquired: Mister V.
 @return
 
 #printMenuChoices
-@clearChoice
 ; @choice "Profile" goto:.profile
 ; @choice "Market" goto:.market 
 ; @choice "Jobs" goto:.job
@@ -270,7 +267,7 @@ New Character Adquired: Mister V.
 @set lastmenu=3
 @gosub .printMenuChoices
 @back bg-guild
-; @char guild_girl look:left pos:45,-60
+@char guild_girl look:left pos:45,-60
 @gosub .printMainStatus
 @gosub .printMenuChoices
 "What will you be doing this week?" [skipInput]
