@@ -255,6 +255,7 @@ New Character Adquired: Mister V.
 @hideUI StoreMenu
 @hideUI JobMenu
 ; You should also start 
+@clearChoice
 @hideAll
 @resetText
 @skip false

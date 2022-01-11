@@ -224,7 +224,19 @@ public class NaniDataManager
         p_money += MY_CONSTANTS.travelMerchant.cashflowB1 * travelMerchant;
 
 
+        PlayScriptAsync("@print \"Wow\"\n@print \"new line\"");
+
     }
+
+    
+        private async void PlayScriptAsync (string argument)
+        {
+
+             var text = argument;
+                var script = Script.FromScriptText(null, text);
+                var playlist = new ScriptPlaylist(script);
+                await playlist.ExecuteAsync();
+        }
 
     // 10 friends
     public int getFriendModifier(){
@@ -254,7 +266,7 @@ public class NaniDataManager
         accumulativeHappinessModifier = realEstates[p_livingmethod].happinessModifier;
         accumulativeHappinessModifier += getFriendModifier();
         // Health
-        accumulativeHealthModifier = realEstates[p_livingmethod].happinessModifier;
+        accumulativeHealthModifier = realEstates[p_livingmethod].healthModifier;
     }
 
     public bool canPurchase(int price)
@@ -571,7 +583,8 @@ public class NaniDataManager
 
         // TODO: Implement random log logic
         double randomDouble = randomGenerator.getRandom1ToZero();
-        double NORMAL_RATE = 0.3, RARE_RATE = 0.15, MIRACLE_RATE = 0.05;
+        // double NORMAL_RATE = 0.2, RARE_RATE = 0.05, MIRACLE_RATE = 0.01;
+        double NORMAL_RATE = 0.3, RARE_RATE = 0.2, MIRACLE_RATE = 0.1;
         double TOTAL_RATE = NORMAL_RATE + RARE_RATE + MIRACLE_RATE;
 
         Debug.Log(randomDouble);

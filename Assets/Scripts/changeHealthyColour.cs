@@ -21,7 +21,11 @@ public class changeHealthyColour : MonoBehaviour
     {
         var variableManager = Engine.GetService<ICustomVariableManager>();
         var valueAsString = variableManager.GetVariableValue(variableName);
-        changeColour(int.Parse(valueAsString));
+
+        if (valueAsString != null)
+        {
+            changeColour(int.Parse(valueAsString));
+        }
     }
 
     void changeColour(int value)
