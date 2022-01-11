@@ -71,21 +71,21 @@ public class StoreManager : MonoBehaviour
                 break;
         }
 
-        if (!((int.Parse(rel_aiza) > 0)))
-        {
-            screenProperties = false;
-            textProperties.SetActive(false);
-        }
-        if (!((int.Parse(rel_fareg) > 0)))
-        {
-            screenBlacksmith = false;
-            textBlacksmith.SetActive(false);
-        }
-        if (!((int.Parse(rel_misterv) > 0)))
-        {
-            screenBlackmarket = false;
-            textBlackMarket.SetActive(false);
-        }
+        // if (!((int.Parse(rel_aiza) > 0)))
+        // {
+        //     screenProperties = false;
+        //     textProperties.SetActive(false);
+        // }
+        // if (!((int.Parse(rel_fareg) > 0)))
+        // {
+        //     screenBlacksmith = false;
+        //     textBlacksmith.SetActive(false);
+        // }
+        // if (!((int.Parse(rel_misterv) > 0)))
+        // {
+        //     screenBlackmarket = false;
+        //     textBlackMarket.SetActive(false);
+        // }
 
         screenActivityUpdater();
     }

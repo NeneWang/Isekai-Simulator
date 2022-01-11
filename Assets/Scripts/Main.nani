@@ -269,7 +269,7 @@ New Character Adquired: Mister V.
 @gosub .cleanUI
 @set lastmenu=3
 @gosub .printMenuChoices
-@back bg-guild
+@back bg-guild 
 ; @char guild_girl look:left pos:45,-60
 @gosub .printMainStatus
 @gosub .printMenuChoices
