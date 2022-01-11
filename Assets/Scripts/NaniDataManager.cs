@@ -230,9 +230,9 @@ public class NaniDataManager
         Debug.Log("money incoming");
         Debug.Log(moneyMessage);
 
-        if (moneyMessage != null) ToastScriptAsync("moneyMessage");
-        if (healthMessage != null) ToastScriptAsync("healthMessage");
-        if (happinessMessage != null) ToastScriptAsync("happinessMessage");
+        if (moneyMessage != null) ToastScriptAsync($"{moneyMessage}");
+        if (healthMessage != null) ToastScriptAsync($"{healthMessage}");
+        if (happinessMessage != null) ToastScriptAsync($"{happinessMessage}");
 
     }
 
@@ -251,6 +251,7 @@ public class NaniDataManager
     {
         
         var text = $"@print \"{argument}\"";
+        Debug.Log($"Print Script: {text}");
         var script = Script.FromScriptText(null, text);
         var playlist = new ScriptPlaylist(script);
         await playlist.ExecuteAsync();
@@ -260,6 +261,7 @@ public class NaniDataManager
     {
         
         var text = $"@toast \"{argument}\"";
+        Debug.Log($"Toast Script: {text}");
         var script = Script.FromScriptText(null, text);
         var playlist = new ScriptPlaylist(script);
         await playlist.ExecuteAsync();
@@ -308,7 +310,7 @@ public class NaniDataManager
             return true;
         }
         actionLog = "The price: " + price.ToString() + " is too expensive for you.";
-        PlayScriptAsync(actionLog);
+        PrintScriptAsync(actionLog);
         return false;
     }
 
@@ -320,14 +322,15 @@ public class NaniDataManager
 
 
             actionLog = "You purchased " + itemName + " at " + price.ToString();
-            isLog = true;
+            // isLog = true;
             p_money -= price;
+            ToastScriptAsync(actionLog);
             return true;
         }
 
         actionLog = "The price: " + price.ToString() + " is for " + itemName + " is too expensive for you.";
         // isLog = true;
-        PlayScriptAsync(actionLog);
+        PrintScriptAsync(actionLog);
         return false;
     }
 
@@ -617,8 +620,8 @@ public class NaniDataManager
         double NORMAL_RATE = 0.3, RARE_RATE = 0.2, MIRACLE_RATE = 0.1;
         double TOTAL_RATE = NORMAL_RATE + RARE_RATE + MIRACLE_RATE;
 
-        Debug.Log(randomDouble);
         isLog = false;
+        Debug.Log($"Double Random is: {randomDouble}");
 
         if (randomDouble <= TOTAL_RATE)
         {
@@ -638,7 +641,8 @@ public class NaniDataManager
             }
 
             // isLog = true;
-            PlayScriptAsync(actionLog);
+            Debug.Log(actionLog);
+            PrintScriptAsync(actionLog);
             return true;
         }
 
