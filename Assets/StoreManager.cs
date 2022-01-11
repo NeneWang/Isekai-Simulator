@@ -28,25 +28,32 @@ public class StoreManager : MonoBehaviour
         screenActivityUpdater();
     }
     
-
+    public void deactiveScreens(){
+        screenItem = false;
+        screenBlacksmith = false;
+        screenProperties = false;
+        screenBusiness = false;
+        screenBlackmarket = false;
+    }
     public void toggleScreen(int screenInteger)
     {
+        deactiveScreens();
         switch (screenInteger)
         {
             case 1:
-                screenItem = !screenItem;
+                screenItem = true;
                 break;
             case 2:
-                screenBlacksmith = !screenBlacksmith;
+                screenBlacksmith = true;
                 break;
             case 3:
-                screenProperties = !screenProperties;
+                screenProperties = true;
                 break;
             case 4:
-                screenBusiness = !screenBusiness;
+                screenBusiness = true;
                 break;
             case 5:
-                screenBlackmarket = !screenBlackmarket;
+                screenBlackmarket = true;
                 break;
         }
         screenActivityUpdater();
