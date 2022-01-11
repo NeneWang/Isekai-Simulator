@@ -59,7 +59,7 @@ public class NaniDataManager
 
     public string absoluteDateMessage
     {
-        
+
         get => currentMonthName + " " + (absoluteYear).ToString();
     }
 
@@ -222,43 +222,44 @@ public class NaniDataManager
         p_money += accumulativeCashflowModifier;
 
         // Business income
-        
-        string moneyMessage = accumulativeCashflowModifier>0?$"Earned {p_monthlyCashFlow} coins":null;
-        string healthMessage = accumulativeHealthModifier>0?$"Recovered {accumulativeHealthModifier} HP":null;
-        string happinessMessage = accumulativeHappinessModifier>0?$"Gained {accumulativeHappinessModifier} Happiness":null;
-        
+
+        string moneyMessage = accumulativeCashflowModifier > 0 ? $"Earned {p_monthlyCashFlow} coins" : null;
+        string healthMessage = accumulativeHealthModifier > 0 ? $"Recovered {accumulativeHealthModifier} HP" : null;
+        string happinessMessage = accumulativeHappinessModifier > 0 ? $"Gained {accumulativeHappinessModifier} Happiness" : null;
+
         Debug.Log("money incoming");
         Debug.Log(moneyMessage);
 
-        if(moneyMessage!=null) PlayScriptAsync("@toast \"moneyMessage\"");
-        if(healthMessage!=null) PlayScriptAsync("@toast \"healthMessage\"");
-        if(happinessMessage!=null) PlayScriptAsync("@toast \"happinessMessage\"");
+        if (moneyMessage != null) PlayScriptAsync("@toast \"moneyMessage\"");
+        if (healthMessage != null) PlayScriptAsync("@toast \"healthMessage\"");
+        if (happinessMessage != null) PlayScriptAsync("@toast \"happinessMessage\"");
 
     }
 
-    
-        private async void PlayScriptAsync (string argument)
-        {
 
-             var text = argument;
-                var script = Script.FromScriptText(null, text);
-                var playlist = new ScriptPlaylist(script);
-                await playlist.ExecuteAsync();
-        }
+    private async void PlayScriptAsync(string argument)
+    {
+
+        var text = argument;
+        var script = Script.FromScriptText(null, text);
+        var playlist = new ScriptPlaylist(script);
+        await playlist.ExecuteAsync();
+    }
 
     // 10 friends
-    public int getFriendModifier(){
+    public int getFriendModifier()
+    {
         double happinessModifierToReturn = 0;
-        happinessModifierToReturn+=rel_janna>0?0.5:0;
-        happinessModifierToReturn+=rel_atlas>0?0.2:0;
-        happinessModifierToReturn+=rel_mitia>0?0.3:0;
-        happinessModifierToReturn+=rel_kisa>0?0.5:0;
-        happinessModifierToReturn+=rel_legeon>0?0.2:0;
-        happinessModifierToReturn+=rel_vandeus>0?0.2:0;
-        happinessModifierToReturn+=rel_gerald>0?0.2:0;
-        happinessModifierToReturn+=rel_merlin>0?0.2:0;
-        happinessModifierToReturn+=rel_aiza>0?0.2:0;
-        happinessModifierToReturn+=rel_misterv>0?0.2:0;
+        happinessModifierToReturn += rel_janna > 0 ? 0.5 : 0;
+        happinessModifierToReturn += rel_atlas > 0 ? 0.2 : 0;
+        happinessModifierToReturn += rel_mitia > 0 ? 0.3 : 0;
+        happinessModifierToReturn += rel_kisa > 0 ? 0.5 : 0;
+        happinessModifierToReturn += rel_legeon > 0 ? 0.2 : 0;
+        happinessModifierToReturn += rel_vandeus > 0 ? 0.2 : 0;
+        happinessModifierToReturn += rel_gerald > 0 ? 0.2 : 0;
+        happinessModifierToReturn += rel_merlin > 0 ? 0.2 : 0;
+        happinessModifierToReturn += rel_aiza > 0 ? 0.2 : 0;
+        happinessModifierToReturn += rel_misterv > 0 ? 0.2 : 0;
 
         return (int)Math.Floor(happinessModifierToReturn);
     }
@@ -282,12 +283,11 @@ public class NaniDataManager
         if (price <= p_money)
         {
             actionLog = "You purchased at " + price.ToString();
-
-            isLog = true;
+            PlayScriptAsync(actionLog);
             return true;
         }
         actionLog = "The price: " + price.ToString() + " is too expensive for you.";
-        isLog = true;
+        PlayScriptAsync(actionLog);
         return false;
     }
 
@@ -615,7 +615,8 @@ public class NaniDataManager
                 actionLog = MY_CONSTANTS.aventurerLogs.getRandomLogBasedOnRarity(EnumRarity.Miracle).title;
             }
 
-            isLog = true;
+            // isLog = true;
+            PlayScriptAsync(actionLog);
             return true;
         }
 
