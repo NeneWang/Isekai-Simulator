@@ -164,17 +164,17 @@ public class NaniDataManager
     {
         if (p_health <= 0)
         {
-            PlayScriptAsync("@print \"You died...\"");
+            PrintScriptAsync("You died...");
         }
 
         if (p_happiness <= 0)
         {
-            PlayScriptAsync("@print \"You died out of sadness...\"");
+            PrintScriptAsync("You died out of sadness...");
         }
 
         if (p_money < 0)
         {
-            PlayScriptAsync("@print \"Debt Collectors collected your head...\"");
+            PrintScriptAsync("Debt Collectors collected your head...");
         }
 
     }
@@ -230,9 +230,9 @@ public class NaniDataManager
         Debug.Log("money incoming");
         Debug.Log(moneyMessage);
 
-        if (moneyMessage != null) PlayScriptAsync("@toast \"moneyMessage\"");
-        if (healthMessage != null) PlayScriptAsync("@toast \"healthMessage\"");
-        if (happinessMessage != null) PlayScriptAsync("@toast \"happinessMessage\"");
+        if (moneyMessage != null) ToastScriptAsync("moneyMessage");
+        if (healthMessage != null) ToastScriptAsync("healthMessage");
+        if (happinessMessage != null) ToastScriptAsync("happinessMessage");
 
     }
 
@@ -245,6 +245,26 @@ public class NaniDataManager
         var playlist = new ScriptPlaylist(script);
         await playlist.ExecuteAsync();
     }
+    
+
+    private async void PrintScriptAsync(string argument)
+    {
+        
+        var text = $"@print \"{argument}\"";
+        var script = Script.FromScriptText(null, text);
+        var playlist = new ScriptPlaylist(script);
+        await playlist.ExecuteAsync();
+    }
+
+     private async void ToastScriptAsync(string argument)
+    {
+        
+        var text = $"@toast \"{argument}\"";
+        var script = Script.FromScriptText(null, text);
+        var playlist = new ScriptPlaylist(script);
+        await playlist.ExecuteAsync();
+    }
+
 
     // 10 friends
     public int getFriendModifier()
@@ -283,6 +303,7 @@ public class NaniDataManager
         if (price <= p_money)
         {
             actionLog = "You purchased at " + price.ToString();
+
             PlayScriptAsync(actionLog);
             return true;
         }
@@ -305,7 +326,8 @@ public class NaniDataManager
         }
 
         actionLog = "The price: " + price.ToString() + " is for " + itemName + " is too expensive for you.";
-        isLog = true;
+        // isLog = true;
+        PlayScriptAsync(actionLog);
         return false;
     }
 
