@@ -227,37 +227,6 @@ New Character Adquired: Mister V.
 ; "health: {p_health} Happinness: {p_happiness} Money: {p_money} Turn: {p_turn}, {absolute_date} Cashflow: {p_monthlyCashFlow}"
 @return
 
-# printMenuChoices
-; @choice "Profile" goto:.profile
-; @choice "Market" goto:.market
-; @choice "Jobs" goto:.job
-; @choice "Relationship" goto:.relationship
-; @choice "Take a break" goto:.takeABreak
-@choice  button:ChoiceButtons/BtnStore pos:850,300 handler:ButtonArea goto:.market
-@choice  button:ChoiceButtons/BtnJobs pos:850,150 handler:ButtonArea goto:.job
-@choice 0 button:ChoiceButtons/BtnProfile pos:850, handler:ButtonArea goto:.profile
-@choice  button:ChoiceButtons/BtnBreak pos:850,-150 handler:ButtonArea goto:.takeABreak
-@choice  button:ChoiceButtons/BtnRelationship pos:840,-300 handler:ButtonArea goto:.relationship
-
-@return
-
-
-; //////////////////////////////////////// ###JOB
-# job
-@set p_count_job++
-@set _={cleanUI()}
-@wait 0.2
-@set lastmenu=3
-@gosub .printMenuChoices
-@back bg-guild
-@gosub .printMainStatus
-"What will you be doing this week?" [skipInput]
-@choice "Work" gosub:.jobMenu
-@choice "Socialize"
-; @gosub .printJobChoices
-
-@stop
-
 # takeABreak
 @resetText 
 @set _={increaseTurn()}
@@ -266,9 +235,16 @@ New Character Adquired: Mister V.
 @goto .eventqueue
 @return
 
+; //////////////////////////////////////// ###JOB
+# job
+@set _={cleanUI()}
+@set _={menuJob()}
+@stop
 
-# jobMenu
-@hidePrinter 
+
+
+# showJobMenu
+@hidePrinter
 @showUI JobMenu
 @stop
 
@@ -309,49 +285,14 @@ New Character Adquired: Mister V.
 ; //////////////////// ####MARKET
 
 # market
-
+@set _={cleanUI()}
 @set _={menuMarket()}
 @stop
 
-
-# marketOptions
-@gosub .printMenuChoices
-@gosub .printMainStatus
-"How can I help you?"[skipInput]
-@choice "Purchase" goto:.marketBuyMenu
-@choice "Sell" goto:.marketBuyMenu
-@stop
-
 # marketBuyMenu
-@skip 
-@hidePrinter 
 @showUI StoreMenu
-
 @stop
 
-# equipmentMarket
-@resetText 
-@gosub .printMainStatus
-@choice "Buy Axe"
-@choice "Buy Sword"
-@choice "go back" goto:.market
-@stop
-
-
-# buildingMarket
-@resetText 
-@gosub .printMainStatus
-@gosub .buildingMarketOptions
-@choice "go back" goto:.market
-@stop
-
-
-# buildingMarketOptions
-@choice "Camping -CF: 0$ " gosub:.rentCamp
-@choice "Rent roof in a farm -CF -2$" gosub:.rentFarm
-@choice "Rent a tavern room -CF -5$" gosub:.rentTavern
-@choice "Rent A Cabin -CF -15$" gosub:.rentCabin
-@return
 
 # rentCamp
 @set p_livingmethod=0
@@ -447,7 +388,6 @@ New Character Adquired: Mister V.
 @resetText 
 
 @gosub .printMainStatus
-@gosub .printMenuChoices
 ; TODO make it only show if the pplayer adquired a certain status
 @choice "Spend time with  {getPersonData(2,\"a\")} {getPersonData(2,\"g\")} " goto:.visit_lover_1 if:lover_slavailable_1
 @choice "Invite drinks to all friends" goto:.allfriends

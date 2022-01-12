@@ -319,9 +319,17 @@ public static class CustomFunctions
         return messageDate;
     }
 
+    public static bool menuJob()
+    {
+        _ = printMenuChoices();
+        _ = printMainStatus();
+        PlayScriptAsync("@set lastmenu=3\n@back bg-guild\n\"What will you be doing this week?\" [skipInput]\n@choice \"Work\" gosub:.showJobMenu\n@choice \"Socialize\" gosub:.takeABreak");
+
+        return true;
+    }
+
     public static bool menuProfile()
     {
-        var _ = cleanUI();
         PlayScriptAsync("@set lastmenu=1");
         _ = printMenuChoices();
         _ = printMainStatus();
@@ -331,12 +339,10 @@ public static class CustomFunctions
 
     public static bool menuMarket()
     {
-        if (cleanUI())
-        {
-            PlayScriptAsync("@set lastmenu=2\n@back bg-store\n@char merchant look:left pos:45,-40\n@gosub .marketOptions");
-            var _ = printMenuChoices();
-            _ = printMainStatus();
-        }
+        PlayScriptAsync("@set lastmenu=2\n@back bg-store\n@char merchant look:left pos:45,-40");
+        PlayScriptAsync("\"How can I help you?\"\n@choice \"Purchase\" goto:.marketBuyMenu\n@choice \"Sell\" goto:.marketBuyMenu\"");
+        _ = printMenuChoices();
+        _ = printMainStatus();
         return true;
     }
 
@@ -354,7 +360,7 @@ public static class CustomFunctions
 
     public static bool cleanUI()
     {
-        PlayScriptAsync("@hideAll\n@hideUI StoreMenu\n@hideUI JobMenu\n@clearChoice\n@resetText\n@skip false");
+        PlayScriptAsync("@hideAll\n@hideUI StoreMenu\n@set p_animation=99\n@hideUI JobMenu\n@resetText\n");
         return true;
     }
 
