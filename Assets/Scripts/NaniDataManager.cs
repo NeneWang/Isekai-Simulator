@@ -9,7 +9,7 @@ public class NaniDataManager
 {
 
     // Accumulative, not intnded to be added here
-    public int accumulativeHappinessModifier, accumulativeHealthModifier;
+    public int accumulativeHappinessModifier, accumulativeHealthModifier, accumulativeCashflowModifier;
     public bool isLog;
 
     public int p_turn, p_age, p_health, p_fame, p_mana, p_happiness, p_money, p_monthlyCashFlow, p_livingmethod, securityCompany, alchemyCompany, travelMerchant;
@@ -211,7 +211,7 @@ public class NaniDataManager
 
     public void applyEffects()
     {
-        int accumulativeCashflowModifier = p_monthlyCashFlow;
+        accumulativeCashflowModifier += p_monthlyCashFlow;
         accumulativeCashflowModifier += MY_CONSTANTS.securityCompany.cashflowB1 * securityCompany;
         accumulativeCashflowModifier += MY_CONSTANTS.alchemyCompany.cashflowB1 * alchemyCompany;
         accumulativeCashflowModifier += MY_CONSTANTS.travelMerchant.cashflowB1 * travelMerchant;
@@ -227,8 +227,7 @@ public class NaniDataManager
         string healthMessage = accumulativeHealthModifier > 0 ? $"Recovered {accumulativeHealthModifier} HP" : null;
         string happinessMessage = accumulativeHappinessModifier > 0 ? $"Gained {accumulativeHappinessModifier} Happiness" : null;
 
-        Debug.Log("money incoming");
-        Debug.Log(moneyMessage);
+        Debug.Log($"You have {securityCompany} security companies: making: {MY_CONSTANTS.securityCompany.cashflowB1} each");
 
         if (moneyMessage != null) ToastScriptAsync($"{moneyMessage}");
         if (healthMessage != null) ToastScriptAsync($"{healthMessage}");
@@ -304,12 +303,12 @@ public class NaniDataManager
     {
         if (price <= p_money)
         {
-            actionLog = "You purchased at " + price.ToString();
+            // actionLog = "You purchased at " + price.ToString();
 
             PlayScriptAsync(actionLog);
             return true;
         }
-        actionLog = "The price: " + price.ToString() + " is too expensive for you.";
+        // actionLog = "The price: " + price.ToString() + " is too expensive for you.";
         PrintScriptAsync(actionLog);
         return false;
     }
@@ -320,7 +319,7 @@ public class NaniDataManager
         if (price <= p_money)
         {
 
-
+            
             actionLog = "You purchased " + itemName + " at " + price.ToString();
             // isLog = true;
             p_money -= price;
