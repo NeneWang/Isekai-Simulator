@@ -319,9 +319,38 @@ public static class CustomFunctions
         return messageDate;
     }
 
-    public static void cleanUI()
+    public static bool menuProfile(){
+        var _=cleanUI();
+        PlayScriptAsync("@set lastmenu=1");
+        _=printMenuChoices();
+        _=printMainStatus();
+
+        return true;
+    }
+
+    public static bool menuMarket(){
+        var _=cleanUI();
+        PlayScriptAsync("@set lastmenu=2\n@back bg-store\n@char merchant look:left pos:45,-40\n@gosub .marketOptions");
+        _=printMenuChoices();
+        _=printMainStatus();
+        return true;
+    }
+
+    public static bool printMenuChoices(){
+        PlayScriptAsync("@showUI TownShort");
+        return true;
+    }
+
+    public static bool printMainStatus(){
+        PlayScriptAsync("@gosub .updateVariables\n@showUI StatusBar");
+        return true;
+    }
+
+    public static bool cleanUI()
     {
-        PlayScriptAsync("@endIf\n@hideUI StoreMenu\n@hideUI JobMenu\n; You should also start \n@hideAll\n@resetText\n@skip false\n@return");
+
+        PlayScriptAsync("@endIf\n@hideUI StoreMenu\n@hideUI JobMenu\n@clearChoice\n@hideAll\n@resetText\n@skip false");
+        return true;
     }
 
     private static async void PlayScriptAsync(string argument)

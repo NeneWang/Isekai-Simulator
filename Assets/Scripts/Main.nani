@@ -216,12 +216,7 @@ New Character Adquired: Mister V.
 @return
 
 # profile
-@set lastmenu=1
-@resetText 
-@gosub .printMainStatus
-; "Age: {p_age}"
-; "STR: {p_stat_str} HP: {p_stat_vit} DEX: {p_stat_dex} INT: {p_stat_int} "
-@gosub .printMenuChoices
+@set _={menuProfile()}
 @stop
 
 
@@ -246,30 +241,16 @@ New Character Adquired: Mister V.
 
 @return
 
-# cleanUI
-
-; If running an animation then change the animation and waif for removing everything
-@if p_animation!=99
-@set p_animation=99
-@endIf
-@hideUI StoreMenu
-@hideUI JobMenu
-; You should also start
-@clearChoice 
-@hideAll
-@resetText 
-@skip false
-@return
 
 ; //////////////////////////////////////// ###JOB
 # job
 @set p_count_job++
-@gosub .cleanUI
+@set _={cleanUI()}
+@wait 0.2
 @set lastmenu=3
 @gosub .printMenuChoices
 @back bg-guild
 @gosub .printMainStatus
-@gosub .printMenuChoices
 "What will you be doing this week?" [skipInput]
 @choice "Work" gosub:.jobMenu
 @choice "Socialize"
@@ -329,12 +310,7 @@ New Character Adquired: Mister V.
 
 # market
 
-@gosub .cleanUI
-@set lastmenu=2
-@back bg-store
-@char merchant look:left pos:45,-40
-@gosub .printMainStatus
-@gosub .marketOptions
+@set _={menuMarket()}
 @stop
 
 
