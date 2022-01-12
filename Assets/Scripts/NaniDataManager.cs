@@ -31,7 +31,7 @@ public class NaniDataManager
 
     private string[] months = { "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" };
     public bool friend_slavailable_1, friend_slavailable_2, friend_slavailable_3, lover_slavailable_1;
-
+string endDayToast = "";
     int countMonths
     {
         get => months.Length;
@@ -222,16 +222,14 @@ public class NaniDataManager
         p_money += accumulativeCashflowModifier;
 
         // Business income
-
-        string moneyMessage = accumulativeCashflowModifier > 0 ? $"Earned {p_monthlyCashFlow} coins" : null;
-        string healthMessage = accumulativeHealthModifier > 0 ? $"Recovered {accumulativeHealthModifier} HP" : null;
-        string happinessMessage = accumulativeHappinessModifier > 0 ? $"Gained {accumulativeHappinessModifier} Happiness" : null;
+        
+        endDayToast += accumulativeCashflowModifier > 0 ? $" +{accumulativeCashflowModifier} coins" : accumulativeCashflowModifier < 0 ? $" {accumulativeCashflowModifier} coins": null; 
+        endDayToast +=  accumulativeHealthModifier > 0 ? $" +{accumulativeHealthModifier} HP" : accumulativeHealthModifier < 0?$" {accumulativeHealthModifier} HP": null;
+        endDayToast +=  accumulativeHappinessModifier > 0 ? $" +{accumulativeHappinessModifier} Happiness" : accumulativeHappinessModifier < 0?$" {accumulativeHappinessModifier} Happiness": null;
 
         Debug.Log($"You have {securityCompany} security companies: making: {MY_CONSTANTS.securityCompany.cashflowB1} each");
 
-        if (moneyMessage != null) ToastScriptAsync($"{moneyMessage}");
-        if (healthMessage != null) ToastScriptAsync($"{healthMessage}");
-        if (happinessMessage != null) ToastScriptAsync($"{happinessMessage}");
+        if (endDayToast != null) ToastScriptAsync($"{endDayToast}");
 
     }
 
@@ -416,6 +414,8 @@ public class NaniDataManager
         variableManager.TrySetVariableValue("p_stat_vit", p_stat_vit);
         variableManager.TrySetVariableValue("p_stat_dex", p_stat_dex);
         variableManager.TrySetVariableValue("p_stat_int", p_stat_int);
+        variableManager.TrySetVariableValue("p_stat_wis", p_stat_wis);
+        variableManager.TrySetVariableValue("p_stat_char", p_stat_char);
 
 
 
@@ -439,6 +439,10 @@ public class NaniDataManager
         variableManager.TrySetVariableValue("friend_sl_2", friend_sl_2);
         variableManager.TrySetVariableValue("friend_sl_3", friend_sl_3);
         variableManager.TrySetVariableValue("lover_sl_1", lover_sl_1);
+
+        variableManager.TrySetVariableValue("securityCompany", securityCompany);
+        variableManager.TrySetVariableValue("alchemyCompany", alchemyCompany);
+        variableManager.TrySetVariableValue("travelMerchant", travelMerchant);
 
         variableManager.TrySetVariableValue("actionLog", actionLog);
 
@@ -598,7 +602,7 @@ public class NaniDataManager
 
 
         aventurerCareer.successfullyCompletedThisJob();
-        p_money += aventurerCareer.getJobIncome;
+        accumulativeCashflowModifier += aventurerCareer.getJobIncome;
         saveData();
 
         perphapsGettingHurtChances();
@@ -655,7 +659,7 @@ public class NaniDataManager
 
 
         soldierCareer.successfullyCompletedThisJob();
-        p_money += soldierCareer.getJobIncome;
+        accumulativeCashflowModifier += soldierCareer.getJobIncome;
         saveData();
         perphapsGettingHurtChances();
 
@@ -671,7 +675,7 @@ public class NaniDataManager
 
         // Now get paid
         Debug.Log("Getting paid as merchant");
-        p_money += merchantCareer.getJobIncome;
+        accumulativeCashflowModifier += merchantCareer.getJobIncome;
 
         merchantCareer.successfullyCompletedThisJob();
         // TODO REmove following

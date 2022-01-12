@@ -5,7 +5,7 @@
 @stop
 
 ; ###VARIABLES
-#resetAllVariables
+# resetAllVariables
 
 @set p_animation=99
 
@@ -88,7 +88,7 @@
 @return
 
 
-#prequeue
+# prequeue
 ; Aventurers
 @gosub .meet_janna if:p_count_job==1
 @gosub .meet_atlas if:p_count_job==6
@@ -111,9 +111,9 @@
 
 ; Meeting
 
-#meet_janna
+# meet_janna
 Girl: Hey what u doinR
-@choice "yes? How can I help you"  
+@choice "yes? How can I help you"
 @choice "nothing, dont bother me" do:@return
 @stop
 
@@ -125,7 +125,7 @@ You chatted and decided to partner for an mission
 @set rel_janna=1
 @return
 
-#meet_atlas
+# meet_atlas
 Boy: Hello! excuse me, I am Atlas, I am looking for an aventuring partner...
 @choice "Sorry, I am not available" do:@return
 @choice "Sure, I am looking for a partner too"
@@ -134,7 +134,7 @@ New Character Adquired: Atlas
 @set rel_atlas=1
 @return
 
-#meet_mitia
+# meet_mitia
 Girl: I sense some strange power in you...
 Girl: Who are you?
 @choice "Who are you?"
@@ -144,49 +144,49 @@ New Character Adquired: Atlas
 @set rel_mitia=1
 @return
 
-#meet_kisa
+# meet_kisa
 New Character Adquired: Kisa
 @set rel_kisa=1
 @return
 
-#meet_legeon
+# meet_legeon
 New Character Adquired: Legeon
 @set rel_legeon=1
 @return
 
-#meet_vandeus
+# meet_vandeus
 New Character Adquired: Vandeus
 @set rel_vandeus=1
 @return
 
-#meet_gerald
+# meet_gerald
 New Character Adquired: Gerald
 @set rel_gerald=1
 @return
 
-#meet_merlin
+# meet_merlin
 New Character Adquired: Merlin
 @set rel_merlin=1
 @return
 
-#meet_gerald
+# meet_gerald
 New Character Adquired: Gerald
 @set rel_gerald=1
 @return
 
-#meet_aiza
+# meet_aiza
 New Character Adquired: Aiza
 @set rel_aiza=1
 @return
 
-#meet_misterv
+# meet_misterv
 New Character Adquired: Mister V.
 @set rel_misterv=1
 @return
 
 
 
-#eventqueue
+# eventqueue
 ; if eventflag=x then...
 
 ; Modifiers
@@ -211,13 +211,13 @@ New Character Adquired: Mister V.
 @stop
 
 
-#updateVariables
+# updateVariables
 @set absolute_date="{getAbsoluteDate()}"
 @return
 
-#profile
+# profile
 @set lastmenu=1
-@resetText
+@resetText 
 @gosub .printMainStatus
 ; "Age: {p_age}"
 ; "STR: {p_stat_str} HP: {p_stat_vit} DEX: {p_stat_dex} INT: {p_stat_int} "
@@ -225,28 +225,28 @@ New Character Adquired: Mister V.
 @stop
 
 
-;Copy for all files cause you can't import
-#printMainStatus
+; Copy for all files cause you can't import
+# printMainStatus
 @gosub .updateVariables
 @showUI StatusBar
-; "health: {p_health} Happinness: {p_happiness} Money: {p_money} Turn: {p_turn}, {absolute_date} Cashflow: {p_monthlyCashFlow}" 
+; "health: {p_health} Happinness: {p_happiness} Money: {p_money} Turn: {p_turn}, {absolute_date} Cashflow: {p_monthlyCashFlow}"
 @return
 
-#printMenuChoices
+# printMenuChoices
 ; @choice "Profile" goto:.profile
-; @choice "Market" goto:.market 
+; @choice "Market" goto:.market
 ; @choice "Jobs" goto:.job
 ; @choice "Relationship" goto:.relationship
 ; @choice "Take a break" goto:.takeABreak
-@choice button:ChoiceButtons/BtnStore pos:850,300 handler:ButtonArea goto:.market
-@choice button:ChoiceButtons/BtnJobs pos:850,150 handler:ButtonArea goto:.job
-@choice button:ChoiceButtons/BtnProfile pos:850, 0 handler:ButtonArea goto:.profile
-@choice button:ChoiceButtons/BtnBreak pos:850,-150 handler:ButtonArea goto:.takeABreak
-@choice button:ChoiceButtons/BtnRelationship pos:840,-300 handler:ButtonArea goto:.relationship
+@choice  button:ChoiceButtons/BtnStore pos:850,300 handler:ButtonArea goto:.market
+@choice  button:ChoiceButtons/BtnJobs pos:850,150 handler:ButtonArea goto:.job
+@choice 0 button:ChoiceButtons/BtnProfile pos:850, handler:ButtonArea goto:.profile
+@choice  button:ChoiceButtons/BtnBreak pos:850,-150 handler:ButtonArea goto:.takeABreak
+@choice  button:ChoiceButtons/BtnRelationship pos:840,-300 handler:ButtonArea goto:.relationship
 
 @return
 
-#cleanUI
+# cleanUI
 
 ; If running an animation then change the animation and waif for removing everything
 @if p_animation!=99
@@ -254,53 +254,52 @@ New Character Adquired: Mister V.
 @endIf
 @hideUI StoreMenu
 @hideUI JobMenu
-; You should also start 
-@clearChoice
+; You should also start
+@clearChoice 
 @hideAll
-@resetText
+@resetText 
 @skip false
 @return
 
 ; //////////////////////////////////////// ###JOB
-#job
+# job
 @set p_count_job++
 @gosub .cleanUI
 @set lastmenu=3
 @gosub .printMenuChoices
 @back bg-guild
-@char guild_girl look:left pos:45,-60
 @gosub .printMainStatus
 @gosub .printMenuChoices
 "What will you be doing this week?" [skipInput]
-@choice "Work"  gosub:.jobMenu
+@choice "Work" gosub:.jobMenu
 @choice "Socialize"
 ; @gosub .printJobChoices
 
 @stop
 
-#takeABreak
-@resetText
+# takeABreak
+@resetText 
 @set _={increaseTurn()}
-@set p_happiness=100 
+@set p_happiness=100
 "You took a nice break"
 @goto .eventqueue
 @return
 
 
-#jobMenu
-@hidePrinter
+# jobMenu
+@hidePrinter 
 @showUI JobMenu
 @stop
 
 
-;Here it should show the jobs that are available there for example, work on the granja and stuff like that
-#printJobChoices
-@choice "Work as {getCareerData(1, "d")} Soldier $ {getCareerData(1, "f")}, {getCareerData(1, "e")}  to level up" goto:.workSoldier
-@choice "Work as {getCareerData(2, "d")} Aventurer $ {getCareerData(2, "f")}, {getCareerData(2, "e")}  to level up" goto:.workAventurer
-@choice "Work as {getCareerData(3, "d")} Merchant $ {getCareerData(3, "f")}, {getCareerData(3, "e")}  to level up" goto:.workMerchant
+; Here it should show the jobs that are available there for example, work on the granja and stuff like that
+# printJobChoices
+@choice "Work as {getCareerData(1, \"d\")} Soldier $ {getCareerData(1, \"f\")}, {getCareerData(1, \"e\")}  to level up" goto:.workSoldier
+@choice "Work as {getCareerData(2, \"d\")} Aventurer $ {getCareerData(2, \"f\")}, {getCareerData(2, \"e\")}  to level up" goto:.workAventurer
+@choice "Work as {getCareerData(3, \"d\")} Merchant $ {getCareerData(3, \"f\")}, {getCareerData(3, \"e\")}  to level up" goto:.workMerchant
 @return
 
-#workSoldier
+# workSoldier
 @gosub .prequeue
 @set _={workCareerAs(1)}
 @set p_animation=8
@@ -308,7 +307,7 @@ New Character Adquired: Mister V.
 @goto .eventqueue
 @return
 
-#workAventurer
+# workAventurer
 @gosub .prequeue
 @set _={workCareerAs(2)}
 @set p_animation=1
@@ -317,7 +316,7 @@ New Character Adquired: Mister V.
 @goto .eventqueue
 @return
 
-#workMerchant
+# workMerchant
 @gosub .prequeue
 @set _={workCareerAs(3)}
 @set p_animation=6
@@ -328,128 +327,128 @@ New Character Adquired: Mister V.
 
 ; //////////////////// ####MARKET
 
-#market
+# market
 
 @gosub .cleanUI
 @set lastmenu=2
 @back bg-store
 @char merchant look:left pos:45,-40
-@gosub .printMainStatus 
+@gosub .printMainStatus
 @gosub .marketOptions
 @stop
 
 
-#marketOptions
+# marketOptions
 @gosub .printMenuChoices
-@gosub .printMainStatus 
+@gosub .printMainStatus
 "How can I help you?"[skipInput]
-@choice "Purchase" goto:.marketBuyMenu 
+@choice "Purchase" goto:.marketBuyMenu
 @choice "Sell" goto:.marketBuyMenu
 @stop
 
-#marketBuyMenu
-@skip
-@hidePrinter
+# marketBuyMenu
+@skip 
+@hidePrinter 
 @showUI StoreMenu
 
 @stop
 
-#equipmentMarket
-@resetText
-@gosub .printMainStatus 
+# equipmentMarket
+@resetText 
+@gosub .printMainStatus
 @choice "Buy Axe"
 @choice "Buy Sword"
 @choice "go back" goto:.market
 @stop
 
 
-#buildingMarket
-@resetText
-@gosub .printMainStatus 
+# buildingMarket
+@resetText 
+@gosub .printMainStatus
 @gosub .buildingMarketOptions
 @choice "go back" goto:.market
 @stop
 
 
-#buildingMarketOptions
+# buildingMarketOptions
 @choice "Camping -CF: 0$ " gosub:.rentCamp
 @choice "Rent roof in a farm -CF -2$" gosub:.rentFarm
 @choice "Rent a tavern room -CF -5$" gosub:.rentTavern
 @choice "Rent A Cabin -CF -15$" gosub:.rentCabin
 @return
 
-#rentCamp
+# rentCamp
 @set p_livingmethod=0
 
 @goto .eventqueue
 @stop
-#rentFarm
+# rentFarm
 @set p_livingmethod=1
 @goto .eventqueue
 @stop
-#rentTavern
+# rentTavern
 @set P_livingmethod=2
 @goto .eventqueue
 @stop
 
-#rentCabin
+# rentCabin
 @set p_livingmethod=3
 @goto .eventqueue
 @stop
 
 
-#buildingBusinessOptions
-@choice "Purchase Security Company: 500$ CF: 50" gosub:.BUYsecurityCompany 
+# buildingBusinessOptions
+@choice "Purchase Security Company: 500$ CF: 50" gosub:.BUYsecurityCompany
 @choice "Purchase Alchemy Company: 1000$ CF: 110" gosub:.BUYalchemyCompany
 @choice "Purchase International Merchant Network: 2000$ CF: 250" gosub:.BUYtravelMerchant
 
 @return
 
-#BUYsecurityCompany
+# BUYsecurityCompany
 @set _={purchaseBusiness(1)}
 @goto .eventqueue
 @stop
 
-#BUYalchemyCompany
+# BUYalchemyCompany
 @set _={purchaseBusiness(2)}
 @goto .eventqueue
 @stop
 
-#BUYtravelMerchant
+# BUYtravelMerchant
 @set _={purchaseBusiness(3)}
 @goto .eventqueue
 @return
 
 
-#rentCabin
+# rentCabin
 @set {p_livingmethod=3}
 @goto .eventqueue
 @stop
 
 
 
-#itemOptions
+# itemOptions
 @choice "Medicinal Herbs: $50"
 @choice "Healing Aid Kit: $150 " gosub:.BUYhealingKit
 @choice "Potion: $500" gosub:.BUYpotion
 @return
 
-#BUYhealingKit
+# BUYhealingKit
 ; Set the Healing success variable later
 @toast "Healing kit adquired"
 @set _={purchaseItem(1)}
 @goto .eventqueue
 @return
 
-#BUYpotion
+# BUYpotion
 @toast "Health potion adquired"
 @set _={purchaseItem(2)}
 @goto .eventqueue
 @return
 
-#itemMarket
-@resetText
-@gosub .printMainStatus 
+# itemMarket
+@resetText 
+@gosub .printMainStatus
 @gosub .itemOptions
 @choice "go back" goto:.market
 @stop
@@ -457,9 +456,9 @@ New Character Adquired: Mister V.
 
 
 ; //////////////////////////////////////// ###TRAINNING
-#trainning
-@resetText
-@gosub .printMainStatus 
+# trainning
+@resetText 
+@gosub .printMainStatus
 @choice "Militar Academy"
 @choice "Magic Academy"
 
@@ -467,59 +466,59 @@ New Character Adquired: Mister V.
 
 
 ; //////////////////////////////////////// ###RELATIONSHIP
-#relationship
+# relationship
 @set lastmenu=4
-@resetText
+@resetText 
 
-@gosub .printMainStatus 
+@gosub .printMainStatus
 @gosub .printMenuChoices
-;TODO make it only show if the pplayer adquired a certain status
-@choice "Spend time with  {getPersonData(2,"a")} {getPersonData(2,"g")} " if:lover_slavailable_1 goto:.visit_lover_1
+; TODO make it only show if the pplayer adquired a certain status
+@choice "Spend time with  {getPersonData(2,\"a\")} {getPersonData(2,\"g\")} " goto:.visit_lover_1 if:lover_slavailable_1
 @choice "Invite drinks to all friends" goto:.allfriends
-@choice "Visit1 {getPersonData(3,"a")} {getPersonData(3,"g")}" if:friend_slavailable_1 goto:.visit_friend_1
-@choice "Visit2 {getPersonData(4,"a")} {getPersonData(4,"g")}" if:friend_slavailable_2 goto:.visit_friend_2
-@choice "Visit3 {getPersonData(5,"a")} {getPersonData(5,"g")}" if:friend_slavailable_3 goto:.visit_friend_3
+@choice "Visit1 {getPersonData(3,\"a\")} {getPersonData(3,\"g\")}" goto:.visit_friend_1 if:friend_slavailable_1
+@choice "Visit2 {getPersonData(4,\"a\")} {getPersonData(4,\"g\")}" goto:.visit_friend_2 if:friend_slavailable_2
+@choice "Visit3 {getPersonData(5,\"a\")} {getPersonData(5,\"g\")}" goto:.visit_friend_3 if:friend_slavailable_3
 
 @stop
 
-#visit_lover_1
-@resetText
+# visit_lover_1
+@resetText 
 @hideAll
 @back bg-house
 @char wife look:left pos:45,-10
 you visited your wife
 @goto .eventqueue
 
-#allfriends
-@resetText
+# allfriends
+@resetText 
 @hideAll
 @back bg-tavern
-@char p1 pos:15,-20 scale:3 look:right
-@char p3 pos:35,-20 scale:3 look:right if:friend_slavailable_2
+@char p1 look:right pos:15,-20 scale:3
+@char p3 look:right pos:35,-20 scale:3 if:friend_slavailable_2
 @char p2 pos:50,-20 scale:3 if:friend_slavailable_1
 @char p4 pos:65,-20 scale:3 if:friend_slavailable_3
 You spend a great time with your friends
 @goto .eventqueue
 
 
-#visit_friend_1
-@resetText
+# visit_friend_1
+@resetText 
 @hideAll
 @back bg-house1
 @char p2 pos:55,-20 scale:3
 you visited your friend
 @goto .eventqueue
 
-#visit_friend_2
-@resetText
+# visit_friend_2
+@resetText 
 @hideAll
 @back bg-house2
 @char p3
 you visited your friend
 @goto .eventqueue
 
-#visit_friend_3
-@resetText
+# visit_friend_3
+@resetText 
 @hideAll
 @back bg-house3
 @char p4
@@ -533,27 +532,27 @@ you visited your friend
 
 ; ###EVENTS
 
-#flag_death_health
+# flag_death_health
 You died...
 @goto .cleanandqueue
 
-#flag_death_happiness
+# flag_death_happiness
 You died out of sadness...
 @goto .cleanandqueue
 
-#flag_death_money
+# flag_death_money
 Debt Collectors collected your head...
 @goto .cleanandqueue
 
-#flag_tooexpensive
+# flag_tooexpensive
 Too expensive... You don't have the money
 @goto .cleanandqueue
 
-#cleanandqueue
+# cleanandqueue
 @set flag_number=0
 @goto .eventqueue
 
-#flag_log
-@print text:"{actionLog}" 
+# flag_log
+@print "{actionLog}"
 @set isLog=false
 @goto .eventqueue

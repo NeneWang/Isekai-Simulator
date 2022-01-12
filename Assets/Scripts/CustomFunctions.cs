@@ -230,6 +230,7 @@ public static class CustomFunctions
                 )
                 {
                     naniDataManager.securityCompany++;
+                    Debug.Log($"purchased sec company now you have: {naniDataManager.securityCompany} of them");
                 }
 
                 break;
