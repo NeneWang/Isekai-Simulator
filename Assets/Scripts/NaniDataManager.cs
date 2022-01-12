@@ -590,6 +590,13 @@ string endDayToast = "";
 
     }
 
+
+    public void runEvent(Log eventLog){
+        // This should in theory run certain event based just on the log information
+        
+
+    }
+
     public bool workAsAventurer()
     {
         // Calculate the risks of injuries and stuff depending of ecach character
@@ -647,7 +654,6 @@ string endDayToast = "";
         return false;
 
     }
-
 
 
     public bool workAsSoldier()

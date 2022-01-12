@@ -1,6 +1,7 @@
 
 
 @gosub .resetAllVariables
+@gosub .testEvent
 @gosub .eventqueue
 @stop
 
@@ -15,7 +16,7 @@
 @set p_health=50
 @set p_fame=0
 @set p_mana=100
-@set p_happiness=100
+@set p_happiness=50
 @set p_money=1000
 @set p_monthlyCashFlow=0
 @set p_title="-"
@@ -85,6 +86,14 @@
 @set rel_misterv=0
 
 
+@return
+
+
+#testEvent
+@print "Testing Event" author:"Event Title"
+"choices information"[skipInput]
+@choice "do X" set:p_health+=3
+@choice "do Y" set:p_happiness+=3;p_health+=3
 @return
 
 
@@ -230,7 +239,7 @@ New Character Adquired: Mister V.
 # takeABreak
 @resetText 
 @set _={increaseTurn()}
-@set p_happiness=100
+@set p_happiness+=10
 "You took a nice break"
 @goto .eventqueue
 @return
