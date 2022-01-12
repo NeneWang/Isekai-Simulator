@@ -10,7 +10,6 @@ public static class CustomFunctions
     public static bool loadNextTurn()
     {
         // TODO: Adds one to the personal turn,
-
         NaniDataManager datanani = new NaniDataManager();
         datanani.p_turn++;
 
@@ -230,7 +229,8 @@ public static class CustomFunctions
                 )
                 {
                     naniDataManager.securityCompany++;
-                    Debug.Log($"purchased sec company now you have: {naniDataManager.securityCompany} of them");
+                    Debug
+                        .Log($"purchased sec company now you have: {naniDataManager.securityCompany} of them");
                 }
 
                 break;
@@ -319,37 +319,42 @@ public static class CustomFunctions
         return messageDate;
     }
 
-    public static bool menuProfile(){
-        var _=cleanUI();
+    public static bool menuProfile()
+    {
+        var _ = cleanUI();
         PlayScriptAsync("@set lastmenu=1");
-        _=printMenuChoices();
-        _=printMainStatus();
+        _ = printMenuChoices();
+        _ = printMainStatus();
 
         return true;
     }
 
-    public static bool menuMarket(){
-        var _=cleanUI();
-        PlayScriptAsync("@set lastmenu=2\n@back bg-store\n@char merchant look:left pos:45,-40\n@gosub .marketOptions");
-        _=printMenuChoices();
-        _=printMainStatus();
+    public static bool menuMarket()
+    {
+        if (cleanUI())
+        {
+            PlayScriptAsync("@set lastmenu=2\n@back bg-store\n@char merchant look:left pos:45,-40\n@gosub .marketOptions");
+            var _ = printMenuChoices();
+            _ = printMainStatus();
+        }
         return true;
     }
 
-    public static bool printMenuChoices(){
+    public static bool printMenuChoices()
+    {
         PlayScriptAsync("@showUI TownShort");
         return true;
     }
 
-    public static bool printMainStatus(){
-        PlayScriptAsync("@gosub .updateVariables\n@showUI StatusBar");
+    public static bool printMainStatus()
+    {
+        PlayScriptAsync("@gosub .updateVariables\n @showUI StatusBar");
         return true;
     }
 
     public static bool cleanUI()
     {
-
-        PlayScriptAsync("@endIf\n@hideUI StoreMenu\n@hideUI JobMenu\n@clearChoice\n@hideAll\n@resetText\n@skip false");
+        PlayScriptAsync("@hideAll\n@hideUI StoreMenu\n@hideUI JobMenu\n@clearChoice\n@resetText\n@skip false");
         return true;
     }
 
