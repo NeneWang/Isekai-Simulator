@@ -41,19 +41,19 @@ public class Constants
 
         // Aventurer Logs Added
         aventurerLogs.logList.Add(new Log("You encounter a monster", 1));
+        aventurerLogs.logList.Add(new Log("You are challanged into a duel", 1));
+        aventurerLogs.logList.Add(new Log("You witness a magnificent view ", 1));
         aventurerLogs.logList.Add(new Log("You fall into a booby trap ", 2));
         aventurerLogs.logList.Add(new Log("A mysterious man kidnaps your teammates...", 2));
-        aventurerLogs.logList.Add(new Log("Magic dissaster shakes the kingdom", 3));
         aventurerLogs.logList.Add(new Log("You got poisoned by eating rotten food ", 2));
         aventurerLogs.logList.Add(new Log("They leave you a handsome tip!", 2));
-        aventurerLogs.logList.Add(new Log("Goblin Slayer?", 3));
         aventurerLogs.logList.Add(new Log("Chaos Warrior Challanges you", 2));
         aventurerLogs.logList.Add(new Log("Short Cut found", 2));
         aventurerLogs.logList.Add(new Log("The town celebrates you as a hero", 3));
-        aventurerLogs.logList.Add(new Log("You witness a magnificent view ", 1));
         aventurerLogs.logList.Add(new Log("Drunk Fight", 2));
-        aventurerLogs.logList.Add(new Log("You are challanged into a duel", 1));
         aventurerLogs.logList.Add(new Log("Ally falls in battle", 2));
+        aventurerLogs.logList.Add(new Log("Magic dissaster shakes the kingdom", 3));
+        aventurerLogs.logList.Add(new Log("Goblin Slayer?", 3));
 
 
     }

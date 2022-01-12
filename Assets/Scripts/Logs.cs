@@ -55,6 +55,7 @@ public class Log
     public string title;
     public string description;
     public string choiceScript;
+    public string choicesDescription;
 
     public EnumRarity enumRarity;
 
@@ -64,10 +65,13 @@ public class Log
 
 
 
-    public Log(string titleIn, int enumRarityIn)
+    public Log(string titleIn, int enumRarityIn, string descriptionInIn="", string choiceScriptIn="", string choicesDescriptionIn="")
     {
         enumRarity = (EnumRarity)enumRarityIn;
         title = titleIn;
+        description = descriptionInIn;
+        choiceScript = choiceScriptIn;
+        choicesDescription = choicesDescriptionIn;
 
     }
 
