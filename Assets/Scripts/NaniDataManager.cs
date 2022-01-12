@@ -593,7 +593,8 @@ string endDayToast = "";
 
     public void runEvent(Log eventLog){
         // This should in theory run certain event based just on the log information
-        
+        string eventScript = "@print \"Testing Event\" author:\"Event Title\"\n\"choices information\"[skipInput]\n@choice \"do X\" set:p_health+=3 do:\"@toast \" health+3 \"\"\n@choice \"do Y\" set:p_happiness+=3;p_health+=3\n@return\n";
+        PlayScriptAsync(eventScript);
 
     }
 

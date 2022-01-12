@@ -92,7 +92,7 @@
 #testEvent
 @print "Testing Event" author:"Event Title"
 "choices information"[skipInput]
-@choice "do X" set:p_health+=3
+@choice "do X" set:p_health+=3 do:"@toast \" health+3 \""
 @choice "do Y" set:p_happiness+=3;p_health+=3
 @return
 
