@@ -254,10 +254,12 @@ string endDayToast = "";
         await playlist.ExecuteAsync();
     }
 
-     private async void ToastScriptAsync(string argument)
+     private async void ToastScriptAsync(string argument, string type="")
     {
         
-        var text = $"@toast \"{argument}\"";
+        var text = "";
+        if(type=="")  text = $"@toast \"{argument}\"";
+        if(type=="warning")  text = $"@wait 1\n@toast \"{argument}\" appearance:warning";
         Debug.Log($"Toast Script: {text}");
         var script = Script.FromScriptText(null, text);
         var playlist = new ScriptPlaylist(script);
@@ -635,8 +637,8 @@ string endDayToast = "";
 
             // isLog = true;
             Debug.Log(actionLog);
-            PrintScriptAsync(actionLog);
-            ToastScriptAsync(actionLog);
+            // PrintScriptAsync(actionLog);
+            ToastScriptAsync("Event: "+actionLog, "warning");
             return true;
         }
 
