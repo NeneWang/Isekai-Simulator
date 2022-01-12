@@ -11,21 +11,23 @@ public class changeHealthyColour : MonoBehaviour
     public Image rend;
 
     public string variableName;
+    public string valueAsString;
 
     public void changeValue(int value)
     {
         changeColour (value);
     }
 
-    public void changeValue()
+    public virtual void changeValue()
     {
         var variableManager = Engine.GetService<ICustomVariableManager>();
-        var valueAsString = variableManager.GetVariableValue(variableName);
+        valueAsString = variableManager.GetVariableValue(variableName);
 
-        if (valueAsString != null)
+        if (valueAsString == null)
         {
-            changeColour(int.Parse(valueAsString));
+            return;
         }
+        changeColour(int.Parse(valueAsString));
     }
 
     void changeColour(int value)
