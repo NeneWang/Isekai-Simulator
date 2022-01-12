@@ -53,11 +53,11 @@ public class Log
 {
 
     public string title;
+    public string description;
+    public string choiceScript;
 
     public EnumRarity enumRarity;
 
-    public Effect onSuccessEffect = new Effect();
-    public Effect onFailEffect = new Effect();
 
     public int rankRequired = 0;
     public LogType logType = new LogType();
@@ -70,21 +70,5 @@ public class Log
         title = titleIn;
 
     }
-
-}
-
-public class Effect
-{
-
-    public int gold = 0, health = 0, happiness = 0, fame = 0;
-}
-
-public enum EnumCombatType
-{
-    notCombat = 0, fullVictoryChanceCombat = 1
-}
-
-public class LogType
-{
 
 }

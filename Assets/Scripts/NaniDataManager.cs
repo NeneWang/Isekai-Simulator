@@ -14,7 +14,7 @@ public class NaniDataManager
 
     public int p_turn, p_age, p_health, p_fame, p_mana, p_happiness, p_money, p_monthlyCashFlow, p_livingmethod, securityCompany, alchemyCompany, travelMerchant;
     public int p_missionsCompleted, p_maxhealth, p_networth, p_stat_str, p_stat_vit, p_stat_dex, p_stat_int, p_stat_wis, p_stat_char;
-    public string p_title, p_sex, friend_sl_1, friend_sl_2, friend_sl_3, lover_sl_1, actionLog;
+    public string p_title, p_sex, friend_sl_1, friend_sl_2, friend_sl_3, lover_sl_1, adventureEvent;
 
     // Friend items
     public int rel_janna, rel_atlas, rel_mitia, rel_kisa, rel_legeon, rel_vandeus, rel_gerald, rel_merlin, rel_aiza, rel_misterv;
@@ -118,7 +118,7 @@ string endDayToast = "";
         variableManager.TryGetVariableValue<int>("alchemyCompany", out alchemyCompany);
         variableManager.TryGetVariableValue<int>("travelMerchant", out travelMerchant);
 
-        variableManager.TryGetVariableValue<string>("actionLog", out actionLog);
+        variableManager.TryGetVariableValue<string>("actionLog", out adventureEvent);
         variableManager.TryGetVariableValue<bool>("isLog", out isLog);
 
         variableManager.TryGetVariableValue<bool>("lover_slavailable_1", out lover_slavailable_1);
@@ -305,11 +305,11 @@ string endDayToast = "";
         {
             // actionLog = "You purchased at " + price.ToString();
 
-            PlayScriptAsync(actionLog);
+            PlayScriptAsync(adventureEvent);
             return true;
         }
         // actionLog = "The price: " + price.ToString() + " is too expensive for you.";
-        PrintScriptAsync(actionLog);
+        PrintScriptAsync(adventureEvent);
         return false;
     }
 
@@ -320,16 +320,16 @@ string endDayToast = "";
         {
 
             
-            actionLog = "You purchased " + itemName + " at " + price.ToString();
+            adventureEvent = "You purchased " + itemName + " at " + price.ToString();
             // isLog = true;
             p_money -= price;
-            ToastScriptAsync(actionLog);
+            ToastScriptAsync(adventureEvent);
             return true;
         }
 
-        actionLog = "The price: " + price.ToString() + " is for " + itemName + " is too expensive for you.";
+        adventureEvent = "The price: " + price.ToString() + " is for " + itemName + " is too expensive for you.";
         // isLog = true;
-        PrintScriptAsync(actionLog);
+        PrintScriptAsync(adventureEvent);
         return false;
     }
 
@@ -446,7 +446,7 @@ string endDayToast = "";
         variableManager.TrySetVariableValue("alchemyCompany", alchemyCompany);
         variableManager.TrySetVariableValue("travelMerchant", travelMerchant);
 
-        variableManager.TrySetVariableValue("actionLog", actionLog);
+        variableManager.TrySetVariableValue("actionLog", adventureEvent);
 
         variableManager.TrySetVariableValue("isLog", isLog);
         variableManager.TrySetVariableValue("lover_slavailable_1", lover_slavailable_1);
@@ -623,22 +623,24 @@ string endDayToast = "";
 
             if (randomDouble >= randomDouble + RARE_RATE && randomDouble < TOTAL_RATE)
             {
-                actionLog = MY_CONSTANTS.aventurerLogs.getRandomLogBasedOnRarity(EnumRarity.Normal).title;
+                adventureEvent = MY_CONSTANTS.aventurerLogs.getRandomLogBasedOnRarity(EnumRarity.Normal).title;
             }
 
             else if (randomDouble >= NORMAL_RATE && randomDouble < randomDouble + RARE_RATE)
             {
-                actionLog = MY_CONSTANTS.aventurerLogs.getRandomLogBasedOnRarity(EnumRarity.Rare).title;
+                adventureEvent = MY_CONSTANTS.aventurerLogs.getRandomLogBasedOnRarity(EnumRarity.Rare).title;
             }
             else
             {
-                actionLog = MY_CONSTANTS.aventurerLogs.getRandomLogBasedOnRarity(EnumRarity.Miracle).title;
+                adventureEvent = MY_CONSTANTS.aventurerLogs.getRandomLogBasedOnRarity(EnumRarity.Miracle).title;
             }
 
             // isLog = true;
-            Debug.Log(actionLog);
+            Debug.Log(adventureEvent);
             // PrintScriptAsync(actionLog);
-            ToastScriptAsync("Event: "+actionLog, "warning");
+
+            
+            // ToastScriptAsync("Event: "+actionLog, "warning");
             return true;
         }
 
