@@ -1,5 +1,6 @@
 
 
+
 @gosub .resetAllVariables
 @gosub .eventqueue
 @stop
@@ -437,10 +438,6 @@ you visited your friend
 @char p4
 you visited your friend
 @goto .eventqueue
-
-
-
-
 
 
 ; ###EVENTS
