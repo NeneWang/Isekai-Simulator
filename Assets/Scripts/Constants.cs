@@ -76,10 +76,19 @@ public class Constants
                 "This is what life is about...",
                 "@choice \"Enjoy the view.\" set:p_happiness+=10",
                 "event1"));
-        aventurerLogs.logList.Add(new Log("You fall into a booby trap ", 2));
         aventurerLogs
             .logList
-            .Add(new Log("A mysterious man kidnaps your teammates...", 2));
+            .Add(new Log("Ouch",
+                2,
+                "You fall into a booby trap",
+                "@choice \"disable the booby trap\" set:item_boobytrap+=1;p_health+=1",
+                "event1"));
+        aventurerLogs
+            .logList
+            .Add(new Log("Kidnapping!",
+                2,
+                "One of your teammates had been kidnapped...",
+                "@choice \"Pay ransom\" set:p_money-=10 "));
         aventurerLogs
             .logList
             .Add(new Log("You got poisoned by eating rotten food ", 2));
