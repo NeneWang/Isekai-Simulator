@@ -67,7 +67,7 @@ public class Constants
             .Add(new Log("You are challanged into a duel",
                 1,
                 "A warrior approaches to you. He gracefully invites you to fight against him.",
-                "@choice \"Accept the challange\" set:p_health-=10;p_fame+=10 \n@choice \"Refuse\" set:p_happiness-=10;p_fame-=10",
+                "@choice \"Accept the challange\" set:p_health-=10;p_fame+=10;p_stat_str+=1 \n@choice \"Refuse\" set:p_happiness-=10;p_fame-=10",
                 "event1"));
         aventurerLogs
             .logList
@@ -96,9 +96,27 @@ public class Constants
                 "You got poisoned by eating rotten food ",
                 "@choice \"Do nothing.\" set:p_health-=20\n@choice \"Buy Medicine\"",
                 "event1"));
-        aventurerLogs.logList.Add(new Log("They leave you a handsome tip!", 2));
-        aventurerLogs.logList.Add(new Log("Chaos Warrior Challanges you", 2));
-        aventurerLogs.logList.Add(new Log("Short Cut found", 2));
+        aventurerLogs
+            .logList
+            .Add(new Log("They leave you a handsome tip!",
+                2,
+                "You thank to the earth, the heavens and the gods for the tip.",
+                "@choice \"Cool!\" set:p_money+=20",
+                "event1"));
+        aventurerLogs
+            .logList
+            .Add(new Log("Chaos Warrior Challanges you",
+                2,
+                "Ravens circled the skies, you sense a fearsome aura in front of you. He challanges you to a fight",
+                "@choice \"Accept the challange\" set:p_health-=70;p_fame+=50;p_stat_str+=2 \n@choice \"Refuse\" set:p_happiness-=10",
+                "event1"));
+        aventurerLogs
+            .logList
+            .Add(new Log("Shortcut found",
+                2,
+                "Your cleverness helped you find an alternate way to solve this problem",
+                "@choice \"Use the shortcut\" set:p_happiness+=10;p_stat_wis+=1 \n@choice \"Take traditional route\"",
+                "event1"));
         aventurerLogs
             .logList
             .Add(new Log("The town celebrates you as a hero", 3));
