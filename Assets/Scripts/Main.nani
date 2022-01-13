@@ -220,9 +220,6 @@ New Character Adquired: Mister V.
 @stop
 
 
-# updateVariables
-@set absolute_date="{getAbsoluteDate()}"
-@return
 
 # profile
 @set _={menuProfile()}
@@ -231,7 +228,6 @@ New Character Adquired: Mister V.
 
 ; Copy for all files cause you can't import
 # printMainStatus
-@gosub .updateVariables
 @showUI StatusBar
 @return
 
