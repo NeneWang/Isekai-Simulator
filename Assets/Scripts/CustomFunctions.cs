@@ -208,13 +208,10 @@ public static class CustomFunctions
     }
 
     public static bool runEvent(int eventNumber){
-        Debug.Log($"Running Event: {eventNumber}");
         NaniDataManager naniDataManager = new NaniDataManager("soft");
-        Debug.Log("I guess if no comments after this then...");
         
         Log eventLog = naniDataManager.MY_CONSTANTS.aventurerLogs.logList[eventNumber];
-        Debug.Log("I guess if no comments after this then...2");
-        Debug.Log($"Supposed to run: {eventLog.title}");
+        
         naniDataManager.runEvent(eventLog);
         return true;
     }

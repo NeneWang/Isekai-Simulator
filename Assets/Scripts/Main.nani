@@ -216,6 +216,7 @@ New Character Adquired: Mister V.
 
 # profile
 @set _={menuProfile()}
+@set _={runEvent(1)}
 @stop
 
 

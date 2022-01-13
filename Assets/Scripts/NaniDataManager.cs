@@ -600,17 +600,21 @@ string endDayToast = "";
 
     public void runEvent(Log eventLog){
         // This should in theory run certain event based just on the log information
-        string choicesScript = eventLog.choiceScript == null || eventLog.choiceScript=="" ? $"\n\"{eventLog.choiceScript}\"[skipInput]" : "";
-        string choicesDescription = eventLog.choicesDescription == null || eventLog.choicesDescription=="" ? $"\n\"{eventLog.choicesDescription}\"[skipInput]" : "";
-        string choicesQuestionScript = eventLog.choiceScript == null || eventLog.choiceScript=="" ? $"\n{eventLog.choiceScript}" : "";
+        string choicesDescription = eventLog.choicesDescription == null || eventLog.choicesDescription=="" ? "":  $"\n\"{eventLog.choicesDescription}\"" ;
+        string choicesQuestionScript = eventLog.choiceScript == null || eventLog.choiceScript=="" ?"" : $"\n{eventLog.choiceScript}" ;
 
 
         // string eventScript = $"@print \"Something from run event\"";
-// {choicesDescription}{choicesQuestionScript}\n@return\n
-Debug.Log(eventLog.title);
+        // {choicesDescription}{choicesQuestionScript}\n@return\n
         
-        string eventScript = $"@print \"{eventLog.description}\" author:\"{eventLog.title}\"";
+        string eventScript = $"@print \"{eventLog.description}\" author:\"{eventLog.title}\"{choicesQuestionScript}@return";
         PlayScriptAsync(eventScript);
+        Debug.Log(eventScript);
+
+        // string eventScript2 = $"{choicesDescription}";
+        // Debug.Log($"Description of choices: {choicesDescription}");
+        // Debug.Log(eventScript2);
+        // PlayScriptAsync(eventScript2);
     }
 
     public bool workAsAventurer()
