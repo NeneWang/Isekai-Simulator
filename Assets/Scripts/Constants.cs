@@ -57,15 +57,19 @@ public class Constants
         // Aventurer Logs Added
         aventurerLogs
             .logList
-            .Add(new Log("You encounter a monster",
+            .Add(new Log("You are being hunted!",
                 1,
-                "When you were just walking around, a mounstruous appearance confronted you."));
+                "A roar emerges behind you, a wild beast starts pursuing you!",
+                "@choice \"Fence him off\" set:p_health-=10;p_stat_str+=1 \n@choice \"Run!\"",
+                "event1"
+                ));
         aventurerLogs
             .logList
             .Add(new Log("You are challanged into a duel",
                 1,
                 "A warrior approaches to you. He gracefully invites you to fight against him.",
-                "@choice \"Accept the challange\" set:p_health-=10;p_fame+=10 \n@choice \"Refuse\" set:p_happiness-=10;p_fame-=10"
+                "@choice \"Accept the challange\" set:p_health-=10;p_fame+=10 \n@choice \"Refuse\" set:p_happiness-=10;p_fame-=10",
+                "event1"
                 ));
         aventurerLogs
             .logList
