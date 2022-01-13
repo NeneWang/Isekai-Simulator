@@ -61,19 +61,21 @@ public class Constants
                 1,
                 "A roar emerges behind you, a wild beast starts pursuing you!",
                 "@choice \"Fence him off\" set:p_health-=10;p_stat_str+=1 \n@choice \"Run!\"",
-                "event1"
-                ));
+                "event1"));
         aventurerLogs
             .logList
             .Add(new Log("You are challanged into a duel",
                 1,
                 "A warrior approaches to you. He gracefully invites you to fight against him.",
                 "@choice \"Accept the challange\" set:p_health-=10;p_fame+=10 \n@choice \"Refuse\" set:p_happiness-=10;p_fame-=10",
-                "event1"
-                ));
+                "event1"));
         aventurerLogs
             .logList
-            .Add(new Log("You witness a magnificent view ", 1));
+            .Add(new Log("You witness a magnificent view ",
+                1,
+                "This is what life is about...",
+                "@choice \"Enjoy the view.\" set:p_happiness+=10",
+                "event1"));
         aventurerLogs.logList.Add(new Log("You fall into a booby trap ", 2));
         aventurerLogs
             .logList
