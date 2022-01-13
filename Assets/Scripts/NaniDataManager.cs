@@ -634,7 +634,7 @@ string endDayToast = "";
         accumulativeCashflowModifier += aventurerCareer.getJobIncome;
         saveData();
 
-        perphapsGettingHurtChances();
+        // perphapsGettingHurtChances();
 
         // TODO: Implement random log logic
         double randomDouble = randomGenerator.getRandom1ToZero();
