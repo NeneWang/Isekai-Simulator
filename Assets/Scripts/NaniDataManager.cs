@@ -160,6 +160,13 @@ string endDayToast = "";
 
     }
 
+    public NaniDataManager(string initializationType){
+        if(initializationType == "soft"){
+            
+        initializeCareers();
+        }
+    }
+
     public void deathConditions()
     {
         if (p_health <= 0)
@@ -598,7 +605,11 @@ string endDayToast = "";
         string choicesQuestionScript = eventLog.choiceScript == null || eventLog.choiceScript=="" ? $"\n{eventLog.choiceScript}" : "";
 
 
-        string eventScript = $"@print \"{eventLog.description}\" author:\"{eventLog.title}\"{choicesDescription}{choicesQuestionScript}\n@return\n";
+        // string eventScript = $"@print \"Something from run event\"";
+// {choicesDescription}{choicesQuestionScript}\n@return\n
+Debug.Log(eventLog.title);
+        
+        string eventScript = $"@print \"{eventLog.description}\" author:\"{eventLog.title}\"";
         PlayScriptAsync(eventScript);
     }
 

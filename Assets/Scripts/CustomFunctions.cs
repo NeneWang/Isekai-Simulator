@@ -153,6 +153,7 @@ public static class CustomFunctions
     // A more efficient way to work in a career, Returns false if there is a false return.
     public static bool workCareerAs(int enumCareerIn)
     {
+        
         NaniDataManager datanani = new NaniDataManager();
         bool isLogReturned = false;
         switch ((enumCareer) enumCareerIn)
@@ -207,9 +208,14 @@ public static class CustomFunctions
     }
 
     public static bool runEvent(int eventNumber){
+        Debug.Log($"Running Event: {eventNumber}");
+        NaniDataManager naniDataManager = new NaniDataManager("soft");
+        Debug.Log("I guess if no comments after this then...");
         
-        NaniDataManager naniDataManager = new NaniDataManager();
-        naniDataManager.runEvent(naniDataManager.MY_CONSTANTS.aventurerLogs.logList[eventNumber]);
+        Log eventLog = naniDataManager.MY_CONSTANTS.aventurerLogs.logList[eventNumber];
+        Debug.Log("I guess if no comments after this then...2");
+        Debug.Log($"Supposed to run: {eventLog.title}");
+        naniDataManager.runEvent(eventLog);
         return true;
     }
 
@@ -361,7 +367,7 @@ public static class CustomFunctions
 
     public static bool printMainStatus()
     {
-        PlayScriptAsync("@gosub .updateVariables\n @showUI StatusBar");
+        PlayScriptAsync("@showUI StatusBar");
         return true;
     }
 
