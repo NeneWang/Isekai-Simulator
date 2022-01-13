@@ -119,7 +119,10 @@ public class Constants
                 "event1"));
         aventurerLogs
             .logList
-            .Add(new Log("The town celebrates you as a hero", 3));
+            .Add(new Log("Bandit on near town", 1, "The bandit had been terrorizing this town for months now...", 
+             "@choice \"Deal with the bandit\" set:p_health-=25;p_fame+=10;p_stat_str+=1 \n@choice \"Not my problem\" set:p_happiness-=10"
+             "event1"
+            ));
         aventurerLogs.logList.Add(new Log("Drunk Fight", 2));
         aventurerLogs.logList.Add(new Log("Ally falls in battle", 2));
         aventurerLogs
