@@ -206,6 +206,13 @@ public static class CustomFunctions
         return variableToReturn;
     }
 
+    public static bool runEvent(int eventNumber){
+        
+        NaniDataManager naniDataManager = new NaniDataManager();
+        naniDataManager.runEvent(naniDataManager.MY_CONSTANTS.aventurerLogs.logList[eventNumber]);
+        return true;
+    }
+
     public enum enumBusiness
     {
         securityCompany = 1,
