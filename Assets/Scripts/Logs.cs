@@ -66,13 +66,12 @@ public class Log
 
 
 
-    public Log(string titleIn, int enumRarityIn, string descriptionInIn="", string choiceScriptIn="", string choicesDescriptionIn="", string backImageIn="")
+    public Log(string titleIn, int enumRarityIn, string descriptionInIn="", string choiceScriptIn="", string backImageIn="")
     {
         enumRarity = (EnumRarity)enumRarityIn;
         title = titleIn;
         description = descriptionInIn;
         choiceScript = choiceScriptIn;
-        choicesDescription = choicesDescriptionIn;
         backImage = backImageIn;
         
 
