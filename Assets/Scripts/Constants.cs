@@ -81,17 +81,21 @@ public class Constants
             .Add(new Log("Ouch",
                 2,
                 "You fall into a booby trap",
-                "@choice \"disable the booby trap\" set:item_boobytrap+=1;p_health+=1",
+                "@choice \"disable the booby trap\" set:item_boobytrap+=1;p_health-=20",
                 "event1"));
         aventurerLogs
             .logList
             .Add(new Log("Kidnapping!",
                 2,
                 "One of your teammates had been kidnapped...",
-                "@choice \"Pay ransom\" set:p_money-=10 "));
+                "@choice \"Pay ransom\" set:p_money-=100"));
         aventurerLogs
             .logList
-            .Add(new Log("You got poisoned by eating rotten food ", 2));
+            .Add(new Log("Rotten food",
+                2,
+                "You got poisoned by eating rotten food ",
+                "@choice \"Do nothing.\" set:p_health-=20\n@choice \"Buy Medicine\"",
+                "event1"));
         aventurerLogs.logList.Add(new Log("They leave you a handsome tip!", 2));
         aventurerLogs.logList.Add(new Log("Chaos Warrior Challanges you", 2));
         aventurerLogs.logList.Add(new Log("Short Cut found", 2));
