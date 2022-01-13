@@ -233,7 +233,6 @@ New Character Adquired: Mister V.
 # printMainStatus
 @gosub .updateVariables
 @showUI StatusBar
-; "health: {p_health} Happinness: {p_happiness} Money: {p_money} Turn: {p_turn}, {absolute_date} Cashflow: {p_monthlyCashFlow}"
 @return
 
 # takeABreak
