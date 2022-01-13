@@ -65,7 +65,7 @@ public class Constants
             .Add(new Log("You are challanged into a duel",
                 1,
                 "A warrior approaches to you. He gracefully invites you to fight against him.",
-                "@choice \"Accept the challange\" set:p_health-=10;p_fame+=10 \n@choice \"Refuse\" set:p_happiness-=10;p_fame-=10",
+                "@choice \"Accept the challange\" set:p_health-=10;p_fame+=10 \n@choice \"Refuse\" set:p_happiness-=10;p_fame-=10"
                 ));
         aventurerLogs
             .logList
