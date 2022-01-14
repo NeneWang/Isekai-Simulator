@@ -64,6 +64,13 @@ public class Constants
                 "event1"));
         aventurerLogs
             .logList
+            .Add(new Log("Bandit on near town",
+                1,
+                "The bandit had been terrorizing this town for months now...",
+                "@choice \"Deal with the bandit\" set:p_health-=25;p_fame+=10;p_stat_str+=1;p_happiness+=10 do:\"@toast \"fame+10 str+1 happiness+10 health-25\"\" \n@choice \"Not my problem\" set:p_happiness-=10;p_fame-=10 do:\"@toast \"happiness-10 fame-10\"\"",
+                "event1"));
+        aventurerLogs
+            .logList
             .Add(new Log("You are challanged into a duel",
                 1,
                 "A warrior approaches to you. He gracefully invites you to fight against him.",
@@ -76,6 +83,10 @@ public class Constants
                 "This is what life is about...",
                 "@choice \"Enjoy the view.\" set:p_happiness+=10",
                 "event1"));
+
+        aventurerLogs
+            .logList
+            .Add(new Log("Drunk Fight", 2, "While drinking, a disrespectful "));
         aventurerLogs
             .logList
             .Add(new Log("Ouch",
@@ -117,17 +128,19 @@ public class Constants
                 "Your cleverness helped you find an alternate way to solve this problem",
                 "@choice \"Use the shortcut\" set:p_happiness+=10;p_stat_wis+=1 \n@choice \"Take traditional route\"",
                 "event1"));
+
         aventurerLogs
             .logList
-            .Add(new Log("Bandit on near town", 1, "The bandit had been terrorizing this town for months now...", 
-             "@choice \"Deal with the bandit\" set:p_health-=25;p_fame+=10;p_stat_str+=1 \n@choice \"Not my problem\" set:p_happiness-=10"
-             "event1"
-            ));
-        aventurerLogs.logList.Add(new Log("Drunk Fight", 2));
-        aventurerLogs.logList.Add(new Log("Ally falls in battle", 2));
+            .Add(new Log("Friends falls in battle",
+                2,
+                "A good friend of yours falls during combat, its a sad but thats the life you have chosen",
+                "@choice \"Pay his funeral\" set:p_happiness-=40;p_money-=200;\n@choice \"Just bury him\" set:p_happiness-=40",
+                "event1"));
         aventurerLogs
             .logList
-            .Add(new Log("Magic dissaster shakes the kingdom", 3));
+            .Add(new Log("Magic dissaster shakes the kingdom",
+                3,
+                "@choice \"\""));
         aventurerLogs.logList.Add(new Log("Goblin Slayer?", 3));
     }
 
