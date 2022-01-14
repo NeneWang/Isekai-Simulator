@@ -140,8 +140,15 @@ public class Constants
             .logList
             .Add(new Log("Magic dissaster shakes the kingdom",
                 3,
-                "@choice \"\""));
-        aventurerLogs.logList.Add(new Log("Goblin Slayer?", 3));
+                "A magic disasters descends to the world. People were randomnly dispplaced from their locations.",
+                "@choice \"Help the community in the emergency recovery effort\" set:p_health-=10;p_money-=10;\n@choice \"Your own recovery matters more\"",
+                "event1"));
+        aventurerLogs
+            .logList
+            .Add(new Log("Goblin Ambush",
+                3,
+                "Goblins unexpectedly ambush you at the worst time... However, when you thought it was your end, a strange full armor dude slays them brutally in front of you",
+                "@choice \"Thanks...\" set:p_happiness+=5 do:\"@toast \"You share a friendly conversation with him.\"\""));
     }
 
     public void createJobs()
