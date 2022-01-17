@@ -64,6 +64,9 @@
 
 @set absolute_date="date"
 
+
+@set m_toast_1=""
+@set m_message_1=""
 ; For now limit to just one event flag, we can later think of multiple events happening
 @set flag_number=0
 @set lastmenu=1
@@ -195,6 +198,10 @@ New Character Adquired: Mister V.
 
 ; Modifiers
 
+@gosub .checkToast_1
+
+@gosub .checkMessage_1
+
 
 @goto .flag_log if:isLog==true
 
@@ -214,11 +221,18 @@ New Character Adquired: Mister V.
 @goto .eventqueue
 @stop
 
+# checkToast_1
+@toast {m_toast_1} if:m_toast_1!=""
+@set m_toast_1=""
+@return
 
-
+#checkMessage_1
+@print m_message_1 if:m_message_1!=""
+@return
 # profile
 @set _={menuProfile()}
 @set _={runEvent(1)}
+@gosub .checkToast_1
 @stop
 
 

@@ -67,7 +67,7 @@ public class Constants
             .Add(new Log("Bandit on near town",
                 1,
                 "The bandit had been terrorizing this town for months now...",
-                "@choice \"Deal with the bandit\" set:p_health-=25;p_fame+=10;p_stat_str+=1;p_happiness+=10 do:\"@toast \"fame+10 str+1 happiness+10 health-25\"\" \n@choice \"Not my problem\" set:p_happiness-=10;p_fame-=10 do:\"@toast \"happiness-10 fame-10\"\"",
+                "@choice \"Deal with the bandit\" set:p_health-=25;p_fame+=10;p_stat_str+=1;p_happiness+=10;m_toast_1=\"fame+10 str+1 happiness+10 health-25\"\n@choice \"Not my problem\" set:p_happiness-=10;p_fame-=10 do:\"@toast \"happiness-10 fame-10\"\"",
                 "event1"));
         aventurerLogs
             .logList
