@@ -85,9 +85,11 @@ public class Constants
                 "event1"));
         aventurerLogs
             .logList
-            .Add(new Log("Drunk Fight", 2, "While drinking, a disgrunted aventurer publically shames you for a personal resentment against you.",
-            "@choice \"Ignore him.\" set:p_happiness-=10;m_toast_1=\"Happiness -10\" gosub:.afterEventChoice\n @choice \"Answer with your fists.\" set:p_health-=10;m_toast_1=\"Health-10\";m_message_event=\"A fight breaks out.\" gosub:.afterEventChoice",
-            "event1"));
+            .Add(new Log("Drunk Fight",
+                2,
+                "While drinking, a disgrunted aventurer publically shames you for a personal resentment against you.",
+                "@choice \"Ignore him.\" set:p_happiness-=10;m_toast_1=\"Happiness -10\" gosub:.afterEventChoice\n @choice \"Answer with your fists.\" set:p_health-=10;m_toast_1=\"Health-10\";m_message_event=\"A fight breaks out.\" gosub:.afterEventChoice",
+                "event1"));
         aventurerLogs
             .logList
             .Add(new Log("Ouch!",
@@ -100,13 +102,14 @@ public class Constants
             .Add(new Log("Kidnapping!",
                 2,
                 "One of your teammates had been kidnapped...",
-                "@choice \"Pay ransom\" set:p_money-=100;m_toast_1=\"Money -100\" gosub:.afterEventChoice"));
+                "@choice \"Pay ransom\" set:p_money-=100;m_toast_1=\"Money -100\" gosub:.afterEventChoice",
+                "event1"));
         aventurerLogs
             .logList
             .Add(new Log("Rotten food",
                 2,
                 "You got poisoned by eating rotten food ",
-                "@choice \"Do nothing.\" set:p_health-=20;m_toast_1=\"Health -20\";m_message_event=\"You get food poisoned.\"\n@choice \"Buy Medicine\" gosub:.afterEventChoice set:;p_money-=100",
+                "@choice \"Do nothing.\" set:p_health-=20;m_toast_1=\"Health-20\";m_message_event=\"You get food poisoned.\" gosub:.check_Message_event\n@choice \"Buy Medicine\" gosub:.afterEventChoice set:p_money-=100 gosub:.check_Message_event",
                 "event1"));
         aventurerLogs
             .logList

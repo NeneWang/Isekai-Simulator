@@ -115,9 +115,9 @@
 
 
 ; Meeting
-
+@stop
 # meet_janna
-Girl: Hey what u doinR
+Girl: Hey what are you doing?
 @choice "yes? How can I help you"
 @choice "nothing, dont bother me" do:@return
 @stop
@@ -259,8 +259,8 @@ New Character Adquired: Mister V.
 
 # profile
 @set _={menuProfile()}
-@set _={runEvent(5)}
-@gosub .checkToast_1
+@set _={runEvent(7)}
+; @gosub .checkToast_1
 @stop
 
 
