@@ -199,6 +199,12 @@ New Character Adquired: Mister V.
 @gosub .checkToast_1
 @gosub .checkMessage_1
 
+@gosub .checkToast_2
+@gosub .checkMessage_2
+
+@gosub .checkToast_3
+@gosub .checkMessage_3
+
 
 @goto .flag_log if:isLog==true
 @goto .flag_death_money if:flag_number==4
@@ -259,7 +265,7 @@ New Character Adquired: Mister V.
 
 # profile
 @set _={menuProfile()}
-@set _={runEvent(12)}
+; @set _={runEvent(12)}
 ; @gosub .checkToast_1
 @stop
 
@@ -287,14 +293,6 @@ New Character Adquired: Mister V.
 @hidePrinter
 @showUI JobMenu
 @stop
-
-
-; Here it should show the jobs that are available there for example, work on the granja and stuff like that
-# printJobChoices
-@choice "Work as {getCareerData(1, \"d\")} Soldier $ {getCareerData(1, \"f\")}, {getCareerData(1, \"e\")}  to level up" goto:.workSoldier
-@choice "Work as {getCareerData(2, \"d\")} Aventurer $ {getCareerData(2, \"f\")}, {getCareerData(2, \"e\")}  to level up" goto:.workAventurer
-@choice "Work as {getCareerData(3, \"d\")} Merchant $ {getCareerData(3, \"f\")}, {getCareerData(3, \"e\")}  to level up" goto:.workMerchant
-@return
 
 # workSoldier
 @gosub .prequeue

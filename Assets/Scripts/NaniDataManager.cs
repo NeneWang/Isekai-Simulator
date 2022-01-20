@@ -14,7 +14,7 @@ public class NaniDataManager
 
     public int p_turn, p_age, p_health, p_fame, p_mana, p_happiness, p_money, p_monthlyCashFlow, p_livingmethod, securityCompany, alchemyCompany, travelMerchant;
     public int p_missionsCompleted, p_maxhealth, p_networth, p_stat_str, p_stat_vit, p_stat_dex, p_stat_int, p_stat_wis, p_stat_char;
-    public string p_title, p_sex, friend_sl_1, friend_sl_2, friend_sl_3, lover_sl_1, adventureEvent;
+    public string p_title, p_sex, friend_sl_1, friend_sl_2, friend_sl_3, lover_sl_1, logMessage;
 
     // Friend items
     public int rel_janna, rel_atlas, rel_mitia, rel_kisa, rel_legeon, rel_vandeus, rel_gerald, rel_merlin, rel_aiza, rel_misterv;
@@ -118,7 +118,7 @@ string endDayToast = "";
         variableManager.TryGetVariableValue<int>("alchemyCompany", out alchemyCompany);
         variableManager.TryGetVariableValue<int>("travelMerchant", out travelMerchant);
 
-        variableManager.TryGetVariableValue<string>("actionLog", out adventureEvent);
+        variableManager.TryGetVariableValue<string>("actionLog", out logMessage);
         variableManager.TryGetVariableValue<bool>("isLog", out isLog);
 
         variableManager.TryGetVariableValue<bool>("lover_slavailable_1", out lover_slavailable_1);
@@ -312,11 +312,11 @@ string endDayToast = "";
         {
             // actionLog = "You purchased at " + price.ToString();
 
-            PlayScriptAsync(adventureEvent);
+            PlayScriptAsync(logMessage);
             return true;
         }
         // actionLog = "The price: " + price.ToString() + " is too expensive for you.";
-        PrintScriptAsync(adventureEvent);
+        PrintScriptAsync(logMessage);
         return false;
     }
 
@@ -327,16 +327,16 @@ string endDayToast = "";
         {
 
             
-            adventureEvent = "You purchased " + itemName + " at " + price.ToString();
+            logMessage = "You purchased " + itemName + " at " + price.ToString();
             // isLog = true;
             p_money -= price;
-            ToastScriptAsync(adventureEvent);
+            ToastScriptAsync(logMessage);
             return true;
         }
 
-        adventureEvent = "The price: " + price.ToString() + " is for " + itemName + " is too expensive for you.";
+        logMessage = "The price: " + price.ToString() + " is for " + itemName + " is too expensive for you.";
         // isLog = true;
-        PrintScriptAsync(adventureEvent);
+        PrintScriptAsync(logMessage);
         return false;
     }
 
@@ -453,7 +453,7 @@ string endDayToast = "";
         variableManager.TrySetVariableValue("alchemyCompany", alchemyCompany);
         variableManager.TrySetVariableValue("travelMerchant", travelMerchant);
 
-        variableManager.TrySetVariableValue("actionLog", adventureEvent);
+        variableManager.TrySetVariableValue("actionLog", logMessage);
 
         variableManager.TrySetVariableValue("isLog", isLog);
         variableManager.TrySetVariableValue("lover_slavailable_1", lover_slavailable_1);
@@ -638,7 +638,6 @@ string endDayToast = "";
 
         // TODO: Implement random log logic
         double randomDouble = randomGenerator.getRandom1ToZero();
-        // double NORMAL_RATE = 0.2, RARE_RATE = 0.05, MIRACLE_RATE = 0.01;
         double NORMAL_RATE = 0.3, RARE_RATE = 0.2, MIRACLE_RATE = 0.1;
         double TOTAL_RATE = NORMAL_RATE + RARE_RATE + MIRACLE_RATE;
 
@@ -650,24 +649,19 @@ string endDayToast = "";
 
             if (randomDouble >= randomDouble + RARE_RATE && randomDouble < TOTAL_RATE)
             {
-                adventureEvent = MY_CONSTANTS.aventurerLogs.getRandomLogBasedOnRarity(EnumRarity.Normal).title;
+                logMessage = MY_CONSTANTS.aventurerLogs.getRandomLogBasedOnRarity(EnumRarity.Normal).title;
             }
 
             else if (randomDouble >= NORMAL_RATE && randomDouble < randomDouble + RARE_RATE)
             {
-                adventureEvent = MY_CONSTANTS.aventurerLogs.getRandomLogBasedOnRarity(EnumRarity.Rare).title;
+                logMessage = MY_CONSTANTS.aventurerLogs.getRandomLogBasedOnRarity(EnumRarity.Rare).title;
             }
             else
             {
-                adventureEvent = MY_CONSTANTS.aventurerLogs.getRandomLogBasedOnRarity(EnumRarity.Miracle).title;
+                logMessage = MY_CONSTANTS.aventurerLogs.getRandomLogBasedOnRarity(EnumRarity.Miracle).title;
             }
-
-            // isLog = true;
-            Debug.Log(adventureEvent);
-            // PrintScriptAsync(actionLog);
-
-            
-            // ToastScriptAsync("Event: "+actionLog, "warning");
+            Debug.Log(logMessage);
+            // runEvent(adventureEvent);
             return true;
         }
 
