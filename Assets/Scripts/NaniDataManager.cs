@@ -607,7 +607,7 @@ string endDayToast = "";
         // string eventScript = $"@print \"Something from run event\"";
         // {choicesDescription}{choicesQuestionScript}\n@return\n
         
-        string eventScript = $"@print \"{eventLog.description}\" author:\"{eventLog.title}\"{choicesQuestionScript}@return";
+        string eventScript = $"@print \"{eventLog.description}\" author:\"{eventLog.title}\" waitInput:false {choicesQuestionScript}\n@return";
         PlayScriptAsync(eventScript);
         Debug.Log(eventScript);
 
