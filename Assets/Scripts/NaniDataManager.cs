@@ -251,6 +251,16 @@ string endDayToast = "";
     }
     
 
+    private async void setFlag(string argument, string flag)
+    {
+        
+        var text = $"@set {flag}=\"{argument}\"";
+        Debug.Log($"Set Flag {flag} argument: {text}");
+        var script = Script.FromScriptText(null, text);
+        var playlist = new ScriptPlaylist(script);
+        await playlist.ExecuteAsync();
+    }
+
     private async void PrintScriptAsync(string argument)
     {
         
@@ -310,13 +320,13 @@ string endDayToast = "";
     {
         if (price <= p_money)
         {
-            // actionLog = "You purchased at " + price.ToString();
-
-            PlayScriptAsync(logMessage);
+            // String toastMessage = "@set m_toast_1=\"You purchased at " + price.ToString()+"\"";
+            // Debug.Log(toastMessage);
+            // PlayScriptAsync(logMessage);
             return true;
         }
         // actionLog = "The price: " + price.ToString() + " is too expensive for you.";
-        PrintScriptAsync(logMessage);
+        // PrintScriptAsync(logMessage);
         return false;
     }
 
@@ -330,13 +340,13 @@ string endDayToast = "";
             logMessage = "You purchased " + itemName + " at " + price.ToString();
             // isLog = true;
             p_money -= price;
-            ToastScriptAsync(logMessage);
+            setFlag(logMessage, "m_toast_1");
             return true;
         }
 
         logMessage = "The price: " + price.ToString() + " is for " + itemName + " is too expensive for you.";
         // isLog = true;
-        PrintScriptAsync(logMessage);
+        setFlag(logMessage, "m_toast_1");
         return false;
     }
 
