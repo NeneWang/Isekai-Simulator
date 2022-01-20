@@ -24,6 +24,14 @@ public class LogsList
 
     }
 
+    public int getIndexOfRadomLogBasedOnRarity(EnumRarity enumRarityIn)
+    {
+
+        Log randomEvent = getRandom(getLogListBasedOnRarity(enumRarityIn));
+        return logList.IndexOf(randomEvent);
+
+    }
+
     List<Log> getLogListBasedOnRarity(EnumRarity enumRarityIn)
     {
 

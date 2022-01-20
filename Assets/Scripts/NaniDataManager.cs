@@ -261,6 +261,16 @@ string endDayToast = "";
         await playlist.ExecuteAsync();
     }
 
+    private async void setFlag(int argument, string flag)
+    {
+        
+        var text = $"@set {flag}={argument}";
+        Debug.Log($"Set Flag {flag} argument: {text}");
+        var script = Script.FromScriptText(null, text);
+        var playlist = new ScriptPlaylist(script);
+        await playlist.ExecuteAsync();
+    }
+
     private async void PrintScriptAsync(string argument)
     {
         
@@ -617,14 +627,9 @@ string endDayToast = "";
         // string eventScript = $"@print \"Something from run event\"";
         // {choicesDescription}{choicesQuestionScript}\n@return\n
         
-        string eventScript = $"@print \"{eventLog.description}\" author:\"{eventLog.title}\" waitInput:false {choicesQuestionScript}\n@return";
+        string eventScript = $"@print \"{eventLog.description}\" author:\"{eventLog.title}\" {choicesQuestionScript}\n@return";
         PlayScriptAsync(eventScript);
         Debug.Log(eventScript);
-
-        // string eventScript2 = $"{choicesDescription}";
-        // Debug.Log($"Description of choices: {choicesDescription}");
-        // Debug.Log(eventScript2);
-        // PlayScriptAsync(eventScript2);
     }
 
     public bool workAsAventurer()
@@ -650,7 +655,7 @@ string endDayToast = "";
         double randomDouble = randomGenerator.getRandom1ToZero();
         double NORMAL_RATE = 0.3, RARE_RATE = 0.2, MIRACLE_RATE = 0.1;
         double TOTAL_RATE = NORMAL_RATE + RARE_RATE + MIRACLE_RATE;
-
+        int randomLogIndex;
         isLog = false;
         Debug.Log($"Double Random is: {randomDouble}");
 
@@ -659,19 +664,24 @@ string endDayToast = "";
 
             if (randomDouble >= randomDouble + RARE_RATE && randomDouble < TOTAL_RATE)
             {
-                logMessage = MY_CONSTANTS.aventurerLogs.getRandomLogBasedOnRarity(EnumRarity.Normal).title;
+                // Can I get hte ID of this instead?
+                randomLogIndex = MY_CONSTANTS.aventurerLogs.getIndexOfRadomLogBasedOnRarity(EnumRarity.Normal);
             }
 
             else if (randomDouble >= NORMAL_RATE && randomDouble < randomDouble + RARE_RATE)
             {
-                logMessage = MY_CONSTANTS.aventurerLogs.getRandomLogBasedOnRarity(EnumRarity.Rare).title;
+                randomLogIndex = MY_CONSTANTS.aventurerLogs.getIndexOfRadomLogBasedOnRarity(EnumRarity.Rare);
             }
             else
             {
-                logMessage = MY_CONSTANTS.aventurerLogs.getRandomLogBasedOnRarity(EnumRarity.Miracle).title;
+                randomLogIndex = MY_CONSTANTS.aventurerLogs.getIndexOfRadomLogBasedOnRarity(EnumRarity.Miracle);
             }
-            Debug.Log(logMessage);
+            Debug.Log("running event");
+            Debug.Log(randomLogIndex);
+            setFlag(randomLogIndex, "m_event_1");
             // runEvent(adventureEvent);
+            // runEvent(randomLogIndex);
+
             return true;
         }
 

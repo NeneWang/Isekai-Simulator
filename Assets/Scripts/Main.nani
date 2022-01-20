@@ -64,6 +64,7 @@
 
 @set absolute_date="date"
 
+@set m_event_1=-99
 
 @set m_toast_1=""
 @set m_toast_2=""
@@ -196,6 +197,7 @@ New Character Adquired: Mister V.
 ; if eventflag=x then...
 
 ; Modifiers
+@gosub .afterEventChoice
 
 @gosub .checkToast_1
 @gosub .checkMessage_1
@@ -209,23 +211,40 @@ New Character Adquired: Mister V.
 @gosub .checkToast_summary
 
 
+
 @goto .flag_log if:isLog==true
 @goto .flag_death_money if:flag_number==4
 @goto .flag_death_health if:flag_number==1
 @goto .flag_death_happiness if:flag_number==2
+
+@set p_animation=99
 
 @goto .profile if:lastmenu==1
 @goto .market if:lastmenu==2
 @goto .job if:lastmenu==3
 @goto .relationship if:lastmenu==4
 
+
+
 @goto .eventqueue
+@endIf
 @stop
 
 #afterEventChoice
 @hidePrinter
 @gosub .checkToast_1
 @gosub .check_Message_event
+
+@return
+
+# checkEvent
+; Used for after working if there is any event
+
+@if m_event_1!=-99
+    @set _={runEvent(m_event_1)} 
+    @wait 1
+    @set m_event_1=-99
+@endIf
 @return
 
 # checkToast_1
@@ -268,6 +287,7 @@ New Character Adquired: Mister V.
 
 #check_Message_event
 @print {m_message_event} if:m_message_event!=""
+@wait 1 if:m_message_event!=""
 @set m_message_event=""
 @return
 
@@ -300,6 +320,7 @@ New Character Adquired: Mister V.
 # showJobMenu
 @hidePrinter
 @showUI JobMenu
+
 @stop
 
 # workSoldier
@@ -308,6 +329,8 @@ New Character Adquired: Mister V.
 @set p_animation=8
 "You worked as soldier"
 @goto .eventqueue
+
+
 @return
 
 # workAventurer
@@ -316,6 +339,7 @@ New Character Adquired: Mister V.
 @set p_animation=1
 "You worked as Aventurer" 
 ; @showUI AnimationUI
+@gosub .checkEvent
 @goto .eventqueue
 @return
 

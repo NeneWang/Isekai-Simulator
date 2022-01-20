@@ -60,77 +60,77 @@ public class Constants
             .Add(new Log("You are being hunted!",
                 1,
                 "A roar emerges behind you, a wild beast starts pursuing you!",
-                "@choice \"Fence him off\" set:p_health-=10;p_stat_str+=1 gosub:.afterEventChoice \n@choice \"Run!\" gosub:.afterEventChoice",
+                "@choice \"Fence him off\" set:p_health-=10;p_stat_str+=1 gosub:.eventqueue \n@choice \"Run!\" gosub:.eventqueue",
                 "event1"));
         aventurerLogs
             .logList
             .Add(new Log("Bandit on near town",
                 1,
                 "You hear that a bandit activities had been on the rise in the town",
-                "@choice \"Deal with the bandit\" set:p_health-=25;p_fame+=10;p_stat_str+=1;p_happiness+=10;m_toast_1=\"fame+10 str+1 happiness+10 health-25\";m_message_event=\"You find the bandits den and start a raid with the help of the townfolk. After a tough fight the bandits were aprehended. The townsfolk are grateful for your help\" gosub:.afterEventChoice\n@choice \"Not my problem\" set:p_happiness-=10;p_fame-=10;m_toast_1=\"happiness-10 fame-10\";m_message_event=\"You kind of feel remorseful.\" gosub:.afterEventChoice",
+                "@choice \"Deal with the bandit\" set:p_health-=25;p_fame+=10;p_stat_str+=1;p_happiness+=10;m_toast_1=\"fame+10 str+1 happiness+10 health-25\";m_message_event=\"You find the bandits den and start a raid with the help of the townfolk. After a tough fight the bandits were aprehended. The townsfolk are grateful for your help\" gosub:.eventqueue\n@choice \"Not my problem\" set:p_happiness-=10;p_fame-=10;m_toast_1=\"happiness-10 fame-10\";m_message_event=\"You kind of feel remorseful.\" gosub:.eventqueue",
                 "event1"));
         aventurerLogs
             .logList
             .Add(new Log("You are challanged into a duel",
                 1,
                 "A warrior approaches to you. He gracefully invites you to fight against him.",
-                "@choice \"Accept the challange\" set:p_health-=10;p_fame+=10;p_stat_str+=1;m_toast_1=\"Health-10 Fame+10 STR+1\";m_message_event=\"The warrior gave you a good fight and you came out victorious.\" gosub:.afterEventChoice \n@choice \"Refuse\" set:p_happiness-=10;p_fame-=10;m_toast_1=\"Happiness-10 Fame-10\";m_message_event=\"He laughts at your cowardice\" gosub:.afterEventChoice gosub:.afterEventChoice",
+                "@choice \"Accept the challange\" set:p_health-=10;p_fame+=10;p_stat_str+=1;m_toast_1=\"Health-10 Fame+10 STR+1\";m_message_event=\"The warrior gave you a good fight and you came out victorious.\" gosub:.eventqueue \n@choice \"Refuse\" set:p_happiness-=10;p_fame-=10;m_toast_1=\"Happiness-10 Fame-10\";m_message_event=\"He laughts at your cowardice\" gosub:.eventqueue gosub:.eventqueue",
                 "event1"));
         aventurerLogs
             .logList
             .Add(new Log("You witness a magnificent view ",
                 1,
                 "Cherry blossoms fall. Water falling in the waterfall. This is just beautiful.",
-                "@choice \"Enjoy the view.\" set:p_happiness+=10;m_toast_1=\"Happiness +10\";m_message_event=\"This is all what life is about.\" gosub:.afterEventChoice",
+                "@choice \"Enjoy the view.\" set:p_happiness+=10;m_toast_1=\"Happiness +10\";m_message_event=\"This is all what life is about.\" gosub:.eventqueue",
                 "event1"));
         aventurerLogs
             .logList
             .Add(new Log("Drunk Fight",
                 2,
                 "While drinking, a disgrunted aventurer publically shames you for a personal resentment against you.",
-                "@choice \"Ignore him.\" set:p_happiness-=10;m_toast_1=\"Happiness -10\" gosub:.afterEventChoice\n @choice \"Answer with your fists.\" set:p_health-=10;m_toast_1=\"Health-10\";m_message_event=\"A fight breaks out.\" gosub:.afterEventChoice",
+                "@choice \"Ignore him.\" set:p_happiness-=10;m_toast_1=\"Happiness -10\" gosub:.eventqueue\n @choice \"Answer with your fists.\" set:p_health-=10;m_toast_1=\"Health-10\";m_message_event=\"A fight breaks out.\" gosub:.eventqueue",
                 "event1"));
         aventurerLogs
             .logList
             .Add(new Log("Ouch!",
                 2,
                 "You fall into a booby trap",
-                "@choice \"disable the booby trap\" set:item_boobytrap+=1;p_health-=20;m_toast_1=\"Boobytrap+1 Health-20\" gosub:.afterEventChoice",
+                "@choice \"disable the booby trap\" set:item_boobytrap+=1;p_health-=20;m_toast_1=\"Boobytrap+1 Health-20\" gosub:.eventqueue",
                 "event1"));
         aventurerLogs
             .logList
             .Add(new Log("Kidnapping!",
                 2,
                 "One of your teammates had been kidnapped...",
-                "@choice \"Pay ransom\" set:p_money-=100;m_toast_1=\"Money -100\" gosub:.afterEventChoice",
+                "@choice \"Pay ransom\" set:p_money-=100;m_toast_1=\"Money -100\" gosub:.eventqueue",
                 "event1"));
         aventurerLogs
             .logList
             .Add(new Log("Rotten food",
                 2,
                 "You got poisoned by eating rotten food ",
-                "@choice \"Do nothing.\" set:p_health-=20;m_toast_1=\"Health-20\";m_message_event=\"You get food poisoned.\" gosub:.check_Message_event\n@choice \"Buy Medicine\" gosub:.afterEventChoice set:p_money-=100 gosub:.check_Message_event",
+                "@choice \"Do nothing.\" set:p_health-=20;m_toast_1=\"Health-20\";m_message_event=\"You get food poisoned.\" gosub:.check_Message_event\n@choice \"Buy Medicine\" gosub:.eventqueue set:p_money-=100 gosub:.check_Message_event",
                 "event1"));
         aventurerLogs
             .logList
             .Add(new Log("They leave you a handsome tip!",
                 2,
                 "You thank to the earth, the heavens and the gods for the tip.",
-                "@choice \"Cool!\" set:p_money+=20;m_toast_1=\"Money +20\" gosub:.afterEventChoice",
+                "@choice \"Cool!\" set:p_money+=20;m_toast_1=\"Money +20\" gosub:.eventqueue",
                 "event1"));
         aventurerLogs
             .logList
             .Add(new Log("Chaos Warrior Challanges you",
                 2,
                 "Ravens circled the skies, you sense a fearsome aura in front of you. He challanges you to a fight",
-                "@choice \"Accept the challange\" set:p_health-=70;p_fame+=50;p_stat_str+=2;m_toast_1=\"Health-70 Fame+50 STR+2\" gosub:.afterEventChoice\n@choice \"Refuse\" set:p_happiness-=10;m_toast_1=\"Happiness +10\" gosub:.afterEventChoice",
+                "@choice \"Accept the challange\" set:p_health-=70;p_fame+=50;p_stat_str+=2;m_toast_1=\"Health-70 Fame+50 STR+2\" gosub:.eventqueue\n@choice \"Refuse\" set:p_happiness-=10;m_toast_1=\"Happiness +10\" gosub:.eventqueue",
                 "event1"));
         aventurerLogs
             .logList
             .Add(new Log("Shortcut found",
                 2,
                 "Your cleverness helped you find an alternate way to solve this problem",
-                "@choice \"Use the shortcut\" set:p_happiness+=10;p_stat_wis+=1;m_toast_1=\"Happiness +10 WIS+1\" gosub:.afterEventChoice\n@choice \"Take traditional route\"",
+                "@choice \"Use the shortcut\" set:p_happiness+=10;p_stat_wis+=1;m_toast_1=\"Happiness +10 WIS+1\" gosub:.eventqueue\n@choice \"Take traditional route\"",
                 "event1"));
 
         aventurerLogs
@@ -138,21 +138,21 @@ public class Constants
             .Add(new Log("Friends falls in battle",
                 2,
                 "A good friend of yours falls during combat, its a sad but thats the life you have chosen",
-                "@choice \"Pay his funeral\" set:p_happiness-=40;p_money-=200;m_toast_1=\"Happiness-40 Money-200\" gosub:.afterEventChoice\n@choice \"Just bury him\" set:p_happiness-=40;m_toast_1=\"Happiness -40\" gosub:.afterEventChoice",
+                "@choice \"Pay his funeral\" set:p_happiness-=40;p_money-=200;m_toast_1=\"Happiness-40 Money-200\" gosub:.eventqueue\n@choice \"Just bury him\" set:p_happiness-=40;m_toast_1=\"Happiness -40\" gosub:.eventqueue",
                 "event1"));
         aventurerLogs
             .logList
             .Add(new Log("Magic dissaster shakes the kingdom",
                 3,
                 "A magic disasters descends to the world. People were randomnly dispplaced from their locations.",
-                "@choice \"Help the community in the emergency recovery effort\" set:p_health-=10;p_money-=10;p_fame+=5;m_toast_1=\"Health -10 Money-10 Fame+5\";m_message_event=\"Your help came of great assistance to those in need.\" gosub:.afterEventChoice\n@choice \"Your own recovery matters more\" gosub:.afterEventChoice",
+                "@choice \"Help the community in the emergency recovery effort\" set:p_health-=10;p_money-=10;p_fame+=5;m_toast_1=\"Health -10 Money-10 Fame+5\";m_message_event=\"Your help came of great assistance to those in need.\" gosub:.eventqueue\n@choice \"Your own recovery matters more\" gosub:.eventqueue",
                 "event1"));
         aventurerLogs
             .logList
             .Add(new Log("Goblin Ambush",
                 3,
                 "Goblins unexpectedly ambush you at the worst time... However, when you thought it was your end, a strange full armor dude slays them brutally in front of you",
-                "@choice \"Thanks...\" set:p_happiness+=5;m_toast_1=\"Happiness +5\" gosub:.afterEventChoice"));
+                "@choice \"Thanks...\" set:p_happiness+=5;m_toast_1=\"Happiness +5\" gosub:.eventqueue"));
     }
 
     public void createJobs()
