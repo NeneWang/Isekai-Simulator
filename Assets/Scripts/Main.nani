@@ -13,7 +13,7 @@
 @set basic_store=true
 @set p_turn=1
 @set p_age=25
-@set p_health=50
+@set p_health=80
 @set p_fame=0
 @set p_mana=100
 @set p_happiness=50
@@ -259,7 +259,7 @@ New Character Adquired: Mister V.
 
 # profile
 @set _={menuProfile()}
-@set _={runEvent(7)}
+@set _={runEvent(12)}
 ; @gosub .checkToast_1
 @stop
 

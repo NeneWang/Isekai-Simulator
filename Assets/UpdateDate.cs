@@ -18,7 +18,7 @@ public class UpdateDate : MonoBehaviour
         {
             return;
         }
-        Debug.Log($"The Data var is {valueAsString}");
+        // Debug.Log($"The Data var is {valueAsString}");
 
         NaniDataManager naniDataManager = new NaniDataManager();
         string messageDate = naniDataManager.absoluteDateMessage;

@@ -123,7 +123,7 @@ public class Constants
             .Add(new Log("Chaos Warrior Challanges you",
                 2,
                 "Ravens circled the skies, you sense a fearsome aura in front of you. He challanges you to a fight",
-                "@choice \"Accept the challange\" set:p_health-=70;p_fame+=50;p_stat_str+=2;m_toast_1=\"Health +70 Fame+50 STR+2\" gosub:.afterEventChoice\n@choice \"Refuse\" set:p_happiness-=10;m_toast_1=\"Happiness +10\" gosub:.afterEventChoice",
+                "@choice \"Accept the challange\" set:p_health-=70;p_fame+=50;p_stat_str+=2;m_toast_1=\"Health-70 Fame+50 STR+2\" gosub:.afterEventChoice\n@choice \"Refuse\" set:p_happiness-=10;m_toast_1=\"Happiness +10\" gosub:.afterEventChoice",
                 "event1"));
         aventurerLogs
             .logList
@@ -138,14 +138,14 @@ public class Constants
             .Add(new Log("Friends falls in battle",
                 2,
                 "A good friend of yours falls during combat, its a sad but thats the life you have chosen",
-                "@choice \"Pay his funeral\" set:p_happiness-=40;p_money-=200;m_toast_1=\"Happiness -40 Money -200\" gosub:.afterEventChoice\n@choice \"Just bury him\" set:p_happiness-=40;m_toast_1=\"Happiness -40\" gosub:.afterEventChoice",
+                "@choice \"Pay his funeral\" set:p_happiness-=40;p_money-=200;m_toast_1=\"Happiness-40 Money-200\" gosub:.afterEventChoice\n@choice \"Just bury him\" set:p_happiness-=40;m_toast_1=\"Happiness -40\" gosub:.afterEventChoice",
                 "event1"));
         aventurerLogs
             .logList
             .Add(new Log("Magic dissaster shakes the kingdom",
                 3,
                 "A magic disasters descends to the world. People were randomnly dispplaced from their locations.",
-                "@choice \"Help the community in the emergency recovery effort\" set:p_health-=10;p_money-=10;m_toast_1=\"Health -10 Money-10\" gosub:.afterEventChoice\n@choice \"Your own recovery matters more\"",
+                "@choice \"Help the community in the emergency recovery effort\" set:p_health-=10;p_money-=10;p_fame+=5;m_toast_1=\"Health -10 Money-10 Fame+5\";m_message_event=\"Your help came of great assistance to those in need.\" gosub:.afterEventChoice\n@choice \"Your own recovery matters more\" gosub:.afterEventChoice",
                 "event1"));
         aventurerLogs
             .logList
