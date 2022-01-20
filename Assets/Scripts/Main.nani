@@ -67,6 +67,7 @@
 
 @set m_toast_1=""
 @set m_message_1=""
+@set m_message_event=""
 ; For now limit to just one event flag, we can later think of multiple events happening
 @set flag_number=0
 @set lastmenu=1
@@ -219,12 +220,18 @@ New Character Adquired: Mister V.
 @return
 
 #checkMessage_1
-@print m_message_1 if:m_message_1!=""
+@print {m_message_1} if:m_message_1!=""
+@set m_message_1=""
+@return
+
+#check_Message_event
+@print {m_message_event} if:m_message_event!=""
+@set m_message_event=""
 @return
 
 # profile
 @set _={menuProfile()}
-@set _={runEvent(4)}
+@set _={runEvent(2)}
 @gosub .checkToast_1
 @stop
 

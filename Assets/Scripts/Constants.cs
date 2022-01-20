@@ -66,15 +66,15 @@ public class Constants
             .logList
             .Add(new Log("Bandit on near town",
                 1,
-                "The bandit had been terrorizing this town for months now...",
-                "@choice \"Deal with the bandit\" set:p_health-=25;p_fame+=10;p_stat_str+=1;p_happiness+=10;m_toast_1=\"fame+10 str+1 happiness+10 health-25\" gosub:.afterEventChoice\n@choice \"Not my problem\" set:p_happiness-=10;p_fame-=10;m_toast_1=\"happiness-10 fame-10\" gosub:.afterEventChoice",
+                "You hear that a bandit activities had been on the rise in the town",
+                "@choice \"Deal with the bandit\" set:p_health-=25;p_fame+=10;p_stat_str+=1;p_happiness+=10;m_toast_1=\"fame+10 str+1 happiness+10 health-25\";m_message_event=\"You find the bandits den and start a raid with the help of the townfolk. After a tough fight the bandits were aprehended. The townsfolk are grateful for your help\" gosub:.afterEventChoice\n@choice \"Not my problem\" set:p_happiness-=10;p_fame-=10;m_toast_1=\"happiness-10 fame-10\";m_message_event=\"You kind of feel remorseful.\" gosub:.afterEventChoice",
                 "event1"));
         aventurerLogs
             .logList
             .Add(new Log("You are challanged into a duel",
                 1,
                 "A warrior approaches to you. He gracefully invites you to fight against him.",
-                "@choice \"Accept the challange\" set:p_health-=10;p_fame+=10;p_stat_str+=1;m_toast_1=\"Health+10 Fame+10 STR+1\" gosub:.afterEventChoice \n@choice \"Refuse\" set:p_happiness-=10;p_fame-=10;p_toast=\"Happiness+10 Fame+10\" gosub:.afterEventChoice gosub:.afterEventChoice",
+                "@choice \"Accept the challange\" set:p_health-=10;p_fame+=10;p_stat_str+=1;m_toast_1=\"Health-10 Fame+10 STR+1\";m_message_event=\"The warrior gave you a good fight and you came out victorious.\" gosub:.afterEventChoice \n@choice \"Refuse\" set:p_happiness-=10;p_fame-=10;m_toast_1=\"Happiness-10 Fame-10\";m_message_event=\"He laughts at your cowardice\" gosub:.afterEventChoice gosub:.afterEventChoice",
                 "event1"));
         aventurerLogs
             .logList
