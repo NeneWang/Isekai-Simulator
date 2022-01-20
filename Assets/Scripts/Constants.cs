@@ -80,33 +80,33 @@ public class Constants
             .logList
             .Add(new Log("You witness a magnificent view ",
                 1,
-                "This is what life is about...",
-                "@choice \"Enjoy the view.\" set:p_happiness+=10;m_toast_1=\"Happiness +10\" gosub:.afterEventChoice",
+                "Cherry blossoms fall. Water falling in the waterfall. This is just beautiful.",
+                "@choice \"Enjoy the view.\" set:p_happiness+=10;m_toast_1=\"Happiness +10\";m_message_event=\"This is all what life is about.\" gosub:.afterEventChoice",
                 "event1"));
         aventurerLogs
             .logList
             .Add(new Log("Drunk Fight", 2, "While drinking, a disgrunted aventurer publically shames you for a personal resentment against you.",
-            "@choice \"Ignore him.\" set:p_happiness-=10;m_toast_1=\"Happiness -10\" gosub:.afterEventChoice\n @choice \"Answer with your fists.\" set:p_health-=10;m_toast_1=\"Health -10\" gosub:.afterEventChoice",
+            "@choice \"Ignore him.\" set:p_happiness-=10;m_toast_1=\"Happiness -10\" gosub:.afterEventChoice\n @choice \"Answer with your fists.\" set:p_health-=10;m_toast_1=\"Health-10\";m_message_event=\"A fight breaks out.\" gosub:.afterEventChoice",
             "event1"));
         aventurerLogs
             .logList
-            .Add(new Log("Ouch",
+            .Add(new Log("Ouch!",
                 2,
                 "You fall into a booby trap",
-                "@choice \"disable the booby trap\" set:item_boobytrap+=1;p_health-=20;m_toast_1=\"Adquired Boobytrap Health+20\" gosub:.afterEventChoice",
+                "@choice \"disable the booby trap\" set:item_boobytrap+=1;p_health-=20;m_toast_1=\"Boobytrap+1 Health-20\" gosub:.afterEventChoice",
                 "event1"));
         aventurerLogs
             .logList
             .Add(new Log("Kidnapping!",
                 2,
                 "One of your teammates had been kidnapped...",
-                "@choice \"Pay ransom\" set:p_money-=100;m_toast_1=\"Money +100\" gosub:.afterEventChoice"));
+                "@choice \"Pay ransom\" set:p_money-=100;m_toast_1=\"Money -100\" gosub:.afterEventChoice"));
         aventurerLogs
             .logList
             .Add(new Log("Rotten food",
                 2,
                 "You got poisoned by eating rotten food ",
-                "@choice \"Do nothing.\" set:p_health-=20;m_toast_1=\"Health +20\"\n@choice \"Buy Medicine\" gosub:.afterEventChoice",
+                "@choice \"Do nothing.\" set:p_health-=20;m_toast_1=\"Health -20\";m_message_event=\"You get food poisoned.\"\n@choice \"Buy Medicine\" gosub:.afterEventChoice set:;p_money-=100",
                 "event1"));
         aventurerLogs
             .logList

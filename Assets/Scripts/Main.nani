@@ -259,7 +259,7 @@ New Character Adquired: Mister V.
 
 # profile
 @set _={menuProfile()}
-@set _={runEvent(2)}
+@set _={runEvent(5)}
 @gosub .checkToast_1
 @stop
 
