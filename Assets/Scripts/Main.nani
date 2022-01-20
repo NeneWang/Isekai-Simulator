@@ -249,6 +249,7 @@ New Character Adquired: Mister V.
 
 # checkToast_1
 @toast {m_toast_1} if:m_toast_1!=""
+@wait 1 if:m_message_event!=""
 @set m_toast_1=""
 @return
 
@@ -287,8 +288,6 @@ New Character Adquired: Mister V.
 
 #check_Message_event
 @print {m_message_event} if:m_message_event!=""
-@wait 1 if:m_message_event!=""
-@set m_message_event=""
 @return
 
 # profile
