@@ -662,13 +662,13 @@ string endDayToast = "";
         if (randomDouble <= TOTAL_RATE)
         {
 
-            if (randomDouble >= randomDouble + RARE_RATE && randomDouble < TOTAL_RATE)
+            if (randomDouble < NORMAL_RATE)
             {
                 // Can I get hte ID of this instead?
                 randomLogIndex = MY_CONSTANTS.aventurerLogs.getIndexOfRadomLogBasedOnRarity(EnumRarity.Normal);
             }
 
-            else if (randomDouble >= NORMAL_RATE && randomDouble < randomDouble + RARE_RATE)
+            else if (randomDouble >= NORMAL_RATE && randomDouble < NORMAL_RATE + RARE_RATE)
             {
                 randomLogIndex = MY_CONSTANTS.aventurerLogs.getIndexOfRadomLogBasedOnRarity(EnumRarity.Rare);
             }

@@ -288,6 +288,7 @@ New Character Adquired: Mister V.
 
 #check_Message_event
 @print {m_message_event} if:m_message_event!=""
+@set m_message_event=""
 @return
 
 # profile
