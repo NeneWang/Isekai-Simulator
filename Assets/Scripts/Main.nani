@@ -68,6 +68,7 @@
 @set m_toast_1=""
 @set m_toast_2=""
 @set m_toast_3=""
+@set m_toast_summary=""
 
 @set m_message_1=""
 @set m_message_2=""
@@ -205,6 +206,8 @@ New Character Adquired: Mister V.
 @gosub .checkToast_3
 @gosub .checkMessage_3
 
+@gosub .checkToast_summary
+
 
 @goto .flag_log if:isLog==true
 @goto .flag_death_money if:flag_number==4
@@ -238,6 +241,11 @@ New Character Adquired: Mister V.
 # checkToast_3
 @toast {m_toast_3} if:m_toast_3!=""
 @set m_toast_3=""
+@return
+
+# checkToast_summary
+@toast {m_toast_summary} if:m_toast_summary!=""
+@set m_toast_summary=""
 @return
 
 #checkMessage_1

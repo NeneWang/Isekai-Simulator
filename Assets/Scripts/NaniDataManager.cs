@@ -236,7 +236,7 @@ string endDayToast = "";
 
         Debug.Log($"You have {securityCompany} security companies: making: {MY_CONSTANTS.securityCompany.cashflowB1} each");
 
-        if (endDayToast != null) ToastScriptAsync($"{endDayToast}");
+        if (endDayToast != null) setFlag($"{endDayToast}", "m_toast_summary");
 
     }
 
