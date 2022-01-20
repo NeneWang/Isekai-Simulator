@@ -66,7 +66,12 @@
 
 
 @set m_toast_1=""
+@set m_toast_2=""
+@set m_toast_3=""
+
 @set m_message_1=""
+@set m_message_2=""
+@set m_message_3=""
 @set m_message_event=""
 ; For now limit to just one event flag, we can later think of multiple events happening
 @set flag_number=0
@@ -219,10 +224,33 @@ New Character Adquired: Mister V.
 @set m_toast_1=""
 @return
 
+# checkToast_2
+@toast {m_toast_2} if:m_toast_2!=""
+@set m_toast_2=""
+@return
+
+# checkToast_3
+@toast {m_toast_3} if:m_toast_3!=""
+@set m_toast_3=""
+@return
+
 #checkMessage_1
 @print {m_message_1} if:m_message_1!=""
 @set m_message_1=""
 @return
+
+#checkMessage_2
+@print {m_message_2} if:m_message_2!=""
+@set m_message_2=""
+@return
+
+#checkMessage_3
+@print {m_message_3} if:m_message_3!=""
+@set m_message_3=""
+@return
+
+
+
 
 #check_Message_event
 @print {m_message_event} if:m_message_event!=""
