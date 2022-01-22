@@ -215,14 +215,17 @@ string endDayToast = "";
         applyEffects();
 
     }
-
-    public int getAccumulativeCashModifier(){
+    public int getBusinessProfit(){
         int cashflow=0;
-        // It lacks the housing costs.
-        cashflow+= p_monthlyCashFlow;
         cashflow += MY_CONSTANTS.securityCompany.cashflowB1 * securityCompany;
         cashflow += MY_CONSTANTS.alchemyCompany.cashflowB1 * alchemyCompany;
         cashflow += MY_CONSTANTS.travelMerchant.cashflowB1 * travelMerchant;
+        return cashflow;
+    }
+    public int getAccumulativeCashModifier(){
+        int cashflow=0;
+        updateModifiers();
+        cashflow += p_monthlyCashFlow;
         return cashflow;
     }
     public void applyEffects()
@@ -323,6 +326,7 @@ string endDayToast = "";
         // Cashflow 
         RealEstate[] realEstates = { MY_CONSTANTS.carp, MY_CONSTANTS.farm, MY_CONSTANTS.tavern, MY_CONSTANTS.cabin };
         p_monthlyCashFlow = -realEstates[p_livingmethod].getPrice();
+        p_monthlyCashFlow += getBusinessProfit();
         // Debug.Log(p_monthlyCashFlow);
         // Happiness
         accumulativeHappinessModifier = realEstates[p_livingmethod].happinessModifier;
