@@ -470,10 +470,7 @@ string endDayToast = "";
         variableManager.TrySetVariableValue("p_aventurerS", p_aventurerS);
         variableManager.TrySetVariableValue("p_soldierS", p_soldierS);
         variableManager.TrySetVariableValue("p_currentInjuries", p_currentInjuries);
-
         variableManager.TrySetVariableValue("friend_sl_1", friend_sl_1);
-
-        // Debug.Log("setting: " + friend_sl_2);
         variableManager.TrySetVariableValue("friend_sl_2", friend_sl_2);
         variableManager.TrySetVariableValue("friend_sl_3", friend_sl_3);
         variableManager.TrySetVariableValue("lover_sl_1", lover_sl_1);
