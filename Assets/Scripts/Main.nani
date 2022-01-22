@@ -230,6 +230,8 @@ New Character Adquired: Mister V.
 @endIf
 @stop
 
+
+
 #afterEventChoice
 @hidePrinter
 @gosub .checkToast_1
@@ -291,10 +293,14 @@ New Character Adquired: Mister V.
 @set m_message_event=""
 @return
 
+#main_plot
+
+@return
+
 # profile
+@set lastmenu=1
+@set _={cleanUI()}
 @set _={menuProfile()}
-; @set _={runEvent(12)}
-; @gosub .checkToast_1
 @stop
 
 
@@ -312,7 +318,8 @@ New Character Adquired: Mister V.
 
 ; /////////////////////// ###JOB
 # job
-@set _={cleanUI()}
+@set lastmenu=3
+@set _={cleanUI()} 
 @set _={menuJob()}
 @stop
 

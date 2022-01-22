@@ -340,7 +340,7 @@ public static class CustomFunctions
 
     public static bool menuProfile()
     {
-        PlayScriptAsync("@set lastmenu=1");
+        PlayScriptAsync("@set lastmenu=1\n@showUI Profile");
         _ = printMenuChoices();
         _ = printMainStatus();
 
@@ -370,7 +370,7 @@ public static class CustomFunctions
 
     public static bool cleanUI()
     {
-        PlayScriptAsync("@hideAll\n@hideUI StoreMenu\n@set p_animation=99\n@hideUI JobMenu\n@resetText\n");
+        PlayScriptAsync("@hideAll\n@hideUI StoreMenu\n@hideUI Profile if:lastmenu!=1\n@set p_animation=99\n@hideUI JobMenu\n@resetText\n");
         return true;
     }
 

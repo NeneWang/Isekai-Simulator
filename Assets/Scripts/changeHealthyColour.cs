@@ -12,6 +12,7 @@ public class changeHealthyColour : MonoBehaviour
 
     public string variableName;
     public string valueAsString;
+    public bool changeColor=true;
 
     public void changeValue(int value)
     {
@@ -20,6 +21,7 @@ public class changeHealthyColour : MonoBehaviour
 
     public virtual void changeValue()
     {
+        
         var variableManager = Engine.GetService<ICustomVariableManager>();
         valueAsString = variableManager.GetVariableValue(variableName);
 
@@ -32,6 +34,9 @@ public class changeHealthyColour : MonoBehaviour
 
     void changeColour(int value)
     {
+        if(!changeColor){
+            return;
+        }
         if (value >= 75)
         {
             rend.color = Color.green;
