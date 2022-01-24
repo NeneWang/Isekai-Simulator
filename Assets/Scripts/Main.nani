@@ -310,7 +310,7 @@ New Character Adquired: Mister V.
 @goto .eventqueue
 @return
 
-; //////////////////////////////////////// ###JOB
+; //////////////////////////// ###JOB
 # job
 @set _={cleanUI()}
 @set _={menuJob()}
