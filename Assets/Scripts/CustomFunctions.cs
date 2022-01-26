@@ -370,7 +370,7 @@ public static class CustomFunctions
 
     public static bool cleanUI()
     {
-        PlayScriptAsync("@hideAll\n@hideUI StoreMenu\n@hideUI Profile if:lastmenu!=1\n@set p_animation=99\n@hideUI JobMenu\n@resetText\n");
+        PlayScriptAsync("@hideChars\n@hideUI StoreMenu\n@hideUI Profile if:lastmenu!=1\n@set p_animation=99\n@hideUI JobMenu\n@resetText\n");
         return true;
     }
 
