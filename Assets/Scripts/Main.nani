@@ -92,6 +92,12 @@
 @set rel_aiza=0
 @set rel_misterv=0
 @set item_boobytrap=0;
+
+@set tbm_cash=0;
+@set tbm_health=0;
+@set tbm_happiness=0;
+@set tbm_money=0;
+
 @return
 
 
@@ -256,16 +262,20 @@ New Character Adquired: Mister V.
 @return
 
 # checkToast_2
+@wait 1 if:m_toast_1!=""
 @toast {m_toast_2} if:m_toast_2!=""
 @set m_toast_2=""
 @return
 
 # checkToast_3
+@wait 1 if:m_toast_2!=""
 @toast {m_toast_3} if:m_toast_3!=""
 @set m_toast_3=""
 @return
 
 # checkToast_summary
+@wait 1 if:m_toast_1!=""
+@wait 1 if:m_toast_2!=""
 @toast {m_toast_summary} if:m_toast_summary!=""
 @set m_toast_summary=""
 @return
@@ -310,9 +320,11 @@ New Character Adquired: Mister V.
 @return
 
 # takeABreak
-@set _={increaseTurn()}
 @set p_happiness+=10
+@set m_toast_2="Happiness +10"
+@gosub .checkToast_2
 "You took a nice break" 
+@set _={increaseTurn()}
 @goto .eventqueue
 @return
 

@@ -30,13 +30,13 @@ public class Constants
 
     // The Business Instantations
     public Business
-        securityCompany = new Business("SecurityCompany", 500, 0, 1, 10, 50);
+        securityCompany = new Business("SecurityCompany", 500, 0, 1, 10, 5);
 
     public Business
-        alchemyCompany = new Business("Alchemy", 1000, 0, 2, 20, 110);
+        alchemyCompany = new Business("Alchemy", 1000, 0, 2, 20, 11);
 
     public Business
-        travelMerchant = new Business("Travel Merchant", 2000, 0, 1, 8, 250);
+        travelMerchant = new Business("Travel Merchant", 2000, 0, 1, 8, 25);
 
     // List of Random Logs
     public LogsList aventurerLogs = new LogsList("Aventurer");
