@@ -773,6 +773,15 @@ string endDayToast = "";
         // Debug.Log("Healed");
     }
 
+    public void healAmount(int amountToHeal)
+    {
+        p_health+=amountToHeal;
+        if(p_health>p_maxhealth){
+            p_health=p_maxhealth;
+        }
+        // Debug.Log("Healed");
+    }
+
 
 }
 

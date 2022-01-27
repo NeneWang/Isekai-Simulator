@@ -298,7 +298,7 @@ public static class CustomFunctions
                         .canPurchaseThenPurhcase(itemCost, "healing kit")
                 )
                 {
-                    naniDataManager.healFull();
+                    naniDataManager.healAmount(50);
                     naniDataManager.increaseTurn();
                 }
                 break;
@@ -350,7 +350,7 @@ public static class CustomFunctions
     public static bool menuMarket()
     {
         PlayScriptAsync("@set lastmenu=2\n@back bg-store\n@char merchant look:left pos:45,-40");
-        PlayScriptAsync("\"How can I help you?\"\n@choice \"Purchase\" goto:.marketBuyMenu\n@choice \"Sell\" goto:.marketBuyMenu\"");
+        PlayScriptAsync("\"How can I help you?\" [skipInput]\n@choice \"Purchase\" goto:.marketBuyMenu\n@choice \"Sell\" goto:.marketBuyMenu\"");
         _ = printMenuChoices();
         _ = printMainStatus();
         return true;

@@ -141,7 +141,6 @@ New Character Adquired: Atlas
 @set rel_atlas=1
 @return
 
-
 # meet_mitia
 Girl: I sense some strange power in you...
 Girl: Who are you?
@@ -313,14 +312,24 @@ New Character Adquired: Mister V.
 # takeABreak
 @set _={increaseTurn()}
 @set p_happiness+=10
-"You took a nice break"
+"You took a nice break" 
 @goto .eventqueue
+@return
+
+
+# cleanUI
+@hideChars
+@hideUI StoreMenu
+@hideUI Profile if:lastmenu!=1
+@set p_animation=99
+@hideUI JobMenu
+@resetText
 @return
 
 ; /////////////////////// ###JOB
 # job
 @set lastmenu=3
-@set _={cleanUI()} 
+@gosub .cleanUI
 @set _={menuJob()}
 @stop
 
@@ -355,7 +364,7 @@ New Character Adquired: Mister V.
 @gosub .prequeue
 @set _={workCareerAs(3)}
 @set p_animation=6
-"You worked as Merchant"
+"You worked as Merchant" 
 ; @showUI AnimationUI
 @goto .eventqueue
 @return
@@ -363,11 +372,13 @@ New Character Adquired: Mister V.
 ; //////////////////// ####MARKET
 
 # market
-@set _={cleanUI()}
+@set lastmenu=2
+@gosub .cleanUI
 @set _={menuMarket()}
 @stop
 
 # marketBuyMenu
+@hidePrinter
 @showUI StoreMenu
 @stop
 
@@ -468,52 +479,7 @@ New Character Adquired: Mister V.
 @choice "Visit1 {getPersonData(3,\"a\")} {getPersonData(3,\"g\")}" goto:.visit_friend_1 if:friend_slavailable_1
 @choice "Visit2 {getPersonData(4,\"a\")} {getPersonData(4,\"g\")}" goto:.visit_friend_2 if:friend_slavailable_2
 @choice "Visit3 {getPersonData(5,\"a\")} {getPersonData(5,\"g\")}" goto:.visit_friend_3 if:friend_slavailable_3
-
 @stop
-
-# visit_lover_1
-@resetText 
-@hideAll
-@back bg-house
-@char wife look:left pos:45,-10
-you visited your wife
-@goto .eventqueue
-
-# allfriends
-@resetText 
-@hideAll
-@back bg-tavern
-@char p1 look:right pos:15,-20 scale:3
-@char p3 look:right pos:35,-20 scale:3 if:friend_slavailable_2
-@char p2 pos:50,-20 scale:3 if:friend_slavailable_1
-@char p4 pos:65,-20 scale:3 if:friend_slavailable_3
-You spend a great time with your friends
-@goto .eventqueue
-
-
-# visit_friend_1
-@resetText 
-@hideAll
-@back bg-house1
-@char p2 pos:55,-20 scale:3
-you visited your friend
-@goto .eventqueue
-
-# visit_friend_2
-@resetText 
-@hideAll
-@back bg-house2
-@char p3
-you visited your friend
-@goto .eventqueue
-
-# visit_friend_3
-@resetText 
-@hideAll
-@back bg-house3
-@char p4
-you visited your friend
-@goto .eventqueue
 
 
 ; ###EVENTS
