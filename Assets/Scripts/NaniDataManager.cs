@@ -220,6 +220,7 @@ string endDayToast = "";
         cashflow += MY_CONSTANTS.securityCompany.cashflowB1 * securityCompany;
         cashflow += MY_CONSTANTS.alchemyCompany.cashflowB1 * alchemyCompany;
         cashflow += MY_CONSTANTS.travelMerchant.cashflowB1 * travelMerchant;
+        Debug.Log(String.Format("cashflow: {0}", cashflow));
         return cashflow;
     }
     public int getAccumulativeCashModifier(){

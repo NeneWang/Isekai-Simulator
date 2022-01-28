@@ -308,6 +308,7 @@ New Character Adquired: Mister V.
 
 # profile
 @set lastmenu=1
+@set _=23
 @set _={cleanUI()}
 @set _={menuProfile()}
 @stop
@@ -400,25 +401,31 @@ New Character Adquired: Mister V.
 # rentCamp
 @set p_livingmethod=0
 
+@set _={purchaseItem(99)}
 @goto .eventqueue
 @stop
 # rentFarm
 @set p_livingmethod=1
-{purchaseItem(99)}
+@set _={purchaseItem(99)}
 @goto .eventqueue
 @stop
 
 # rentTavern
 @set P_livingmethod=2
-{purchaseItem(99)}
+@set _={purchaseItem(99)}
 @goto .eventqueue
 @stop
 
 # rentCabin
 @set p_livingmethod=3
-{purchaseItem(99)}
+@set _={purchaseItem(99)}
 @goto .eventqueue
 @stop
+
+# purchaseNothing
+; Used to update stuff.
+@set _={purchaseItem(99)}
+@return
 
 
 # buildingBusinessOptions
