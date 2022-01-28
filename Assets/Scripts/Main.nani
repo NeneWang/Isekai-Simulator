@@ -404,15 +404,19 @@ New Character Adquired: Mister V.
 @stop
 # rentFarm
 @set p_livingmethod=1
+{purchaseItem(99)}
 @goto .eventqueue
 @stop
+
 # rentTavern
 @set P_livingmethod=2
+{purchaseItem(99)}
 @goto .eventqueue
 @stop
 
 # rentCabin
 @set p_livingmethod=3
+{purchaseItem(99)}
 @goto .eventqueue
 @stop
 
@@ -426,16 +430,19 @@ New Character Adquired: Mister V.
 
 # BUYsecurityCompany
 @set _={purchaseBusiness(1)}
+@set _={purchaseItem(99)}
 @goto .eventqueue
 @stop
 
 # BUYalchemyCompany
 @set _={purchaseBusiness(2)}
+@set _={purchaseItem(99)}
 @goto .eventqueue
 @stop
 
 # BUYtravelMerchant
 @set _={purchaseBusiness(3)}
+@set _={purchaseItem(99)}
 @goto .eventqueue
 @return
 

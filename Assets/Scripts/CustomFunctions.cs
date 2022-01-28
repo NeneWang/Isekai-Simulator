@@ -332,6 +332,10 @@ public static class CustomFunctions
                     naniDataManager.healFull();
                 }
                 break;
+            case 99:
+                break;
+            default:
+                break;
         }
         naniDataManager.saveData();
 
