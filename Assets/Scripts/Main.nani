@@ -96,6 +96,7 @@
 @set tbm_money=0;
 
 @set last_career=99
+@set quest=99
 
 @return
 
@@ -258,8 +259,9 @@ King: "Honorable warriors. I had invited you to come to my palace because there 
 King: "The demon king army had been sabotaging and ravishing our human lands"
 King: "You, the honorable characters I had invited today... I need your help"
 King: "I need your help to defeat the demon great army!"
-@choice "Accept the quest"
+@choice "Accept the quest" do:"@toast \"Sabotage the demon army!\";"
 King: Your first mission is to help sabotaging the demon king armys!
+@hidePrinter
 @return
 
 #afterEventChoice
