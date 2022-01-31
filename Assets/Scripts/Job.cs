@@ -46,6 +46,12 @@ public class Job
     {
         get => getCurrentJobRank.title;
     }
+    public JobRank getNextJobRank{
+        get => jobRankList[jobLevel+1];
+    }
+    public string getNextJobRankName{
+        get =>getNextJobRank.title;
+    }
 
     public int getJobIncome{
         get =>  getCurrentJobRank.payment;

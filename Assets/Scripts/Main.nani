@@ -98,6 +98,8 @@
 @set tbm_happiness=0;
 @set tbm_money=0;
 
+@set last_career=99
+
 @return
 
 
@@ -353,6 +355,7 @@ New Character Adquired: Mister V.
 @stop
 
 # workSoldier
+@set last_career=1
 @gosub .prequeue
 @set _={workCareerAs(1)}
 @set p_animation=8
@@ -363,6 +366,7 @@ New Character Adquired: Mister V.
 @return
 
 # workAventurer
+@set last_career=2
 @gosub .prequeue
 @set _={workCareerAs(2)}
 @set p_animation=1
@@ -373,6 +377,7 @@ New Character Adquired: Mister V.
 @return
 
 # workMerchant
+@set last_career=3
 @gosub .prequeue
 @set _={workCareerAs(3)}
 @set p_animation=6

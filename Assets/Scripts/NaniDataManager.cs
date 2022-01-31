@@ -528,6 +528,12 @@ string endDayToast = "";
             case "f":
                 dataToReturn = jobIn.getJobIncome.ToString();
                 break;
+            case "g":
+                dataToReturn = jobIn.successJobsForNextRank.ToString();
+                break;
+            case "h":
+                dataToReturn = jobIn.getNextJobRankName.ToString();
+                break;
 
             default:
                 dataToReturn = "typein Exceeded";
