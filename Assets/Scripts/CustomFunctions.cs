@@ -70,6 +70,26 @@ public static class CustomFunctions
         all = 6
     }
 
+    public static string getInformation(int informationID)
+    {
+        // For now you just ignore that?
+        NaniDataManager naniDataManager = new NaniDataManager();
+        String informationToReturn = "";
+        switch (informationID)
+        {
+            case 1:
+                informationToReturn =
+                    naniDataManager.getAccumulativeCashModifier().ToString();
+                break;
+            default:
+                informationToReturn =
+                    "ID selected doens't exist in get information";
+                break;
+        }
+
+        return informationToReturn;
+    }
+
     public static string getPersonData(int enumSocialIn, string typeIn)
     {
         string variableToReturn = "";
@@ -151,7 +171,6 @@ public static class CustomFunctions
     // A more efficient way to work in a career, Returns false if there is a false return.
     public static bool workCareerAs(int enumCareerIn)
     {
-        
         NaniDataManager datanani = new NaniDataManager();
         bool isLogReturned = false;
         switch ((enumCareer) enumCareerIn)
@@ -205,12 +224,14 @@ public static class CustomFunctions
         return variableToReturn;
     }
 
-    public static bool runEvent(int eventNumber){
+    public static bool runEvent(int eventNumber)
+    {
         NaniDataManager naniDataManager = new NaniDataManager("soft");
-        
-        Log eventLog = naniDataManager.MY_CONSTANTS.aventurerLogs.logList[eventNumber];
-        
-        naniDataManager.runEvent(eventLog);
+
+        Log eventLog =
+            naniDataManager.MY_CONSTANTS.aventurerLogs.logList[eventNumber];
+
+        naniDataManager.runEvent (eventLog);
         return true;
     }
 

@@ -216,13 +216,17 @@ string endDayToast = "";
 
     }
 
+    public int getAccumulativeCashModifier(){
+        int cashflow=0;
+        cashflow+= p_monthlyCashFlow;
+        cashflow += MY_CONSTANTS.securityCompany.cashflowB1 * securityCompany;
+        cashflow += MY_CONSTANTS.alchemyCompany.cashflowB1 * alchemyCompany;
+        cashflow += MY_CONSTANTS.travelMerchant.cashflowB1 * travelMerchant;
+        return cashflow;
+    }
     public void applyEffects()
     {
-        accumulativeCashflowModifier += p_monthlyCashFlow;
-        accumulativeCashflowModifier += MY_CONSTANTS.securityCompany.cashflowB1 * securityCompany;
-        accumulativeCashflowModifier += MY_CONSTANTS.alchemyCompany.cashflowB1 * alchemyCompany;
-        accumulativeCashflowModifier += MY_CONSTANTS.travelMerchant.cashflowB1 * travelMerchant;
-
+        accumulativeCashflowModifier +=getAccumulativeCashModifier();
 
         p_health += accumulativeHealthModifier;
         p_happiness += accumulativeHappinessModifier;
@@ -410,8 +414,8 @@ string endDayToast = "";
 
     public void setupRelationshipManger()
     {
-        relationshipManager.initializeFriendsWithString(new string[] { friend_sl_1, friend_sl_2, friend_sl_3 });
-        relationshipManager.lover = relationshipManager.dataToPerson(lover_sl_1);
+        // relationshipManager.initializeFriendsWithString(new string[] { friend_sl_1, friend_sl_2, friend_sl_3 });
+        // relationshipManager.lover = relationshipManager.dataToPerson(lover_sl_1);
         // TODO: Add Personal and Love Interest
 
     }
@@ -533,6 +537,9 @@ string endDayToast = "";
                 break;
             case "h":
                 dataToReturn = jobIn.getNextJobRankName.ToString();
+                break;
+            case "j":
+                dataToReturn = jobIn.workedInThisTitle.ToString();
                 break;
 
             default:

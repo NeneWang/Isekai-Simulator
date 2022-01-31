@@ -40,8 +40,6 @@
 
 @set p_currentInjuries=0
 
-
-
 @set lover_sl_1="EMPTY!-!-!-!0!0!0"
 @set friend_sl_1="NELSON!HU!MA!1!20!1!100"
 @set friend_sl_2="EMPTY!-!-!-!0!0!0"
@@ -65,7 +63,6 @@
 @set absolute_date="date"
 
 @set m_event_1=-99
-
 @set m_toast_1=""
 @set m_toast_2=""
 @set m_toast_3=""

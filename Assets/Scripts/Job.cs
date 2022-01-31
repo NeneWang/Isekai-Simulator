@@ -14,6 +14,10 @@ public class Job
         get=> successJobsForNextRank-careerSuccess;
     }
 
+    public int workedInThisTitle{
+        get=>successJobsForNextRank-leftToRankUp;
+    }
+
     public int jobLevel
     {
         // Calculated by counting the requirement for next level

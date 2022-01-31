@@ -16,12 +16,8 @@ public class JobDescriptionChanger : MonoBehaviour
 
             currentRank = "Diamond",
             nextRank = "Silver",
-            jobTitle = "Aventurer";
-
-    int
-
-            workedAmount = 1,
-            levelUpRequirement = 10, expectedPay=10;
+            jobTitle = "Aventurer",
+            workedAmount = "1", levelUpRequirement = "10", expectedPay= "10";
 
     void Start()
     {
@@ -37,18 +33,23 @@ public class JobDescriptionChanger : MonoBehaviour
     void updateVariables(){
         // Here I will update the variables depending on the job number.
         currentRank = CustomFunctions.getCareerData(2,"d");
-        expectedPay = int.Parse(CustomFunctions.getCareerData(2,"d"));
-        // currentRank = CustomFunctions.getCareerData(2, "d");
         jobTitle = CustomFunctions.getCareerData(2,"a");
-        
+        nextRank = CustomFunctions.getCareerData(2, "h");
+        workedAmount = CustomFunctions.getCareerData(2,"j");
+
+        expectedPay = CustomFunctions.getCareerData(2,"d");
+        levelUpRequirement = CustomFunctions.getCareerData(2, "g");
+        // currentRank = CustomFunctions.getCareerData(2, "d");
+
+
 
     }
 
-    void updateToolTipData()
+    public void updateToolTipData()
     {
         updateVariables();
         tooltipDataLeft =
-            $"`Work as @{currentRank} Rank `{jobTitle}\n`You currently have worked @{workedAmount}`/{levelUpRequirement} times. \nExpected pay of ${expectedPay}";
+            $"`Work as @{currentRank} Rank `{jobTitle}\n`You currently have worked @{workedAmount}`/{levelUpRequirement} times. \nExpected pay of ${expectedPay}\n`Next rank: ${nextRank}";
 
         simpleTooltip.infoLeft=tooltipDataLeft;
     }
