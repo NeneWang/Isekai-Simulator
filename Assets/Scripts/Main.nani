@@ -238,6 +238,10 @@ New Character Adquired: Mister V.
 
 # checkForEvents
 ; This are more like events run when the fame reaches certain levels.
+@if quest!=99
+@return
+@endIf
+
 @if p_fame==200
 ; @hideAll
 @hideUI profile
@@ -259,9 +263,14 @@ King: "Honorable warriors. I had invited you to come to my palace because there 
 King: "The demon king army had been sabotaging and ravishing our human lands"
 King: "You, the honorable characters I had invited today... I need your help"
 King: "I need your help to defeat the demon great army!"
-@choice "Accept the quest" do:"@toast \"Sabotage the demon army!\";"
-King: Your first mission is to help sabotaging the demon king armys!
+@choice "Accept the quest" set:quest=1 do:"Quest accepted."
+King: Your first mission is to help sabotaging the demon king armys! 
+@toast "Sabotage the demon army!" 
 @hidePrinter
+@return
+
+#quest_1
+@print "initiating animated start"
 @return
 
 #afterEventChoice
@@ -274,7 +283,7 @@ King: Your first mission is to help sabotaging the demon king armys!
 # checkEvent
 ; Used for after working if there is any event
 
-@if m_event_1!=-99
+@if m_event_1!=-99 
     @set _={runEvent(m_event_1)} 
     @wait 1
     @set m_event_1=-99
@@ -329,9 +338,6 @@ King: Your first mission is to help sabotaging the demon king armys!
 @set m_message_event=""
 @return
 
-#main_plot
-
-@return
 
 # profile
 @set lastmenu=1
