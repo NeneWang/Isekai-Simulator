@@ -218,6 +218,7 @@ string endDayToast = "";
 
     public int getAccumulativeCashModifier(){
         int cashflow=0;
+        // It lacks the housing costs.
         cashflow+= p_monthlyCashFlow;
         cashflow += MY_CONSTANTS.securityCompany.cashflowB1 * securityCompany;
         cashflow += MY_CONSTANTS.alchemyCompany.cashflowB1 * alchemyCompany;
