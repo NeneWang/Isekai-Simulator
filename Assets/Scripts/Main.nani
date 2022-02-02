@@ -14,7 +14,7 @@
 @set p_turn=1
 @set p_age=25
 @set p_health=80
-@set p_fame=0
+@set p_fame=200
 @set p_mana=100
 @set p_happiness=50
 @set p_money=1000
@@ -215,7 +215,7 @@ New Character Adquired: Mister V.
 
 @gosub .checkToast_summary
 
-
+@gosub .checkForEvents
 
 @goto .flag_log if:isLog==true
 @goto .flag_death_money if:flag_number==4
@@ -235,7 +235,32 @@ New Character Adquired: Mister V.
 @endIf
 @stop
 
+# checkForEvents
+; This are more like events run when the fame reaches certain levels.
+@if p_fame==200
+; @hideAll
+@hideUI profile
+; Trigger event in which 
+; Set up the king events. 
+@print "You received a royal invitation to the palace."
+@choice "Accept" goto:Main.main1_palace_invitation
+@choice "Reject" 
+@stop
+@endIf
 
+@return
+
+# main1_palace_invitation
+
+@back background_palace
+"The palace looked great. There was a delicious buffet, and you met lot of interesting people. "
+King: "Honorable warriors. I had invited you to come to my palace because there is soemthing of great need that I need of you."
+King: "The demon king army had been sabotaging and ravishing our human lands"
+King: "You, the honorable characters I had invited today... I need your help"
+King: "I need your help to defeat the demon great army!"
+@choice "Accept the quest"
+King: Your first mission is to help sabotaging the demon king armys!
+@return
 
 #afterEventChoice
 @hidePrinter
