@@ -253,6 +253,10 @@ New Character Adquired: Mister V.
 @stop
 @endIf
 
+@if quest==2
+; If the quest ==2 then something you hear?
+@endif
+
 @return
 
 # main1_palace_invitation
@@ -270,7 +274,28 @@ King: Your first mission is to help sabotaging the demon king armys!
 @return
 
 #quest_1
-@print "initiating animated start"
+@print "You fight and sabotage the enemy army."
+@toast "Quest 1 completed"
+@print "You received an invitation to attend the king's castle to celebrate the success of the last mission."
+@set quest=2
+@goto .eventqueue
+@return
+
+#quest_2
+@print "You visit the palace and celebrate."
+King: "Welcome! mighty warriors, please feel free to eat as you please we prepared this banquet only for you!"
+King: "We have also prepared some treasures that we hope that will suit your honorable achievements"
+King: "Please follow my daughter who will guide you to the treasure room!"
+Princess: "Please follow me."
+@choice "follow" set:p_fame+=50;p_money+=200 goto:Main.quest_2a
+@stop
+
+#quest_2a
+@toast "Fame +50 Money+200" 
+King: We have more rewards awaitting for you if you so desire to complete our next petition...
+King: We need assistance for our next battle against the demon army.
+@choice "accept" set:quest=3;m_toast_1="Quest Accepted" goto:.eventqueue
+@stop
 @return
 
 #afterEventChoice
@@ -392,8 +417,6 @@ King: Your first mission is to help sabotaging the demon king armys!
 @set p_animation=8
 "You worked as soldier"
 @goto .eventqueue
-
-
 @return
 
 # workAventurer
