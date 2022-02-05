@@ -354,8 +354,9 @@ Demon_King: Now here, check this other maps. Slowly the human empire had been ex
 #quest_5_d
 Demon_King: If you still have doubts, then check your own empire library. 
 Demon_King: I imagine that at this point you should have access to it.
+@set m_toast_1=
 @choice "I will do it." goto:.quest_5_e
-@choice "I will do it. But I can't let you escape" goto:.quest_5_f
+@choice "I will do it. But I can't let you escape" goto:.quest_5_f set:quest=6
 @stop
 
 #quest_5_e
@@ -373,6 +374,8 @@ You enslaved the demon king with a slave seal.
 @toast "Mission: Confirm Information"
 @goto .eventqueue
 @stop
+
+
 
 
 #afterEventChoice
