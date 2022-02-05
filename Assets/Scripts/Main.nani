@@ -96,7 +96,7 @@
 @set tbm_money=0;
 
 @set last_career=99
-@set quest=99
+@set quest=5
 
 @return
 
@@ -308,14 +308,22 @@ Your help came as key to defeat the demon army.
 King: Your help came of great again great warrior!
 King: Please bring in the treasures!
 Servant: Yes!
-@toast p_money+=400
+@toast money+400
 @set p_money+=400
-You were well compensated for your contributiions.
+You were well compensated for your contributions.
 King: Now you it is only left to vanquish the demon king.
 King: We are conducting a raid into the demon castle. 
 King: When you are ready, we will dispatch the best warriors to help you defeat him.
 @choice "Understood" goto:.eventqueue set:quest=5
 @stop
+
+#quest_5
+You raided the demon king castle.
+fighting Animation
+Demon_King: Before striking me down!
+Demon_king: Would you consider answering to me instead?
+@choice "Why would I do that?"
+
 
 #afterEventChoice
 @hidePrinter
