@@ -360,10 +360,18 @@ Demon_King: I imagine that at this point you should have access to it.
 
 #quest_5_e
 Alright.
+@toast "Mission: Confirm Information"
+@goto .eventqueue
 @stop
 
 #quest_5_f
 @set flagq_dmncptured=true
+I will do it. But I can't let you escape.
+Demon_King: Alright... but how you....
+Demon_King: I know... you can use...
+You enslaved the demon king with a slave seal.
+@toast "Mission: Confirm Information"
+@goto .eventqueue
 @stop
 
 
