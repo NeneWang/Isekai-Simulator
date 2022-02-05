@@ -362,6 +362,9 @@ public static class CustomFunctions
         "\n@choice \"Quest: Help Defeat the Demon Army\" if:quest==3 goto:.quest_3\n"+
         "\n@choice \"Quest: Go to the castle\" if:quest==4 goto:.quest_4\n"+
         "\n@choice \"Quest: Raid the demon king castle.\" if:quest==5 goto:.quest_5\n"+
+        "\n@choice \"Quest: Go to the banquet.\" if:quest==6 goto:.quest_6\n"+
+        "\n@choice \"Quest: Go to the banquet.\" if:quest==7 goto:.quest_6\n"+
+        "\n@choice \"Quest: Visit Library.\" if:quest==7 goto:.quest_7\n"+
         "\n@choice \"Work as Soldier\" if:last_career==1 goto:.workSoldier\n@choice \"Work as Aventurer\" if:last_career==2 goto:.workAventurer\n@choice \"Work as Merchant\" if:last_career==3 goto:workMerchant\n"+
         "@choice \"Choose work\" gosub:.showJobMenu\n@choice \"Socialize\" gosub:.takeABreak");
 

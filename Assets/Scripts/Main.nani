@@ -333,6 +333,7 @@ Demon_King: It's not that the you are solving anything by killing me!
 #quest_5_a
 Your brought down the sword. And killed the demon king.
 @toast "Demon King Slain"
+@set quest=6
 @goto .eventqueue
 
 #quest_5_b
@@ -355,8 +356,8 @@ Demon_King: Now here, check this other maps. Slowly the human empire had been ex
 Demon_King: If you still have doubts, then check your own empire library. 
 Demon_King: I imagine that at this point you should have access to it.
 @set m_toast_1=""
-@choice "I will do it." goto:.quest_5_e
-@choice "I will do it. But I can't let you escape" goto:.quest_5_f set:quest=6
+@choice "I will do it." goto:.quest_5_e set:quest=7
+@choice "I will do it. But I can't let you escape" goto:.quest_5_f set:quest=7
 @stop
 
 #quest_5_e
