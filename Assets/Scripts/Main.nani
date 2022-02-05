@@ -322,7 +322,46 @@ You raided the demon king castle.
 fighting Animation
 Demon_King: Before striking me down!
 Demon_king: Would you consider answering to me instead?
-@choice "Why would I do that?"
+@choice "Why would I do that?" do:"Why would I do that?"
+Demon_King: I will pay more than whatever your king pays you!
+Demon_King: It's not that the you are solving anything by killing me!
+@choice "Finish him off." goto:.quest_5_a
+@choice "Listen to him." goto:.quest_5_b
+@stop
+
+#quest_5_a
+Your brought down the sword. And killed the demon king.
+@toast "Demon King Slain"
+@goto .eventqueue
+
+#quest_5_b
+Demon_King: I am didn't start this war you know?
+Demon_King: Who do you think invaded my terrirtories first? Your King!
+Demon_King: That greedy king! Why would I even attack humans? Look how weak we are compare to the human mega empire?.
+@choice "Show me proof" goto:.quest_5_c
+@choice "Enough! Your blasfemy ends now!" goto:.quest_5_a
+@stop
+
+#quest_5_c
+Demon_King: Look at this map. We had always been owning this terrotitory for hundred of years.
+Demon_King: This is the human empire. Notice something? Way smaller to the country it is now.
+Demon_King: Now here, check this other maps. Slowly the human empire had been expanding, taking parts of our territory.
+@choice "This..." goto:.quest_5_d
+@choice "Enough! Your blasfemy ends now!" goto:.quest_5_a
+@stop
+
+#quest_5_d
+Demon_King: If you still have doubts, then check your own empire library. 
+Demon_King: I imagine that at this point you should have access to it.
+@choice "I will do it." goto:.quest_5_e
+@choice "I will do it. But I can't let you escape" goto:.quest_5_f
+@stop
+
+#quest_5_e
+@stop
+
+#quest_5_f
+@stop
 
 
 #afterEventChoice
