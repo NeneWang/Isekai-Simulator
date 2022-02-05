@@ -98,6 +98,7 @@
 @set last_career=99
 @set quest=6
 @set flagq_dmncptured=false
+@set flagq_antipoison=false
 
 @return
 
@@ -376,7 +377,24 @@ You enslaved the demon king with a slave seal.
 @goto .eventqueue
 @stop
 
+#quest_6
+; Trigger the 
+King: Heroes! you have successfully vanquished the demon king!
+King: As my gesture of appreciation I had prepared the following rewards!
+@set p_money+=1000
+@toast "Money +1000"
+King: Now, my heroes! Eat! Drink! Is time to celebrate!
+While celebrating and eating. You start to feel sleepy
+your comrades dooze off as the booze kiks in..
+Something feels off...
+@choice "Use Anti-poison spell" set:flagq_antipoison=true do:"You used anti-poison spell"
+@choice "This booze must be of good quality hahaha..." do:"This booze must be of good quality!"
+gas? Gas starts coming out from the room.
+@goto .quest_6_a if:flagq_antipoison==true
+@stop
 
+#quest_6_a
+@stop
 
 
 #afterEventChoice
