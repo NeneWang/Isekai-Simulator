@@ -391,9 +391,19 @@ Something feels off...
 @choice "This booze must be of good quality hahaha..." do:"This booze must be of good quality!"
 gas? Gas starts coming out from the room.
 @goto .quest_6_a if:flagq_antipoison==true
+You are dead.
 @stop
 
 #quest_6_a
+@choice "Jump through the window." goto:.quest_6_b 
+@choice "Blow up the place using fire explosion magic" goto:.quest_6_c
+@stop
+
+#quest_6_b
+
+@stop
+
+#quest_6_c
 @stop
 
 
