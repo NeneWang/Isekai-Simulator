@@ -97,6 +97,7 @@
 
 @set last_career=99
 @set quest=5
+@set flagq_dmncptured=false
 
 @return
 
@@ -358,9 +359,11 @@ Demon_King: I imagine that at this point you should have access to it.
 @stop
 
 #quest_5_e
+Alright.
 @stop
 
 #quest_5_f
+@set flagq_dmncptured=true
 @stop
 
 
