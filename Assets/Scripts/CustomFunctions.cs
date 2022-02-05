@@ -359,6 +359,8 @@ public static class CustomFunctions
         PlayScriptAsync("@set lastmenu=3\n@back bg-guild\n\"What will you be doing this week?\" [skipInput]"+
         "\n@choice \"Quest: Sabotage Demon Army\" if:quest==1 goto:.quest_1\n"+
         "\n@choice \"Quest: Go to the banquet\" if:quest==2 goto:.quest_2\n"+
+        "\n@choice \"Quest: Help Defeat the Demon Army\" if:quest==3 goto:.quest_3\n"+
+        "\n@choice \"Quest: Go to the castle\" if:quest==4 goto:.quest_4\n"+
         "\n@choice \"Work as Soldier\" if:last_career==1 goto:.workSoldier\n@choice \"Work as Aventurer\" if:last_career==2 goto:.workAventurer\n@choice \"Work as Merchant\" if:last_career==3 goto:workMerchant\n"+
         "@choice \"Choose work\" gosub:.showJobMenu\n@choice \"Socialize\" gosub:.takeABreak");
 

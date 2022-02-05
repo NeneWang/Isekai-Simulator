@@ -296,6 +296,25 @@ King: We need assistance for our next battle against the demon army.
 @stop
 
 #quest_3
+@toast "Demon army defeated in battle."
+Your help came as key to defeat the demon army. 
+@set m_message_1="You receive another invitation to celebrate the success of your last mission"
+@set quest=4;m_message_2="Your name starts being sang in the town's bards songs"
+@set p_fame+=50;m_toast_1="fame +50"
+@goto Main.eventqueue
+@stop
+
+#quest_4
+King: Your help came of great again great warrior!
+King: Please bring in the treasures!
+Servant: Yes!
+@toast p_money+=400
+@set p_money+=400
+You were well compensated for your contributiions.
+King: Now you it is only left to vanquish the demon king.
+King: We are conducting a raid into the demon castle. 
+King: When you are ready, we will dispatch the best warriors to help you defeat him.
+@choice "Understood" goto:.eventqueue set:quest=5
 @stop
 
 #afterEventChoice
