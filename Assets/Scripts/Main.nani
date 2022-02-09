@@ -389,21 +389,34 @@ your comrades dooze off as the booze kiks in..
 Something feels off...
 @choice "Use Anti-poison spell" set:flagq_antipoison=true do:"You used anti-poison spell"
 @choice "This booze must be of good quality hahaha..." do:"This booze must be of good quality!"
+@stop
 gas? Gas starts coming out from the room.
 @goto .quest_6_a if:flagq_antipoison==true
 You are dead.
 @stop
 
 #quest_6_a
-@choice "Jump through the window." goto:.quest_6_b 
+@choice "Jump through the window." do:"You jumped through the window" goto:.quest_6_d
 @choice "Blow up the place using fire explosion magic" goto:.quest_6_c
 @stop
 
-#quest_6_b
-
-@stop
 
 #quest_6_c
+You activated a protection spell and start chanting a explosion spell.
+The castle room blows up!
+Masked_man: Arghh!
+You seem to killed some sort of assasins on the process.
+@goto .quest_6_d
+@stop
+
+#quest_6_d
+@wait 0.1
+@print "On the midsts of the dark. You feel a a murderous intent."
+@choice "Prepare to fight" do:"@skip"
+@stop
+"They were well trained, but you managed somehow to defeat them"
+
+
 @stop
 
 
